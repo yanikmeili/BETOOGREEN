@@ -8,7 +8,9 @@
   <% # Este if es para que no se rompa el index de productos, cuando quiere mostrar fotos de productos que no tienen fotos. %>
   <% # TODO: mejorar las SEEDS para tener photo.key en todos los productos %>
   <% if @product.photo.attached? %>
-    <img heigth="300" src="<%= cl_image_path @product.photo.key %>">
+    <% @product.photo.each do |photo| %>
+      <img heigth="300" src="<%= cl_image_path photo.key %>">
+    <% end %>
   <% end %>
 </div>
 <%= link_to "New listing", new_product_listing_path(@product) %>
