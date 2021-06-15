@@ -38,10 +38,18 @@
   justify-content: space-between;
   font-size: 11px;
   margin-bottom: 8px;
+  color: $green;
 
-  a:hover {
+  i {
+   font-size: 8px;
+  }
+
+  a:hover{
     color: #004d3e;
     text-decoration: none;
+  }
+  i:hover {
+    color: #004d3e;
   }
 }
 
