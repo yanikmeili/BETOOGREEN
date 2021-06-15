@@ -1,7 +1,12 @@
 .navbar-lewagon {
-  justify-content: space-between;
   background: white;
-  margin: auto 48px;
+  border-bottom-style: solid;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 6rem;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -13,13 +18,23 @@
 }
 
 
+
 .navbar-btg {
   font-weight: bold;
 }
 
-.nav-item:hover {
+.nav-link:hover {
   border-bottom-style: solid;
-  border-color: #FDCB6E;
+  border-color: $green;
+}
+
+#black-font {
+  color: black !important;
+  text-decoration: none;
+}
+
+#cart-border:hover {
+  border-style: hidden;
 }
 
 /* Search element */
