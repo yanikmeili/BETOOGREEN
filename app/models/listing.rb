@@ -1,7 +1,7 @@
 class Listing < ApplicationRecord
-  belongs_to :product
-  has_many :discounts
-  has_many :purchases
+  belongs_to :product # @listing.product
+  has_many :discounts # @listing.discounts => array
+  has_many :purchases # @listing.purchases => array
 
   # this calculates the amount of units sold
   def quantity_sold
