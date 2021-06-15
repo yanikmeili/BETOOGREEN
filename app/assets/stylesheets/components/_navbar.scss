@@ -20,11 +20,6 @@
 
 
 /* Search element */
-/* *{
-  box-sizing: border-box;
-}
-*/
-
 .search-box{
   width: fit-content;
   height: fit-content;
@@ -74,4 +69,15 @@
   border-radius: 16px;
   transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
 
+}
+
+
+/* Yellow circle */
+.fa-circle {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 4px;
+  margin: auto 8px;
+  color: #FDCB6E;
 }
