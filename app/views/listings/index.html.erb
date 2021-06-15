@@ -1,0 +1,34 @@
+
+<div class="margin-top">
+  <div class="col-6">
+    <div class="container">
+      <h1 class="text-center mb-2" id="logo-font">Listings</h1>
+        <% @listings.each do |listing| %>
+          <div class="listings-conteiner">
+          <%= link_to listings_path(listing.id) do %>
+            <div class="card-listings-body">
+              <h2 class="text-center logo-font my-1 no-deco">Name: <%= listing.product.name %></h2>
+            </div>
+          <% end %>
+          <div>
+            <p class="text-center logo-font my-1 no-deco">Description: <%= listing.product.description %></p>
+            <p class="text-center logo-font my-1 no-deco">Material: <%= listing.product.material %></p>
+            <p class="text-center logo-font my-1 no-deco">Impact: <%= listing.product.impact %></p>
+            <p class="text-center logo-font my-1 no-deco">Origin: <%= listing.product.origin %></p>
+            <p class="text-center logo-font my-1 no-deco">Stock: <%= listing.stock%></p>
+            <p class="text-center logo-font my-1 no-deco">End date: <%= listing.end_date %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="map-wrapper">
+    <div id="map"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+       style="height: 100vh; position: sticky; top: 0; width: 100%;">
+    </div>
+  </div>
+</div>
