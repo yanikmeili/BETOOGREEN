@@ -1,0 +1,75 @@
+.btn-gradient {
+  background: linear-gradient(253.58deg, #6BE38D 1.55%, #00997B 66.84%);
+  position: relative;
+  padding: 16px 24px;
+  z-index: 10;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.btn-gradient:after {
+  background: linear-gradient(253.58deg, #00997B 1.55%, #6BE38D 66.84%);
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  z-index: -10;
+  transition: opacity 0.5s;
+  border-radius: 8px;
+}
+
+.btn-gradient:hover:after {
+  opacity: 1;
+}
+
+/* Centering the card in window */
+.main-container {
+  height: 100vh;
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-pages-green {
+  margin: 1px;
+  font-size: 8px;
+  padding: 16px;
+  border-radius: 46%;
+  background: $primary-gradient;
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration:none;
+    color: white;
+  }
+}
+
+.btn-pages-white {
+  border: solid;
+  border-width: thin;
+  border-color: #d1d1d1;
+  color: #d1d1d1;
+  margin: 1px;
+  font-size: 8px;
+  padding: 16px;
+  border-radius: 46%;
+  background: white;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration:none;
+    background: $primary-gradient;
+    color: white;
+    border: none;
+  }
+}
+

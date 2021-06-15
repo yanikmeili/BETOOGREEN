@@ -1,0 +1,36 @@
+.search-bar {
+  border-radius: 16px;
+  font-size: 16px;
+  border: none;
+  padding: 32px 32px 40px 10%;
+  background: linear-gradient(253.58deg, #6BE38D 1.55%, #00997B 66.84%);
+  &:focus, &::placeholder {
+    color: white;
+  }
+  &:focus {
+    box-shadow: none;
+  }
+}
+.search-underline {
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 2px;
+    background-color: white;
+    left: 5%;
+    bottom: 1.4rem;
+  }
+  &:before {
+    font-family: "Font Awesome 5 Free";
+    width: 16px;
+    height: 16px;
+    content: "\f002";
+    position: absolute;
+    font-weight: 900;
+    left: 5%;
+    top: 1.1rem;
+    color: white;
+  }
+}
