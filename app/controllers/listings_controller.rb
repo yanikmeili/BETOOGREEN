@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   def index
     # TODO: scope to only show active listings
+    # TODO: We can only do one listing for one product at the time
     @listings = Listing.all
   end
 
@@ -15,7 +16,7 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
-    @listing.product = Product.find(params[:id])
+    @listing.product = Product.find(params[:product_id])
     if @listing.save!
       redirect_to listing_path(@listing)
     else
