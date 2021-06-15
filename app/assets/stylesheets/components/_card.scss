@@ -10,7 +10,35 @@
   width: 100%;
   border-radius: 16px 16px 0px 0px;
   object-fit: cover;
+  position: relative;
 }
+
+.card-img {
+  position: relative;
+
+  .quick-view-title {
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    background-color: rgba(242, 241, 239, 0.8);
+    position: absolute;
+    top: 0px;
+    opacity: 0;
+    -webkit-transition: 300ms;
+
+    a:hover {
+      color: #004d3e;
+      text-decoration: none;
+    }
+  }
+}
+
+.card-img:hover .quick-view-title {
+  opacity: 1;
+}
+
+
+
 
 .card-body {
   display:flex;
@@ -52,5 +80,4 @@
     color: #004d3e;
   }
 }
-
 
