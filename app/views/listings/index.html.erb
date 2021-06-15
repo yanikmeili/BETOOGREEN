@@ -1,7 +1,8 @@
 <div class="container col-8">
   <h1>Listings</h1>
   <% @listings.each do |listing| %>
-    <%= link_to listings_path(listing.id) do %>
+    <%= link_to listing_path(listing) do %>
+
       <h2>Name: <%= listing.product.name %></h2>
     <% end %>
     <div>
