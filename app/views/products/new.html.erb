@@ -1,0 +1,34 @@
+<div class="form_container">
+  <h1 class="text-center">Create your product:</h1>
+  <%= simple_form_for @product do |f|%>
+    <div class="form-group m-5 p-2">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group m-5 p-2">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+
+    <div class="form-group m-5 p-2">
+      <%= f.label :material %>
+      <%= f.text_area :material, class: 'form-control' %>
+    </div>
+
+    <div class="form-group m-5 p-2">
+      <%= f.label :impact %>
+      <%= f.text_area :impact, class: 'form-control' %>
+    </div>
+
+    <div class="form-group m-5 p-2">
+      <%= f.label :origin %>
+      <%= f.text_area :origin, class: 'form-control' %>
+    </div>
+
+
+    <div class="d-flex justify-content-center mb-5">
+      <%= f.submit class: 'button'%>
+    </div>
+  <% end %>
+</div>
