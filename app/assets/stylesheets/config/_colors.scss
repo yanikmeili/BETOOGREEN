@@ -13,3 +13,8 @@ $light-gray: #F4F4F4;
 //TODO: Use -> background: $primary-gradient;
 $primary-gradient: linear-gradient(253.58deg, #6BE38D 1.55%, #00997B 66.84%);
 
+.text-gradient {
+  background: $primary-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

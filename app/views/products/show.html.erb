@@ -1,0 +1,14 @@
+<div>
+  <p>Name: <%= @product.name %></p>
+  <p>Descrpition: <%= @product.description %></p>
+  <p>Material: <%= @product.material %></p>
+  <p>Impact: <%= @product.impact %></p>
+  <p>Origin: <%= @product.origin %></p>
+
+  <% # Este if es para que no se rompa el index de productos, cuando quiere mostrar fotos de productos que no tienen fotos. %>
+  <% # TODO: mejorar las SEEDS para tener photo.key en todos los productos %>
+  <% if @product.photo.attached? %>
+    <img heigth="300" src="<%= cl_image_path @product.photo.key %>">
+  <% end %>
+</div>
+<%= link_to "New listing", new_product_listing_path(@product) %>

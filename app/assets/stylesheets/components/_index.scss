@@ -2,5 +2,9 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
-@import "search-bar";
 @import "button";
+@import "search_bar";
+
+body {
+  background-color: white;
+}
