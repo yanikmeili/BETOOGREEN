@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+  <h3 class="text-gradient navbar-btg">BeTooGreen</h3>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,26 +9,50 @@
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav d-flex align-items-center">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
+        <div class="search-box">
+          <button class="btn-search text-gradient"><i class="fas fa-search"></i></button>
+          <input type="text" class="input-search" placeholder="Search...">
+        </div>
+        <li class="nav-item text-gradient ml-3 mr-3">
+          <i class="fas fa-shopping-cart" id="cart-decoration"></i>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="#">Create New Product</a>
+            <a class="dropdown-item" href="#">Log out</a>
           </div>
         </li>
+
       <% else %>
-        <li class="nav-item">
+         <li class="nav-link ml-1 mr-1">
+          <%= link_to "How it works", "#", id: "black-font" %>
+        </li>
+        <li>
+          <i class="fas fa-circle"></i>
+        </li>
+        <li class="nav-link text-gradient ml-1 mr-1">
+          <%= link_to "What we do", "#" %>
+        </li>
+        <li>
+          <i class="fas fa-circle"></i>
+        </li>
+        <li class="nav-link text-gradient ml-1 mr-1">
+          <%= link_to "Contact us", "#" %>
+        </li>
+        <li>
+          <i class="fas fa-circle"></i>
+        </li>
+        <li class="nav-link text-gradient ml-1 mr-5" id="cart-border">
+          <i class="fas fa-shopping-cart"></i>
+        </li>
+         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
+
       <% end %>
     </ul>
   </div>
