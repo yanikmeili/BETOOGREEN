@@ -6,6 +6,5 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
-    @product = get_listing_product(@listing)
   end
 end
