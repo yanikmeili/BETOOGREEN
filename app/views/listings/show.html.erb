@@ -2,6 +2,7 @@
   <h1>Listing for</h1>
   <h2>Name: <%= @listing.product.name %></h2>
   <div>
+    <img heigth="300" src="<%= cl_image_path @listing.product.photo.key %>">
     <p>Description: <%= @listing.product.description %></p>
     <p>Material: <%= @listing.product.material %></p>
     <p>Impact: <%= @listing.product.impact %></p>
