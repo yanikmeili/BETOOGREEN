@@ -1,0 +1,13 @@
+.search-bar {
+  background: $primary-gradient;
+  border-radius: 8px;
+  color: white;
+  border: none;
+  padding: 16px 36px 16px 72px;
+  font-size: 8px;
+ // TODO: remove grey border when searching.
+  &::placeholder, &:focus, &:active{
+    color: white;
+  }
+}
+

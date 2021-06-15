@@ -1,0 +1,7 @@
+<%= form_tag stylesheet_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    placeholder: "Search for your sustainable products",
+    class: "form-control border-right-0 search-bar"
+  %>
+<% end %>
