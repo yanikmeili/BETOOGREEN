@@ -1,0 +1,28 @@
+.banner-green {
+  background: $primary-gradient;
+  height: 392px;
+}
+
+.banner-green h1 {
+  margin: 0;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  position: absolute;
+  top: 72px;
+  left: 72px;
+}
+
+.banner-green p {
+  font-size: 14px;
+  color: white;
+  position: absolute;
+  top: 240px;
+  left: 119px;
+}
+
+.banner-elements-conteiner {
+  width: 512px;
+  position: relative;
+}
+
