@@ -2,12 +2,14 @@
 
 <h2> These are your products: </h2>
 <% @products.each do |product| %>
-<p>- <%= product.name %></p>
+<p>- <%= product.name %> - <%= link_to "See details", product_path(product.id) %> </p>
 <% end %>
+
+produc
 
 <h2> These are your current listings: </h2>
 <% @listings.each do |listing| %>
-<p>- <%= listing.product.name %> , you sold <%= listing.quantity_sold %> units</p>
+<p>- <%= listing.product.name %> , you sold <%= listing.quantity_sold %> units - <%= link_to "See details", listing_path(listing.id) %> </p>
 <% end %>
 
 <h2> This is what you sold: </h2>
