@@ -3,6 +3,16 @@ class Listing < ApplicationRecord
   has_many :discounts # @listing.discounts => array
   has_many :purchases # @listing.purchases => array
 
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ ],
+    associated_against: {
+      product: [ :name, :description ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
   # this calculates the amount of units sold
   def quantity_sold
     # purchases.inject(0) { |sum, purchase| sum + purchase.quantity }

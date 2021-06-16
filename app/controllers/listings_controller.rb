@@ -2,7 +2,11 @@ class ListingsController < ApplicationController
   def index
     # TODO: scope to only show active listings
     # TODO: We can only do one listing for one product at the time
-    @listings = Listing.all
+    if params[:query].present?
+      @listings = Listing.global_search(params[:query])
+    else
+      @listings = Listing.all
+    end
   end
 
   def show
