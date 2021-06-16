@@ -1,5 +1,8 @@
 <h1> <strong>DASHBOARD</strong>  </h1>
 
+<h2><%= link_to "Create a new product", new_product_path  %></h2>
+<h2><%= link_to "See all listings", listings_path  %></h2>
+
 <h2> These are your products: </h2>
 <% @products.each do |product| %>
 <p>- <%= product.name %> - <%= link_to "See details", product_path(product.id) %> </p>
