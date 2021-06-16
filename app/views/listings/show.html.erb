@@ -12,5 +12,6 @@
     <p>Stock: <%= @listing.stock%></p>
     <p>End date: <%= @listing.end_date %></p>
   </div>
-  <%= link_to "Go back", listings_path %>
+  <p><%= link_to "Buy this",  new_listing_purchase_path(@listing) %></p>
+  <p><%= link_to "Go back", listings_path %></p>
 </div>
