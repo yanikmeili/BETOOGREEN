@@ -11,8 +11,40 @@ User.destroy_all
 
 martin = User.create!(email: 'martin@gmail.com', password:'123456')
 yanik = User.create!(email: 'yanikm41@gmail.com', password:'123456')
+ana = User.create!(email: 'ana@gmail.com', password:'123456')
+trini = User.create!(email: 'trini@gmail.com', password:'123456')
+nico = User.create!(email: 'nico@gmail.com', password:'123456')
+pablo = User.create!(email: 'pablo@gmail.com', password:'123456')
+jesus = User.create!(email: 'jesus@gmail.com', password:'123456')
+mohamed = User.create!(email: 'mohamed@gmail.com', password:'123456')
+carlos = User.create!(email: 'carlos@gmail.com', password:'123456')
+pablito = User.create!(email: 'pablito@gmail.com', password:'123456')
 
 # PRODUCT
+
+bag = Product.create!(
+  user: trini,
+  name:'Eco bags',
+  description:'The bags are crafted with ethics and intentions. An independent nonprofit member of the Fair Trade Federation, the brand’s goal is to make the international marketplace available to fairly paid artisans. Many of the women artisans making these bags work from home and earn a sustainable income for their families. The totes are perfect for days on-the-go, and the overnighters are perfect for an adventurous weekend away.',
+  material: 'Plants',
+  impact: 'It does not polute as the traditional bags made with plastic',
+  origin: ' Quebec '
+  )
+bag_image = URI.open('https://malababa.imgix.net/media/catalog/product/1/9/19vb073granada_y.jpg')
+bag.photos.attach(io: bag_image, filename: '19vb073granada_y.jpg', content_type: 'image/jpg')
+puts "bag photo attached: #{bag.photos.attached?}"
+
+sandal = Product.create!(
+  user: ana,
+  name:'Eco sandals',
+  description:'These fair trade beaded leather sandals are lovingly handmade by empowered artisans in East Africa. The Iris Sandals in Champagne add a pop of shimmering metallic to traditional leather flip flops. They are perfect for lazy afternoons sitting in the garden.',
+  material: 'Lether',
+  impact: 'It reduces the amout of plastic in the sea and in the food!',
+  origin: ' East Africa'
+  )
+sandal_image = URI.open('https://assets.website-files.com/602e0329d354ce64f9277c43/60a6f7d10456ff5fc3e9f708_sustainable-sandals.jpg')
+sandal.photos.attach(io: sandal_image, filename: '60a6f7d10456ff5fc3e9f708_sustainable-sandals.jpg', content_type: 'image/jpg')
+puts "Sandal photo attached: #{sandal.photos.attached?}"
 
 cup = Product.create!(
   user: yanik,
@@ -45,6 +77,22 @@ puts "Straw photo attached: #{straw.photos.attached?}"
 
 # SALE
 
+bag_sale = Listing.create!(
+  stock: 7000,
+  max_price: 20,
+  min_price: 12,
+  end_date: Date.today + 30,
+  product: bag
+  )
+
+sandal_sale = Listing.create!(
+  stock: 5000,
+  max_price: 10,
+  min_price: 7,
+  end_date: Date.today + 30,
+  product: sandal
+  )
+
 cup_sale = Listing.create!(
   stock: 10000,
   max_price: 0.1,
@@ -60,6 +108,19 @@ straw_sale = Listing.create!(
   end_date: Date.today + 25,
   product: straw
   )
+
+bag_discount = Discount.create!(
+  quantity: 4000,
+  price: 15,
+  listing: bag_sale,
+  )
+
+sandal_discount = Discount.create!(
+  quantity: 4000,
+  price: 7,
+  listing: sandal_sale,
+  )
+
 
 straw_discount = Discount.create!(
   quantity: 3500,
@@ -79,10 +140,22 @@ cup_discount_2 = Discount.create!(
   listing: cup_sale,
   )
 
-cup_purchase = Purchase.create!(
+bag_purchase = Purchase.create!(
+  user: pablito,
+  listing: bag_sale,
+  quantity: 200
+  )
+
+sandal_purchase = Purchase.create!(
   user: martin,
-  listing: cup_sale,
+  listing: sandal_sale,
   quantity: 4500
+  )
+
+cup_purchase = Purchase.create!(
+  user: mohamed,
+  listing: cup_sale,
+  quantity: 2000
   )
 
 cup_purchase_2 = Purchase.create!(
@@ -97,6 +170,19 @@ straw_purchase = Purchase.create!(
   quantity: 4000
   )
 
+
+bag_review = Review.create!(
+  purchase: bag_purchase,
+  content:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium nesciunt sint voluptate? Labore sit quos ad nemo consectetur! Quisquam ipsa voluptatum vitae, impedit doloremque libero numquam rem atque minus asperiores.',
+  rating: 3
+)
+
+sandal_review = Review.create!(
+  purchase: sandal_purchase,
+  content:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium nesciunt sint voluptate? Labore sit quos ad nemo consectetur! Quisquam ipsa voluptatum vitae, impedit doloremque libero numquam rem atque minus asperiores.',
+  rating: 5
+)
+
 cup_review = Review.create!(
   purchase: cup_purchase,
   content:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium nesciunt sint voluptate? Labore sit quos ad nemo consectetur! Quisquam ipsa voluptatum vitae, impedit doloremque libero numquam rem atque minus asperiores.',
@@ -108,6 +194,10 @@ straw_review = Review.create!(
   content:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium nesciunt sint voluptate? Labore sit quos ad nemo consectetur! Quisquam ipsa voluptatum vitae, impedit doloremque libero numquam rem atque minus asperiores.',
   rating: 3
   )
+
+
+
+
 
 
 puts "Seeding ended"
