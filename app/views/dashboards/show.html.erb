@@ -1,21 +1,66 @@
-<h1> <strong>DASHBOARD</strong>  </h1>
+<div class="d-flex" >
 
-<h2><%= link_to "Create a new product", new_product_path  %></h2>
-<h2><%= link_to "See all listings", listings_path  %></h2>
+  <div>
+    <div class="side-bar">
+      <p>Hello,</p>
+       <p><strong> <%= @user.email %></strong></p>
+       <ul>
+         <li><a href="#dashboard">Dashboard</a></li>
+         <li><a href="#listings">Collective buyings</a></li>
+         <li><a href="#products">Products</a></li>
+         <li><a href="#settings">Messages</a></li>
+         <li><a href="#settings">Messages</a></li>
+         <li><a href="#settings">Settings</a></li>
+       </ul>
+     </div>
+  </div>
 
-<h2> These are your products: </h2>
-<% @products.each do |product| %>
-<p>- <%= product.name %> - <%= link_to "See details", product_path(product.id) %> </p>
-<% end %>
+  <div>
+    <h1 id="dashboard"> <strong>Dashboard</strong> </h1>
 
-produc
+    <div class="d-flex">
+      <div class="pr-3">
+        <h3>Sales report</h3>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Redsquare.png" height="248" width="431" alt="">
+      </div>
+      <div>
+        <h3>Top 3 products</h3>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Redsquare.png" height="248" width="346" alt="">
+      </div>
+    </div>
+    <hr>
 
-<h2> These are your current listings: </h2>
-<% @listings.each do |listing| %>
-<p>- <%= listing.product.name %> , you sold <%= listing.quantity_sold %> units - <%= link_to "See details", listing_path(listing.id) %> </p>
-<% end %>
 
-<h2> This is what you sold: </h2>
-<% @purchases.each do |purchase| %>
-<p>  <strong><%= purchase.created_at.strftime("%d/%m/%Y")%> / <%= purchase.created_at.strftime("%k:%M") %></strong>   -> <%= purchase.quantity %> <strong> units </strong>of <%= purchase.listing.product.name %> </p>
-<% end %>
+      <h2 id="listings"> Collective buyings: </h2>
+      <h3>Open</h3>
+      <% @listings.each do |listing| %>
+        <div class="d-flex">
+          <p><%= listing.id %> </p>
+          <p><%= listing.product.name %> </p>
+          <p><%= listing.quantity_sold %> </p>
+          <p><%= listing.quantity_pending %> </p>
+          <p> <%= listing.format_date %></p>
+          <p> <%= listing.total_sales %></p>
+        </div>
+      <% end %>
+
+
+    <hr>
+
+    <div>    <h3>Closed</h3>
+    <% @purchases.each do |purchase| %>
+    <p>  <strong><%= purchase.created_at.strftime("%d/%m/%Y")%> / <%= purchase.created_at.strftime("%k:%M") %></strong>   -> <%= purchase.quantity %> <strong> units </strong>of <%= purchase.listing.product.name %> </p>
+    <% end %></div>
+
+    <hr>
+
+    <h2 id="products"> Products </h2>
+    <% @products.each do |product| %>
+    <p>- <%= product.name %> - <%= link_to "See details", product_path(product.id) %> </p>
+    <% end %>
+    <h2><%= link_to "Create a new product", new_product_path  %></h2>
+
+    <h2 id="settings"> These are your current listings: </h2>
+  </div>
+
+</div>
