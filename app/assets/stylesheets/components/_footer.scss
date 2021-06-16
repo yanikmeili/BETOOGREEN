@@ -1,0 +1,48 @@
+footer {
+ background-image: url("Wave.jpg"); /* The image used */
+ height: 224px; /* You must set a specified height */
+ background-size: cover;
+ width: 100%;
+ position: fixed;
+ bottom: 0;
+}
+
+
+.footer-content {
+  padding-top: 5rem;
+}
+
+.icons li {
+  list-style-type: none; /* Remove bullets */
+  padding-right: 64px;
+  font-size: 20px;
+}
+
+.info a, .icons a {
+  color: black;
+  transition: 0.3s;
+  &:hover {
+    text-decoration: none;
+    color: $green;
+  }
+}
+
+
+.info li {
+  list-style-type: none; /* Remove bullets */
+  padding-bottom: 4px;
+  padding-right: 32px;
+}
+
+.first-info-container ul {
+  padding-left: 0;
+}
+
+.second-info-container ul {
+  padding-left: 0;
+}
+
+
+.no-color {
+  color: black;
+}
