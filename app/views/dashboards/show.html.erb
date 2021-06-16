@@ -2,10 +2,15 @@
 
 <h2> These are your products: </h2>
 <% @products.each do |product| %>
-<p>- <%= product.name %>. It was sold </p>
+<p>- <%= product.name %></p>
 <% end %>
 
 <h2> These are your current listings: </h2>
 <% @listings.each do |listing| %>
 <p>- <%= listing.product.name %> , you sold <%= listing.quantity_sold %> units</p>
+<% end %>
+
+<h2> This is what you sold: </h2>
+<% @purchases.each do |purchase| %>
+<p>  <strong><%= purchase.created_at.strftime("%d/%m/%Y")%> / <%= purchase.created_at.strftime("%k:%M") %></strong>   -> <%= purchase.quantity %> <strong> units </strong>of <%= purchase.listing.product.name %> </p>
 <% end %>
