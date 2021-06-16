@@ -1,3 +1,5 @@
+require "open-uri"
+
 Review.destroy_all
 Purchase.destroy_all
 Discount.destroy_all
@@ -5,8 +7,12 @@ Listing.destroy_all
 Product.destroy_all
 User.destroy_all
 
+# USER
+
 martin = User.create!(email: 'martin@gmail.com', password:'123456')
 yanik = User.create!(email: 'yanikm41@gmail.com', password:'123456')
+
+# PRODUCT
 
 cup = Product.create!(
   user: yanik,
@@ -17,6 +23,10 @@ cup = Product.create!(
   origin: 'Vietnam'
   )
 
+cup_image = URI.open('https://yaffa-cdn.s3.amazonaws.com/yaffadsp/images/dmImage/SourceImage/planet-saver-cup.jpg')
+cup.photos.attach(io: cup_image, filename: 'planet-saver-cup.jpg', content_type: 'image/jpg')
+puts "Cup photo attached: #{cup.photos.attached?}"
+
 straw = Product.create!(
   user: martin,
   name:'Bamboo straw',
@@ -25,6 +35,12 @@ straw = Product.create!(
   impact: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium nesciunt sint voluptate? Labore sit quos ad nemo consectetur! Quisquam ipsa voluptatum vitae, impedit doloremque libero numquam rem atque minus asperiores.',
   origin: 'Egypt'
   )
+
+straw_image = URI.open('https://i.pinimg.com/736x/6f/9a/8b/6f9a8bded893274c17ff9e2e07b69db6.jpg')
+straw.photos.attach(io: straw_image, filename: '6f9a8bded893274c17ff9e2e07b69db6.jpg', content_type: 'image/jpg')
+puts "Straw photo attached: #{straw.photos.attached?}"
+
+# SALE
 
 cup_sale = Listing.create!(
   stock: 10000,
