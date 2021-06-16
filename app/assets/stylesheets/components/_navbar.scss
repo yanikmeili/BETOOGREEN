@@ -20,6 +20,22 @@
 .nav-link {
     display: block;
     padding: 1.5rem 0.5rem;
+    position: relative;
+}
+
+.nav-link:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 4px;
+  background: $primary-gradient;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover:after {
+  width: 100%;
 }
 
 .navbar-btg {
@@ -30,10 +46,10 @@
   margin-bottom: 0;
 }
 
-.nav-link:hover {
-  border-bottom-style: solid;
-  border-color: $green;
-}
+// .nav-link:hover {
+//   border-bottom-style: solid;
+//   border-color: $green;
+// }
 
 #black-font {
   color: black !important;
