@@ -14,7 +14,7 @@ class PurchasesController < ApplicationController
     @purchase.listing = Listing.find(params[:listing_id])
     @purchase.user = current_user
     if @purchase.save!
-      redirect_to listing_path(@purchase.listing)
+      redirect_to purchase_path(@purchase)
     else
       render :new
     end
