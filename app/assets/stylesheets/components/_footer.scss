@@ -6,22 +6,29 @@ footer {
 }
 
 
-
 .footer-content {
-  position: absolute;
+  padding-top: 5rem;
 }
-
 
 .icons li {
   list-style-type: none; /* Remove bullets */
-  padding-left: 48%;
-  margin-top: 80%;
-  font-size: 24px;
+  padding-right: 64px;
+  font-size: 20px;
 }
 
 
 .info li {
   list-style-type: none; /* Remove bullets */
-  padding-left: 48%;
+  padding-bottom: 4px;
+  padding-right: 32px;
 }
+
+.first-info-container ul {
+  padding-left: 0;
+}
+
+.second-info-container ul {
+  padding-left: 0;
+}
+
 
