@@ -1,3 +1,5 @@
+require "open-uri"
+
 Review.destroy_all
 Purchase.destroy_all
 Discount.destroy_all
@@ -5,8 +7,12 @@ Listing.destroy_all
 Product.destroy_all
 User.destroy_all
 
+# USER
+
 martin = User.create!(email: 'martin@gmail.com', password:'123456')
 yanik = User.create!(email: 'yanikm41@gmail.com', password:'123456')
+
+# PRODUCT
 
 cup = Product.create!(
   user: yanik,
@@ -17,6 +23,10 @@ cup = Product.create!(
   origin: 'Egypt'
   )
 
+cup_image = URI.open('https://yaffa-cdn.s3.amazonaws.com/yaffadsp/images/dmImage/SourceImage/planet-saver-cup.jpg')
+cup.photos.attach(io: cup_image, filename: 'planet-saver-cup.jpg', content_type: 'image/jpg')
+puts "Cup photo attached: #{cup.photos.attached?}"
+
 straw = Product.create!(
   user: martin,
   name:'Bamboo straw',
@@ -26,17 +36,15 @@ straw = Product.create!(
   origin: 'Vietnam'
   )
 
-<<<<<<< Updated upstream
-=======
 straw_image_1 = URI.open('https://i.pinimg.com/736x/6f/9a/8b/6f9a8bded893274c17ff9e2e07b69db6.jpg')
 straw_image_2 = URI.open('http://sc04.alicdn.com/kf/Hc5516015b0124a8c8b648f07b87df139Y.jpg')
 straw.photos.attach(io: straw_image_1, filename: '6f9a8bded893274c17ff9e2e07b69db6.jpg', content_type: 'image/jpg')
 straw.photos.attach(io: straw_image_2, filename: 'Hc5516015b0124a8c8b648f07b87df139Y.jpg', content_type: 'image/jpg')
+
 puts "Straw photo attached: #{straw.photos.attached?}"
 
 # SALE
 
->>>>>>> Stashed changes
 cup_sale = Listing.create!(
   stock: 10000,
   max_price: 0.1,

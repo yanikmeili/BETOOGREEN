@@ -6,3 +6,4 @@
 <% @product.photos.each do |photo| %>
   <%= cl_image_tag photo.key %>
 <% end %>
+<%= link_to "New listing", new_product_listing_path(@product) %>
