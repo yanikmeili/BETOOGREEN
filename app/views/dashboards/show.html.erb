@@ -1,45 +1,54 @@
-<div class="d-flex" >
+<!-- Envuelve todo el contenido -->
+<div class="d-flex mb-4" >
+  <!-- Envuelve side bar -->
+  <div class="side_bar_background">
+    <!-- Envuelve avatar, hello y user-email -->
 
-  <div class="pt-4 side_bar_background">
     <div class="side_bar">
+      <div class="side_bar_user_icon side_bar_padding pt-3">
+        <div>
+          <div style="height:50px; width:50px;border-radius: 50%;background-color:yellow;">
+          </div>
+        </div>
 
-      <div>
-        <p>Hello,</p>
-        <p><strong> <%= @user.email %></strong></p>
+        <div class="pl-3 side_bar_text">
+          <h3>Hello,</h3>
+          <h5><strong> <%= @user.email %></strong></h5>
+        </div>
       </div>
 
-      <hr>
+      <hr class="side_bar_line">
 
-      <div>
-        <ul class="side_bar_list">
-          <li>
-            <i class="fas fa-credit-card"></i>
-            <a href="#purchases" class="side_bar_text"> Purchases</a>
-          </li>
-          <li>
-            <i class="fas fa-rocket"></i>
-            <a href="#sales-report" class="side_bar_text"> Sales report</a>
-          </li>
-          <li>
-            <i class="fas fa-users"></i>
-            <a href="#listings" class="side_bar_text">Collective buyings</a>
-          </li>
-          <li>
-            <i class="fas fa-database"></i>
-            <a href="#products" class="side_bar_text">Products</a>
-          </li>
-          <li>
-            <i class="fas fa-inbox"></i>
-            <a href="#settings" class="side_bar_text">Messages</a>
-          </li>
-          <li>
-            <i class="fas fa-cog"></i>
-            <a href="#settings" class="side_bar_text">Settings</a>
-          </li>
-        </ul>
+      <div class="pt-4 side_bar_padding">
+          <ul class="side_bar_list">
+            <li class="side_bar_link">
+              <i class="fas side_bar_white fa-lg fa-credit-card"></i>
+              <a href="#purchases" class="side_bar_text_li"> Purchases</a>
+            </li>
+            <li class="side_bar_link">
+              <i class="fas side_bar_white fa-lg fa-rocket"></i>
+              <a href="#sales-report" class="side_bar_text_li"> Sales report</a>
+            </li>
+            <li class="side_bar_link">
+              <i class="fas side_bar_white fa-lg fa-users"></i>
+              <a href="#listings" class="side_bar_text_li">Collective buyings</a>
+            </li>
+            <li class="side_bar_link">
+              <i class="fas side_bar_white fa-lg fa-database"></i>
+              <a href="#products" class="side_bar_text_li">Products</a>
+            </li>
+            <li class="side_bar_link">
+              <i class="fas side_bar_white fa-lg fa-inbox"></i>
+              <a href="#settings" class="side_bar_text_li">Messages</a>
+            </li>
+            <li class="side_bar_link">
+              <i class="fas side_bar_white fa-user-cog"></i>
+              <a href="#settings" class="side_bar_text_li">Settings</a>
+            </li>
+          </ul>
       </div>
-
     </div>
+
   </div>
 
 
@@ -50,12 +59,12 @@
 
       <h2 id="my-purchases">Purchases</h2>
       <% if @user.purchases.nil? %>
-        <h4>¡Make your first purchase today!</h4>
-        <p>25% discount in your first buy</p>
+      <h4>¡Make your first purchase today!</h4>
+      <p>25% discount in your first buy</p>
       <% else %>
-        <% @user.purchases.each do |purchase| %>
-          <p><%= purchase.quantity %> <strong>untis of</strong> <%= purchase.listing.product.name %></p>
-        <% end %>
+      <% @user.purchases.each do |purchase| %>
+      <p><%= purchase.quantity %> <strong>untis of</strong> <%= purchase.listing.product.name %></p>
+      <% end %>
       <% end %>
 
       <hr>
@@ -76,14 +85,14 @@
       <h2 id="listings"> Collective buyings: </h2>
       <h3>Open</h3>
       <% @listings.each do |listing| %>
-        <div>
-          <p><strong>ID:</strong> <%= listing.id %></p>
-          <p><strong>NAME:</strong> <%= listing.product.name %></p>
-          <p><strong>You sold:</strong> <%= listing.quantity_sold %> units.</p>
-          <p><strong>You still have:</strong> <%= listing.quantity_pending %> to sell.</p>
-          <p><strong>The listing goes until :</strong> <%= listing.format_date %></p>
-          <p><%= listing.total_sales %></p>
-        </div>
+      <div>
+        <p><strong>ID:</strong> <%= listing.id %></p>
+        <p><strong>NAME:</strong> <%= listing.product.name %></p>
+        <p><strong>You sold:</strong> <%= listing.quantity_sold %> units.</p>
+        <p><strong>You still have:</strong> <%= listing.quantity_pending %> to sell.</p>
+        <p><strong>The listing goes until :</strong> <%= listing.format_date %></p>
+        <p><%= listing.total_sales %></p>
+      </div>
       <% end %>
 
       <hr>
@@ -91,7 +100,7 @@
       <div>
         <h3>Closed</h3>
         <% @purchases.each do |purchase| %>
-          <p> <strong><%= purchase.created_at.strftime("%d/%m/%Y")%> / <%= purchase.created_at.strftime("%k:%M") %></strong>   -> <%= purchase.quantity %> <strong> units </strong>of <%= purchase.listing.product.name %> </p>
+        <p> <strong><%= purchase.created_at.strftime("%d/%m/%Y")%> / <%= purchase.created_at.strftime("%k:%M") %></strong>   -> <%= purchase.quantity %> <strong> units </strong>of <%= purchase.listing.product.name %> </p>
         <% end %>
       </div>
 
@@ -100,12 +109,12 @@
       <div>
         <h2 id="products"> Products </h2>
         <% @products.each do |product| %>
-          <p>- <%= product.name %> - <%= link_to "See details", product_path(product.id) %> </p>
+        <p>- <%= product.name %> - <%= link_to "See details", product_path(product.id) %> </p>
         <% end %>
         <h2><%= link_to "Create a new product", new_product_path  %></h2>
       </div>
 
 
       <h2 id="settings"> These are your current listings: </h2>
+    </div>
   </div>
-</div>
