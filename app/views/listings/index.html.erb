@@ -31,9 +31,9 @@
             <h6><%= listing.product.description %></h6>
           </div>
           <div class="card-bottom-elements">
-            <a href="#">Join collective buy</a>
+            <a href="#"><%= link_to "Join collective buy", new_listing_purchase_path(listing) %></a>
             <div>
-              <a href="#">Read more</a>
+              <a href="#"><%= link_to "Read more", listing_path(listing) %></a>
               <i class="fas fa-arrow-right"></i>
             </div>
           </div>
