@@ -22,6 +22,32 @@ pablito = User.create!(email: 'pablito@gmail.com', password:'123456')
 
 # PRODUCT
 
+forks = Product.create!(
+  user: pablito,
+  name:'Wooden forks',
+  description:'Crafted with wook from sustainable forests, this forks can make your picnics in nature as natural as nature itself. Naturaly, it sound good!',
+  material: 'Wood',
+  impact: 'No oil has been used in the extraction of the raw materirals of this product, fabrication or transportations.',
+  origin: 'Nambia'
+  )
+forks_image = URI.open('https://images-na.ssl-images-amazon.com/images/I/81gkVenBQ0L._AC_SL1500_.jpg')
+forks.photos.attach(io: forks_image, filename: '81gkVenBQ0L._AC_SL1500_.jpg', content_type: 'image/jpg')
+puts "forks photo attached: #{forks.photos.attached?}"
+
+glasses = Product.create!(
+  user: carlos,
+  name:'Glasses made of recycled bottles',
+  description:'Have a clear vision of the future. With sustainable glass, made out of recycled plastic you can give a glance to the benefits of circular fabrication.',
+  material: 'Reycled PET',
+  impact: 'A trendy yet simple way to reduce the flow of plastic from our economy to the enviroment.',
+  origin: 'Bilbao'
+  )
+glasses_image_1 = URI.open('https://www.theinertia.com/wp-content/uploads/2017/02/norton-point.jpg')
+glasses.photos.attach(io: glasses_image, filename: 'norton-point.jpg', content_type: 'image/jpg')
+glasses_image_2 = URI.open('https://inhabitat.com/wp-content/blogs.dir/1/files/2019/03/9Feb2019_PreciousPlastic_-30main-600x480.jpg')
+glasses.photos.attach(io: glasses_image_2, filename: '9Feb2019_PreciousPlastic_-30main-600x480.jpg', content_type: 'image/jpg')
+puts "glasses photo attached: #{glasses.photos.attached?}"
+
 bag = Product.create!(
   user: trini,
   name:'Eco bags',
