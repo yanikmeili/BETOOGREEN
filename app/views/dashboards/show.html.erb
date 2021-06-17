@@ -27,7 +27,7 @@
       <p>25% discount in your first buy</p>
     <% else %>
       <% @user.purchases.each do |purchase| %>
-        <p> <%= purchase.listing.product.name %></p>
+        <p><%= purchase.quantity %> <strong>untis of</strong> <%= purchase.listing.product.name %></p>
       <% end %>
     <% end %>
 
@@ -49,13 +49,13 @@
     <h2 id="listings"> Collective buyings: </h2>
     <h3>Open</h3>
     <% @listings.each do |listing| %>
-      <div class="d-flex">
-        <p><%= listing.id %> </p>
-        <p><%= listing.product.name %> </p>
-        <p><%= listing.quantity_sold %> </p>
-        <p><%= listing.quantity_pending %> </p>
-        <p> <%= listing.format_date %></p>
-        <p> <%= listing.total_sales %></p>
+      <div>
+        <p><strong>ID:</strong> <%= listing.id %></p>
+        <p><strong>NAME:</strong> <%= listing.product.name %></p>
+        <p><strong>You sold:</strong> <%= listing.quantity_sold %> units.</p>
+        <p><strong>You still have:</strong> <%= listing.quantity_pending %> to sell.</p>
+        <p><strong>The listing goes until :</strong> <%= listing.format_date %></p>
+        <p><%= listing.total_sales %></p>
       </div>
     <% end %>
 

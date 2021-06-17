@@ -40,7 +40,7 @@ sandal = Product.create!(
   description:'These fair trade beaded leather sandals are lovingly handmade by empowered artisans in East Africa. The Iris Sandals in Champagne add a pop of shimmering metallic to traditional leather flip flops. They are perfect for lazy afternoons sitting in the garden.',
   material: 'Lether',
   impact: 'It reduces the amout of plastic in the sea and in the food!',
-  origin: ' East Africa'
+  origin: 'East Africa'
   )
 sandal_image = URI.open('https://assets.website-files.com/602e0329d354ce64f9277c43/60a6f7d10456ff5fc3e9f708_sustainable-sandals.jpg')
 sandal.photos.attach(io: sandal_image, filename: '60a6f7d10456ff5fc3e9f708_sustainable-sandals.jpg', content_type: 'image/jpg')
