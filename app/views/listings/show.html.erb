@@ -1,17 +1,49 @@
-<div class="container col-8">
-  <h1>Listing for</h1>
-  <h2>Name: <%= @listing.product.name %></h2>
-  <div>
-    <% @listing.product.photos.each do |photo| %>
-      <img heigth="300" src="<%= cl_image_path photo.key %>">
-    <% end %>
-    <p>Description: <%= @listing.product.description %></p>
-    <p>Material: <%= @listing.product.material %></p>
-    <p>Impact: <%= @listing.product.impact %></p>
-    <p>Origin: <%= @listing.product.origin %></p>
-    <p>Stock: <%= @listing.stock%></p>
-    <p>End date: <%= @listing.end_date %></p>
+<div class="top-section">
+
+
+<div class="main-container col-8">
+
+  <div class= "image-container">
+      <div class="PHOTO-1"> <img class = "photo-left" src=" <%= cl_image_path @listing.product.photos.first.key %>"> </div>
+      <div class="PHOTO-2"> <img src=" <%= cl_image_path @listing.product.photos.second.key %>"> </div>
+      <div class="PHOTO-3"> <img class = "photo-right-top" src=" <%= cl_image_path @listing.product.photos.third.key %>"> </div>
+      <div class="PHOTO-4"> <img src=" <%= cl_image_path @listing.product.photos.fourth.key %>"> </div>
+      <div class="PHOTO-5"> <img class = "photo-right-bottom" src=" <%= cl_image_path @listing.product.photos.fifth.key %>"> </div>
   </div>
-  <p><%= link_to "Buy this",  new_listing_purchase_path(@listing) %></p>
-  <p><%= link_to "Go back", listings_path %></p>
+</div>
+
+  <div class="side ml-auto mr-3">
+    <p><strong> <%= @listing.product.name.upcase %></strong></p>
+    <p>-------------------------------------</p>
+    <p> <strong>Stock:</strong> <%= @listing.stock %> units left</p>
+    <%= link_to "BUY NOW",  new_listing_purchase_path(@listing), class: "btn-gradient" %>
+  </div>
+
+</div>
+
+
+  <div = class="text-container">
+    <div class="row1">
+      <p><strong>Description:</p></strong>
+      <p> <%= @listing.product.description %></p>
+      <p><strong>Impact:</p></strong>
+      <p><%= @listing.product.impact %></p>
+
+    </div>
+    <div class="row2">
+      <p><strong> Material: </strong></p>
+      <p><%= @listing.product.material %></p>
+      <p><strong>Origin: </strong></p>
+      <p><%= @listing.product.origin %></p>
+      <p><strong>Stock: </strong></p>
+      <p><%= @listing.stock%></p>
+      <p><strong>End date: </strong></p>
+      <p><%= @listing.end_date %></p>
+    </div>
+  </div>
+
+<div class="goback"><%= link_to "Go back", listings_path, class: "btn-gradient" %></div>
+
+
+
 </div>
