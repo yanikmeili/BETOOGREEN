@@ -6,7 +6,8 @@ margin: 15px;
 
 .cheat-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns:: 1.5fr 0.8fr 0.7fr;
+
   grid-template-rows: 1fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
@@ -23,6 +24,18 @@ margin: 15px;
 
 .text-container{
   margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "row1 row2";
+
+}
+
+.row2{
+  margin-left: 100px;
+
 }
 
 .photo-left{

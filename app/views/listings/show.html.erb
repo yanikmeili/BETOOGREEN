@@ -12,21 +12,18 @@
 
 
   <div = class="text-container">
-    <div>
-    <h2>Description:</h2>
-    <p> <%= @listing.product.description %></p>
-     <h2>Origin:</h2>
-    <p><%= @listing.product.origin %></p>
+    <div class="row1">
+      <h2>Description:</h2>
+      <p> <%= @listing.product.description %></p>
+      <h2>Impact:</h2>
+      <p><%= @listing.product.impact %></p>
+
     </div>
-     <div>
-    <h2>Material:</h2>
-    <p><%= @listing.product.material %></p>
-    <h2>Impact:</h2>
-    <p><%= @listing.product.impact %></p>
-    <h2>Stock:</h2>
-    <p><%= @listing.stock%></p>
-    <h2>End date:</h2>
-    <p><%= @listing.end_date %></p>
+    <div class="row2">
+      <p><strong> Material: </strong><%= @listing.product.material %></p>
+      <p><strong>Origin: </strong><%= @listing.product.origin %></p>
+      <p><strong>Stock: </strong><%= @listing.stock%></p>
+      <p><strong>End date: </strong><%= @listing.end_date %></p>
     </div>
   </div>
 
