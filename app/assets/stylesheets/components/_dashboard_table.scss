@@ -1,0 +1,29 @@
+.dashboard_background {
+  background-color: rgb(245,245,245);
+}
+
+.dashboard_table {
+  width: 100%;
+}
+
+.dashboard_table td, .dashboard_table th{
+  padding: 10px 4px;
+  border-bottom: solid grey 0.5px;
+}
+
+.dashboard_table {
+  width: 100%;
+}
+
+.dashboard_table_interline {
+  margin: 10px;
+}
+
+.dashboard_table_header {
+  border-bottom: solid grey 1px;
+  color: grey;
+}
+
+.dashboard_table_grey_text {
+  color: grey;
+}
