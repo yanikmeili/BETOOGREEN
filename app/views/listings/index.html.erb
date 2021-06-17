@@ -7,22 +7,5 @@
 
 <%= render 'shared/search-bar'%>
 
-<div class="container col-8">
-  <h1>Listings</h1>
-  <% @listings.each do |listing| %>
-    <%= link_to listing_path(listing) do %>
-
-      <h2>Name: <%= listing.product.name %></h2>
-    <% end %>
-    <div>
-      <p>Description: <%= listing.product.description %></p>
-      <p>Material: <%= listing.product.material %></p>
-      <p>Impact: <%= listing.product.impact %></p>
-      <p>Origin: <%= listing.product.origin %></p>
-      <p>Stock: <%= listing.stock%></p>
-      <p>End date: <%= listing.end_date %></p>
-    </div>
-  <% end %>
-</div>
-
+<%= render 'shared/carousel'%>
 
