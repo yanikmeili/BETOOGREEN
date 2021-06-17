@@ -1,6 +1,7 @@
 .btn-gradient {
   background: linear-gradient(253.58deg, #6BE38D 1.55%, #00997B 66.84%);
   position: relative;
+  border: none;
   display: inline-block;
   padding: 16px 24px;
   z-index: 10;
@@ -8,7 +9,7 @@
   text-decoration: none;
   border-radius: 46px;
   &:hover {
-    color: white;
+    color:white;
     text-decoration: none;
   }
 }
