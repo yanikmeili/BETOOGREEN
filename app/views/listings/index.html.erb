@@ -7,22 +7,40 @@
 
 <%= render 'shared/search-bar'%>
 
-<div class="container col-8">
-  <h1>Listings</h1>
+
+<div class="container col-8 d-flex flex-wrap">
   <% @listings.each do |listing| %>
     <%= link_to listing_path(listing) do %>
 
-      <h2>Name: <%= listing.product.name %></h2>
-    <% end %>
-    <div>
-      <p>Description: <%= listing.product.description %></p>
-      <p>Material: <%= listing.product.material %></p>
-      <p>Impact: <%= listing.product.impact %></p>
-      <p>Origin: <%= listing.product.origin %></p>
-      <p>Stock: <%= listing.stock%></p>
-      <p>End date: <%= listing.end_date %></p>
+      <div class="card-product m-3">
+      <div class="card-img">
+
+        <%= cl_image_tag listing.product.photos.first.key %>
+        <div class="quick-view-title">
+          <a href="#">Quick view</a>
+        </div>
+      </div>
+        <div class="card-body">
+          <div class="card-top-elements">
+            <p>UNTIL THE <%= listing.end_date %></p>
+            <p><%= listing.current_price %>€</p>
+          </div>
+          <div class="product-info">
+            <h5 class="mb-3"><strong><%= listing.product.name %></strong></h5>
+          <% end %>
+            <h6><%= listing.product.description %></h6>
+          </div>
+          <div class="card-bottom-elements">
+            <%= link_to "Join collective buy", new_listing_purchase_path(listing) %>
+            <div>
+              <%= link_to "Read more", listing_path(listing) %>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
     </div>
-  <% end %>
+<% end %>
+
 </div>
 
-
+<%= render 'shared/buttons-pages' %>

@@ -1,7 +1,11 @@
 .banner-green {
-  background: $primary-gradient;
+  background-image: url("banner-green.jpg");
   height: 392px;
+  background-size: cover;
+  width: 100%;
 }
+
+
 
 .banner-green h1 {
   margin: 0;
@@ -10,7 +14,8 @@
   font-weight: bold;
   position: absolute;
   top: 72px;
-  left: 72px;
+  left: 98px;
+  width: 446px;
 }
 
 .banner-green p {
@@ -18,7 +23,7 @@
   color: white;
   position: absolute;
   top: 240px;
-  left: 119px;
+  left: 98px;
 }
 
 .banner-elements-conteiner {
