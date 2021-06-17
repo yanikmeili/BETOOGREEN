@@ -22,6 +22,17 @@ pablito = User.create!(email: 'pablito@gmail.com', password:'123456')
 
 # PRODUCT
 
+toothbrush = Product.create!(
+  user: pablito,
+  name:'Pure Freshness Toothbrush',
+  description:'The new Pure Freshness Toothbrush is a natural, vegan, eco-friendly and cruelty-free toothbrush made of biodegradable bamboo with Nylon 6 bristles. Bamboo is a flexible and resistant plant which grows very quickly and has antibacterial properties that allow to cultivate it without using toxics. We use Nylon 6 that allow to avoid animal bristles. We like taking care of every detail, so we made a plastic-free and 100% recyclable or compostable packaging for the new Pure Freshness Toothbrush.',
+  impact: 'Conventional toothbrushes are made of different types of plastics so they cannot be recycled and they take more than 400 years to decompose, finally ending up in our oceans, damaging marine life. But we also have good news... We can stop it!',
+  origin: ' Quebec '
+  )
+toothbrush_image = URI.open('https://www.freshlycosmetics.com/img/cms/Blog/cepillos-dientes-bambu-beneficios-1.jpg')
+toothbrush.photos.attach(io: toothbrush_image, filename: 'cepillos-dientes-bambu-beneficios-1.jpg', content_type: 'image/jpg')
+puts "toothbrush photo attached: #{toothbrush.photos.attached?}"
+
 bag = Product.create!(
   user: trini,
   name:'Eco bags',
