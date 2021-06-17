@@ -1,85 +1,111 @@
 <div class="d-flex" >
 
-  <div class="pt-4">
+  <div class="pt-4 side_bar_background">
     <div class="side_bar">
-      <p>Hello,</p>
-       <p><strong> <%= @user.email %></strong></p>
-       <ul>
-         <li><a href="#purchases">Purchases</a></li>
-         <li><a href="#sales-report">Sales report</a></li>
-         <li><a href="#listings">Collective buyings</a></li>
-         <li><a href="#products">Products</a></li>
-         <li><a href="#settings">Messages</a></li>
-         <li><a href="#settings">Settings</a></li>
-       </ul>
-     </div>
+
+      <div>
+        <p>Hello,</p>
+        <p><strong> <%= @user.email %></strong></p>
+      </div>
+
+      <hr>
+
+      <div>
+        <ul class="side_bar_list">
+          <li>
+            <i class="fas fa-credit-card"></i>
+            <a href="#purchases" class="side_bar_text"> Purchases</a>
+          </li>
+          <li>
+            <i class="fas fa-rocket"></i>
+            <a href="#sales-report" class="side_bar_text"> Sales report</a>
+          </li>
+          <li>
+            <i class="fas fa-users"></i>
+            <a href="#listings" class="side_bar_text">Collective buyings</a>
+          </li>
+          <li>
+            <i class="fas fa-database"></i>
+            <a href="#products" class="side_bar_text">Products</a>
+          </li>
+          <li>
+            <i class="fas fa-inbox"></i>
+            <a href="#settings" class="side_bar_text">Messages</a>
+          </li>
+          <li>
+            <i class="fas fa-cog"></i>
+            <a href="#settings" class="side_bar_text">Settings</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
   </div>
 
 
-  <div class="pt-4 pl-4 ">
-    <h1 id="sales-report"> <strong>Dashboard</strong> </h1>
+    <div class="pt-4 pl-4 ">
+      <h1 id="sales-report"> <strong>Dashboard</strong> </h1>
 
-    <hr>
+      <hr>
 
-    <h2 id="my-purchases">Purchases</h2>
-    <% if @user.purchases.nil? %>
-      <h4>¡Make your first purchase today!</h4>
-      <p>25% discount in your first buy</p>
-    <% else %>
-      <% @user.purchases.each do |purchase| %>
-        <p><%= purchase.quantity %> <strong>untis of</strong> <%= purchase.listing.product.name %></p>
+      <h2 id="my-purchases">Purchases</h2>
+      <% if @user.purchases.nil? %>
+        <h4>¡Make your first purchase today!</h4>
+        <p>25% discount in your first buy</p>
+      <% else %>
+        <% @user.purchases.each do |purchase| %>
+          <p><%= purchase.quantity %> <strong>untis of</strong> <%= purchase.listing.product.name %></p>
+        <% end %>
       <% end %>
-    <% end %>
 
-    <hr>
+      <hr>
 
-    <div class="d-flex">
-      <div class="pr-3">
-        <h3>Sales report</h3>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Redsquare.png" height="248" width="431" alt="">
+      <div class="d-flex">
+        <div class="pr-3">
+          <h3>Sales report</h3>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Redsquare.png" height="248" width="431" alt="">
+        </div>
+        <div>
+          <h3>Top 3 products</h3>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Redsquare.png" height="248" width="346" alt="">
+        </div>
       </div>
+
+      <hr>
+
+      <h2 id="listings"> Collective buyings: </h2>
+      <h3>Open</h3>
+      <% @listings.each do |listing| %>
+        <div>
+          <p><strong>ID:</strong> <%= listing.id %></p>
+          <p><strong>NAME:</strong> <%= listing.product.name %></p>
+          <p><strong>You sold:</strong> <%= listing.quantity_sold %> units.</p>
+          <p><strong>You still have:</strong> <%= listing.quantity_pending %> to sell.</p>
+          <p><strong>The listing goes until :</strong> <%= listing.format_date %></p>
+          <p><%= listing.total_sales %></p>
+        </div>
+      <% end %>
+
+      <hr>
+
       <div>
-        <h3>Top 3 products</h3>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Redsquare.png" height="248" width="346" alt="">
+        <h3>Closed</h3>
+        <% @purchases.each do |purchase| %>
+          <p> <strong><%= purchase.created_at.strftime("%d/%m/%Y")%> / <%= purchase.created_at.strftime("%k:%M") %></strong>   -> <%= purchase.quantity %> <strong> units </strong>of <%= purchase.listing.product.name %> </p>
+        <% end %>
       </div>
-    </div>
 
-    <hr>
+      <hr>
 
-    <h2 id="listings"> Collective buyings: </h2>
-    <h3>Open</h3>
-    <% @listings.each do |listing| %>
       <div>
-        <p><strong>ID:</strong> <%= listing.id %></p>
-        <p><strong>NAME:</strong> <%= listing.product.name %></p>
-        <p><strong>You sold:</strong> <%= listing.quantity_sold %> units.</p>
-        <p><strong>You still have:</strong> <%= listing.quantity_pending %> to sell.</p>
-        <p><strong>The listing goes until :</strong> <%= listing.format_date %></p>
-        <p><%= listing.total_sales %></p>
+        <h2 id="products"> Products </h2>
+        <% @products.each do |product| %>
+          <p>- <%= product.name %> - <%= link_to "See details", product_path(product.id) %> </p>
+        <% end %>
+        <h2><%= link_to "Create a new product", new_product_path  %></h2>
       </div>
-    <% end %>
-
-    <hr>
-
-    <div>
-      <h3>Closed</h3>
-      <% @purchases.each do |purchase| %>
-        <p> <strong><%= purchase.created_at.strftime("%d/%m/%Y")%> / <%= purchase.created_at.strftime("%k:%M") %></strong>   -> <%= purchase.quantity %> <strong> units </strong>of <%= purchase.listing.product.name %> </p>
-      <% end %>
-    </div>
-
-    <hr>
-
-    <div>
-      <h2 id="products"> Products </h2>
-      <% @products.each do |product| %>
-        <p>- <%= product.name %> - <%= link_to "See details", product_path(product.id) %> </p>
-      <% end %>
-      <h2><%= link_to "Create a new product", new_product_path  %></h2>
-    </div>
 
 
-    <h2 id="settings"> These are your current listings: </h2>
-
+      <h2 id="settings"> These are your current listings: </h2>
   </div>
 </div>

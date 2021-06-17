@@ -22,6 +22,48 @@ pablito = User.create!(email: 'pablito@gmail.com', password:'123456')
 
 # PRODUCT
 
+socks = Product.create!(
+  user: ana,
+  name:'Organic Socks',
+  description:'Perfect adaptability to the foot. Embroidered toe cap for increased durability. Two sizes available: 35-40 and 41-46. Adapts to each type of foot',
+  material: 'Organic cotton',
+  impact: '3.0 km of avoided driving emissions, 140 days of drinking water saved and 238.5 light hours saved.',
+  origin: 'Portugal'
+  )
+socks_image_1 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/par-de-calcetines-minimalistas-largos-minimalism-brand-ecologicos-negros-verdesjpg.jpg?v=1592906298')
+socks.photos.attach(io: socks_image_1, filename: 'par-de-calcetines-minimalistas-largos-minimalism-brand-ecologicos-negros-verdesjpg.jpg?v=1592906298', content_type: 'image/jpg')
+puts "socks photo attached: #{socks.photos.attached?}"
+
+socks_image_2 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/Socks-Sostenible-Minimalista-Organica-Minimalism-black.jpg?v=1592906298')
+socks.photos.attach(io: socks_image_2, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black.jpg?v=1592906298', content_type: 'image/jpg')
+puts "socks photo attached: #{socks.photos.attached?}"
+
+socks_image_3 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/Socks-Sostenible-Minimalista-Organica-Minimalism-black-eco_900x.jpg?v=1592906311')
+socks.photos.attach(io: socks_image_3, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black-eco_900x.jpg?v=1592906311', content_type: 'image/jpg')
+puts "socks photo attached: #{socks.photos.attached?}"
+
+
+women_t_shirt = Product.create!(
+  user: ana,
+  name: "Women's Minimalism T-shirt",
+  description:'High quality cotton of 180 grams and 100% combed. Easy ironing. Recommended washing at 30°C. Comfort, durability, quality and everyday use',
+  material: 'Organic cotton',
+  impact: '9.2 km of avoided driving emissions, 323 days of drinking water saved and 376.8 light hours saved.',
+  origin: 'Portugal'
+  )
+
+women_t_shirt_image_1 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/camiseta-gris-frontal-mujer-minimalism-brand_1080x.jpg?v=1595228539')
+women_t_shirt.photos.attach(io: women_t_shirt_image_1, filename: 'camiseta-gris-frontal-mujer-minimalism-brand_1080x.jpg?v=1595228539', content_type: 'image/jpg')
+puts "socks photo attached: #{women_t_shirt.photos.attached?}"
+
+women_t_shirt_image_2 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/camiseta-negra-minimalism-brand-sostenible-organica-mujer-fruta_900x.jpg?v=1595929823')
+women_t_shirt.photos.attach(io: women_t_shirt_image_2, filename: 'camiseta-negra-minimalism-brand-sostenible-organica-mujer-fruta_900x.jpg?v=1595929823', content_type: 'image/jpg')
+puts "socks photo attached: #{women_t_shirt.photos.attached?}"
+
+women_t_shirt_image_3 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/Camiseta-blanca-minimalista-ropa-mujer-organica-sostenible_900x.jpg?v=1595228539')
+women_t_shirt.photos.attach(io: women_t_shirt_image_3, filename: 'Camiseta-blanca-minimalista-ropa-mujer-organica-sostenible_900x.jpg?v=1595228539', content_type: 'image/jpg')
+puts "socks photo attached: #{women_t_shirt.photos.attached?}"
+
 forks = Product.create!(
   user: pablito,
   name:'Wooden forks',
@@ -162,6 +204,24 @@ swab_sale = Listing.create!(
   min_price: 6,
   end_date: Date.today + 30,
   product: swab
+  )
+
+
+women_t_shirt_sale = Listing.create!(
+  stock: 9800,
+  max_price: 17,
+  min_price: 15,
+  end_date: Date.today + 30,
+  product: women_t_shirt
+  )
+
+
+socks_sale = Listing.create!(
+  stock: 12000,
+  max_price: 9,
+  min_price: 6,
+  end_date: Date.today + 30,
+  product: socks
   )
 
 bag_sale = Listing.create!(

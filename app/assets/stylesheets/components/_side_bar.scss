@@ -1,4 +1,40 @@
 .side_bar {
   position: sticky;
   top: 0;
-  }
+}
+
+.side_bar_background {
+  background: $primary-gradient;
+  width: 450px;
+  padding: 25px 0 0 50px;
+}
+
+.side_bar_background hr {
+  color:  white;
+}
+/* not working*/
+
+.side_bar_text {
+  color:  white;
+ }
+
+ .side_bar_text:hover {
+  color:  white;
+  font-weight: bold;
+  text-decoration: none;
+ }
+
+.side_bar_list {
+  list-style-type: none;
+}
+
+.side_bar_list li{
+  color: white;
+  font-size: 22px;
+  padding-bottom: 25px;
+}
+
+
+.fas {
+  color: white;
+}
