@@ -101,7 +101,68 @@ straw.photos.attach(io: straw_image_2, filename: 'Hc5516015b0124a8c8b648f07b87df
 
 puts "Straw photo attached: #{straw.photos.attached?}"
 
+# trini seeds
+
+swab = Product.create!(
+  user: trini,
+  name:'Plastic-free Bamboo Cotton Swabs',
+  description: "A simple change to make your morning routine more eco friendly. Switch to these zero waste, plastic-free, 100% biodegradable cotton swabs with bamboo stems. Bamboo is the world's fastest naturally-renewing resource which is also inherently anti-microbial, anti-fungal and anti-bacterial.",
+  material: 'Biodegradable bamboo, cotton',
+  impact: "The average person disposes of 415 cotton swabs a year. Use these bamboo cotton swabs and save our landfills and oceans from unnecessary single-use plastic. Also the packaged is a compostable kraft paper box.",
+  origin: 'Barcelona'
+  )
+
+swab_image_1 = URI.open('https://cdn.shopify.com/s/files/1/0063/5181/4708/products/bamboo-qtip-cotton-swab_1024x1024.jpg')
+swab_image_2 = URI.open('https://cdn.shopify.com/s/files/1/0063/5181/4708/products/plastic-free-bamboo-cotton-swabs-sustainable-beauty_1024x1024.jpg')
+swab_image_3 = URI.open('https://cdn.shopify.com/s/files/1/0063/5181/4708/products/plastic-free-bamboo-cotton-swabs-sustainable-bath-beauty_1024x1024.jpg')
+swab_image_4 = URI.open('https://cdn.shopify.com/s/files/1/0063/5181/4708/products/plastic-free-bamboo-cotton-swabs-sustainable-bath-beauty-2_1024x1024.jpg')
+swab_image_5 = URI.open('https://cdn.shopify.com/s/files/1/0063/5181/4708/products/plastic-free-bamboo-cotton-swabs-sustainable-bath_1024x1024.jpg')
+swab.photos.attach(io: swab_image_1, filename: 'bamboo-qtip-cotton-swab_1024x1024.jpg', content_type: 'image/jpg')
+swab.photos.attach(io: swab_image_2, filename: 'plastic-free-bamboo-cotton-swabs-sustainable-beauty_1024x1024.jpg', content_type: 'image/jpg')
+swab.photos.attach(io: swab_image_3, filename: 'plastic-free-bamboo-cotton-swabs-sustainable-bath-beauty_1024x1024.jpg', content_type: 'image/jpg')
+swab.photos.attach(io: swab_image_4, filename: 'plastic-free-bamboo-cotton-swabs-sustainable-bath-beauty-2_1024x1024.jpg', content_type: 'image/jpg')
+swab.photos.attach(io: swab_image_5, filename: 'plastic-free-bamboo-cotton-swabs-sustainable-bath_1024x1024.jpg', content_type: 'image/jpg')
+
+puts "Swabs photo attached: #{swab.photos.attached?}"
+
+toothbrush = Product.create!(
+  user: trini,
+  name:'Bamboo toothbrush | 4 pack',
+  description:'Make the change with our bamboo toothbrushes, these are an environment-friendly alternative to a conventional plastic toothbrushes. They are made out of natural moso bamboo, which is one of the fastest growing plants in the world, making it a very sustainable product.',
+  material: 'Moso bamboo',
+  impact: 'Bamboo is the fastest growing plant on earth. So like grass, when you cut it back, it continues to grow - and fast. It is naturally antibacterial which means that there is no need to use fertilisers or pesticides during its cultivation.',
+  origin: 'Indonesia'
+  )
+
+toothbrush_image_1 = URI.open('https://cdn.shopify.com/s/files/1/0141/6190/3673/products/goldrickproduct2020-195_900x.jpg')
+toothbrush_image_2 = URI.open('https://cdn.shopify.com/s/files/1/0141/6190/3673/products/ToothbrushBamboo_900x.jpg')
+toothbrush_image_3 = URI.open('https://cdn.shopify.com/s/files/1/0141/6190/3673/products/Toothbrush_1080x.png')
+toothbrush_image_4 = URI.open('https://cdn.shopify.com/s/files/1/0141/6190/3673/products/Toothbrushpackaging_7c481e09-cd8e-40fd-a1d8-9aedca0cc0d1_900x.jpg')
+toothbrush_image_5 = URI.open('https://cdn.shopify.com/s/files/1/0141/6190/3673/products/goldrickproduct2020-184_e3a39b1d-8e91-4172-b8f9-27cee99e2f83_900x.jpg')
+toothbrush.photos.attach(io: toothbrush_image_1, filename: 'goldrickproduct2020-195_900x.jpg', content_type: 'image/jpg')
+toothbrush.photos.attach(io: toothbrush_image_2, filename: 'ToothbrushBamboo_900x.jpg', content_type: 'image/jpg')
+toothbrush.photos.attach(io: toothbrush_image_3, filename: 'Toothbrush_1080x.png', content_type: 'image/jpg')
+toothbrush.photos.attach(io: toothbrush_image_4, filename: 'Toothbrushpackaging_7c481e09-cd8e-40fd-a1d8-9aedca0cc0d1_900x.jpg', content_type: 'image/jpg')
+toothbrush.photos.attach(io: toothbrush_image_5, filename: 'goldrickproduct2020-184_e3a39b1d-8e91-4172-b8f9-27cee99e2f83_900x.jpg', content_type: 'image/jpg')
+
+puts "Toothbrush photo attached: #{toothbrush.photos.attached?}"
+
 # SALE
+toothbrush_sale = Listing.create!(
+  stock: 8000,
+  max_price: 12,
+  min_price: 8,
+  end_date: Date.today + 30,
+  product: bag
+  )
+
+swab_sale = Listing.create!(
+  stock: 5000,
+  max_price: 8,
+  min_price: 6,
+  end_date: Date.today + 30,
+  product: swab
+  )
 
 bag_sale = Listing.create!(
   stock: 7000,
