@@ -1,14 +1,15 @@
-<div class="container col-8">ç
+<div class="container col-8">
 
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="card-product  d-flex">
-        <% @listings.each do |listing| %>
-          <%= link_to listing_path(listing) do %>
+      <div class="carousel-item active ">
+        <% @top_listings.each do |listing| %>
 
-              <div class="card-img"><img src="https://i.pinimg.com/564x/e7/65/6b/e7656b7854e08d8d8756e1f3fdd95a8e.jpg" />
+          <%= link_to listing_path(listing) do %>
+          <div class="card-product">
+              <div class="card-img">
+                <img src="https://i.pinimg.com/564x/e7/65/6b/e7656b7854e08d8d8756e1f3fdd95a8e.jpg" />
                 <div class="quick-view-title">
                   <a href="#">Quick view</a>
                 </div>
