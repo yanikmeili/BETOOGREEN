@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :listings, only: [ :index, :show] do
     resources :purchases, only: [ :new, :create ]
+    resources :discounts, only: [:new, :create]
   end
 
   resources :purchases, only: [ :show ]

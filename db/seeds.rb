@@ -43,7 +43,7 @@ glasses = Product.create!(
   origin: 'Bilbao'
   )
 glasses_image_1 = URI.open('https://www.theinertia.com/wp-content/uploads/2017/02/norton-point.jpg')
-glasses.photos.attach(io: glasses_image, filename: 'norton-point.jpg', content_type: 'image/jpg')
+glasses.photos.attach(io: glasses_image_1, filename: 'norton-point.jpg', content_type: 'image/jpg')
 glasses_image_2 = URI.open('https://inhabitat.com/wp-content/blogs.dir/1/files/2019/03/9Feb2019_PreciousPlastic_-30main-600x480.jpg')
 glasses.photos.attach(io: glasses_image_2, filename: '9Feb2019_PreciousPlastic_-30main-600x480.jpg', content_type: 'image/jpg')
 puts "glasses photo attached: #{glasses.photos.attached?}"
