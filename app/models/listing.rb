@@ -5,13 +5,13 @@ class Listing < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :global_search,
-    against: [ ],
-    associated_against: {
-      product: [ :name, :description ]
-    },
-    using: {
-      tsearch: { prefix: true }
-    }
+  against: [],
+  associated_against: {
+  product: [:name, :description]
+  },
+  using: {
+  tsearch: { prefix: true }
+  }
 
   # this calculates the amount of units sold
   def quantity_sold
@@ -33,6 +33,7 @@ class Listing < ApplicationRecord
   end
 
   def total_sales
+    #no entiendo eso
     purchases.reduce(0) { |total, purchase| total + (purchase.quantity * current_price) }.round(2)
   end
 
@@ -43,5 +44,7 @@ class Listing < ApplicationRecord
     # crear el array de hash de [{ quantity: 0, price: 0,3 }, { quantity: 2000, price: 02 }, { quantity: 3000, price: 0,15 }
     # lo ordenamos por quantity, de mayor a menor. array.sort(quantity)
     # array.each cuando quantity_sold >= :quantity este es el current_price
+
+    #el current price solamente depende del dicsount
   end
 end
