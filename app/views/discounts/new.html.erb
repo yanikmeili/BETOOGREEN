@@ -1,0 +1,13 @@
+<div class="form_container">
+  <h1 class="text-center">Specify your discounts</h1>
+  <%= simple_form_for [ @listing, @discount] do |f|%>
+    <div class="form-group m-5 p-2">
+      <%= f.input  :quantity, class: 'form-control' %>
+      <%= f.input  :price, class: 'form-control' %>
+    </div>
+
+    <div class="d-flex justify-content-center mb-5">
+      <%= f.submit%>
+    </div>
+  <% end %>
+</div>
