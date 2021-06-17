@@ -1,0 +1,64 @@
+<div class="container col-8">
+
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+    <div class="carousel-inner">
+      <div class="carousel-item active ">
+        <% @top_listings.each do |listing| %>
+
+          <%= link_to listing_path(listing) do %>
+          <div class="card-product">
+              <div class="card-img">
+                <img src="https://i.pinimg.com/564x/e7/65/6b/e7656b7854e08d8d8756e1f3fdd95a8e.jpg" />
+                <div class="quick-view-title">
+                  <a href="#">Quick view</a>
+                </div>
+              </div>
+                <div class="card-body">
+                  <div class="card-top-elements">
+                    <p>UNTIL THE <%= listing.end_date %></p>
+                    <p>€ 10</p>
+                  </div>
+                  <div class="product-info">
+                    <h5 class="mb-3"><strong><%= listing.product.name %></strong></h5>
+                    <% end %>
+                    <h6><%= listing.product.description %></h6>
+                  </div>
+                  <div class="card-bottom-elements">
+                    <a href="#">Join collective buy</a>
+                    <div>
+                      <a href="#">Read more</a>
+                      <i class="fas fa-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+      <div class="carousel-item d-flex">
+
+      </div>
+
+      <div class="carousel-item d-flex">
+
+      </div>
+    </div>
+
+  </div>
+
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+
+
+
+
