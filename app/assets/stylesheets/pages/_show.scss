@@ -1,0 +1,67 @@
+
+h1{
+margin: 15px;
+}
+
+
+.cheat-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "PHOTO-1 PHOTO-2 PHOTO-3"
+    "PHOTO-1 PHOTO-4 PHOTO-5";
+  height: 500px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.text-container{
+  margin-top: 50px;
+}
+
+.photo-left{
+
+  border-radius: 16px 0px 0px 16px;;
+}
+
+.photo-right-top {
+ border-radius: 0px 16px 0px 0px;
+}
+
+.photo-right-bottom{
+border-radius: 0px 0px 16px 0px;
+}
+
+.PHOTO-1 {
+  grid-area: PHOTO-1;
+  border-radius: 16px 16px;;
+  padding: 5px;
+  height: 500px;
+
+}
+.PHOTO-2 {
+  grid-area: PHOTO-2;
+  padding: 5px;
+  height: 250px;
+}
+.PHOTO-3 {
+  grid-area: PHOTO-3;
+  padding: 5px;
+  height: 250px;
+}
+.PHOTO-4 {
+ grid-area: PHOTO-4;
+ padding: 5px;
+ height: 250px;
+}
+.PHOTO-5 {
+  grid-area: PHOTO-5;
+  padding: 5px;
+  height: 250px;
+}

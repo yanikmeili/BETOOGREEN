@@ -1,17 +1,37 @@
 <div class="container col-8">
-  <h1>Listing for</h1>
-  <h2>Name: <%= @listing.product.name %></h2>
-  <div>
-    <% @listing.product.photos.each do |photo| %>
-      <img heigth="300" src="<%= cl_image_path photo.key %>">
-    <% end %>
-    <p>Description: <%= @listing.product.description %></p>
-    <p>Material: <%= @listing.product.material %></p>
-    <p>Impact: <%= @listing.product.impact %></p>
-    <p>Origin: <%= @listing.product.origin %></p>
-    <p>Stock: <%= @listing.stock%></p>
-    <p>End date: <%= @listing.end_date %></p>
+  <h1><%= @listing.product.name %></h1>
+
+  <div class= "cheat-container">
+
+      <div class="PHOTO-1"> <img class = "photo-left" src=" <%= cl_image_path @listing.product.photos.first.key %>"> </div>
+      <div class="PHOTO-2"> <img src=" <%= cl_image_path @listing.product.photos.second.key %>"> </div>
+      <div class="PHOTO-3"> <img class = "photo-right-top" src=" <%= cl_image_path @listing.product.photos.third.key %>"> </div>
+      <div class="PHOTO-4"> <img src=" <%= cl_image_path @listing.product.photos.fourth.key %>"> </div>
+      <div class="PHOTO-5"> <img class = "photo-right-bottom" src=" <%= cl_image_path @listing.product.photos.fifth.key %>"> </div>
   </div>
-  <p><%= link_to "Buy this",  new_listing_purchase_path(@listing) %></p>
-  <p><%= link_to "Go back", listings_path %></p>
+
+
+  <div = class="text-container">
+    <div>
+    <h2>Description:</h2>
+    <p> <%= @listing.product.description %></p>
+     <h2>Origin:</h2>
+    <p><%= @listing.product.origin %></p>
+    </div>
+     <div>
+    <h2>Material:</h2>
+    <p><%= @listing.product.material %></p>
+    <h2>Impact:</h2>
+    <p><%= @listing.product.impact %></p>
+    <h2>Stock:</h2>
+    <p><%= @listing.stock%></p>
+    <h2>End date:</h2>
+    <p><%= @listing.end_date %></p>
+    </div>
+  </div>
+
+  <%= link_to "Go back", listings_path, class: "btn-gradient" %>
+  <%= link_to "Buy this",  new_listing_purchase_path(@listing), class: "btn-gradient" %>
+
 </div>
+
