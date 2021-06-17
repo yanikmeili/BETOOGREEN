@@ -1,8 +1,14 @@
-<div class="container col-8">
-  <h1><%= @listing.product.name %></h1>
 
-  <div class= "cheat-container">
+    <div class="side pt-4 pl-4 ml-auto mr-3">
+       <p><strong> <%= @listing.product.name %></strong></p>
+       <ul>
+        <p>Stock: <%= @listing.stock %> units left</p>
+       </ul>
+     </div>
 
+<div class="main-container col-8">
+
+  <div class= "image-container">
       <div class="PHOTO-1"> <img class = "photo-left" src=" <%= cl_image_path @listing.product.photos.first.key %>"> </div>
       <div class="PHOTO-2"> <img src=" <%= cl_image_path @listing.product.photos.second.key %>"> </div>
       <div class="PHOTO-3"> <img class = "photo-right-top" src=" <%= cl_image_path @listing.product.photos.third.key %>"> </div>
@@ -13,17 +19,21 @@
 
   <div = class="text-container">
     <div class="row1">
-      <h2>Description:</h2>
+      <p><strong>Description:</p></strong>
       <p> <%= @listing.product.description %></p>
-      <h2>Impact:</h2>
+      <p><strong>Impact:</p></strong>
       <p><%= @listing.product.impact %></p>
 
     </div>
     <div class="row2">
-      <p><strong> Material: </strong><%= @listing.product.material %></p>
-      <p><strong>Origin: </strong><%= @listing.product.origin %></p>
-      <p><strong>Stock: </strong><%= @listing.stock%></p>
-      <p><strong>End date: </strong><%= @listing.end_date %></p>
+      <p><strong> Material: </strong></p>
+      <p><%= @listing.product.material %></p>
+      <p><strong>Origin: </strong></p>
+      <p><%= @listing.product.origin %></p>
+      <p><strong>Stock: </strong></p>
+      <p><%= @listing.stock%></p>
+      <p><strong>End date: </strong></p>
+      <p><%= @listing.end_date %></p>
     </div>
   </div>
 
@@ -31,4 +41,3 @@
   <%= link_to "Buy this",  new_listing_purchase_path(@listing), class: "btn-gradient" %>
 
 </div>
-

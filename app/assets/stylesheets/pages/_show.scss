@@ -1,10 +1,21 @@
 
+.main-container{
+left: 70px;
+
+}
+
 h1{
 margin: 15px;
 }
 
+.side {
+  position: sticky;
+  top: 160px;
+  width: 50vh;
+  left: 100px;
+  }
 
-.cheat-container {
+.image-container {
   display: grid;
   grid-template-columns:: 1.5fr 0.8fr 0.7fr;
 
