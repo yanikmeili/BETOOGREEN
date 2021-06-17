@@ -22,16 +22,31 @@ pablito = User.create!(email: 'pablito@gmail.com', password:'123456')
 
 # PRODUCT
 
-toothbrush = Product.create!(
+forks = Product.create!(
   user: pablito,
-  name:'Pure Freshness Toothbrush',
-  description:'The new Pure Freshness Toothbrush is a natural, vegan, eco-friendly and cruelty-free toothbrush made of biodegradable bamboo with Nylon 6 bristles. Bamboo is a flexible and resistant plant which grows very quickly and has antibacterial properties that allow to cultivate it without using toxics. We use Nylon 6 that allow to avoid animal bristles. We like taking care of every detail, so we made a plastic-free and 100% recyclable or compostable packaging for the new Pure Freshness Toothbrush.',
-  impact: 'Conventional toothbrushes are made of different types of plastics so they cannot be recycled and they take more than 400 years to decompose, finally ending up in our oceans, damaging marine life. But we also have good news... We can stop it!',
-  origin: ' Quebec '
+  name:'Wooden forks',
+  description:'Crafted with wook from sustainable forests, this forks can make your picnics in nature as natural as nature itself. Naturaly, it sound good!',
+  material: 'Wood',
+  impact: 'No oil has been used in the extraction of the raw materirals of this product, fabrication or transportations.',
+  origin: 'Nambia'
   )
-toothbrush_image = URI.open('https://www.freshlycosmetics.com/img/cms/Blog/cepillos-dientes-bambu-beneficios-1.jpg')
-toothbrush.photos.attach(io: toothbrush_image, filename: 'cepillos-dientes-bambu-beneficios-1.jpg', content_type: 'image/jpg')
-puts "toothbrush photo attached: #{toothbrush.photos.attached?}"
+forks_image = URI.open('https://images-na.ssl-images-amazon.com/images/I/81gkVenBQ0L._AC_SL1500_.jpg')
+forks.photos.attach(io: forks_image, filename: '81gkVenBQ0L._AC_SL1500_.jpg', content_type: 'image/jpg')
+puts "forks photo attached: #{forks.photos.attached?}"
+
+glasses = Product.create!(
+  user: carlos,
+  name:'Glasses made of recycled bottles',
+  description:'Have a clear vision of the future. With sustainable glass, made out of recycled plastic you can give a glance to the benefits of circular fabrication.',
+  material: 'Reycled PET',
+  impact: 'A trendy yet simple way to reduce the flow of plastic from our economy to the enviroment.',
+  origin: 'Bilbao'
+  )
+glasses_image_1 = URI.open('https://www.theinertia.com/wp-content/uploads/2017/02/norton-point.jpg')
+glasses.photos.attach(io: glasses_image, filename: 'norton-point.jpg', content_type: 'image/jpg')
+glasses_image_2 = URI.open('https://inhabitat.com/wp-content/blogs.dir/1/files/2019/03/9Feb2019_PreciousPlastic_-30main-600x480.jpg')
+glasses.photos.attach(io: glasses_image_2, filename: '9Feb2019_PreciousPlastic_-30main-600x480.jpg', content_type: 'image/jpg')
+puts "glasses photo attached: #{glasses.photos.attached?}"
 
 bag = Product.create!(
   user: trini,
