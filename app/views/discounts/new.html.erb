@@ -1,0 +1,18 @@
+<%= image_tag 'background-yellow-square.png', class: "banner-bg"  %>
+
+<div class="container col-6 mt-5">
+  <div class="form-container">
+    <div class="form-title">
+      <h1 class="text-center mt-3">Specify your discounts</h1>
+    </div>
+      <%= simple_form_for [ @listing, @discount] do |f|%>
+        <div class="form-group mt-5 p-2">
+          <div class="input mx-auto text-center"><%= f.input  :quantity, class: 'form-control' %></div>
+          <div class="input mx-auto text-center"><%= f.input  :price, class: 'form-control' %></div>
+        </div>
+        <div class="button d-flex justify-content-center pb-5">
+        <button href="#" class="btn-gradient mt-3 text-center">Create discount</button>
+        </div>
+    <% end %>
+  </div>
+</div>
