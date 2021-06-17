@@ -1,10 +1,5 @@
+<div class="top-section">
 
-    <div class="side pt-4 pl-4 ml-auto mr-3">
-       <p><strong> <%= @listing.product.name %></strong></p>
-       <ul>
-        <p>Stock: <%= @listing.stock %> units left</p>
-       </ul>
-     </div>
 
 <div class="main-container col-8">
 
@@ -15,6 +10,16 @@
       <div class="PHOTO-4"> <img src=" <%= cl_image_path @listing.product.photos.fourth.key %>"> </div>
       <div class="PHOTO-5"> <img class = "photo-right-bottom" src=" <%= cl_image_path @listing.product.photos.fifth.key %>"> </div>
   </div>
+</div>
+
+  <div class="side ml-auto mr-3">
+    <p><strong> <%= @listing.product.name.upcase %></strong></p>
+    <p>-------------------------------------</p>
+    <p> <strong>Stock:</strong> <%= @listing.stock %> units left</p>
+    <%= link_to "BUY NOW",  new_listing_purchase_path(@listing), class: "btn-gradient" %>
+  </div>
+
+</div>
 
 
   <div = class="text-container">
@@ -37,7 +42,8 @@
     </div>
   </div>
 
-  <%= link_to "Go back", listings_path, class: "btn-gradient" %>
-  <%= link_to "Buy this",  new_listing_purchase_path(@listing), class: "btn-gradient" %>
+<div class="goback"><%= link_to "Go back", listings_path, class: "btn-gradient" %></div>
+
+
 
 </div>

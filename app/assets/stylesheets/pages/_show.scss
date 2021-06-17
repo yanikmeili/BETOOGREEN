@@ -1,19 +1,32 @@
 
 .main-container{
 left: 70px;
+  margin: 40px 0px;
 
 }
+
+
+.top-section {
+  display: flex;
+}
+
+
 
 h1{
 margin: 15px;
 }
 
 .side {
+  align-self: flex-start;
   position: sticky;
-  top: 160px;
-  width: 50vh;
-  left: 100px;
-  }
+  top: 123px;
+  width: 24vw;;
+  right: 56px;
+  margin-top: 40px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  border-radius: 16px;
+    }
 
 .image-container {
   display: grid;
@@ -34,6 +47,7 @@ margin: 15px;
 }
 
 .text-container{
+  margin-left: 123px;
   margin-top: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -89,3 +103,9 @@ border-radius: 0px 0px 16px 0px;
   padding: 5px;
   height: 250px;
 }
+
+
+.goback{
+  margin-left: 123px;
+}
+
