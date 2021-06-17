@@ -1,2 +1,40 @@
 <%= render 'shared/banner' %>
-<%= render 'shared/card' %>
+
+
+<div class="container">
+  <div class="home-page-containers">
+    <h2 class="text-center">How collective buying works</h2>
+    <h5 class="text-center mt-2">Reduce your footprint and <span class="text-gradient">go green</span></h5>
+    <div class="collective-steps d-flex">
+      <div class="icons text-center">
+        <i class="icon far fa-user"></i>
+        <h4 class="mb-3">Find your favorite product</h4>
+        <p>Search through all our sustainable products and find the perfect one for you.</p>
+      </div>
+      <div class="icons text-center">
+        <i class="icon fas fa-users"></i>
+        <h4>Join the collective purchase</h4>
+        <p>Watch the collective buy progress and discover the discounts you can have.</p>
+      </div>
+      <div class="icons text-center">
+        <i class="icon fas fa-leaf"></i>
+        <h4>Enjoy and be more green</h4>
+        <p>Wait until the collective buying ends and get the product delivered to your house.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="home-page-containers">
+  <h2 class="text-center">Best rated products</h2>
+  <div class="d-flex justify-content-center">
+    <%= render 'shared/card'%>
+    <%= render 'shared/card' %>
+    <%= render 'shared/card' %>
+  </div>
+</div>
+
+
+

@@ -1,16 +1,14 @@
 .banner {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
 }
-
 .banner-title {
   font-size: 64px;
   font-weight: bolder;
-  padding: 5rem;
+  padding: 4rem;
   text-shadow:  0px 0px 0px $green, 0px 4px 0 white;
 }
-
 .banner-title span {
   position: relative;
   &:before {
@@ -24,70 +22,50 @@
     border-radius: 16px;
   }
 }
-
 .banner-bg {
-  height: 70vh;
-  width: auto;
+  height: auto;
+  width: 100vw;
   position: absolute;
   top: 0;
   right: 0;
   z-index: -2;
 }
-
-.left-container {
-  max-height: 100%;
-}
-
-.right-container img {
-  max-height: 100%;
+.images-container img {
   object-fit: cover;
   border-radius: 16px;
 }
-
 .top-images, .top-images-right {
   height: 60%;
 }
-
 .bottom-images {
   height: 40%;
 }
-
 .top-images-right-content {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
-
 .top-images-right img {
   width: calc(50% - 1.5rem / 2);
   margin-right: 0.75rem;
-
   &:last-child {
     margin-right: 0;
     margin-left: 0.75rem;
   }
 }
-// .toothbrush {
-//   width: calc(50% - 1.5rem / 2);
-//   margin-right: 0.75rem;
-// }
+
 .toothbrush {
   width: 169px;
   height: 219px;
   margin-left: 36px;
 }
-
 .green-world {
  margin-left: 36px;
 }
-
 .eco-soup {
   height: 90%;
 }
-
 .images-container {
-  height: 60%;
+  height: 90vh;
 }
-
-
 
