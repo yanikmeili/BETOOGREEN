@@ -7,6 +7,14 @@
 
 <%= render 'shared/search-bar'%>
 
+<div class="container col-8 mt-5 mb-5 d-flex justify-content-between">
+  <p>Showing 1–8 of 10 results</p>
+  <div>
+    <img src="images/view_mode.jpg">
+    <a href="#" class="btn-white">Filter <i class="fas fa-angle-down"></i></a>
+    <a href="#" class="btn-white">Sort by <i class="fas fa-angle-down"></i></a>
+  </div>
+</div>
 
 <div class="container col-8 d-flex flex-wrap">
   <% @listings.each do |listing| %>
