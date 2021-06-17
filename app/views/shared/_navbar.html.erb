@@ -3,27 +3,18 @@
   <h3 class="text-gradient navbar-btg">BeTooGreen</h3>
     <% end %>
 
-<!--   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    <%= form_tag listings_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control search-bar" %>
-    <% end %>
-  </button> -->
-
-
-
-
-
-
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav d-flex align-items-center">
       <% if user_signed_in? %>
         <div class="search-box p-3">
-          <button class="btn-search text-gradient"><i class="fas fa-search"></i></button>
-          <input type="text" class="input-search" placeholder="Search...">
+          <%= form_tag listings_path, method: :get do %>
+          <button class="btn-search text-gradient" type="button"><i class="fas fa-search"></i></button>
+            <%= text_field_tag :query,
+              "",
+              class: "input-search",
+              placeholder: "Search..." %>
+          <% end %>
         </div>
         <li class="nav-item text-gradient ml-3 mr-3 p-3">
           <i class="fas fa-shopping-cart" id="cart-decoration"></i>
