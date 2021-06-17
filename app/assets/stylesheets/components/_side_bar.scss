@@ -3,22 +3,31 @@
   top: 0;
 }
 
+.side_bar_user_icon {
+  display: flex;
+  align-items: center;
+}
+
 .side_bar_background {
   background: $primary-gradient;
   width: 450px;
-  padding: 25px 0 0 50px;
+  padding: 25px 0 0 0;
 }
 
 .side_bar_background hr {
   color:  white;
 }
-/* not working*/
 
 .side_bar_text {
   color:  white;
+  font-size: 20px;
  }
 
- .side_bar_text:hover {
+ .side_bar_text_li {
+  color:  white;
+ }
+
+ .side_bar_text_li:hover {
   color:  white;
   font-weight: bold;
   text-decoration: none;
@@ -26,6 +35,7 @@
 
 .side_bar_list {
   list-style-type: none;
+  padding-left: 0;
 }
 
 .side_bar_list li{
@@ -34,7 +44,36 @@
   padding-bottom: 25px;
 }
 
+.side_bar_line {
+  height:1px;
+  border-width:0;
+  color:white;
+  background-color:white;
+}
 
-.fas {
+.side_bar_padding {
+  padding-left: 50px;
+}
+
+.side_bar_white {
   color: white;
+}
+
+.side_bar_link {
+  position: relative;
+}
+
+.side_bar_link:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 4px;
+  height: 0;
+  background: yellow;
+  right: 0;
+  transition: height 0.3s ease;
+}
+
+.side_bar_link:hover:after {
+  height: 100%;
 }
