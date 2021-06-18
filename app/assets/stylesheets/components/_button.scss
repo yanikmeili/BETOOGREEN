@@ -47,16 +47,19 @@
 }
 
 .btn-pages-white {
-  border: solid;
-  border-width: thin;
-  border-color: #d1d1d1;
-  color: #d1d1d1;
-  margin: 1px;
-  font-size: 8px;
-  padding: 16px;
-  border-radius: 46%;
-  background: white;
-  text-decoration: none;
+    border: solid;
+    border-width: thin;
+    border-color: #5C5C5C;
+    color: #5C5C5C;
+    margin: 1px;
+    font-size: 8px;
+    padding: 16px;
+    border-radius: 100px;
+    background: white;
+    text-decoration: none;
+    width: 108px;
+    height: 60px;
+
 
   &:hover {
     text-decoration:none;
@@ -67,3 +70,15 @@
   }
 }
 
+
+
+.btn-white {
+  border: solid;
+  border-width: thin;
+  border-color: #5C5C5C;
+  color: #5C5C5C;
+  padding: 12px 24px;
+  border-radius: 100px;
+  background: white;
+  text-decoration: none;
+ }
