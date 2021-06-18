@@ -40,8 +40,8 @@
 
         <% @listing.discount_bars.each do |bar| %>
           <p> If <%= bar[:limit] %> units are sold, the price will be <%= bar[:next_price] %>€ per unit</p>
-          <p>Sold: <%= bar[:sold] %> /  <%= bar[:limit] %></p>
-          <p>Actual price:  <%= bar[:price] %> </p>
+          <p><strong>Sold: </strong><%= bar[:sold] %> <strong>out of</strong>  <%= bar[:limit] %></p>
+          <p><strong>Actual price:  </strong><%= bar[:price] %> </p>
           <div class="rating-progress-bars py-3">
               <div class="progress">
                 <div class="progress-bar bg-custom" style="width: <%= (bar[:sold] / bar[:limit].to_f ) * 100 %>%;"><%= (bar[:sold] / bar[:limit].to_f ) * 100 %> %</div>
@@ -61,7 +61,7 @@
 
         <%= form_tag new_listing_purchase_path(@listing), method: :get do %>
           <%= number_field_tag 'quantity' %>
-            <button href="#" class="btn-gradient mt-3 text-center">Create discount</button>
+            <button href="#" class="btn-gradient mt-3 text-center">Buy now</button>
         <% end %>
 
 
