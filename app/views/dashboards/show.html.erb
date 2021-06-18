@@ -39,11 +39,6 @@
             <i class="fas side_bar_white fa-lg fa-database"></i>
             <a href="#products" class="side_bar_text_li">Products</a>
           </li>
-          <!-- TODO: evaluar quitar del menú "Messages" porque no hace nada! -->
-          <li class="side_bar_link">
-            <i class="fas side_bar_white fa-lg fa-inbox"></i>
-            <a href="#settings" class="side_bar_text_li">Messages</a>
-          </li>
           <li class="side_bar_link">
             <i class="fas side_bar_white fa-user-cog"></i>
             <a href="#settings" class="side_bar_text_li">Settings</a>
@@ -108,12 +103,12 @@
     <!-- Inicio sales-report -->
     <div class="d-flex">
       <div class="pr-3">
-        <h3 id="sales-report"   >Sales report</h3>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Redsquare.png" height="248" width="431" alt="">
+        <h3 id="sales-report">Sales report</h3>
+        <%= image_tag 'dashboard-graph.jpg', height:248, alt:"You shouldn't see this", style: 'border-radius: 16px' %>
       </div>
       <div>
         <h3>Top 3 products</h3>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Redsquare.png" height="248" width="346" alt="">
+        <%= image_tag 'dashboard-top.jpg', height:248, alt:"You shouldn't see this", style: 'border-radius: 16px' %>
       </div>
     </div>
     <!-- Fin sales-report -->
@@ -131,7 +126,7 @@
         <% if @open_listings.length == 0 %>
         <p><strong>You don't have any open listing!</strong></p>
         <p>Create a new listing today and start grwoing your business while protecting the enviroment.</p>
-        <a href="#products" class="btn-gradient under">Choose a product to list</a>
+        <a href="new_product_listing_path(product.id)" class="btn-gradient under">Choose a product to list</a>
         <% else %>
         <table class="dashboard_table">
           <thead class="dashboard_table_header">
@@ -207,7 +202,10 @@
     <br><br>
 
     <!-- Inicio products -->
-    <h2 id="products">Products</h2>
+    <div class="dashboard-products dashboard-title-and-button">
+      <h2 id="products">Products</h2>
+      <a href="new_product_path" class="btn-gradient under dashboard-title-button">Add a product</a>
+    </div>
     <br>
 
     <!-- <div class="container col-8 d-flex flex-wrap"> -->
@@ -253,15 +251,6 @@
 
       <br><br>
 
-      <!-- Inicio messages -->
-      <div>
-        <h2 id="messages">Messages</h2>
-        <br>
-      </div>
-      <!-- Fin messages -->
-
-      <br><br>
-
       <!-- Inicio settings -->
       <div>
         <h2 id="settings">Settings</h2>
@@ -269,9 +258,23 @@
       </div>
       <!-- Fin settings -->
 
+      <div class="pb-4">
+
+        <form action="#" class="form form-gropu pv-3">
+          <input type="text" placeholder="First name" class="form-control mb-3 ml-0">
+          <input type="text" placeholder="Last name" class="form-control mb-3 ml-0">
+          <input type="text" placeholder="Street name" class="form-control mb-3 ml-0">
+          <input type="integer" placeholder="Door number" class="form-control mb-3 ml-0">
+          <input type="text" placeholder="Floor / Door" class="form-control mb-3 ml-0">
+          <input type="text" placeholder="Postal Code" class="form-control mb-3 ml-0">
+          <input type="text" placeholder="City" class="form-control mb-3 ml-0">
+          <input type="submit" class="btn-gradient under dashboard-title-button" style="width:100%">
+        </form>
+
+      </div>
       <!-- Alt footer inicio -->
+      <hr class="pb-4">
       <div class="text-center dashboard_background">
-        <hr>
         <p>BeTooGreen© - Made in Le Wagon Barcelona with ♡ by BeTooGreen Team</p>
         <a href="mailto:hello@betoogreen.com" style="padding-right:20px">Contact</a>
         <a href="#">Partners</a>

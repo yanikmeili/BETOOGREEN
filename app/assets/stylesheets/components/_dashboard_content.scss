@@ -2,7 +2,16 @@
   z-index: 0;
 }
 
-
 .dashboard-products {
   display: flex;
+}
+
+.dashboard-title-and-button {
+  justify-content:  space-between;
+}
+
+.dashboard-title-button {
+  padding: 8px 24px;
+  align-items:  center;
+
 }
