@@ -1,37 +1,42 @@
-<div class="form_container">
-  <h1 class="text-center">Create your product:</h1>
-  <%= simple_form_for @product do |f|%>
-    <div class="form-group m-5 p-2">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-    </div>
+<%= image_tag 'background-yellow-square.png', class: "banner-bg"  %>
+<div class="container col-6 mt-5">
 
-    <div class="form-group m-5 p-2">
-      <%= f.label :description %>
-      <%= f.text_area :description, class: 'form-control' %>
-    </div>
+  <div class="form-container pt-3">
+    <h1 class="text-center">Create your product:</h1>
+    <h3 class="text-center" style="color: #00997B;">STEP 1</h3>
+    <%= simple_form_for @product do |f|%>
+      <div class="form-group m-5 p-2">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
 
-    <div class="form-group m-5 p-2">
-      <%= f.label :material %>
-      <%= f.text_area :material, class: 'form-control' %>
-    </div>
+      <div class="form-group m-5 p-2">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'form-control' %>
+      </div>
 
-    <div class="form-group m-5 p-2">
-      <%= f.label :impact %>
-      <%= f.text_area :impact, class: 'form-control' %>
-    </div>
+      <div class="form-group m-5 p-2">
+        <%= f.label :material %>
+        <%= f.text_area :material, class: 'form-control' %>
+      </div>
 
-    <div class="form-group m-5 p-2">
-      <%= f.label :origin %>
-      <%= f.text_area :origin, class: 'form-control' %>
-    </div>
+      <div class="form-group m-5 p-2">
+        <%= f.label :impact %>
+        <%= f.text_area :impact, class: 'form-control' %>
+      </div>
 
-    <div class="form-group m-5 p-2">
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-     </div>
+      <div class="form-group m-5 p-2">
+        <%= f.label :origin %>
+        <%= f.text_area :origin, class: 'form-control' %>
+      </div>
 
-    <div class="d-flex justify-content-center mb-5">
-      <%= f.submit%>
-    </div>
-  <% end %>
-</div>
+      <div class="form-group m-5 p-2">
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+       </div>
+
+      <div class="button d-flex justify-content-center pb-5">
+        <button href="#" class="btn-gradient mt-3 text-center">Create product</button>
+      </div>
+    <% end %>
+  </div>
+  </div>
