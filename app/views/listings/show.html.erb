@@ -57,15 +57,10 @@
       <p class="sidep"><strong> <%= @listing.product.name.upcase %></strong></p>
       <p class="sidep"> <strong>Stock:</strong> <%= @listing.quantity_pending %> units left</p>
       <p class="sidep"> <strong>Current price: </strong><%= @listing.current_price %>€ per unit</p>
-
-
         <%= form_tag new_listing_purchase_path(@listing), method: :get do %>
           <%= number_field_tag 'quantity' %>
             <button href="#" class="btn-gradient mt-3 text-center">Buy now</button>
         <% end %>
-
-
-
     </div>
   </div>
 
