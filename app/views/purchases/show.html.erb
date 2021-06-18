@@ -1,1 +1,18 @@
-
+<h1 class="text-center mt-5"><strong><span class="text-gradient"></span></strong></h1>
+<div class="container col-6 mt-5">
+  <div class="form-container pt-3 text-center">
+      <%= @listing.product.name %>
+      <%= simple_form_for [ @listing, @purchase] do |f|%>
+    <div class="form-group m-5 p-2">
+      <%= f.input :quantity, input_html: { value: params[:quantity], class: "input mx-auto" }%>
+      <%= @listing.current_price %>
+      <hr>
+    </div>
+     <p>Your total is:</p> <%= params[:quantity].to_i * @listing.current_price %>
+     <p>Note: You'll be charge for the starting price and we'll refund any discount reached.</p>
+     <div class="button-purchase d-flex mx-auto">
+      <%= f.submit "Purchase", class: "btn-gradient mt-3 btn-block text-center" %>
+     </div>
+      </div>
+  <% end %>
+</div>
