@@ -61,7 +61,9 @@
   <div class="home-carrousel justify-content-center">
     <div class="seller-img">
     <%= image_tag 'seller-photo.png'%>
-    <%= link_to "Create", listings_path, class: "btn-gradient mt-3 btn-block text-center"  %>
+    <div class="seller-button">
+    <%= link_to "Join", new_product_path, class: "btn-gradient mt-3 btn-block text-center"  %>
+    </div>
     </div>
   </div>
 
