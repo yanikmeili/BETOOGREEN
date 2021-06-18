@@ -72,6 +72,10 @@
 
 
 /* Search element */
+*{
+  box-sizing: border-box;
+}
+
 .search-box{
   width: fit-content;
   height: fit-content;
