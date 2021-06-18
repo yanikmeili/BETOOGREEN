@@ -37,25 +37,18 @@
       <div class="discount col-10 pl-0">
         <h1 class="ml-0"><strong>Collective buy progress</strong></h1>
 
-        <% if @listing.discounts.any? %>
-            <% @listing.discounts.each do |discount| %>
-              <p> If <%= discount.quantity %> units are sold, the price will be <%= discount.price %>€ per unit</p>
-              <div class="rating-progress-bars py-3">
-                  <div class="progress">
-                    <div class="progress-bar bg-custom" style="width: <%= @listing.percentage_sold %>%;"><%= @listing.percentage_sold %> %</div>
-                  </div>
+
+        <% @listing.discount_bars.each do |bar| %>
+          <p> If <%= bar[:limit] %> units are sold, the price will be <%= bar[:next_price] %>€ per unit</p>
+          <p><strong>Sold: </strong><%= bar[:sold] %> <strong>out of</strong>  <%= bar[:limit] %></p>
+          <p><strong>Actual price:  </strong><%= bar[:price] %> </p>
+          <div class="rating-progress-bars py-3">
+              <div class="progress">
+                <div class="progress-bar bg-custom" style="width: <%= (bar[:sold] / bar[:limit].to_f ) * 100 %>%;"><%= (bar[:sold] / bar[:limit].to_f ) * 100 %> %</div>
               </div>
-            <% end %>
-
-        <% else %>
-          <p> If <%= @listing.stock %> units are sold, the price will be <%= @listing.min_price%>€ per unit</p>
-        <div class="rating-progress-bars py-3">
-            <div class="progress">
-              <div class="progress-bar bg-custom" style="width: <%= @listing.percentage_sold %>%;"><%= @listing.percentage_sold %> %</div>
-            </div>
-        </div>
-
+          </div>
         <% end %>
+
       </div>
       <p> <strong>Current quantity sold: </strong> <%= @listing.quantity_sold %>  </p>
     </div>
@@ -66,7 +59,7 @@
       <p class="sidep"> <strong>Current price: </strong><%= @listing.current_price %>€ per unit</p>
         <%= form_tag new_listing_purchase_path(@listing), method: :get do %>
           <%= number_field_tag 'quantity' %>
-            <button href="#" class="btn-gradient mt-3 text-center">Create discount</button>
+            <button href="#" class="btn-gradient mt-3 text-center">Buy now</button>
         <% end %>
     </div>
   </div>
