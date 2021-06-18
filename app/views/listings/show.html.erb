@@ -64,14 +64,10 @@
       <p class="sidep"><strong> <%= @listing.product.name.upcase %></strong></p>
       <p class="sidep"> <strong>Stock:</strong> <%= @listing.quantity_pending %> units left</p>
       <p class="sidep"> <strong>Current price: </strong><%= @listing.max_price %>€ per unit</p>
-
-        <%= simple_form_for [ @listing, @purchase] do |f|%>
-            <%= f.input  :quantity, class: 'form-control'%>
-           <button href="#" class="btn-gradient mt-3 text-center">Add to cart</button>
+        <%= form_tag new_listing_purchase_path(@listing), method: :get do %>
+          <%= number_field_tag 'quantity' %>
+            <button href="#" class="btn-gradient mt-3 text-center">Create discount</button>
         <% end %>
-
-
-
     </div>
   </div>
 

@@ -22,3 +22,22 @@
     </div>
 
   </div>
+
+
+</div>
+
+
+
+ <div class="categories d-flex">
+      <p>Product Name & Details</p>
+      <p>Quantity</p>
+      <p>Price</p>
+      <p>Delivery details</p>
+    </div>
+    <div class="cart-info">
+      <%= cl_image_tag @listing.product.photos.first.key %>
+      <%= simple_form_for [ @listing, @purchase] do |f|%>
+      <div class="form-group m-5 p-2">
+        <%= f.input :quantity, input_html: { value: params[:quantity] } %>
+      </div>
+      <% end %>
