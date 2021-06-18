@@ -11,10 +11,10 @@ class DashboardsController < ApplicationController
   private
 
   def set_open
-    @listings.select { |listing| listing.end_date <= Date.today }
+    @listings.select { |listing| listing.end_date >= Date.today }
   end
 
   def set_closed
-    @listings.select { |listing| listing.end_date > Date.today }
+    @listings.select { |listing| listing.end_date < Date.today }
   end
 end

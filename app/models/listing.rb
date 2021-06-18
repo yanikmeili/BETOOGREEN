@@ -29,7 +29,7 @@ class Listing < ApplicationRecord
   end
 
   def end_date_string
-    end_date.strftime('%b %d, %Y')
+    end_date.strftime('%b, %d, %Y')
   end
 
   def total_sales
