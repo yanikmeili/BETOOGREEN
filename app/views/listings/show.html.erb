@@ -30,30 +30,52 @@
           <p><strong>Stock: </strong></p>
           <p><%= @listing.stock%></p>
           <p><strong>End date: </strong></p>
-          <p><%= @listing.end_date %></p>
+          <p><%= @listing.end_date.strftime("%A, %B %dth %Y") %></p>
         </div>
       </div>
 
       <div class="discount col-10 pl-0">
         <h1 class="ml-0"><strong>Collective buy progress</strong></h1>
+
+        <% if @listing.discounts.any? %>
+            <% @listing.discounts.each do |discount| %>
+              <p> If <%= discount.quantity %> units are sold, the price will be <%= discount.price %>€ per unit</p>
+              <div class="rating-progress-bars py-3">
+                  <div class="progress">
+                    <div class="progress-bar bg-custom" style="width: <%= @listing.percentage_sold %>%;"><%= @listing.percentage_sold %> %</div>
+                  </div>
+              </div>
+            <% end %>
+
+        <% else %>
+          <p> If <%= @listing.stock %> units are sold, the price will be <%= @listing.min_price%>€ per unit</p>
         <div class="rating-progress-bars py-3">
             <div class="progress">
               <div class="progress-bar bg-custom" style="width: <%= @listing.percentage_sold %>%;"><%= @listing.percentage_sold %> %</div>
             </div>
         </div>
+
+        <% end %>
       </div>
+      <p> <strong>Current quantity sold: </strong> <%= @listing.quantity_sold %>  </p>
     </div>
 
-    <div class="side col-3">
-      <p><strong> <%= @listing.product.name.upcase %></strong></p>
-      <p>-------------------------------------</p>
-      <p> <strong>Stock:</strong> <%= @listing.stock %> units left</p>
-      <%= link_to "BUY NOW",  new_listing_purchase_path(@listing), class: "btn-gradient" %>
+    <div class="side col-3 justify-content-center" style="text-align: center">
+      <p class="sidep"><strong> <%= @listing.product.name.upcase %></strong></p>
+      <p class="sidep"> <strong>Stock:</strong> <%= @listing.quantity_pending %> units left</p>
+      <p class="sidep"> <strong>Current price: </strong><%= @listing.max_price %>€ per unit</p>
+
+        <%= simple_form_for [ @listing, @purchase] do |f|%>
+            <%= f.input  :quantity, class: 'form-control'%>
+           <button href="#" class="btn-gradient mt-3 text-center">Create discount</button>
+        <% end %>
+
+
+
     </div>
   </div>
 
 </div>
-
 
 
 
