@@ -32,6 +32,6 @@
       <%= cl_image_tag @listing.product.photos.first.key %>
       <%= simple_form_for [ @listing, @purchase] do |f|%>
       <div class="form-group m-5 p-2">
-        <%= f.input  :quantity, class: 'form-control', placeholder: @purchase.quantity%>
+        <%= f.input :quantity, input_html: { value: params[:quantity] } %>
       </div>
       <% end %>
