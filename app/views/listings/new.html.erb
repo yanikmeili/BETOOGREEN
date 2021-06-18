@@ -1,24 +1,29 @@
-<div class="form_container">
-  <h1 class="text-center">How would you like to sell your product:</h1>
-  <%= simple_form_for [@product, @listing] do |f|%>
-    <div class="form-group m-5 p-2">
-      <%= f.input :stock, class: 'form-control' %>
-    </div>
+<%= image_tag 'background-yellow-square.png', class: "banner-bg"  %>
+<div class="container col-6 mt-5">
+  <div class="form-container pt-3">
+    <h1 class="text-center">Set the collective price:</h1>
+    <h3 class="text-center" style="color: #00997B;">STEP 2</h3>
 
-    <div class="form-group m-5 p-2">
-      <%= f.input :max_price, class: 'form-control' %>
-    </div>
+    <%= simple_form_for [@product, @listing] do |f|%>
+      <div class="form-group m-5 p-2">
+        <%= f.input :stock, class: 'form-control' %>
+      </div>
 
-    <div class="form-group m-5 p-2">
-      <%= f.input :min_price, class: 'form-control' %>
-    </div>
+      <div class="form-group m-5 p-2">
+        <%= f.input :max_price, class: 'form-control' %>
+      </div>
 
-    <div class="form-group m-5 p-2">
-      <%= f.input :end_date, class: 'form-control' %>
-    </div>
+      <div class="form-group m-5 p-2">
+        <%= f.input :min_price, class: 'form-control' %>
+      </div>
 
-    <div class="d-flex justify-content-center mb-5">
-      <%= f.submit%>
-    </div>
-  <% end %>
+      <div class="form-group m-5 p-2">
+        <%= f.input :end_date, class: 'form-control' %>
+      </div>
+
+      <div class="button d-flex justify-content-center pb-5">
+        <button href="#" class="btn-gradient mt-3 text-center">Create listing</button>
+      </div>
+    <% end %>
+  </div>
 </div>
