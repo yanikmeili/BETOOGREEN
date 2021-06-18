@@ -1,37 +1,27 @@
+<%= image_tag 'background-yellow-square.png', class: "banner-bg"  %>
+
+<h1 class="text-center mt-5"><strong><span class="text-gradient">Your order</span></strong></h1>
 <div class="container col-6 mt-5">
-  <a href="#"> Back </a>
-  <div class="cart">
-    <div class="cart-top">
-      <div class="categories d-flex">
-        <p>Product Name & Details</p>
-        <p>Quantity</p>
-        <p>Price</p>
-        <p>Delivery details</p>
+  <div class="form-container pt-3 text-center">
+      <%= @listing.product.name %>
+      <p><strong><%= @listing.current_price %> €</strong></p>
+
+      <%= simple_form_for [ @listing, @purchase] do |f|%>
+    <div class="form-group m-5 p-2">
+      <%= f.input :quantity, input_html: { value: params[:quantity], class: "input mx-auto" }%>
+      <hr>
+    </div>
+     <p>Your total is: <strong><%= (params[:quantity].to_i * @listing.current_price).round %> €</strong></p>
+
+     <p class="note">Note: You'll be charge for the starting price and we'll refund any discount reached.</p>
+     <div class="button-purchase d-flex mx-auto">
+      <%= f.submit "Purchase", class: "btn-gradient mt-3 btn-block text-center" %>
+     </div>
       </div>
-
-    </div>
-    <div class="cart-bottom">
-      <%= link_to "Purchase", new_product_path, class: "btn-gradient mt-3 btn-block text-center"  %>
-    </div>
-
-  </div>
-
-
-
+  <% end %>
 </div>
 
 
 
- <div class="categories d-flex">
-      <p>Product Name & Details</p>
-      <p>Quantity</p>
-      <p>Price</p>
-      <p>Delivery details</p>
-    </div>
-    <div class="cart-info">
-      <%= cl_image_tag @listing.product.photos.first.key %>
-      <%= simple_form_for [ @listing, @purchase] do |f|%>
-      <div class="form-group m-5 p-2">
-        <%= f.input :quantity, input_html: { value: params[:quantity] } %>
-      </div>
-      <% end %>
+
+
