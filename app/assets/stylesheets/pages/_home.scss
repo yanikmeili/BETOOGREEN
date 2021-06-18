@@ -1,28 +1,41 @@
 // Specific CSS for your home-page
 .home-page-containers {
-  margin-top: 116px;
-  margin-bottom: 116px;
+  margin-top: 224px;
+  margin-bottom: 224px;
   h2 {
     font-weight: bolder;
   }
   h5 {
-    margin-bottom: inherit;
-
+    margin-bottom: 152px;
   }
 }
 
-.steps {
-    padding: 24px;
-    border-radius: 50%;
-    background: linear-gradient( 253.58deg, #6BE38D 1.55%, #00997B 66.84%);
-    color: white;
-    text-decoration: none;
-  }
+.home-carrousel {
+  margin-top: 122px;
+  margin-bottom: 224px;
+}
+
+.carrousel-title {
+  font-weight: bolder;
+
+}
 
 .icon {
   color: black;
   font-size: 46px;
 }
 
-.collective-steps {
+.step-1 {
+  margin-right: 36px;
+}
+
+.step-2 {
+ margin-right: 36px;
+}
+
+.seller-button {
+  width: 25%;
+  position: relative;
+  bottom: 182px;
+  left: 132px;
 }
