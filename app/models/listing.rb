@@ -28,7 +28,7 @@ class Listing < ApplicationRecord
     ((quantity_sold / stock.to_f) * 100).round
   end
 
-  def format_date
+  def end_date_string
     end_date.strftime('%b %d, %Y')
   end
 

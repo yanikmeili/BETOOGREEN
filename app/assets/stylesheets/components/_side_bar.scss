@@ -1,11 +1,18 @@
 .side_bar {
   position: sticky;
-  top: 0;
+  top: 100px;
 }
 
 .side_bar_user_icon {
   display: flex;
   align-items: center;
+}
+
+.side_bar_user_circle {
+  height:50px;
+  width:50px;
+  border-radius: 50%;
+  background-color:yellow;
 }
 
 .side_bar_background {

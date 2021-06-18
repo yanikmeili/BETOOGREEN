@@ -1,13 +1,13 @@
-<!-- Envuelve todo el contenido -->
-<div class="d-flex mb-4" >
-  <!-- Envuelve side bar -->
-  <div class="side_bar_background">
-    <!-- Envuelve avatar, hello y user-email -->
+<div class="d-flex mb-4 dashboard_background" >
 
+  <!-- Inicio side-bar -->
+  <div class="side_bar_background">
     <div class="side_bar">
+
+      <!-- Div esfera, hello y user-email -->
       <div class="side_bar_user_icon side_bar_padding pt-3">
         <div>
-          <div style="height:50px; width:50px;border-radius: 50%;background-color:yellow;">
+          <div class="side_bar_user_circle">
           </div>
         </div>
 
@@ -19,102 +19,218 @@
 
       <hr class="side_bar_line">
 
+      <!-- Inicio menú -->
       <div class="pt-4 side_bar_padding">
-          <ul class="side_bar_list">
-            <li class="side_bar_link">
-              <i class="fas side_bar_white fa-lg fa-credit-card"></i>
-              <a href="#purchases" class="side_bar_text_li"> Purchases</a>
-            </li>
-            <li class="side_bar_link">
-              <i class="fas side_bar_white fa-lg fa-rocket"></i>
-              <a href="#sales-report" class="side_bar_text_li"> Sales report</a>
-            </li>
-            <li class="side_bar_link">
-              <i class="fas side_bar_white fa-lg fa-users"></i>
-              <a href="#listings" class="side_bar_text_li">Collective buyings</a>
-            </li>
-            <li class="side_bar_link">
-              <i class="fas side_bar_white fa-lg fa-database"></i>
-              <a href="#products" class="side_bar_text_li">Products</a>
-            </li>
-            <li class="side_bar_link">
-              <i class="fas side_bar_white fa-lg fa-inbox"></i>
-              <a href="#settings" class="side_bar_text_li">Messages</a>
-            </li>
-            <li class="side_bar_link">
-              <i class="fas side_bar_white fa-user-cog"></i>
-              <a href="#settings" class="side_bar_text_li">Settings</a>
-            </li>
-          </ul>
+        <ul class="side_bar_list">
+          <li class="side_bar_link">
+            <i class="fas side_bar_white fa-lg fa-credit-card"></i>
+            <a href="#purchases" class="side_bar_text_li"> Purchases</a>
+          </li>
+          <li class="side_bar_link">
+            <i class="fas side_bar_white fa-lg fa-rocket"></i>
+            <a href="#sales-report" class="side_bar_text_li"> Sales report</a>
+          </li>
+          <li class="side_bar_link">
+            <i class="fas side_bar_white fa-lg fa-users"></i>
+            <a href="#collective-buyings" class="side_bar_text_li">Collective buyings</a>
+          </li>
+          <li class="side_bar_link">
+            <i class="fas side_bar_white fa-lg fa-database"></i>
+            <a href="#products" class="side_bar_text_li">Products</a>
+          </li>
+          <!-- TODO: evaluar quitar del menú "Messages" porque no hace nada! -->
+          <li class="side_bar_link">
+            <i class="fas side_bar_white fa-lg fa-inbox"></i>
+            <a href="#settings" class="side_bar_text_li">Messages</a>
+          </li>
+          <li class="side_bar_link">
+            <i class="fas side_bar_white fa-user-cog"></i>
+            <a href="#settings" class="side_bar_text_li">Settings</a>
+          </li>
+        </ul>
       </div>
+      <!-- Fin menú -->
+
     </div>
-
   </div>
+  <!-- Fin side-bar -->
 
+  <!-- Inicio el contenido del dashboard -->
+  <div class="pt-4 pl-5">
+    <h2 class="pt-4"><strong>Dashboard</strong> </h2>
 
-    <div class="pt-4 pl-4 ">
-      <h1 id="sales-report"> <strong>Dashboard</strong> </h1>
+    <br><br>
 
-      <hr>
-
-      <h2 id="my-purchases">Purchases</h2>
-      <% if @user.purchases.nil? %>
-      <h4>¡Make your first purchase today!</h4>
-      <p>25% discount in your first buy</p>
+    <!-- Inicio purchases -->
+    <div>
+      <h2 id="purchases">Purchases</h2>
+      <% if @user.purchases.length == 0 %>
+        <p><strong>There are no purchases in your history!</strong></p>
+        <p>Make your first order today with a 10% discount.</p>
+        <a href="#" class="btn-gradient under">View our partners products</a>
       <% else %>
-      <% @user.purchases.each do |purchase| %>
-      <p><%= purchase.quantity %> <strong>untis of</strong> <%= purchase.listing.product.name %></p>
+        <table class="dashboard_table">
+          <thead class="dashboard_table_header">
+            <tr>
+              <th>ID</th>
+              <th>Product</th>
+              <th>Date</th>
+              <th>Quantity</th>
+              <th>Price per unit</th>
+              <th>Total</th>
+              <th> </th>
+            </tr>
+          </thead>
+          <tfoot>
+
+          </tfoot>
+          <tbody>
+            <% @purchases.each do |purchase| %>
+            <tr>
+              <td class="dashboard_table_grey_text"> <%= purchase.id %> </td>
+              <td> <%= purchase.listing.product.name %> </td>
+              <td> <%= purchase.purchase_date_string %> </td>
+              <td> <%= purchase.quantity %> </td>
+              <td> <%= purchase.listing.current_price %> </td>
+              <td> <%= purchase.total_price %>€ </td>
+              <td> <a href="#"> ··· </a> </td></tr>
+            </tbody>
+            <% end %>
+          </tr>
+        </table>
       <% end %>
-      <% end %>
-
-      <hr>
-
-      <div class="d-flex">
-        <div class="pr-3">
-          <h3>Sales report</h3>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Redsquare.png" height="248" width="431" alt="">
-        </div>
-        <div>
-          <h3>Top 3 products</h3>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Redsquare.png" height="248" width="346" alt="">
-        </div>
-      </div>
-
-      <hr>
-
-      <h2 id="listings"> Collective buyings: </h2>
-      <h3>Open</h3>
-      <% @listings.each do |listing| %>
-      <div>
-        <p><strong>ID:</strong> <%= listing.id %></p>
-        <p><strong>NAME:</strong> <%= listing.product.name %></p>
-        <p><strong>You sold:</strong> <%= listing.quantity_sold %> units.</p>
-        <p><strong>You still have:</strong> <%= listing.quantity_pending %> to sell.</p>
-        <p><strong>The listing goes until :</strong> <%= listing.format_date %></p>
-        <p><%= listing.total_sales %></p>
-      </div>
-      <% end %>
-
-      <hr>
-
-      <div>
-        <h3>Closed</h3>
-        <% @purchases.each do |purchase| %>
-        <p> <strong><%= purchase.created_at.strftime("%d/%m/%Y")%> / <%= purchase.created_at.strftime("%k:%M") %></strong>   -> <%= purchase.quantity %> <strong> units </strong>of <%= purchase.listing.product.name %> </p>
-        <% end %>
-      </div>
-
-      <hr>
-
-      <div>
-        <h2 id="products"> Products </h2>
-        <% @products.each do |product| %>
-        <p>- <%= product.name %> - <%= link_to "See details", product_path(product.id) %> </p>
-        <% end %>
-        <h2><%= link_to "Create a new product", new_product_path  %></h2>
-      </div>
-
-
-      <h2 id="settings"> These are your current listings: </h2>
     </div>
-  </div>
+    <!-- Fin purchases -->
+
+    <br><br>
+
+    <!-- Inicio sales-report -->
+    <div class="d-flex">
+      <div class="pr-3">
+        <h3 id="sales-report"   >Sales report</h3>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Redsquare.png" height="248" width="431" alt="">
+      </div>
+      <div>
+        <h3>Top 3 products</h3>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Redsquare.png" height="248" width="346" alt="">
+      </div>
+    </div>
+    <!-- Fin sales-report -->
+
+    <br><br>
+
+    <!-- Inicio collective -->
+    <div>
+      <h2 id="collective-buyings">Collective buyings</h2>
+      <br>
+
+      <!-- Inicio open -->
+      <div>
+        <h4>Open</h4>
+        <% if @open_listings.length == 0 %>
+          <p><strong>You don't have any open listing!</strong></p>
+          <p>Create a new listing today and start grwoing your business while protecting the enviroment.</p>
+          <a href="#products" class="btn-gradient under">Choose a product to list</a>
+        <% else %>
+          <table class="dashboard_table">
+            <thead class="dashboard_table_header">
+              <tr>
+                <th>ID</th>
+                <th>Product</th>
+                <th>Quantity sold</th>
+                <th>Quantity pending</th>
+                <th>End date</th>
+                <th>Total</th>
+                <th> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @open_listings.each do |listing| %>
+              <tr>
+                <td class="dashboard_table_grey_text"> <%= listing.id %> </td>
+                <td> <%= listing.product.name %> </td>
+                <td> <%= listing.quantity_sold %> </td>
+                <td> <%= listing.quantity_pending %> </td>
+                <td> <%= listing.end_date_string %> </td>
+                <td> <%= listing.total_sales %>€ </td>
+                <td> <a href="#"> ··· </a> </td>
+              </tr>
+            </tbody>
+            <% end %>
+          </table>
+        <% end %>
+      </div>
+      <!-- Fin open -->
+
+      <br><br>
+
+      <!-- Inicio closed -->
+
+      <div>
+        <h4>Closed</h4>
+        <% if @closed_listings.length == 0 %>
+          <p><strong>You don't have any closed listing!</strong></p>
+        <% else %>
+          <table class="dashboard_table">
+            <thead class="dashboard_table_header">
+              <tr>
+                <th>ID</th>
+                <th>Product</th>
+                <th>Quantity sold</th>
+                <th>Quantity pending</th>
+                <th>End date</th>
+                <th>Total</th>
+                <th> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @closed_listings.each do |listing| %>
+              <tr>
+                <td class="dashboard_table_grey_text"> <%= listing.id %> </td>
+                <td> <%= listing.product.name %> </td>
+                <td> <%= listing.quantity_sold %> </td>
+                <td> <%= listing.quantity_pending %> </td>
+                <td> <%= listing.end_date_string %> </td>
+                <td> <%= listing.total_sales %>€ </td>
+                <td> <a href="#"> ··· </a> </td>
+              </tr>
+            </tbody>
+            <% end %>
+          </table>
+        <% end %>
+      </div>
+      <!-- Fin closed -->
+
+      <br><br>
+
+      <!-- Inicio products -->
+      <div>
+        <h2 id="products">Products</h2>
+        <br>
+
+        <!-- CADRS HERE -->
+
+      </div>
+      <!-- Fin products -->
+
+      <br><br>
+
+      <!-- Inicio messages -->
+      <div>
+        <h2 id="messages">Messages</h2>
+        <br>
+      </div>
+      <!-- Fin messages -->
+
+      <br><br>
+
+      <!-- Inicio settings -->
+      <div>
+        <h2 id="settings">Settings</h2>
+        <br>
+      </div>
+      <!-- Fin settings -->
+
+    </div>
+    <!-- Fin contenido del dashboard -->
+</div>

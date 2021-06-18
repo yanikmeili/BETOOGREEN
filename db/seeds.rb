@@ -41,7 +41,6 @@ socks_image_3 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/S
 socks.photos.attach(io: socks_image_3, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black-eco_900x.jpg?v=1592906311', content_type: 'image/jpg')
 puts "socks photo attached: #{socks.photos.attached?}"
 
-
 women_t_shirt = Product.create!(
   user: ana,
   name: "Women's Minimalism T-shirt",
@@ -76,7 +75,7 @@ forks.photos.attach(io: forks_image, filename: '81gkVenBQ0L._AC_SL1500_.jpg', co
 puts "forks photo attached: #{forks.photos.attached?}"
 
 glasses = Product.create!(
-  user: carlos,
+  user: martin,
   name:'Glasses made of recycled bottles',
   description:'Have a clear vision of the future. With sustainable glass, made out of recycled plastic you can give a glance to the benefits of circular fabrication.',
   material: 'Reycled PET',
@@ -267,7 +266,6 @@ sandal_discount = Discount.create!(
   listing: sandal_sale,
   )
 
-
 straw_discount = Discount.create!(
   quantity: 3500,
   price: 0.85,
@@ -295,7 +293,25 @@ bag_purchase = Purchase.create!(
 sandal_purchase = Purchase.create!(
   user: martin,
   listing: sandal_sale,
-  quantity: 4500
+  quantity: 200
+  )
+
+sandal_purchase = Purchase.create!(
+  user: martin,
+  listing: sandal_sale,
+  quantity: 500
+  )
+
+sandal_purchase = Purchase.create!(
+  user: martin,
+  listing: sandal_sale,
+  quantity: 400
+  )
+
+sandal_purchase = Purchase.create!(
+  user: martin,
+  listing: sandal_sale,
+  quantity: 450
   )
 
 cup_purchase = Purchase.create!(
