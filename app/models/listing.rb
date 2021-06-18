@@ -39,13 +39,49 @@ class Listing < ApplicationRecord
   end
 
   def current_price
-    min_price
-    # TODO: Actualizar para que calcule el current price por los descuentos
-    # get quantity_sold
-    # crear el array de hash de [{ quantity: 0, price: 0,3 }, { quantity: 2000, price: 02 }, { quantity: 3000, price: 0,15 }
-    # lo ordenamos por quantity, de mayor a menor. array.sort(quantity)
-    # array.each cuando quantity_sold >= :quantity este es el current_price
-
-    #el current price solamente depende del dicsount
+    price_hash = discount_hash.find { |discount| quantity_sold >= discount[:quantity] }
+    price_hash[:price]
   end
+
+  def discount_hash
+    milestones = [{ quantity: 0, price: max_price }, { quantity: stock, price: min_price }]
+    discounts.each { |discount| milestones << { quantity: discount.quantity, price: discount.price } }
+    milestones.sort_by { |milestone| - milestone[:quantity] }
+  end
+
+  # [{:quantity=>0, :price=>1.0}, {:quantity=>3500, :price=>0.85}, {:quantity=>7000, :price=>0.7}]
+
+  # [ {price: 1, next_price: 0.85, sold: 3500, limit: 3500},
+   # {price: 0.85, next_price: 0.7, sold: 500, limit: 3500} ]
+
+  def discount_bars
+    if discounts.empty?
+      [{price: max_price, next_price: min_price, sold: quantity_sold, limit: stock }]
+    elsif discounts.length == 1
+      discount_sold = discounts[0].quantity <= quantity_sold ? discounts[0].quantity : discounts[0].quantity - quantity_sold
+      last_sold = quantity_sold - discounts[0].quantity < 0 ? 0 : quantity_sold - discounts[0].quantity
+      [
+        {price: max_price, next_price: discounts[0].price, sold: discount_sold, limit: discounts[0].quantity },
+        {price: discounts[0].price, next_price: min_price, sold: last_sold, limit: stock }
+      ]
+    end
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 end
