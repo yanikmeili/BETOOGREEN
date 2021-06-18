@@ -19,7 +19,6 @@ jesus = User.create!(email: 'jesus@gmail.com', password:'123456')
 mohamed = User.create!(email: 'mohamed@gmail.com', password:'123456')
 carlos = User.create!(email: 'carlos@gmail.com', password:'123456')
 pablito = User.create!(email: 'pablito@gmail.com', password:'123456')
-
 # PRODUCT
 
 socks = Product.create!(
