@@ -1,12 +1,37 @@
-<div class="form_container">
-  <h1 class="text-center">How many would you like ?</h1>
-  <%= simple_form_for [ @listing, @purchase] do |f|%>
-    <div class="form-group m-5 p-2">
-      <%= f.input  :quantity, class: 'form-control' %>
+<div class="container col-6 mt-5">
+  <a href="#"> Back </a>
+  <div class="cart">
+    <div class="cart-top">
+      <div class="categories d-flex">
+        <p>Product Name & Details</p>
+        <p>Quantity</p>
+        <p>Price</p>
+        <p>Delivery details</p>
+      </div>
+
+    </div>
+    <div class="cart-bottom">
+      <%= link_to "Purchase", new_product_path, class: "btn-gradient mt-3 btn-block text-center"  %>
     </div>
 
-    <div class="d-flex justify-content-center mb-5">
-      <%= f.submit%>
-    </div>
-  <% end %>
+  </div>
+
+
+
 </div>
+
+
+
+ <div class="categories d-flex">
+      <p>Product Name & Details</p>
+      <p>Quantity</p>
+      <p>Price</p>
+      <p>Delivery details</p>
+    </div>
+    <div class="cart-info">
+      <%= cl_image_tag @listing.product.photos.first.key %>
+      <%= simple_form_for [ @listing, @purchase] do |f|%>
+      <div class="form-group m-5 p-2">
+        <%= f.input  :quantity, class: 'form-control', placeholder: @purchase.quantity%>
+      </div>
+      <% end %>
