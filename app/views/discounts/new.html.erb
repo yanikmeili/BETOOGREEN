@@ -1,11 +1,10 @@
 <%= image_tag 'background-yellow-square.png', class: "banner-bg"  %>
 
 <div class="container col-8 mt-5 mb-5">
-  <div class="form-container">
-    <div class="form-title">
-      <h1 class="text-center mt-3">Specify your discounts</h1>
-    </div>
-
+  <div class="form-title">
+      <h1 class="text-center">Specify your discounts</h1>
+  </div>
+  <div class="form-container pt-3">
     <div class="circles">
       <i class="far fa-circle"></i>
       <i class="far fa-circle"></i>
@@ -13,8 +12,6 @@
       <hr>
       <h4>STEP 3</h4>
     </div>
-
-
       <%= simple_form_for [ @listing, @discount] do |f|%>
           <div class="d-flex align-items-end mt-5">
             <div class="mx-auto"><p>Discount 1</p><%= f.input  :quantity, class: 'form-control' , placeholder: 'Number of units' %></div>
@@ -29,7 +26,7 @@
             <div class="mx-auto"><%= f.input  :price, class: 'form-control' %></div>
           </div>
         <div class="button d-flex justify-content-center pb-5">
-          <button href="#" class="btn-gradient mt-3 text-center">Create discount</button>
+          <button href="#" class="btn-gradient mt-5">Create discount</button>
         </div>
     <% end %>
   </div>

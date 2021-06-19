@@ -1,36 +1,43 @@
 <%= image_tag 'background-yellow-square.png', class: "banner-bg"  %>
 <div class="container col-6 mt-5">
-
+  <div class="form-title">
+    <h1 class="text-center mt-3">Create your product:</h1>
+  </div>
   <div class="form-container pt-3">
-    <h1 class="text-center">Create your product:</h1>
-    <h3 class="text-center" style="color: #00997B;">STEP 1</h3>
+     <div class="circles">
+      <i class="fas fa-circle"></i>
+      <i class="far fa-circle"></i>
+      <i class="far fa-circle"></i>
+      <hr>
+      <h4>STEP 1</h4>
+    </div>
     <%= simple_form_for @product do |f|%>
-      <div class="form-group m-5 p-2">
+      <div class="form-group m-5 px-5">
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control' %>
       </div>
 
-      <div class="form-group m-5 p-2">
+      <div class="form-group m-5 px-5">
         <%= f.label :description %>
         <%= f.text_area :description, class: 'form-control' %>
       </div>
 
-      <div class="form-group m-5 p-2">
+      <div class="form-group m-5 px-5">
         <%= f.label :material %>
         <%= f.text_area :material, class: 'form-control' %>
       </div>
 
-      <div class="form-group m-5 p-2">
+      <div class="form-group m-5 px-5">
         <%= f.label :impact %>
         <%= f.text_area :impact, class: 'form-control' %>
       </div>
 
-      <div class="form-group m-5 p-2">
+      <div class="form-group m-5 px-5">
         <%= f.label :origin %>
         <%= f.text_area :origin, class: 'form-control' %>
       </div>
 
-      <div class="form-group m-5 p-2">
+      <div class="form-group m-5 px-5">
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
        </div>
 
