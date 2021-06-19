@@ -23,12 +23,12 @@
       </div>
 
       <div class="form-group m-5 px-5">
-        <%= f.label :material %>
-        <%= f.text_area :material, class: 'form-control' %>
+        <%= f.input :material, class: 'form-control', :collection => ['Recycled cotton','Reclaimed Wood', 'Recycled Steel', 'Bamboo', 'Recycled Plastic', 'Cork']  %>
       </div>
 
+
       <div class="form-group m-5 px-5">
-        <%= f.label :impact %>
+        <%= f.label 'Positive environmental and social impact' %>
         <%= f.text_area :impact, class: 'form-control' %>
       </div>
 
