@@ -2,16 +2,16 @@
 
 <div class="container col-8 mt-5 mb-5">
   <div class="form-title">
-      <h1 class="text-center">Specify your discounts</h1>
+      <h2 class="text-center">Specify your discounts</h2>
   </div>
   <div class="form-container pt-3">
-
+    <div class="circles">
       <i class="far fa-circle"></i>
       <i class="far fa-circle"></i>
       <i class="fas fa-circle"></i>
       <hr>
       <h4>STEP 3</h4>
-
+    </div>
       <%= simple_form_for [ @listing, @discount] do |f|%>
           <div class="d-flex align-items-end mt-5">
             <div class="mx-auto px-5"><p>Discount 1</p><%= f.input :quantity, placeholder: 'Number of units' %></div>
