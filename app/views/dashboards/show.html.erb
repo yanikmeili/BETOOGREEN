@@ -225,7 +225,7 @@
             <div class="card-top-elements">
               <% if product.listings.any? %>
               <p>UNTIL THE <%= product.listings.last.end_date %></p>
-              <p><%= product.listings.last.current_price %>€</p>
+              <p class="font-weight-bold"><%= product.listings.last.current_price %>€</p>
               <% else %>
               <p>Not listed yet!</p>
               <% end %>

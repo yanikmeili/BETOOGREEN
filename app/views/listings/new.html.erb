@@ -1,23 +1,30 @@
 <%= image_tag 'background-yellow-square.png', class: "banner-bg"  %>
-<div class="container col-6 mt-5">
+ <div class="container col-6 my-5">
+  <div class="form-title mb-3">
+    <h1 class="text-center mt-3">Set collective price:</h1>
+  </div>
   <div class="form-container pt-3">
-    <h1 class="text-center">Set the collective price:</h1>
-    <h3 class="text-center" style="color: #00997B;">STEP 2</h3>
-
+     <div class="circles text-center">
+      <i class="far fa-circle"></i>
+      <i class="fas fa-circle"></i>
+      <i class="far fa-circle"></i>
+      <hr>
+      <h4>STEP 2</h4>
+    </div>
     <%= simple_form_for [@product, @listing] do |f|%>
-      <div class="form-group m-5 p-2">
+      <div class="form-group m-5 px-5">
         <%= f.input :stock, class: 'form-control' %>
       </div>
 
-      <div class="form-group m-5 p-2">
+      <div class="form-group m-5 px-5">
         <%= f.input :max_price, class: 'form-control' %>
       </div>
 
-      <div class="form-group m-5 p-2">
+      <div class="form-group m-5 px-5">
         <%= f.input :min_price, class: 'form-control' %>
       </div>
 
-      <div class="form-group m-5 p-2">
+      <div class="form-group m-5 px-5">
         <%= f.input :end_date, class: 'form-control' %>
       </div>
 
