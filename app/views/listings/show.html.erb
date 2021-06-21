@@ -5,11 +5,17 @@
         <div class="main-container">
 
           <div class= "image-container">
-              <div class="PHOTO-1"> <img class = "photo-left" src=" <%= cl_image_path @listing.product.photos.first.key %>"> </div>
-              <div class="PHOTO-2"> <img class = "photo-left2" src=" <%= cl_image_path @listing.product.photos.second.key %>"> </div>
-              <div class="PHOTO-3"> <img class = "photo-right-top" src=" <%= cl_image_path @listing.product.photos.third.key %>"> </div>
-              <div class="PHOTO-4"> <img class = "photo-right-top2" src=" <%= cl_image_path @listing.product.photos.fourth.key %>"> </div>
-              <div class="PHOTO-5"> <img class = "photo-right-bottom" src=" <%= cl_image_path @listing.product.photos.fifth.key %>"> </div>
+            <% 5.times do |index|  %>
+              <% unless @listing.product.photos[index].nil? %>
+                <div class="PHOTO-<%= index + 1 %>">
+                  <img src="<%= cl_image_path @listing.product.photos[index].key %>">
+                </div>
+              <% else %>
+                <div class="PHOTO-<%= index + 1 %> empty">
+                </div>
+              <% end %>
+            <% end %>
+
           </div>
         </div>
       </div>

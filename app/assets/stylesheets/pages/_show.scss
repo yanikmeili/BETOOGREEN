@@ -68,7 +68,7 @@ margin: 15px;
   grid-template-columns:: 1.5fr 0.8fr 0.7fr;
 
   grid-template-rows: 1fr 1fr;
-  gap: 0px 0px;
+  gap: 5px;
   grid-template-areas:
     "PHOTO-1 PHOTO-2 PHOTO-3"
     "PHOTO-1 PHOTO-4 PHOTO-5";
@@ -99,59 +99,90 @@ margin: 15px;
 
 .row2{
   margin-left: 100px;
-
-}
-
-.photo-left{
-
-  border-radius: 16px 0px 0px 16px;;
-
-}
-.photo-left2{
-
-
-}
-
-.photo-right-top {
- border-radius: 0px 16px 0px 0px;
-
-}
-
-.photo-right-top2 {
-
-}
-
-.photo-right-bottom{
-border-radius: 0px 0px 16px 0px;
-
 }
 
 .PHOTO-1 {
   grid-area: PHOTO-1;
-  border-radius: 16px 16px;
-  padding: 5px;
-  height: 500px;
+
+  // padding: 5px;
+  height: 100%;
+  .empty {
+    border-style: solid;
+    border-width: thin;
+    border-color: rgba(196, 196, 196, 0.67);
+    background-image: url("iconphoto.png");
+    background-size: cover;
+    opacity: 0.5;
+    background-position: center;
+  }
+  img {
+    border-radius: 16px 0px 0px 16px;
+  }
 
 }
 .PHOTO-2 {
   grid-area: PHOTO-2;
-  padding: 5px;
-  height: 250px;
+  // padding: 5px;
+  height: 100%;
+  &.empty {
+    border-style: solid;
+    border-width: thin;
+    border-color: rgba(196, 196, 196, 0.67);
+    background-image: url("iconphoto.png");
+    background-size: cover;
+    opacity: 0.5;
+    background-position: center;
+  }
 }
 .PHOTO-3 {
   grid-area: PHOTO-3;
-  padding: 5px;
-  height: 250px;
+  // padding: 5px;
+  height: 100%;
+  img {
+    border-radius: 0px 16px 0px 0px;
+  }
+   &.empty {
+    border-style: solid;
+    border-width: thin;
+    border-radius: 0px 16px 0px 0px;
+    border-color: rgba(196, 196, 196, 0.67);
+    background-image: url("iconphoto.png");
+    background-size: cover;
+    opacity: 0.5;
+    background-position: center;
+  }
+
 }
 .PHOTO-4 {
  grid-area: PHOTO-4;
- padding: 5px;
- height: 250px;
+ height: 100%;
+ &.empty {
+    border-style: solid;
+    border-width: thin;
+    border-color: rgba(196, 196, 196, 0.67);
+    background-image: url("iconphoto.png");
+    background-size: cover;
+    opacity: 0.5;
+    background-position: center;
+  }
 }
 .PHOTO-5 {
   grid-area: PHOTO-5;
-  padding: 5px;
-  height: 250px;
+  // padding: 5px;
+  height: 100%;
+  img {
+    border-radius: 0px 0px 16px 0px;
+    }
+  &.empty {
+    border-style: solid;
+    border-width: thin;
+    border-radius: 0px 0px 16px 0px;
+    border-color: rgba(196, 196, 196, 0.67);
+    background-image: url("iconphoto.png");
+    background-size: cover;
+    opacity: 0.5;
+    background-position: center;
+  }
 }
 
 
