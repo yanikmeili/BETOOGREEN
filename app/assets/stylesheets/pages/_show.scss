@@ -64,31 +64,17 @@ margin: 15px;
 
 .row2{
   margin-left: 100px;
-
 }
-
-//
-// .photo-left2{
-
-
-// }
-
-//
-
-// .photo-right-top2 {
-
-// }
-
-// .photo-right-bottom{
-
-// }
 
 .PHOTO-1 {
   grid-area: PHOTO-1;
   // padding: 5px;
   height: 100%;
   .empty {
-    background-color: grey;
+    background-color: rgba(196, 196, 196, 0.16);
+    border-style: solid;
+    border-color: rgba(196, 196, 196, 0.67);
+    border-width: thin;
   }
   img {
     border-radius: 16px 0px 0px 16px;
@@ -99,7 +85,10 @@ margin: 15px;
   // padding: 5px;
   height: 100%;
   &.empty {
-    background-color: grey;
+    background-color: rgba(196, 196, 196, 0.16);
+    border-style: solid;
+    border-color: rgba(196, 196, 196, 0.67);
+    border-width: thin;
   }
 }
 .PHOTO-3 {
@@ -110,7 +99,10 @@ margin: 15px;
     border-radius: 0px 16px 0px 0px;
   }
    &.empty {
-    background-color: grey;
+    background-color: rgba(196, 196, 196, 0.16);
+    border-style: solid;
+    border-color: rgba(196, 196, 196, 0.67);
+    border-width: thin;
     border-radius: 0px 16px 0px 0px;
   }
 
@@ -119,7 +111,10 @@ margin: 15px;
  grid-area: PHOTO-4;
  height: 100%;
  &.empty {
-    background-color: grey;
+    background-color: rgba(196, 196, 196, 0.16);
+    border-style: solid;
+    border-color: rgba(196, 196, 196, 0.67);
+    border-width: thin;
   }
 }
 .PHOTO-5 {
@@ -130,7 +125,10 @@ margin: 15px;
     border-radius: 0px 0px 16px 0px;
     }
   &.empty {
-    background-color: grey;
+    background-color: rgba(196, 196, 196, 0.16);
+    border-style: solid;
+    border-color: rgba(196, 196, 196, 0.67);
+    border-width: thin;
     border-radius: 0px 0px 16px 0px;
   }
 }
