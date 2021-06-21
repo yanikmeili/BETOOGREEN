@@ -35,7 +35,7 @@
       </div>
 
       <div class="col-10 pl-0">
-        <h1 class="ml-0"><strong>Collective buy progress</strong></h1>
+        <h1 class="ml-0"><strong>Collective buy</strong></h1>
         <p> <strong>Total current quantity sold: </strong> <%= @listing.quantity_sold %>  </p>
 
 
@@ -52,8 +52,11 @@
               </div>
           </div>
           <p class="soldP"><strong>Sold: </strong><%= bar[:sold] %> <strong>out of</strong>  <%= bar[:limit] %> units</p>
+
           <p class="ifP">▷ If <%= bar[:limit] %> units are sold, the price will be <%= bar[:next_price] %>€ per unit</p>
+
         </div>
+
         <% end %>
       </div>
 
