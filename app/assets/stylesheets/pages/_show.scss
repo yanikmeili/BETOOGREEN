@@ -1,3 +1,22 @@
+
+.side-price-stock{
+font-size: 22px;
+}
+
+
+.round-input{
+  border-radius:16px;
+  border: 1px solid grey;
+  padding-left: 16px;
+  width: 52%;
+  height: 3rem;
+  &:focus {
+    outline: none;
+  }
+
+}
+
+
 .ifP{
   font-size: 13px;
   font-style: italic;

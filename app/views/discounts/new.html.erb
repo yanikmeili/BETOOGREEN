@@ -11,10 +11,15 @@
       <i class="fas fa-circle"></i>
       <hr>
       <h4>STEP 3</h4>
+
+
+        <div>
+          <p> You have a total of <%= @listing.stock %> units </p>
+          <p> The min price is <%= @listing.min_price %>€ and the max price is <%= @listing.max_price %>€ Would you like to add a discount in the middle ? </p>
     </div>
       <%= simple_form_for [ @listing, @discount] do |f|%>
           <div class="d-flex align-items-end mt-5">
-            <div class="mx-auto px-5"><p>Discount 1</p><%= f.input :quantity, placeholder: 'Number of units' %></div>
+            <div class="mx-auto px-5"><%= f.input :quantity, placeholder: 'Number of units' %></div>
 
             <div class=" mx-auto px-5"><%= f.input :price%></div>
 
