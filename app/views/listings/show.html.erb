@@ -40,24 +40,33 @@
         </div>
       </div>
 
-      <div class="discount col-10 pl-0">
-        <h1 class="ml-0"><strong>Collective buy progress</strong></h1>
+      <div class="col-10 pl-0">
+        <h1 class="ml-0"><strong>Collective buy</strong></h1>
+        <p> <strong>Total current quantity sold: </strong> <%= @listing.quantity_sold %>  </p>
 
 
         <% @listing.discount_bars.each do |bar| %>
-          <p> If <%= bar[:limit] %> units are sold, the price will be <%= bar[:next_price] %>€ per unit</p>
-          <p><strong>Sold: </strong><%= bar[:sold] %> <strong>out of</strong>  <%= bar[:limit] %></p>
-          <p><strong>Actual price:  </strong><%= bar[:price] %> </p>
+        <div class="discount col-12 ml-0">
+
+          <div class="initialandnext">
+            <p><strong>Initial price:  </strong><%= bar[:price]%> € </p>
+            <p><strong>Next price:  </strong><%= bar[:next_price]%> €</p>
+          </div>
           <div class="rating-progress-bars py-3">
               <div class="progress">
-                <div class="progress-bar bg-custom" style="width: <%= (bar[:sold] / bar[:limit].to_f ) * 100 %>%;"><%= (bar[:sold] / bar[:limit].to_f ) * 100 %> %</div>
+                <div class="progress-bar gradient-prog" style="width: <%= (bar[:sold] / bar[:limit].to_f ) * 100 %>%;"><%= (bar[:sold] / bar[:limit].to_f ) * 100 %> %</div>
               </div>
           </div>
-        <% end %>
+          <p class="soldP"><strong>Sold: </strong><%= bar[:sold] %> <strong>out of</strong>  <%= bar[:limit] %> units</p>
 
+          <p class="ifP">▷ If <%= bar[:limit] %> units are sold, the price will be <%= bar[:next_price] %>€ per unit</p>
+
+        </div>
+
+        <% end %>
       </div>
-      <p> <strong>Current quantity sold: </strong> <%= @listing.quantity_sold %>  </p>
-    </div>
+
+  </div>
 
     <div class="side col-3 justify-content-center" style="text-align: center">
       <p class="sidep"><strong> <%= @listing.product.name.upcase %></strong></p>

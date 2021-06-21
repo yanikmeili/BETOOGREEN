@@ -1,8 +1,7 @@
 <%= image_tag 'background-yellow-square.png', class: "banner-bg"  %>
  <div class="container col-6 my-5">
   <div class="form-title mb-3">
-    <h1 class="text-center mt-3">Set collective price:</h1>
-  </div>
+    <h1 class="text-center mt-3">Set collective price for your <%= @product.name %> </h1>
   <div class="form-container pt-3">
      <div class="circles text-center">
       <i class="far fa-circle"></i>
@@ -10,6 +9,7 @@
       <i class="far fa-circle"></i>
       <hr>
       <h4>STEP 2</h4>
+
     </div>
     <%= simple_form_for [@product, @listing] do |f|%>
       <div class="form-group m-5 px-5">
