@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
   def index
     # TODO: scope to only show active listings
     # TODO: We can only do one listing for one product at the time

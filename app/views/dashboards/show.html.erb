@@ -14,7 +14,7 @@
 
         <div class="pl-4 side_bar_text">
           <h3>Hello,</h3>
-          <h5><strong> <%= @user.email %></strong></h5>
+          <h5><strong> <%= current_user.short_name %></strong></h5>
         </div>
       </div>
 
@@ -89,7 +89,17 @@
             <td> <%= purchase.quantity %> </td>
             <td> <%= purchase.listing.current_price %> </td>
             <td> <%= purchase.total_price %>€ </td>
-            <td> <a href="#"> ··· </a> </td></tr>
+            <td>
+
+                <div class="dropdown show">
+                  <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    ···
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <%= link_to "View details", product_path(purchase.listing.product), class: 'dropdown-item' %>
+                  </div>
+                </div>
+4            </td>
           </tbody>
           <% end %>
         </tr>
@@ -115,7 +125,7 @@
 
     <br><br>
 
-    <!-- Inicio collective -->
+    <!-- Inicio collective buy -->
     <div>
       <h2 id="collective-buyings">Collective buyings</h2>
       <br>
@@ -149,7 +159,17 @@
               <td> <%= listing.quantity_pending %> </td>
               <td> <%= listing.end_date_string %> </td>
               <td> <%= listing.total_sales %>€ </td>
-              <td> <a href="#"> ··· </a> </td>
+              <td>
+                <div class="dropdown show">
+                  <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    ···
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <%= link_to "New discount", new_listing_discount_path(listing.id), class: 'dropdown-item' %>
+                    <%= link_to "View details", product_path(listing.product), class: 'dropdown-item' %>
+                  </div>
+                </div>
+              </td>
             </tr>
           </tbody>
           <% end %>
@@ -188,7 +208,15 @@
               <td> <%= listing.quantity_pending %> </td>
               <td> <%= listing.end_date_string %> </td>
               <td> <%= listing.total_sales %>€ </td>
-              <td> <a href="#"> ··· </a> </td>
+                <div class="dropdown show">
+                  <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    ···
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <%= link_to "New discount", new_listing_discount_path(listing.id), class: 'dropdown-item' %>
+                    <%= link_to "View details", product_path(listing.product), class: 'dropdown-item' %>
+                  </div>
+                </div>
             </tr>
           </tbody>
           <% end %>
@@ -204,85 +232,86 @@
     <!-- Inicio products -->
     <div class="dashboard-products dashboard-title-and-button">
       <h2 id="products">Products</h2>
-       <%= link_to "Add a product", new_product_path, class: "btn-gradient" %>
+      <%= link_to "Add a product", new_product_path, class: "btn-gradient" %>
     </div>
     <br>
 
-    <!-- <div class="container col-8 d-flex flex-wrap"> -->
-      <div class="dashboard-products">
-        <% @products.each do |product| %>
-        <%= link_to product_path(product.id) do %>
+    <div class="container d-flex flex-wrap">
+        <div class="dashboard-products">
+              <% @products.each do |product| %>
+              <%= link_to product_path(product.id) do %>
+              <div class="card-product m-3">
+               <%= cl_image_tag product.photos.first.key %>
 
-        <div class="card-product m-3">
-          <div class="card-img">
+              <div class="card-img">
+                <div class="quick-view-title">
+                  <a href="#">Quick view</a>
+                </div>
+              </div>
 
-            <%= cl_image_tag product.photos.first.key %>
-            <div class="quick-view-title">
-              <a href="#">Quick view</a>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="card-top-elements">
-              <% if product.listings.any? %>
-              <p>UNTIL THE <%= product.listings.last.end_date %></p>
-              <p class="font-weight-bold"><%= product.listings.last.current_price %>€</p>
-              <% else %>
-              <p>Not listed yet!</p>
-              <% end %>
-            </div>
-            <div class="product-info">
-              <h5 class="mb-3"><strong><%= product.name %></strong></h5>
-              <% end -%>
-              <h6><%= product.description %></h6>
-              <div class="card-bottom-elements">
-                <%= link_to "Create new listing", new_product_listing_path(product.id) %>
-                <div>
-                  <% link_to "Read more", product_path(product.id) %>
-                  <i class="fas fa-arrow-right"></i>
+              <div class="card-body">
+                <div class="card-top-elements">
+                  <% if product.listings.any? %>
+                  <p>UNTIL THE <%= product.listings.last.end_date %></p>
+                  <p class="font-weight-bold"><%= product.listings.last.current_price %>€</p>
+                  <% else %>
+                  <p>Not listed yet!</p>
+                  <% end %>
+                </div>
+                <div class="product-info">
+                  <h5 class="mb-3"><strong><%= product.name %></strong></h5>
+                  <% end -%>
+                  <h6><%= product.description %></h6>
+                  <div class="card-bottom-elements">
+                    <%= link_to "Create new listing", new_product_listing_path(product.id) %>
+                    <div>
+                      <% link_to "Read more", product_path(product.id) %>
+                      <i class="fas fa-arrow-right"></i>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+            <% end %>
+
           </div>
-        </div>
-        <% end %>
-        <!-- </div> -->
-      </div>
-      <!-- Fin products -->
+  </div>
+  <!-- Fin products -->
 
-      <br><br>
+  <br><br>
 
-      <!-- Inicio settings -->
-      <div>
-        <h2 id="settings">Settings</h2>
-        <br>
-      </div>
-      <!-- Fin settings -->
+  <!-- Inicio settings -->
+  <div>
+    <h2 id="settings">Settings</h2>
+    <br>
+  </div>
+  <!-- Fin settings -->
 
-      <div class="pb-4">
+  <div class="pb-4">
 
-        <form action="#" class="form form-gropu pv-3">
-          <input type="text" placeholder="First name" class="form-control mb-3 ml-0">
-          <input type="text" placeholder="Last name" class="form-control mb-3 ml-0">
-          <input type="text" placeholder="Street name" class="form-control mb-3 ml-0">
-          <input type="integer" placeholder="Door number" class="form-control mb-3 ml-0">
-          <input type="text" placeholder="Floor / Door" class="form-control mb-3 ml-0">
-          <input type="text" placeholder="Postal Code" class="form-control mb-3 ml-0">
-          <input type="text" placeholder="City" class="form-control mb-3 ml-0">
-          <input type="submit" value="Update you data" class="btn-gradient under dashboard-title-button" style="width:100%">
-        </form>
-
-      </div>
-
-      <!-- Alt footer inicio -->
-      <hr class="pb-4">
-      <div class="text-center dashboard_background">
-        <p>BeTooGreen© - Made in Le Wagon Barcelona with ♡ by BeTooGreen Team</p>
-        <a href="mailto:hello@betoogreen.com" style="padding-right:20px">Contact</a>
-        <a href="#">Partners</a>
-        <br><br>
-      </div>
-      <!-- Alt foorer fin -->
-    </div>
-    <!-- Fin contenido del dashboard -->
+    <form action="#" class="form form-gropu pv-3">
+      <input type="text" placeholder="First name" class="form-control mb-3 ml-0">
+      <input type="text" placeholder="Last name" class="form-control mb-3 ml-0">
+      <input type="text" placeholder="Street name" class="form-control mb-3 ml-0">
+      <input type="integer" placeholder="Door number" class="form-control mb-3 ml-0">
+      <input type="text" placeholder="Floor / Door" class="form-control mb-3 ml-0">
+      <input type="text" placeholder="Postal Code" class="form-control mb-3 ml-0">
+      <input type="text" placeholder="City" class="form-control mb-3 ml-0">
+      <input type="submit" value="Update your data" class="btn-gradient under dashboard-title-button" style="width:100%">
+    </form>
 
   </div>
+
+  <!-- Alt footer inicio -->
+  <hr class="pb-4">
+  <div class="text-center dashboard_background">
+    <p>BeTooGreen© - Made in Le Wagon Barcelona with ♡ by BeTooGreen Team</p>
+    <a href="mailto:hello@betoogreen.com" style="padding-right:20px">Contact</a>
+    <a href="#">Partners</a>
+    <br><br>
+  </div>
+  <!-- Alt foorer fin -->
+</div>
+<!-- Fin contenido del dashboard -->
+
+</div>

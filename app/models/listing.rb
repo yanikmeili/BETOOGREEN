@@ -33,9 +33,7 @@ class Listing < ApplicationRecord
   end
 
   def total_sales
-    # calculates the total amount ($$$) sold
-    purchases.reduce(0) { |total, purchase| total + (purchase.quantity * current_price) }.round(2)
-    # -> quantity_sold * current_price
+    quantity_sold * current_price
   end
 
   def current_price
@@ -67,22 +65,4 @@ class Listing < ApplicationRecord
       ]
     end
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end

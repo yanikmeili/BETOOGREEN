@@ -4,10 +4,13 @@
 
 .dashboard-products {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .dashboard-title-and-button {
-  justify-content:  space-between;
+  justify-content: space-between;
 }
 
-
+.dashboard-cards-center {
+  justify-content: center;
+}
