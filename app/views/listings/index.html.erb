@@ -18,16 +18,15 @@
 
 <div class="container col-8 d-flex flex-wrap">
   <% @listings.each do |listing| %>
-    <%= link_to listing_path(listing) do %>
-
       <div class="card-product m-3">
-      <div class="card-img">
-
-        <%= cl_image_tag listing.product.photos.first.key %>
-        <div class="quick-view-title">
-          <a href="#">Quick view</a>
+        <div class="card-img">
+          <%= link_to listing_path(listing) do %>
+            <%= cl_image_tag listing.product.photos.first.key %>
+          <% end %>
+          <div>
+            <a class="quick-view-title" data-toggle="modal" data-target="#listing_<%= listing.id %>">Quick view</a>
+          </div>
         </div>
-      </div>
         <div class="card-body">
           <div class="card-top-elements">
             <p>UNTIL THE <%= listing.end_date %></p>
@@ -35,7 +34,6 @@
           </div>
           <div class="product-info">
             <h5 class="mb-3"><strong><%= listing.product.name %></strong></h5>
-          <% end %>
             <h6><%= listing.product.description %></h6>
           </div>
           <div class="card-bottom-elements">
@@ -46,9 +44,28 @@
             </div>
           </div>
         </div>
-    </div>
-<% end %>
+      </div>
 
+      <div class="modal fade" id="listing_<%= listing.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered " role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h6><%= listing.product.description %></h6>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
 </div>
 
 <%= render 'shared/buttons-pages' %>
