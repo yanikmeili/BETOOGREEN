@@ -52,36 +52,19 @@ class Listing < ApplicationRecord
   # [{:quantity=>0, :price=>1.0}, {:quantity=>3500, :price=>0.85}, {:quantity=>7000, :price=>0.7}]
 
   # [ {price: 1, next_price: 0.85, sold: 3500, limit: 3500},
-   # {price: 0.85, next_price: 0.7, sold: 500, limit: 3500} ]
+  # {price: 0.85, next_price: 0.7, sold: 500, limit: 3500} ]
 
   def discount_bars
     if discounts.empty?
-      [{price: max_price, next_price: min_price, sold: quantity_sold, limit: stock }]
+      [{ price: max_price, next_price: min_price, sold: quantity_sold, limit: stock }]
     elsif discounts.length == 1
-      discount_sold = discounts[0].quantity <= quantity_sold ? discounts[0].quantity : discounts[0].quantity - quantity_sold
-      last_sold = quantity_sold - discounts[0].quantity < 0 ? 0 : quantity_sold - discounts[0].quantity
+
+      discount_sold = quantity_sold >= discounts[0].quantity ? discounts[0].quantity :  quantity_sold
+      last_sold = quantity_sold >= discounts[0].quantity ? quantity_sold - discounts[0].quantity : 0
       [
-        {price: max_price, next_price: discounts[0].price, sold: discount_sold, limit: discounts[0].quantity },
-        {price: discounts[0].price, next_price: min_price, sold: last_sold, limit: stock }
+        { price: max_price, next_price: discounts[0].price, sold: discount_sold, limit: discounts[0].quantity },
+        { price: discounts[0].price, next_price: min_price, sold: last_sold, limit: stock }
       ]
     end
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end

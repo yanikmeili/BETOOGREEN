@@ -5,11 +5,17 @@
         <div class="main-container">
 
           <div class= "image-container">
-              <div class="PHOTO-1"> <img class = "photo-left" src=" <%= cl_image_path @listing.product.photos.first.key %>"> </div>
-              <div class="PHOTO-2"> <img class = "photo-left2" src=" <%= cl_image_path @listing.product.photos.second.key %>"> </div>
-              <div class="PHOTO-3"> <img class = "photo-right-top" src=" <%= cl_image_path @listing.product.photos.third.key %>"> </div>
-              <div class="PHOTO-4"> <img class = "photo-right-top2" src=" <%= cl_image_path @listing.product.photos.fourth.key %>"> </div>
-              <div class="PHOTO-5"> <img class = "photo-right-bottom" src=" <%= cl_image_path @listing.product.photos.fifth.key %>"> </div>
+            <% 5.times do |index|  %>
+              <% unless @listing.product.photos[index].nil? %>
+                <div class="PHOTO-<%= index + 1 %>">
+                  <img src="<%= cl_image_path @listing.product.photos[index].key %>">
+                </div>
+              <% else %>
+                <div class="PHOTO-<%= index + 1 %> empty">
+                </div>
+              <% end %>
+            <% end %>
+
           </div>
         </div>
       </div>
@@ -34,24 +40,33 @@
         </div>
       </div>
 
-      <div class="discount col-10 pl-0">
-        <h1 class="ml-0"><strong>Collective buy progress</strong></h1>
+      <div class="col-10 pl-0">
+        <h1 class="ml-0"><strong>Collective buy</strong></h1>
+        <p> <strong>Total current quantity sold: </strong> <%= @listing.quantity_sold %>  </p>
 
 
         <% @listing.discount_bars.each do |bar| %>
-          <p> If <%= bar[:limit] %> units are sold, the price will be <%= bar[:next_price] %>€ per unit</p>
-          <p><strong>Sold: </strong><%= bar[:sold] %> <strong>out of</strong>  <%= bar[:limit] %></p>
-          <p><strong>Actual price:  </strong><%= bar[:price] %> </p>
+        <div class="discount col-12 ml-0">
+
+          <div class="initialandnext">
+            <p><strong>Initial price:  </strong><%= bar[:price]%> € </p>
+            <p><strong>Next price:  </strong><%= bar[:next_price]%> €</p>
+          </div>
           <div class="rating-progress-bars py-3">
               <div class="progress">
-                <div class="progress-bar bg-custom" style="width: <%= (bar[:sold] / bar[:limit].to_f ) * 100 %>%;"><%= (bar[:sold] / bar[:limit].to_f ) * 100 %> %</div>
+                <div class="progress-bar gradient-prog" style="width: <%= (bar[:sold] / bar[:limit].to_f ) * 100 %>%;"><%= (bar[:sold] / bar[:limit].to_f ) * 100 %> %</div>
               </div>
           </div>
-        <% end %>
+          <p class="soldP"><strong>Sold: </strong><%= bar[:sold] %> <strong>out of</strong>  <%= bar[:limit] %> units</p>
 
+          <p class="ifP">▷ If <%= bar[:limit] %> units are sold, the price will be <%= bar[:next_price] %>€ per unit</p>
+
+        </div>
+
+        <% end %>
       </div>
-      <p> <strong>Current quantity sold: </strong> <%= @listing.quantity_sold %>  </p>
-    </div>
+
+  </div>
 
     <div class="side col-3 justify-content-center" style="text-align: center">
       <p class="sidep"><strong> <%= @listing.product.name.upcase %></strong></p>
