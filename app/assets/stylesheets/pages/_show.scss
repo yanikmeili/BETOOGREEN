@@ -1,5 +1,26 @@
+.initialandnext {
 
-.main-container{
+display: flex;
+justify-content: space-between;
+
+}
+
+
+.soldP {
+ text-align: center;
+
+}
+
+.discount {
+  margin: 40px;
+  padding: 20px;
+  border-radius: 16px 16px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+
+.main-container {
 left: 70px;
   margin: 40px 0px;
 
@@ -93,7 +114,7 @@ border-radius: 0px 0px 16px 0px;
 
 .PHOTO-1 {
   grid-area: PHOTO-1;
-  border-radius: 16px 16px;;
+  border-radius: 16px 16px;
   padding: 5px;
   height: 500px;
 
