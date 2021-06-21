@@ -1,10 +1,48 @@
-<p>Name: <%= @product.name %></p>
-<p>Descrpition: <%= @product.description %></p>
-<p>Material: <%= @product.material %></p>
-<p>Impact: <%= @product.impact %></p>
-<p>Origin: <%= @product.origin %></p>
-<% @product.photos.each do |photo| %>
-  <%= cl_image_tag photo.key %>
-<% end %>
-<p><%= link_to "New listing", new_product_listing_path(@product) %></p>
-<p><%= link_to "DASHBOARD", dashboard_path %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-9">
+      <div class="top-section">
+        <div class="main-container">
+
+          <div class= "image-container">
+            <% 5.times do |index|  %>
+              <% unless @product.photos[index].nil? %>
+                <div class="PHOTO-<%= index + 1 %>">
+                  <img src="<%= cl_image_path @product.photos[index].key %>">
+                </div>
+              <% else %>
+                <div class="PHOTO-<%= index + 1 %> empty">
+                </div>
+              <% end %>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+
+      <div = class="text-container">
+        <div class="row1">
+          <p><strong>Description:</p></strong>
+          <p> <%= @product.description %></p>
+          <p><strong>Impact:</p></strong>
+          <p><%= @product.impact %></p>
+
+        </div>
+        <div class="row2">
+          <p><strong> Material: </strong></p>
+          <p><%= @product.material %></p>
+          <p><strong>Origin: </strong></p>
+          <p><%= @product.origin %></p>
+        </div>
+      </div>
+
+
+  </div>
+
+  <div class="side col-3 justify-content-center" style="text-align: center">
+      <p><strong> <%= @product.name.upcase %></strong></p>
+      <%= link_to "New Listing", new_product_listing_path(@product), class:"btn-gradient m-2" %>
+      <%= link_to "Dashboard", dashboard_path(@product), class:"btn-gradient m-2" %>
+  </div>
+</div>
+
