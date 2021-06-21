@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_many :purchases
   has_many :reviews
   has_many :listings, through: :products
+
+    def short_name
+      self.email.split('@')[0].capitalize
+    end
 end
