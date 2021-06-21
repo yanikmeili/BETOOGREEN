@@ -41,7 +41,7 @@
 
         <% @listing.discount_bars.each do |bar| %>
         <div class="discount col-12 ml-0">
-          <p> If <%= bar[:limit] %> units are sold, the price will be <%= bar[:next_price] %>€ per unit</p>
+
           <div class="initialandnext">
             <p><strong>Initial price:  </strong><%= bar[:price]%> € </p>
             <p><strong>Next price:  </strong><%= bar[:next_price]%> €</p>
@@ -52,6 +52,7 @@
               </div>
           </div>
           <p class="soldP"><strong>Sold: </strong><%= bar[:sold] %> <strong>out of</strong>  <%= bar[:limit] %> units</p>
+          <p class="ifP">▷ If <%= bar[:limit] %> units are sold, the price will be <%= bar[:next_price] %>€ per unit</p>
         </div>
         <% end %>
       </div>
