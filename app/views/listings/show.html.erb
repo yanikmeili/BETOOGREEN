@@ -54,7 +54,7 @@
           </div>
           <div class="rating-progress-bars py-3">
               <div class="progress">
-                <div class="progress-bar gradient-prog" style="width: <%= (bar[:sold] / bar[:limit].to_f ) * 100 %>%;"><%= (bar[:sold] / bar[:limit].to_f ) * 100 %> %</div>
+                <div class="progress-bar gradient-prog" style="width: <%= (bar[:sold] / bar[:limit].to_f ) * 100 %>%;"><%= ((bar[:sold] / bar[:limit].to_f ) * 100).round(0) %> %</div>
               </div>
           </div>
           <p class="soldP"><strong>Sold: </strong><%= bar[:sold] %> <strong>out of</strong>  <%= bar[:limit] %> units</p>
@@ -70,10 +70,10 @@
 
     <div class="side col-3 justify-content-center" style="text-align: left">
       <p><strong> <%= @listing.product.name.upcase %></strong></p>
-      <p class="sidep">Stock: <%= @listing.quantity_pending %></p>
-      <p class="sidep"><%= @listing.current_price %>€ per unit</p>
+      <p class="sidep side-price-stock"><%= @listing.current_price %>€</p>
+      <p class="sidep side-price-stock">Stock: <%= @listing.quantity_pending %></p>
         <%= form_tag new_listing_purchase_path(@listing), method: :get do %>
-          <%= number_field_tag 'quantity' %>
+          <%= number_field_tag 'quantity', 0, class:"round-input" %>
             <button href="#" class="btn-gradient mt-3 text-center">Buy now</button>
         <% end %>
     </div>

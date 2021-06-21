@@ -278,11 +278,6 @@ cup_discount_1 = Discount.create!(
   listing: cup_sale,
   )
 
-cup_discount_2 = Discount.create!(
-  quantity: 8000,
-  price: 0.065,
-  listing: cup_sale,
-  )
 
 bag_purchase = Purchase.create!(
   user: pablito,
