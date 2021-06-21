@@ -1,3 +1,11 @@
+.modal-img {
+  width: 50%;
+  border-radius: 16px;
+  margin: 16px;
+}
+
+
+
 .card-product {
   width: 272px;
   height: 412px;
@@ -32,7 +40,7 @@
     top: 0px;
     opacity: 0;
     -webkit-transition: 300ms;
-    border-radius: 16px 0px 16px 0px;
+    border-radius: 16px 16px 0px 0px;
 
     a:hover {
       color: #004d3e;
