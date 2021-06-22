@@ -15,13 +15,13 @@ class Listing < ApplicationRecord
 
   # this calculates the top products sold
   def self.best_sellers
-    listings = self.all
-    listings = listings.map do |listing|
-      listing_hash = listing.as_json
-      listing_hash[:quantity_sold] = listing.quantity_sold
-      listing_hash
-    end
-    listings.sort_by { |listing| - listing[:quantity_sold]}
+    # listings = self.all
+    # listings = listings.map do |listing|
+    #   listing_hash = listing.as_json
+    #   listing_hash[:quantity_sold] = listing.quantity_sold
+    #   listing_hash
+    # end
+    Listing.all.sort_by { |listing| - listing.quantity_sold}.first(9)
   end
 
   # this calculates the amount of units sold
