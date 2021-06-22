@@ -116,11 +116,15 @@
     <div class="d-flex">
       <div class="pr-3">
         <h3 id="sales-report">Sales report</h3>
-        <%= image_tag 'dashboard-graph.jpg', height:248, alt:"You shouldn't see this", style: 'border-radius: 16px' %>
+        <% @products_sorted_by_value.each do |product| %>
+          <p> <%= product.name %></p>
+        <% end %>
       </div>
       <div>
         <h3>Top 3 products</h3>
-        <%= image_tag 'dashboard-top.jpg', height:248, alt:"You shouldn't see this", style: 'border-radius: 16px' %>
+        <% @top_3_products_quantity.each do |product| %>
+          <p> <%= product.name %></p>
+        <% end %>
       </div>
     </div>
     <!-- Fin sales-report -->
@@ -137,7 +141,7 @@
         <h4>Open</h4>
         <% if @open_listings.length == 0 %>
         <p><strong>You don't have any open listing!</strong></p>
-        <p>Create a new listing today and start grwoing your business while protecting the enviroment.</p>
+        <p>Create a new listing today and start growing your business while protecting the enviroment.</p>
         <a href="new_product_listing_path(product.id)" class="btn-gradient under">Choose a product to list</a>
         <% else %>
         <table class="dashboard_table">
