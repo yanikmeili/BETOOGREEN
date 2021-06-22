@@ -13,7 +13,7 @@ class Listing < ApplicationRecord
   tsearch: { prefix: true }
   }
 
-  # this calculates the top products sold
+  # this calculates the top listings sold
   def self.best_sellers
     listings = self.all
     listings = listings.map do |listing|
