@@ -6,10 +6,11 @@
 
           <div class= "image-container">
             <% 5.times do |index|  %>
+
               <% unless @listing.product.photos[index].nil? %>
-                <div class="PHOTO-<%= index + 1 %>">
+                <a href="<%= cl_image_path @listing.product.photos[index].key %>" data-lightbox="productimages" class="example-image-link PHOTO-<%= index + 1 %>">
                   <img src="<%= cl_image_path @listing.product.photos[index].key %>">
-                </div>
+                </a>
               <% else %>
                 <div class="PHOTO-<%= index + 1 %> empty">
                 </div>
@@ -54,11 +55,10 @@
           </div>
           <div class="rating-progress-bars py-3">
               <div class="progress">
-                <div class="progress-bar gradient-prog" style="width: <%= (bar[:sold] / bar[:limit].to_f ) * 100 %>%;"><%= (bar[:sold] / bar[:limit].to_f ) * 100 %> %</div>
+                <div class="progress-bar gradient-prog" style="width: <%= (bar[:sold] / bar[:limit].to_f ) * 100 %>%;"><%= ((bar[:sold] / bar[:limit].to_f ) * 100).round(0) %> %</div>
               </div>
           </div>
           <p class="soldP"><strong>Sold: </strong><%= bar[:sold] %> <strong>out of</strong>  <%= bar[:limit] %> units</p>
-
           <p class="ifP">▷ If <%= bar[:limit] %> units are sold, the price will be <%= bar[:next_price] %>€ per unit</p>
 
         </div>
@@ -68,19 +68,15 @@
 
   </div>
 
-    <div class="side col-3 justify-content-center" style="text-align: center">
-      <p class="sidep"><strong> <%= @listing.product.name.upcase %></strong></p>
-      <p class="sidep"> <strong>Stock:</strong> <%= @listing.quantity_pending %> units left</p>
-      <p class="sidep"> <strong>Current price: </strong><%= @listing.current_price %>€ per unit</p>
+    <div class="side col-3 justify-content-center" style="text-align: left">
+      <p><strong> <%= @listing.product.name.upcase %></strong></p>
+      <p class="sidep side-price-stock"><%= @listing.current_price %>€</p>
+      <p class="sidep side-price-stock">Stock: <%= @listing.quantity_pending %></p>
         <%= form_tag new_listing_purchase_path(@listing), method: :get do %>
-          <%= number_field_tag 'quantity' %>
+          <%= number_field_tag 'quantity', 0, class:"round-input" %>
             <button href="#" class="btn-gradient mt-3 text-center">Buy now</button>
         <% end %>
     </div>
   </div>
 
 </div>
-
-
-
-

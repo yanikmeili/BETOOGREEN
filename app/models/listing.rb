@@ -44,9 +44,7 @@ class Listing < ApplicationRecord
   end
 
   def total_sales
-    # calculates the total amount ($$$) sold
-    purchases.reduce(0) { |total, purchase| total + (purchase.quantity * current_price) }.round(2)
-    # -> quantity_sold * current_price
+    quantity_sold * current_price
   end
 
   def current_price
@@ -68,13 +66,13 @@ class Listing < ApplicationRecord
   def discount_bars
     if discounts.empty?
       [{ price: max_price, next_price: min_price, sold: quantity_sold, limit: stock }]
-    elsif discounts.length == 1
-
+    # elsif discounts.length == 1
+    else
       discount_sold = quantity_sold >= discounts[0].quantity ? discounts[0].quantity :  quantity_sold
       last_sold = quantity_sold >= discounts[0].quantity ? quantity_sold - discounts[0].quantity : 0
       [
         { price: max_price, next_price: discounts[0].price, sold: discount_sold, limit: discounts[0].quantity },
-        { price: discounts[0].price, next_price: min_price, sold: last_sold, limit: stock }
+        { price: discounts[0].price, next_price: min_price, sold: last_sold, limit: stock - discounts[0].quantity }
       ]
     end
   end

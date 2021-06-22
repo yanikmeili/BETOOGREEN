@@ -25,6 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import Glide, { Controls, Breakpoints } from '@glidejs/glide/dist/glide.modular.esm'
+import "lightbox2/dist/js/lightbox";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -42,11 +43,4 @@ document.addEventListener('turbolinks:load', () => {
 
 });
 
-
-// Import of Glide for carousel:
-
-
-
-
-
-
+import "controllers"

@@ -14,7 +14,9 @@
 
         <div class="pl-4 side_bar_text">
           <h3>Hello,</h3>
-          <h5><strong> <%= @user.email %></strong></h5>
+
+          <h5><strong> <%= current_user.short_email %></strong></h5>
+
         </div>
       </div>
 
@@ -99,7 +101,7 @@
                     <%= link_to "View details", product_path(purchase.listing.product), class: 'dropdown-item' %>
                   </div>
                 </div>
-            </td>
+4            </td>
           </tbody>
           <% end %>
         </tr>
