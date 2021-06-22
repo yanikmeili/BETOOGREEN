@@ -146,16 +146,11 @@ socks = Product.create!(
   )
 socks_image_1 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/par-de-calcetines-minimalistas-largos-minimalism-brand-ecologicos-negros-verdesjpg.jpg?v=1592906298')
 socks.photos.attach(io: socks_image_1, filename: 'par-de-calcetines-minimalistas-largos-minimalism-brand-ecologicos-negros-verdesjpg.jpg?v=1592906298', content_type: 'image/jpg')
-attached?}"
-
 socks_image_2 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/Socks-Sostenible-Minimalista-Organica-Minimalism-black.jpg?v=1592906298')
 socks.photos.attach(io: socks_image_2, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black.jpg?v=1592906298', content_type: 'image/jpg')
-attached?}"
-
 socks_image_3 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/Socks-Sostenible-Minimalista-Organica-Minimalism-black-eco_900x.jpg?v=1592906311')
 socks.photos.attach(io: socks_image_3, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black-eco_900x.jpg?v=1592906311', content_type: 'image/jpg')
 puts "socks photo attached: #{socks.photos.attached?}"
-
 
 
 women_t_shirt = Product.create!(
@@ -415,7 +410,67 @@ toiletpaper.photos.attach(io: toiletpaper_image_5, filename: 'REC_TP_5_3x_b1aba1
 puts "toiletpaper photo attached: #{toiletpaper.photos.attached?}"
 
 
+dumptruck = Product.create!(
+  user: trini,
+  name:'Dump Truck',
+  description: "Need help hauling a big load while helping save the planet? The Green Toys Dump Truck is ready to get working. Made from 100% recycled plastic milk containers, this really is the most energy efficient vehicle on this or any planet. The super cool eco-design has a workable dumper and no metal axles.",
+  material: '100% recycled plastic',
+  impact: "Packaged with recycled and recyclable materials, printed with soy inks.",
+  origin: 'USA'
+  )
+
+dumptrack_image_1 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/Dump_Truck_GIF_1024x1024@2x.gif')
+dumptrack_image_2 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/DumpTruck_RePack_20190416_1024x1024@2x.jpg')
+dumptrack_image_3 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/150630_dump_truck_034_110x110@2x.jpg')
+dumptrack_image_4 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/PinkDump_119_110x110@2x.jpg')
+dumptrack_image_5 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/1712305_greentoys_blue_dump_truck_005_110x110@2x.jpg')
+dumptrack.photos.attach(io: dumptrack_image_1, filename: 'Dump_Truck_GIF_1024x1024@2x.gif', content_type: 'image/gif')
+dumptrack.photos.attach(io: dumptrack_image_2, filename: 'DumpTruck_RePack_20190416_1024x1024@2x.jpg', content_type: 'image/jpg')
+dumptrack.photos.attach(io: dumptrack_image_3, filename: '150630_dump_truck_034_110x110@2x.jpg', content_type: 'image/jpg')
+dumptrack.photos.attach(io: dumptrack_image_4, filename: 'PinkDump_119_110x110@2x.jpg', content_type: 'image/jpg')
+dumptrack.photos.attach(io: dumptrack_image_5, filename: '1712305_greentoys_blue_dump_truck_005_110x110@2x.jpg', content_type: 'image/jpg')
+
+puts "dumptrack photo attached: #{dumptrack.photos.attached?}"
+
+tablelinen = Product.create!(
+  user: trini,
+  name:'Recycled Sari Table Linen',
+  description: "Brighten any room with our unique bohemian style upcycled, vibrant color Kantha collection. The collection is handmade in India by artisans who carefully collect pieces of vintage and upcycled fabrics to create elaborate patterns and colors. The result is a truly unique and individual piece for your home.",
+  material: 'Recycled materials',
+  impact: "Each piece is different from the next because they are each hand sewn from the scraps leftover during the process of hand making Indian saris, which is a women’s garment from the Indian subcontinent, that consists of a drape varying from five to nine yards.",
+  origin: 'India'
+  )
+
+tablelinen_image_1 = URI.open('https://www.vivaterra.com/medias/sys_master/images/images/h5b/h5d/10928863871006/V3459-VTSU18-AF3121.jpg')
+tablelinen_image_2 = URI.open('https://www.vivaterra.com/medias/sys_master/images/images/he3/h6e/10928864231454/V3492-VTSU18-CH3250.jpg')
+tablelinen_image_3 = URI.open('https://www.vivaterra.com/medias/sys_master/images/images/h73/h1e/10928863477790/V3459-VTSU18-CH3252.jpg')
+tablelinen_image_4 = URI.open('https://www.vivaterra.com/medias/sys_master/images/images/hf0/hac/10928863543326/V3460-VTSU18-CH3280-DT1.jpg')
+tablelinen_image_5 = URI.open('https://www.vivaterra.com/medias/sys_master/images/images/h49/h86/10928864264222/V3460-VTSU18-CH3199.jpg')
+tablelinen.photos.attach(io: tablelinen_image_1, filename: 'V3459-VTSU18-AF3121.jpg', content_type: 'image/gif')
+tablelinen.photos.attach(io: tablelinen_image_2, filename: 'V3492-VTSU18-CH3250.jpg', content_type: 'image/jpg')
+tablelinen.photos.attach(io: tablelinen_image_3, filename: 'V3459-VTSU18-CH3252.jpg', content_type: 'image/jpg')
+tablelinen.photos.attach(io: tablelinen_image_4, filename: 'V3460-VTSU18-CH3280-DT1.jpg', content_type: 'image/jpg')
+tablelinen.photos.attach(io: tablelinen_image_5, filename: 'V3460-VTSU18-CH3199.jpg', content_type: 'image/jpg')
+
+puts "tablelinen photo attached: #{tablelinen.photos.attached?}"
+
+
 # SALE
+tablelinen_sale = Listing.create!(
+  stock: 250,
+  max_price: 50,
+  min_price: 30,
+  end_date: Date.today + 30,
+  product: tablelinen
+  )
+
+dumptrack_sale = Listing.create!(
+  stock: 5000,
+  max_price: 15,
+  min_price: 9,
+  end_date: Date.today + 30,
+  product: dumptrack
+  )
 
 toiletpaper_sale = Listing.create!(
   stock: 10000,
@@ -455,6 +510,7 @@ dishwash_sale = Listing.create!(
   min_price: 5,
   end_date: Date.today + 30,
   product: dishwash
+  )
 
 
 toilet_paper_sale = Listing.create!(
