@@ -1,5 +1,4 @@
 class PurchasesController < ApplicationController
-
   def show
     @purchase = Purchase.find(params[:id])
   end
@@ -14,7 +13,20 @@ class PurchasesController < ApplicationController
     @purchase.listing = Listing.find(params[:listing_id])
     @purchase.user = current_user
     if @purchase.save!
-      redirect_to purchase_path(@purchase)
+      session = Stripe::Checkout::Session.create(
+        payment_method_types: ['card'],
+        line_items: [{
+          name: @purchase.listing.product.name,
+          images: [Cloudinary::Utils.cloudinary_url(@purchase.listing.product.photos.first.key)],
+          amount: @purchase.amount_cents,
+          currency: 'eur',
+          quantity: 1
+        }],
+        success_url: purchase_url(@purchase),
+        cancel_url: purchase_url(@purchase)
+      )
+      @purchase.update(checkout_session_id: session.id)
+      redirect_to new_purchase_payment_path(@purchase)
     else
       render :new
     end
