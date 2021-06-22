@@ -22,7 +22,18 @@ pablito = User.create!(email: 'pablito@gmail.com', password:'123456')
 
 # PRODUCT
 
+utensil_set = Product.create!(
+  user: ana,
+  name:'Three Piece Utensil Set',
+  description:'Set includes serving spoon, spatula and ladle. Maximum Temperature: 167 Degree Fahrenheit',
+  material: 'Wood plastic composite. BPA Free Polypropylene.',
+  impact: 'Forest Stewardship Council certified wood from plantation pine.',
+  origin: 'England'
+  )
 
+utensil_set_image_1 = URI.open('https://images-na.ssl-images-amazon.com/images/I/71omkIw0D2L._AC_SL1500_.jpg')
+utensil_set.photos.attach(io: utensil_set_image_1, filename: '71omkIw0D2L._AC_SL1500_.jpg', content_type: 'image/jpg')
+puts "socks photo attached: #{utensil_set.photos.attached?}"
 aguaencaja = Product.create!(
   user: yanik,
   name: 'Agua en Caja Mejor',
@@ -135,7 +146,6 @@ pants.photos.attach(io: pants_image_5, filename: 'yogabroek-ruim-ecologisch-zwar
 puts "pants photo attached: #{pants.photos.attached?}"
 
 
-
 socks = Product.create!(
   user: ana,
   name:'Organic Socks',
@@ -144,18 +154,51 @@ socks = Product.create!(
   impact: '3.0 km of avoided driving emissions, 140 days of drinking water saved and 238.5 light hours saved.',
   origin: 'Portugal'
   )
+
 socks_image_1 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/par-de-calcetines-minimalistas-largos-minimalism-brand-ecologicos-negros-verdesjpg.jpg?v=1592906298')
 socks.photos.attach(io: socks_image_1, filename: 'par-de-calcetines-minimalistas-largos-minimalism-brand-ecologicos-negros-verdesjpg.jpg?v=1592906298', content_type: 'image/jpg')
 
 socks_image_2 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/Socks-Sostenible-Minimalista-Organica-Minimalism-black.jpg?v=1592906298')
 socks.photos.attach(io: socks_image_2, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black.jpg?v=1592906298', content_type: 'image/jpg')
 
+io: socks_image_2, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black.jpg?v=1592906298', content_type: 'image/jpg')
 
 socks_image_3 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/Socks-Sostenible-Minimalista-Organica-Minimalism-black-eco_900x.jpg?v=1592906311')
 socks.photos.attach(io: socks_image_3, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black-eco_900x.jpg?v=1592906311', content_type: 'image/jpg')
 puts "socks photo attached: #{socks.photos.attached?}"
 
+coffee_cup = Product.create!(
+  user: ana,
+  name:'Coffee Cup 355ml',
+  description:'Love Coffee, Hate Waste? Billions of disposable coffees cups end up in landfills each year across the globe. Your coffee is important, and so is what you drink it out of. Up until recently, people believed they were doing the right thing by drinking their coffee from a “paper” cup, but that paper is often lined with plastic and makes it almost impossible to recycle, let alone biodegrade. Add to this the plastic of the disposable lid and the single use plastic and waste really starts to add up.',
+  material: 'Made from 100% food-safe silicone.',
+  impact: 'Our reusable coffee cup is light, tough, attractive, very durable and most importantly won’t affect your favourite coffee’s taste.',
+  origin: 'Spain'
+  )
 
+coffee_cup_image_1 = URI.open('https://www.onyalife.com/wp-content/uploads/Red-Coffee-Cup-New.jpg')
+coffee_cup.photos.attach(io: coffee_cup_image_1, filename: 'Red-Coffee-Cup-New.jpg', content_type: 'image/jpg')
+puts "socks photo attached: #{coffee_cup.photos.attached?}"
+
+
+coffee_cup_image_2 = URI.open('https://www.onyalife.com/wp-content/uploads/Black-Coffee-Cup-New.jpg')
+coffee_cup.photos.attach(io: coffee_cup_image_2, filename: 'Black-Coffee-Cup-New.jpg', content_type: 'image/jpg')
+puts "socks photo attached: #{coffee_cup.photos.attached?}"
+
+
+coffee_cup_image_3 = URI.open('https://www.onyalife.com/wp-content/uploads/Purple-Coffee-Cup-New.jpg')
+coffee_cup.photos.attach(io: coffee_cup_image_3, filename: 'Purple-Coffee-Cup-New.jpg', content_type: 'image/jpg')
+puts "socks photo attached: #{coffee_cup.photos.attached?}"
+
+
+coffee_cup_image_4 = URI.open('https://www.onyalife.com/wp-content/uploads/GreyBlue-NEW-Coffee-Cup-1.jpg')
+coffee_cup.photos.attach(io: coffee_cup_image_4, filename: 'GreyBlue-NEW-Coffee-Cup-1.jpg', content_type: 'image/jpg')
+puts "socks photo attached: #{coffee_cup.photos.attached?}"
+
+
+coffee_cup_image_5 = URI.open('https://www.onyalife.com/wp-content/uploads/Purple-Coffee-Cup-New.jpg')
+coffee_cup.photos.attach(io: coffee_cup_image_5, filename: 'Purple-Coffee-Cup-New.jpg', content_type: 'image/jpg')
+puts "socks photo attached: #{coffee_cup.photos.attached?}"
 
 women_t_shirt = Product.create!(
   user: ana,
@@ -414,7 +457,81 @@ toiletpaper.photos.attach(io: toiletpaper_image_5, filename: 'REC_TP_5_3x_b1aba1
 puts "toiletpaper photo attached: #{toiletpaper.photos.attached?}"
 
 
-# SALE
+dumptruck = Product.create!(
+  user: trini,
+  name:'Dump Truck',
+  description: "Need help hauling a big load while helping save the planet? The Green Toys Dump Truck is ready to get working. Made from 100% recycled plastic milk containers, this really is the most energy efficient vehicle on this or any planet. The super cool eco-design has a workable dumper and no metal axles.",
+  material: '100% recycled plastic',
+  impact: "Packaged with recycled and recyclable materials, printed with soy inks.",
+  origin: 'USA'
+  )
+
+dumptruck_image_1 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/Dump_Truck_GIF_1024x1024@2x.gif')
+dumptruck_image_2 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/DumpTruck_RePack_20190416_1024x1024@2x.jpg')
+dumptruck_image_3 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/150630_dump_truck_034_110x110@2x.jpg')
+dumptruck_image_4 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/PinkDump_119_110x110@2x.jpg')
+dumptruck_image_5 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/1712305_greentoys_blue_dump_truck_005_110x110@2x.jpg')
+dumptruck.photos.attach(io: dumptruck_image_1, filename: 'Dump_Truck_GIF_1024x1024@2x.gif', content_type: 'image/gif')
+dumptruck.photos.attach(io: dumptruck_image_2, filename: 'DumpTruck_RePack_20190416_1024x1024@2x.jpg', content_type: 'image/jpg')
+dumptruck.photos.attach(io: dumptruck_image_3, filename: '150630_dump_truck_034_110x110@2x.jpg', content_type: 'image/jpg')
+dumptruck.photos.attach(io: dumptruck_image_4, filename: 'PinkDump_119_110x110@2x.jpg', content_type: 'image/jpg')
+dumptruck.photos.attach(io: dumptruck_image_5, filename: '1712305_greentoys_blue_dump_truck_005_110x110@2x.jpg', content_type: 'image/jpg')
+
+puts "dumptruck photo attached: #{dumptruck.photos.attached?}"
+
+tablelinen = Product.create!(
+  user: trini,
+  name:'Recycled Sari Table Linen',
+  description: "Brighten any room with our unique bohemian style upcycled, vibrant color Kantha collection. The collection is handmade in India by artisans who carefully collect pieces of vintage and upcycled fabrics to create elaborate patterns and colors. The result is a truly unique and individual piece for your home.",
+  material: 'Recycled materials',
+  impact: "Each piece is different from the next because they are each hand sewn from the scraps leftover during the process of hand making Indian saris, which is a women’s garment from the Indian subcontinent, that consists of a drape varying from five to nine yards.",
+  origin: 'India'
+  )
+
+tablelinen_image_1 = URI.open('https://www.vivaterra.com/medias/sys_master/images/images/h5b/h5d/10928863871006/V3459-VTSU18-AF3121.jpg')
+tablelinen_image_2 = URI.open('https://www.vivaterra.com/medias/sys_master/images/images/he3/h6e/10928864231454/V3492-VTSU18-CH3250.jpg')
+tablelinen_image_3 = URI.open('https://www.vivaterra.com/medias/sys_master/images/images/h73/h1e/10928863477790/V3459-VTSU18-CH3252.jpg')
+tablelinen_image_4 = URI.open('https://www.vivaterra.com/medias/sys_master/images/images/hf0/hac/10928863543326/V3460-VTSU18-CH3280-DT1.jpg')
+tablelinen_image_5 = URI.open('https://www.vivaterra.com/medias/sys_master/images/images/h49/h86/10928864264222/V3460-VTSU18-CH3199.jpg')
+tablelinen.photos.attach(io: tablelinen_image_1, filename: 'V3459-VTSU18-AF3121.jpg', content_type: 'image/gif')
+tablelinen.photos.attach(io: tablelinen_image_2, filename: 'V3492-VTSU18-CH3250.jpg', content_type: 'image/jpg')
+tablelinen.photos.attach(io: tablelinen_image_3, filename: 'V3459-VTSU18-CH3252.jpg', content_type: 'image/jpg')
+tablelinen.photos.attach(io: tablelinen_image_4, filename: 'V3460-VTSU18-CH3280-DT1.jpg', content_type: 'image/jpg')
+tablelinen.photos.attach(io: tablelinen_image_5, filename: 'V3460-VTSU18-CH3199.jpg', content_type: 'image/jpg')
+
+puts "tablelinen photo attached: #{tablelinen.photos.attached?}"
+
+utensil_set = Listing.create!(
+  stock: 12000,
+  max_price: 14,
+  min_price: 9,
+  end_date: Date.today + 45,
+  product: utensil_set
+  )
+
+coffee_cup = Listing.create!(
+  stock: 13450,
+  max_price: 1.99,
+  min_price: 0.75,
+  end_date: Date.today + 30,
+  product: coffee_cup
+  )
+
+tablelinen_sale = Listing.create!(
+  stock: 250,
+  max_price: 50,
+  min_price: 30,
+  end_date: Date.today + 30,
+  product: tablelinen
+  )
+
+dumptruck_sale = Listing.create!(
+  stock: 5000,
+  max_price: 15,
+  min_price: 9,
+  end_date: Date.today + 30,
+  product: dumptruck
+  )
 
 toiletpaper_sale = Listing.create!(
   stock: 10000,
@@ -548,6 +665,47 @@ straw_sale = Listing.create!(
   product: straw
   )
 
+coffee_cup = Discount.create!(
+  quantity: 3500,
+  price: 1,
+  listing: coffee_cup,
+  )
+
+bag_discount = Discount.create!(
+  quantity: 4000,
+  price: 15,
+  listing: bag_sale,
+  )
+
+utensil_set  = Discount.create!(
+  quantity: 2550,
+  price: 12,
+  listing: utensil_set,
+  )
+
+sandal_discount = Discount.create!(
+  quantity: 4000,
+  price: 7,
+  listing: sandal_sale,
+  )
+
+straw_discount = Discount.create!(
+  quantity: 3500,
+  price: 0.85,
+  listing: straw_sale,
+  )
+
+cup_discount_1 = Discount.create!(
+  quantity: 4000,
+  price: 0.09,
+  listing: cup_sale,
+  )
+
+cup_discount_2 = Discount.create!(
+  quantity: 8000,
+  price: 0.065,
+  listing: cup_sale,
+  )
 
 bag_purchase = Purchase.create!(
   user: pablito,
