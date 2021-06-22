@@ -172,29 +172,29 @@ coffee_cup = Product.create!(
   origin: 'Spain'
   )
 
-coffe_cup_image_1 = URI.open('https://www.onyalife.com/wp-content/uploads/Red-Coffee-Cup-New.jpg')
-coffe_cup.photos.attach(io: coffe_cup_image_1, filename: 'Red-Coffee-Cup-New.jpg', content_type: 'image/jpg')
-puts "socks photo attached: #{coffe_cup.photos.attached?}"
+coffee_cup_image_1 = URI.open('https://www.onyalife.com/wp-content/uploads/Red-Coffee-Cup-New.jpg')
+coffee_cup.photos.attach(io: coffee_cup_image_1, filename: 'Red-Coffee-Cup-New.jpg', content_type: 'image/jpg')
+puts "socks photo attached: #{coffee_cup.photos.attached?}"
 
 
-coffe_cup_image_2 = URI.open('https://www.onyalife.com/wp-content/uploads/Black-Coffee-Cup-New.jpg')
-coffe_cup.photos.attach(io: coffe_cup_image_2, filename: 'Black-Coffee-Cup-New.jpg', content_type: 'image/jpg')
-puts "socks photo attached: #{coffe_cup.photos.attached?}"
+coffee_cup_image_2 = URI.open('https://www.onyalife.com/wp-content/uploads/Black-Coffee-Cup-New.jpg')
+coffee_cup.photos.attach(io: coffee_cup_image_2, filename: 'Black-Coffee-Cup-New.jpg', content_type: 'image/jpg')
+puts "socks photo attached: #{coffee_cup.photos.attached?}"
 
 
-coffe_cup_image_3 = URI.open('https://www.onyalife.com/wp-content/uploads/Purple-Coffee-Cup-New.jpg')
-coffe_cup.photos.attach(io: coffe_cup_image_3, filename: 'Purple-Coffee-Cup-New.jpg', content_type: 'image/jpg')
-puts "socks photo attached: #{coffe_cup.photos.attached?}"
+coffee_cup_image_3 = URI.open('https://www.onyalife.com/wp-content/uploads/Purple-Coffee-Cup-New.jpg')
+coffee_cup.photos.attach(io: coffee_cup_image_3, filename: 'Purple-Coffee-Cup-New.jpg', content_type: 'image/jpg')
+puts "socks photo attached: #{coffee_cup.photos.attached?}"
 
 
-coffe_cup_image_4 = URI.open('https://www.onyalife.com/wp-content/uploads/GreyBlue-NEW-Coffee-Cup-1.jpg')
-coffe_cup.photos.attach(io: coffe_cup_image_4, filename: 'GreyBlue-NEW-Coffee-Cup-1.jpg', content_type: 'image/jpg')
-puts "socks photo attached: #{coffe_cup.photos.attached?}"
+coffee_cup_image_4 = URI.open('https://www.onyalife.com/wp-content/uploads/GreyBlue-NEW-Coffee-Cup-1.jpg')
+coffee_cup.photos.attach(io: coffee_cup_image_4, filename: 'GreyBlue-NEW-Coffee-Cup-1.jpg', content_type: 'image/jpg')
+puts "socks photo attached: #{coffee_cup.photos.attached?}"
 
 
-coffe_cup_image_5 = URI.open('https://www.onyalife.com/wp-content/uploads/Purple-Coffee-Cup-New.jpg')
-coffe_cup.photos.attach(io: coffe_cup_image_5, filename: 'Purple-Coffee-Cup-New.jpg', content_type: 'image/jpg')
-puts "socks photo attached: #{coffe_cup.photos.attached?}"
+coffee_cup_image_5 = URI.open('https://www.onyalife.com/wp-content/uploads/Purple-Coffee-Cup-New.jpg')
+coffee_cup.photos.attach(io: coffee_cup_image_5, filename: 'Purple-Coffee-Cup-New.jpg', content_type: 'image/jpg')
+puts "socks photo attached: #{coffee_cup.photos.attached?}"
 
 women_t_shirt = Product.create!(
   user: ana,
@@ -462,18 +462,18 @@ dumptruck = Product.create!(
   origin: 'USA'
   )
 
-dumptrack_image_1 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/Dump_Truck_GIF_1024x1024@2x.gif')
-dumptrack_image_2 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/DumpTruck_RePack_20190416_1024x1024@2x.jpg')
-dumptrack_image_3 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/150630_dump_truck_034_110x110@2x.jpg')
-dumptrack_image_4 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/PinkDump_119_110x110@2x.jpg')
-dumptrack_image_5 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/1712305_greentoys_blue_dump_truck_005_110x110@2x.jpg')
-dumptrack.photos.attach(io: dumptrack_image_1, filename: 'Dump_Truck_GIF_1024x1024@2x.gif', content_type: 'image/gif')
-dumptrack.photos.attach(io: dumptrack_image_2, filename: 'DumpTruck_RePack_20190416_1024x1024@2x.jpg', content_type: 'image/jpg')
-dumptrack.photos.attach(io: dumptrack_image_3, filename: '150630_dump_truck_034_110x110@2x.jpg', content_type: 'image/jpg')
-dumptrack.photos.attach(io: dumptrack_image_4, filename: 'PinkDump_119_110x110@2x.jpg', content_type: 'image/jpg')
-dumptrack.photos.attach(io: dumptrack_image_5, filename: '1712305_greentoys_blue_dump_truck_005_110x110@2x.jpg', content_type: 'image/jpg')
+dumptruck_image_1 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/Dump_Truck_GIF_1024x1024@2x.gif')
+dumptruck_image_2 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/DumpTruck_RePack_20190416_1024x1024@2x.jpg')
+dumptruck_image_3 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/150630_dump_truck_034_110x110@2x.jpg')
+dumptruck_image_4 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/PinkDump_119_110x110@2x.jpg')
+dumptruck_image_5 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/1712305_greentoys_blue_dump_truck_005_110x110@2x.jpg')
+dumptruck.photos.attach(io: dumptruck_image_1, filename: 'Dump_Truck_GIF_1024x1024@2x.gif', content_type: 'image/gif')
+dumptruck.photos.attach(io: dumptruck_image_2, filename: 'DumpTruck_RePack_20190416_1024x1024@2x.jpg', content_type: 'image/jpg')
+dumptruck.photos.attach(io: dumptruck_image_3, filename: '150630_dump_truck_034_110x110@2x.jpg', content_type: 'image/jpg')
+dumptruck.photos.attach(io: dumptruck_image_4, filename: 'PinkDump_119_110x110@2x.jpg', content_type: 'image/jpg')
+dumptruck.photos.attach(io: dumptruck_image_5, filename: '1712305_greentoys_blue_dump_truck_005_110x110@2x.jpg', content_type: 'image/jpg')
 
-puts "dumptrack photo attached: #{dumptrack.photos.attached?}"
+puts "dumptruck photo attached: #{dumptruck.photos.attached?}"
 
 tablelinen = Product.create!(
   user: trini,
@@ -521,12 +521,12 @@ tablelinen_sale = Listing.create!(
   product: tablelinen
   )
 
-dumptrack_sale = Listing.create!(
+dumptruck_sale = Listing.create!(
   stock: 5000,
   max_price: 15,
   min_price: 9,
   end_date: Date.today + 30,
-  product: dumptrack
+  product: dumptruck
   )
 
 toiletpaper_sale = Listing.create!(
