@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :discounts, only: [:new, :create]
   end
 
-  resources :purchases, only: [ :show ]
-
+  resources :purchases, only: [ :show ] do
+    resources :payments, only: :new
+  end
 end

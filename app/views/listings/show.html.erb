@@ -70,7 +70,7 @@
 
     <div class="side col-3 justify-content-center" style="text-align: left">
       <p><strong> <%= @listing.product.name.upcase %></strong></p>
-      <p class="sidep side-price-stock"><%= @listing.current_price %>€</p>
+      <p class="sidep side-price-stock"><%= humanized_money_with_symbol(@listing.current_price)%></p>
       <p class="sidep side-price-stock">Stock: <%= @listing.quantity_pending %></p>
         <%= form_tag new_listing_purchase_path(@listing), method: :get do %>
           <%= number_field_tag 'quantity', 0, class:"round-input" %>

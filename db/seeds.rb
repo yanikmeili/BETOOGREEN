@@ -157,8 +157,12 @@ socks = Product.create!(
 
 socks_image_1 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/par-de-calcetines-minimalistas-largos-minimalism-brand-ecologicos-negros-verdesjpg.jpg?v=1592906298')
 socks.photos.attach(io: socks_image_1, filename: 'par-de-calcetines-minimalistas-largos-minimalism-brand-ecologicos-negros-verdesjpg.jpg?v=1592906298', content_type: 'image/jpg')
+
 socks_image_2 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/Socks-Sostenible-Minimalista-Organica-Minimalism-black.jpg?v=1592906298')
 socks.photos.attach(io: socks_image_2, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black.jpg?v=1592906298', content_type: 'image/jpg')
+
+io: socks_image_2, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black.jpg?v=1592906298', content_type: 'image/jpg')
+
 socks_image_3 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/Socks-Sostenible-Minimalista-Organica-Minimalism-black-eco_900x.jpg?v=1592906311')
 socks.photos.attach(io: socks_image_3, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black-eco_900x.jpg?v=1592906311', content_type: 'image/jpg')
 puts "socks photo attached: #{socks.photos.attached?}"
@@ -531,40 +535,40 @@ dumptruck_sale = Listing.create!(
 
 toiletpaper_sale = Listing.create!(
   stock: 10000,
-  max_price: 8,
-  min_price: 2,
+  max_price_cents: 800,
+  min_price_cents: 200,
   end_date: Date.today + 30,
   product: toiletpaper
   )
 
 lunchwraps_sale = Listing.create!(
   stock: 3000,
-  max_price: 12,
-  min_price: 5,
+  max_price_cents: 1200,
+  min_price_cents: 500,
   end_date: Date.today + 30,
   product: lunchwraps
   )
 
 handbag_sale = Listing.create!(
   stock: 300,
-  max_price: 50,
-  min_price: 30,
+  max_price_cents: 5000,
+  min_price_cents: 3000,
   end_date: Date.today + 30,
   product: handbag
   )
 
 sunglasses_sale = Listing.create!(
   stock: 700,
-  max_price: 100,
-  min_price: 55,
+  max_price_cents: 10000,
+  min_price_cents: 5500,
   end_date: Date.today + 30,
   product: sunglasses
   )
 
 dishwash_sale = Listing.create!(
   stock: 10000,
-  max_price: 8,
-  min_price: 5,
+  max_price_cents: 800,
+  min_price_cents: 500,
   end_date: Date.today + 30,
   product: dishwash
   )
@@ -572,24 +576,24 @@ dishwash_sale = Listing.create!(
 
 toilet_paper_sale = Listing.create!(
   stock: 20000,
-  max_price: 7,
-  min_price: 3,
+  max_price_cents: 700,
+  min_price_cents: 300,
   end_date: Date.today + 30,
   product: toilet_paper
   )
 
 mat_sale = Listing.create!(
   stock: 500,
-  max_price: 100,
-  min_price: 70,
+  max_price_cents: 10000,
+  min_price_cents: 7000,
   end_date: Date.today + 30,
   product: mat
   )
 
 pants_sale = Listing.create!(
   stock: 1000,
-  max_price: 30,
-  min_price: 22,
+  max_price_cents: 3000,
+  min_price_cents: 2200,
   end_date: Date.today + 30,
   product: pants
 
@@ -597,16 +601,16 @@ pants_sale = Listing.create!(
 
 toothbrush_sale = Listing.create!(
   stock: 8000,
-  max_price: 12,
-  min_price: 8,
+  max_price_cents: 1200,
+  min_price_cents: 800,
   end_date: Date.today + 30,
   product: toothbrush
   )
 
 swab_sale = Listing.create!(
   stock: 5000,
-  max_price: 8,
-  min_price: 6,
+  max_price_cents: 800,
+  min_price_cents: 600,
   end_date: Date.today + 30,
   product: swab
   )
@@ -614,8 +618,8 @@ swab_sale = Listing.create!(
 
 women_t_shirt_sale = Listing.create!(
   stock: 9800,
-  max_price: 17,
-  min_price: 15,
+  max_price_cents: 1700,
+  min_price_cents: 1500,
   end_date: Date.today + 30,
   product: women_t_shirt
   )
@@ -623,40 +627,40 @@ women_t_shirt_sale = Listing.create!(
 
 socks_sale = Listing.create!(
   stock: 12000,
-  max_price: 9,
-  min_price: 6,
+  max_price_cents: 900,
+  min_price_cents: 600,
   end_date: Date.today + 30,
   product: socks
   )
 
 bag_sale = Listing.create!(
   stock: 7000,
-  max_price: 20,
-  min_price: 12,
+  max_price_cents: 2000,
+  min_price_cents: 1200,
   end_date: Date.today + 30,
   product: bag
   )
 
 sandal_sale = Listing.create!(
   stock: 5000,
-  max_price: 10,
-  min_price: 7,
+  max_price_cents: 1000,
+  min_price_cents: 700,
   end_date: Date.today + 30,
   product: sandal
   )
 
 cup_sale = Listing.create!(
   stock: 10000,
-  max_price: 0.1,
-  min_price: 0.05,
+  max_price_cents: 10,º
+  min_price_cents: 5,
   end_date: Date.today + 30,
   product: cup
   )
 
 straw_sale = Listing.create!(
   stock: 7000,
-  max_price: 1,
-  min_price: 0.7,
+  max_price_cents: 100,
+  min_price_cents: 700,
   end_date: Date.today + 25,
   product: straw
   )
