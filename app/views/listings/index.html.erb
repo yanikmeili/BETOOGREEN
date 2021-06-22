@@ -54,17 +54,19 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body d-flex">
+            <div class="modal-body d-flex justify-items-center">
               <%= cl_image_tag listing.product.photos.first.key, class: "modal-img" %>
-              <div>
-                <h5 class="m-3"><%= listing.product.name %></h5>
-                <p class="font-weight-bold text-center"><%= listing.current_price %>€</p>
+              <div class="m-5">
+                <h5><%= listing.product.name %></h5>
+                <p class="font-weight-bold"><%= listing.current_price %> €</p>
                 <p>Quantity</p>
                 <%= form_tag new_listing_purchase_path(listing), method: :get do %>
-                 <%= number_field_tag 'quantity' %>
+                 <%= number_field_tag 'quantity', 0, class:"round-input" %>
+                <div class="buttons-modal">
                   <button type="submit" class="btn-gradient">Buy now</button>
-                <% end %>
-                <%= link_to "Read more", listing_path(listing) %>
+                  <% end %>
+                  <%= link_to "Read more", listing_path(listing) %>
+                </div>
               </div>
             </div>
 

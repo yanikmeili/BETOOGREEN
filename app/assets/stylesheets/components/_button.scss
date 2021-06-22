@@ -88,3 +88,16 @@
   padding: 16px;
   align-items: center;
  }
+
+
+ .buttons-modal {
+    display: flex;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    flex-direction: column;
+    padding: 32px;
+    a {
+      padding: 16px;
+    }
+ }
