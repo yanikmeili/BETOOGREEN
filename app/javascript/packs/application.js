@@ -26,6 +26,7 @@ require("channels")
 import "bootstrap";
 import Glide, { Controls, Breakpoints } from '@glidejs/glide/dist/glide.modular.esm'
 import "lightbox2/dist/js/lightbox";
+import "chartkick/chart.js"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';

@@ -120,7 +120,7 @@
       </div>
       <div>
         <h3>Top 3 products</h3>
-        <% @top_3_products_quantity.each do |product| %>
+        <% @products_sorted_by_quantity.each do |product| %>
           <p> <%= product.name %></p>
         <% end %>
       </div>
