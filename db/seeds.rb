@@ -161,8 +161,6 @@ socks.photos.attach(io: socks_image_1, filename: 'par-de-calcetines-minimalistas
 socks_image_2 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/Socks-Sostenible-Minimalista-Organica-Minimalism-black.jpg?v=1592906298')
 socks.photos.attach(io: socks_image_2, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black.jpg?v=1592906298', content_type: 'image/jpg')
 
-io: socks_image_2, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black.jpg?v=1592906298', content_type: 'image/jpg')
-
 socks_image_3 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/Socks-Sostenible-Minimalista-Organica-Minimalism-black-eco_900x.jpg?v=1592906311')
 socks.photos.attach(io: socks_image_3, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black-eco_900x.jpg?v=1592906311', content_type: 'image/jpg')
 puts "socks photo attached: #{socks.photos.attached?}"
@@ -651,7 +649,7 @@ sandal_sale = Listing.create!(
 
 cup_sale = Listing.create!(
   stock: 10000,
-  max_price_cents: 10,º
+  max_price_cents: 10,
   min_price_cents: 5,
   end_date: Date.today + 30,
   product: cup
