@@ -22,7 +22,18 @@ pablito = User.create!(email: 'pablito@gmail.com', password:'123456')
 
 # PRODUCT
 
+utensil_set = Product.create!(
+  user: ana,
+  name:'Three Piece Utensil Set',
+  description:'Set includes serving spoon, spatula and ladle. Maximum Temperature: 167 Degree Fahrenheit',
+  material: 'Wood plastic composite. BPA Free Polypropylene.',
+  impact: 'Forest Stewardship Council certified wood from plantation pine.',
+  origin: 'England'
+  )
 
+utensil_set_image_1 = URI.open('https://images-na.ssl-images-amazon.com/images/I/71omkIw0D2L._AC_SL1500_.jpg')
+utensil_set.photos.attach(io: utensil_set_image_1, filename: '71omkIw0D2L._AC_SL1500_.jpg', content_type: 'image/jpg')
+puts "socks photo attached: #{utensil_set.photos.attached?}"
 aguaencaja = Product.create!(
   user: yanik,
   name: 'Agua en Caja Mejor',
@@ -135,7 +146,6 @@ pants.photos.attach(io: pants_image_5, filename: 'yogabroek-ruim-ecologisch-zwar
 puts "pants photo attached: #{pants.photos.attached?}"
 
 
-
 socks = Product.create!(
   user: ana,
   name:'Organic Socks',
@@ -144,6 +154,7 @@ socks = Product.create!(
   impact: '3.0 km of avoided driving emissions, 140 days of drinking water saved and 238.5 light hours saved.',
   origin: 'Portugal'
   )
+
 socks_image_1 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/par-de-calcetines-minimalistas-largos-minimalism-brand-ecologicos-negros-verdesjpg.jpg?v=1592906298')
 socks.photos.attach(io: socks_image_1, filename: 'par-de-calcetines-minimalistas-largos-minimalism-brand-ecologicos-negros-verdesjpg.jpg?v=1592906298', content_type: 'image/jpg')
 socks_image_2 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/Socks-Sostenible-Minimalista-Organica-Minimalism-black.jpg?v=1592906298')
@@ -152,6 +163,38 @@ socks_image_3 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/S
 socks.photos.attach(io: socks_image_3, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black-eco_900x.jpg?v=1592906311', content_type: 'image/jpg')
 puts "socks photo attached: #{socks.photos.attached?}"
 
+coffee_cup = Product.create!(
+  user: ana,
+  name:'Coffee Cup 355ml',
+  description:'Love Coffee, Hate Waste? Billions of disposable coffees cups end up in landfills each year across the globe. Your coffee is important, and so is what you drink it out of. Up until recently, people believed they were doing the right thing by drinking their coffee from a “paper” cup, but that paper is often lined with plastic and makes it almost impossible to recycle, let alone biodegrade. Add to this the plastic of the disposable lid and the single use plastic and waste really starts to add up.',
+  material: 'Made from 100% food-safe silicone.',
+  impact: 'Our reusable coffee cup is light, tough, attractive, very durable and most importantly won’t affect your favourite coffee’s taste.',
+  origin: 'Spain'
+  )
+
+coffe_cup_image_1 = URI.open('https://www.onyalife.com/wp-content/uploads/Red-Coffee-Cup-New.jpg')
+coffe_cup.photos.attach(io: coffe_cup_image_1, filename: 'Red-Coffee-Cup-New.jpg', content_type: 'image/jpg')
+puts "socks photo attached: #{coffe_cup.photos.attached?}"
+
+
+coffe_cup_image_2 = URI.open('https://www.onyalife.com/wp-content/uploads/Black-Coffee-Cup-New.jpg')
+coffe_cup.photos.attach(io: coffe_cup_image_2, filename: 'Black-Coffee-Cup-New.jpg', content_type: 'image/jpg')
+puts "socks photo attached: #{coffe_cup.photos.attached?}"
+
+
+coffe_cup_image_3 = URI.open('https://www.onyalife.com/wp-content/uploads/Purple-Coffee-Cup-New.jpg')
+coffe_cup.photos.attach(io: coffe_cup_image_3, filename: 'Purple-Coffee-Cup-New.jpg', content_type: 'image/jpg')
+puts "socks photo attached: #{coffe_cup.photos.attached?}"
+
+
+coffe_cup_image_4 = URI.open('https://www.onyalife.com/wp-content/uploads/GreyBlue-NEW-Coffee-Cup-1.jpg')
+coffe_cup.photos.attach(io: coffe_cup_image_4, filename: 'GreyBlue-NEW-Coffee-Cup-1.jpg', content_type: 'image/jpg')
+puts "socks photo attached: #{coffe_cup.photos.attached?}"
+
+
+coffe_cup_image_5 = URI.open('https://www.onyalife.com/wp-content/uploads/Purple-Coffee-Cup-New.jpg')
+coffe_cup.photos.attach(io: coffe_cup_image_5, filename: 'Purple-Coffee-Cup-New.jpg', content_type: 'image/jpg')
+puts "socks photo attached: #{coffe_cup.photos.attached?}"
 
 women_t_shirt = Product.create!(
   user: ana,
@@ -454,8 +497,22 @@ tablelinen.photos.attach(io: tablelinen_image_5, filename: 'V3460-VTSU18-CH3199.
 
 puts "tablelinen photo attached: #{tablelinen.photos.attached?}"
 
+utensil_set = Listing.create!(
+  stock: 12000,
+  max_price: 14,
+  min_price: 9,
+  end_date: Date.today + 45,
+  product: utensil_set
+  )
 
-# SALE
+coffee_cup = Listing.create!(
+  stock: 13450,
+  max_price: 1.99,
+  min_price: 0.75,
+  end_date: Date.today + 30,
+  product: coffee_cup
+  )
+
 tablelinen_sale = Listing.create!(
   stock: 250,
   max_price: 50,
@@ -604,6 +661,47 @@ straw_sale = Listing.create!(
   product: straw
   )
 
+coffee_cup = Discount.create!(
+  quantity: 3500,
+  price: 1,
+  listing: coffee_cup,
+  )
+
+bag_discount = Discount.create!(
+  quantity: 4000,
+  price: 15,
+  listing: bag_sale,
+  )
+
+utensil_set  = Discount.create!(
+  quantity: 2550,
+  price: 12,
+  listing: utensil_set,
+  )
+
+sandal_discount = Discount.create!(
+  quantity: 4000,
+  price: 7,
+  listing: sandal_sale,
+  )
+
+straw_discount = Discount.create!(
+  quantity: 3500,
+  price: 0.85,
+  listing: straw_sale,
+  )
+
+cup_discount_1 = Discount.create!(
+  quantity: 4000,
+  price: 0.09,
+  listing: cup_sale,
+  )
+
+cup_discount_2 = Discount.create!(
+  quantity: 8000,
+  price: 0.065,
+  listing: cup_sale,
+  )
 
 bag_purchase = Purchase.create!(
   user: pablito,

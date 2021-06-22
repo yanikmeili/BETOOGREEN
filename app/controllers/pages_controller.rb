@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   end
 
   def home
-     @listings = Listing.all
+     @listings = Listing.best_sellers
   end
 end
