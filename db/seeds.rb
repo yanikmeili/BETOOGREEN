@@ -22,6 +22,7 @@ pablito = User.create!(email: 'pablito@gmail.com', password:'123456')
 
 # PRODUCT
 
+
 aguaencaja = Product.create!(
   user: yanik,
   name: 'Agua en Caja Mejor',
@@ -43,6 +44,98 @@ aguaencaja.photos.attach(io: aguaencaja4, filename: 'agua-en-caja-canarias-15-1.
 aguaencaja.photos.attach(io: aguaencaja5, filename: 'f57e3eff182ec7e0950cd613ecb8f04d.png', content_type: 'image/png')
 puts "Agua en caja photo attached: #{aguaencaja.photos.attached?}"
 
+
+
+toilet_paper = Product.create!(
+  user: yanik,
+  name:'Premium bamboo toilet paper',
+  description:"24 rolls of 100 per cent premium bamboo toilet paper",
+  material: 'Cork',
+  impact: '27,000 trees are cut down daily to make toilet paper. Reel is made from tree-free, 100per cent amboo paper. Zero plastic packaging, even the tape.',
+  origin: 'USA'
+  )
+toilet_paper_1 = URI.open('https://cdn.shopify.com/s/files/1/0035/9468/2435/t/32/assets/product-image-1_568x@2x.progressive.jpg')
+toilet_paper.photos.attach(io: toilet_paper_1, filename: 'product-image-1_568x@2x.progressive.jpg', content_type: 'image/jpg')
+puts "mat photo attached: #{toilet_paper.photos.attached?}"
+
+toilet_paper_2 = URI.open('https://cdn.shopify.com/s/files/1/0035/9468/2435/t/32/assets/product-image-2_568x@2x.progressive.jpg')
+toilet_paper.photos.attach(io: toilet_paper_2, filename: 'product-image-2_568x@2x.progressive.jpg', content_type: 'image/jpg')
+puts "toilet_paper photo attached: #{toilet_paper.photos.attached?}"
+
+toilet_paper_3 = URI.open('https://cdn.shopify.com/s/files/1/0035/9468/2435/t/32/assets/product-image-3_568x@2x.progressive.jpg')
+toilet_paper.photos.attach(io: toilet_paper_3, filename: 'product-image-3_568x@2x.progressive.jpg', content_type: 'image/jpg')
+puts "toilet_paper photo attached: #{toilet_paper.photos.attached?}"
+
+toilet_paper_4 = URI.open('https://cdn.shopify.com/s/files/1/0035/9468/2435/t/32/assets/product-image-4_568x@2x.progressive.jpg')
+toilet_paper.photos.attach(io: toilet_paper_4, filename: 'product-image-4_568x@2x.progressive.jpg', content_type: 'image/jpg')
+puts "toilet_paper photo attached: #{toilet_paper.photos.attached?}"
+
+toilet_paper_5 = URI.open('https://cdn.shopify.com/s/files/1/0035/9468/2435/files/reel-sustainable.jpg')
+toilet_paper.photos.attach(io: toilet_paper_5, filename: '1reel-sustainable.jpg', content_type: 'image/jpg')
+puts "toilet_paper photo attached: #{toilet_paper.photos.attached?}"
+
+
+
+mat = Product.create!(
+  user: yanik,
+  name:'Luxury Cork Mat (Unisex)',
+  description:'Luxuriant, warm-to-the-touch cork. Gets grippier the more you sweat. Sustainable, microbial, no need for chemical cleaning. Say goodbye to rubber, plastic smelling mats! Quite possibly the last mat you will ever need. Be good to the environment, be good to yourself.',
+  material: 'Cork',
+  impact: 'Cork is a renewable harvest. No trees are killed. Grown in beautiful Portugal.
+',
+  origin: 'Portugal'
+  )
+mat_image_1 = URI.open('https://cdn.shopify.com/s/files/1/0338/7208/5131/products/e_e52f6025-21b6-4957-9975-2fe3c60c8aac_720x.png')
+mat.photos.attach(io: mat_image_1, filename: 'e_e52f6025-21b6-4957-9975-2fe3c60c8aac_720x.png', content_type: 'image/jpg')
+puts "mat photo attached: #{mat.photos.attached?}"
+
+mat_image_2 = URI.open('https://cdn.shopify.com/s/files/1/0338/7208/5131/products/original_06e89766-d53d-4b60-9078-fa3e333b97f1_720x.png')
+mat.photos.attach(io: mat_image_2, filename: 'original_06e89766-d53d-4b60-9078-fa3e333b97f1_720x.png', content_type: 'image/jpg')
+puts "mat photo attached: #{mat.photos.attached?}"
+
+mat_image_3 = URI.open('https://cdn.shopify.com/s/files/1/0338/7208/5131/products/IMG_2653edit3_720x.png')
+mat.photos.attach(io: mat_image_3, filename: 'products/IMG_2653edit3_720x.png', content_type: 'image/jpg')
+puts "mat photo attached: #{mat.photos.attached?}"
+
+mat_image_4 = URI.open('https://cdn.shopify.com/s/files/1/0338/7208/5131/products/A60A97598c_c730f6f2-5a99-45d6-a323-c7e9e48bf92f_720x.jpg')
+mat.photos.attach(io: mat_image_4, filename: 'A60A97598c_c730f6f2-5a99-45d6-a323-c7e9e48bf92f_720x.jpg', content_type: 'image/jpg')
+puts "mat photo attached: #{mat.photos.attached?}"
+
+
+mat_image_5 = URI.open('https://cdn.shopify.com/s/files/1/0338/7208/5131/products/1W9A9843ocd_6d00987d-744e-460c-85da-55e9e62a329f_720x.png')
+mat.photos.attach(io: mat_image_5, filename: '1W9A9843ocd_6d00987d-744e-460c-85da-55e9e62a329f_720x.png', content_type: 'image/png')
+puts "mat photo attached: #{mat.photos.attached?}"
+
+pants = Product.create!(
+  user: yanik,
+  name:'Yoga Pants Black',
+  description:'These yoga pants are made from certified organic bamboo fabric. It has a wide fit, which gives you enough flexibility. These yoga pants are suitable for activities such as yoga (asana), bikram, meditation and pilates.',
+  material: 'Organic bamboo',
+  impact: 'These yoga pants are sustainably produced under fair working conditions.',
+  origin: 'Germany'
+  )
+pants_image_1 = URI.open('https://yoganic.eu/wp-content/uploads/2016/08/yogabroek-ruim-heren-zwart-eco.jpg')
+pants.photos.attach(io: pants_image_1, filename: 'ogabroek-ruim-heren-zwart-eco.jpg', content_type: 'image/jpg')
+puts "pants photo attached: #{pants.photos.attached?}"
+
+pants_image_2 = URI.open('https://yoganic.eu/wp-content/uploads/2016/08/yogabroek-ruim-ecologisch-zwart-heren.jpg')
+pants.photos.attach(io: pants_image_2, filename: 'yogabroek-ruim-ecologisch-zwart-heren.jpg', content_type: 'image/jpg')
+puts "pants photo attached: #{pants.photos.attached?}"
+
+pants_image_3 = URI.open('https://yoganic.eu/wp-content/uploads/2016/08/yogabroek-ruim-heren-bio-zwart.jpg')
+pants.photos.attach(io: pants_image_3, filename: 'yogabroek-ruim-heren-bio-zwart.jpg', content_type: 'image/jpg')
+puts "pants photo attached: #{pants.photos.attached?}"
+
+pants_image_4 = URI.open('https://yoganic.eu/wp-content/uploads/2016/08/yogabroek-ruim-heren-zwart-eco.jpg')
+pants.photos.attach(io: pants_image_4, filename: 'ogabroek-ruim-heren-zwart-eco.jpg', content_type: 'image/jpg')
+puts "pants photo attached: #{pants.photos.attached?}"
+
+pants_image_5 = URI.open('https://yoganic.eu/wp-content/uploads/2016/08/yogabroek-ruim-ecologisch-zwart-heren.jpg')
+pants.photos.attach(io: pants_image_5, filename: 'yogabroek-ruim-ecologisch-zwart-heren.jpg', content_type: 'image/jpg')
+puts "pants photo attached: #{pants.photos.attached?}"
+
+
+
 socks = Product.create!(
   user: ana,
   name:'Organic Socks',
@@ -62,6 +155,8 @@ attached?}"
 socks_image_3 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/Socks-Sostenible-Minimalista-Organica-Minimalism-black-eco_900x.jpg?v=1592906311')
 socks.photos.attach(io: socks_image_3, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black-eco_900x.jpg?v=1592906311', content_type: 'image/jpg')
 puts "socks photo attached: #{socks.photos.attached?}"
+
+
 
 women_t_shirt = Product.create!(
   user: ana,
@@ -210,6 +305,31 @@ toothbrush.photos.attach(io: toothbrush_image_5, filename: 'goldrickproduct2020-
 puts "Toothbrush photo attached: #{toothbrush.photos.attached?}"
 
 # SALE
+
+toilet_paper_sale = Listing.create!(
+  stock: 20000,
+  max_price: 7,
+  min_price: 3,
+  end_date: Date.today + 30,
+  product: toilet_paper
+  )
+
+mat_sale = Listing.create!(
+  stock: 500,
+  max_price: 100,
+  min_price: 70,
+  end_date: Date.today + 30,
+  product: mat
+  )
+
+pants_sale = Listing.create!(
+  stock: 1000,
+  max_price: 30,
+  min_price: 22,
+  end_date: Date.today + 30,
+  product: pants
+  )
+
 toothbrush_sale = Listing.create!(
   stock: 8000,
   max_price: 12,
@@ -276,35 +396,6 @@ straw_sale = Listing.create!(
   product: straw
   )
 
-bag_discount = Discount.create!(
-  quantity: 4000,
-  price: 15,
-  listing: bag_sale,
-  )
-
-sandal_discount = Discount.create!(
-  quantity: 4000,
-  price: 7,
-  listing: sandal_sale,
-  )
-
-straw_discount = Discount.create!(
-  quantity: 3500,
-  price: 0.85,
-  listing: straw_sale,
-  )
-
-cup_discount_1 = Discount.create!(
-  quantity: 4000,
-  price: 0.09,
-  listing: cup_sale,
-  )
-
-cup_discount_2 = Discount.create!(
-  quantity: 8000,
-  price: 0.065,
-  listing: cup_sale,
-  )
 
 bag_purchase = Purchase.create!(
   user: pablito,
