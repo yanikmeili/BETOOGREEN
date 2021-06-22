@@ -187,13 +187,164 @@ toothbrush.photos.attach(io: toothbrush_image_5, filename: 'goldrickproduct2020-
 
 puts "Toothbrush photo attached: #{toothbrush.photos.attached?}"
 
+dishwash = Product.create!(
+  user: trini,
+  name:'Vegan Dish Wash',
+  description:'The DISH BLOCK concentrated dishwashing soap is a cleaning powerhouse with a rich, sudsy lather. Cuts stubborn grime and grease on dishes, pots and pans. With added aloe vera to be gentle on your hands. Free of dyes and fragrance. Each 6 oz (170g) bar or 22.9 oz (649g) bar of DISH BLOCK® dish soap concentrate goes a long way.',
+  material: 'Biodegradable, vegan ingredients',
+  impact: 'Reduce the environmental pollution that stems from your home simply by choosing eco friendly, non toxic, products.',
+  origin: 'Barcelona'
+  )
+
+dishwash_image_1 = URI.open('https://cdn.shopify.com/s/files/1/2239/2927/products/dishblockandAgaveandwhiteteakdishbrushnotoxlife017_1024x1024@2x.jpg')
+dishwash_image_2 = URI.open('https://cdn.shopify.com/s/files/1/2239/2927/products/dish-block-suds_1024x1024@2x.jpg')
+dishwash_image_3 = URI.open('https://cdn.shopify.com/s/files/1/2239/2927/products/dishblockandAgaveandwhiteteakdishbrushnotoxlife019_1024x1024@2x.jpg')
+dishwash_image_4 = URI.open('https://cdn.shopify.com/s/files/1/2239/2927/products/DishBlock_1024x1024@2x.jpg')
+dishwash_image_5 = URI.open('https://cdn.shopify.com/s/files/1/2239/2927/products/no-tox-life-dish-washing-block612_1024x1024@2x.jpg')
+dishwash.photos.attach(io: dishwash_image_1, filename: 'dishblockandAgaveandwhiteteakdishbrushnotoxlife017_1024x1024@2x.jpg', content_type: 'image/jpg')
+dishwash.photos.attach(io: dishwash_image_2, filename: 'products/dish-block-suds_1024x1024@2x.jpg', content_type: 'image/jpg')
+dishwash.photos.attach(io: dishwash_image_3, filename: 'dishblockandAgaveandwhiteteakdishbrushnotoxlife019_1024x1024@2x.jpg', content_type: 'image/jpg')
+dishwash.photos.attach(io: dishwash_image_4, filename: 'DishBlock_1024x1024@2x.jpg', content_type: 'image/jpg')
+dishwash.photos.attach(io: dishwash_image_5, filename: 'no-tox-life-dish-washing-block612_1024x1024@2x.jpg', content_type: 'image/jpg')
+
+puts "Dishwash photo attached: #{dishwash.photos.attached?}"
+
+sunglasses = Product.create!(
+  user: trini,
+  name:'Storm Chinook Polarised Sunglasses',
+  description:'Capsule collection produced to support Searching for Chinook.The UPSEA™ plastic that is used in our products has been created from marine plastic waste that we have collected and recycled ourselves. Plastic does not disintegrate like natural products; it decomposes in microplastics that gets ingested by animals. Recycling is the first step to break this circle, but we need to change the way we design, consume and produce, and make all of us part of our story.',
+  material: 'Recycled plastic',
+  impact: 'From our supply chain to products manufactured with 100% Upsea™ up-cycled marine plastic, we actively contribute to 6 of the 17 Sustainable development goals that were formally adopted in September 2015 by the UN General Assembly with the Agenda 2030 for Sustainable Development.',
+  origin: 'Switzerland'
+  )
+
+sunglasses_image_1 = URI.open('https://cdn.shopify.com/s/files/1/1238/0884/products/Foto05_3c9ae39e-66db-4e76-9a3e-0386f908fd59_1080x.jpg')
+sunglasses_image_2 = URI.open('https://cdn.shopify.com/s/files/1/1238/0884/products/Foto01_47237d0f-598d-4d79-91da-cdc7f76f7b46_1080x.jpg')
+sunglasses_image_3 = URI.open('https://cdn.shopify.com/s/files/1/1238/0884/products/Foto01_1_3b9e3239-c37e-407b-ba2f-a0ff76d239d6_1080x.jpg')
+sunglasses_image_4 = URI.open('https://cdn.shopify.com/s/files/1/1238/0884/products/Foto05_1@2x.jpg')
+sunglasses_image_5 = URI.open('https://cdn.shopify.com/s/files/1/1238/0884/products/Foto13_7a7f6d76-7208-44e4-a223-64326ce5ec8c_1080x.jpg')
+sunglasses.photos.attach(io: sunglasses_image_1, filename: 'Foto05_3c9ae39e-66db-4e76-9a3e-0386f908fd59_1080x.jpg', content_type: 'image/jpg')
+sunglasses.photos.attach(io: sunglasses_image_2, filename: 'Foto01_47237d0f-598d-4d79-91da-cdc7f76f7b46_1080x.jpg', content_type: 'image/jpg')
+sunglasses.photos.attach(io: sunglasses_image_3, filename: 'Foto01_1_3b9e3239-c37e-407b-ba2f-a0ff76d239d6_1080x.jpg', content_type: 'image/jpg')
+sunglasses.photos.attach(io: sunglasses_image_4, filename: 'Foto05_1@2x.jpg', content_type: 'image/jpg')
+sunglasses.photos.attach(io: sunglasses_image_5, filename: 'Foto13_7a7f6d76-7208-44e4-a223-64326ce5ec8c_1080x.jpg', content_type: 'image/jpg')
+
+puts "Sunglasses photo attached: #{sunglasses.photos.attached?}"
+
+handbag = Product.create!(
+  user: trini,
+  name:'Multicolored handbagndbag',
+  description: "Treat the world as your personal runway with our one-of-a-kind, woven handbags made with sustainable rattan handles. Handmade from 100% upcycled materials and designed with 100% heart.",
+  material: 'Handmade, Upcycled materials ',
+  impact: "For the Environment - Depending on it's size, each item we create keeps between 2 oz to 1 lb of unrecyclable materials from entering our land and oceans--that amount is the equivalent of up to 38 water bottles. For Women - When you purchase a product you provide an artisan mother with a sustainable livelihood which pays three times the average wage in her community.",
+  origin: 'Argentina'
+  )
+
+handbag_image_1 = URI.open('https://cdn.shopify.com/s/files/1/2415/6235/products/giphy_2_9929b9e9-b9a8-4994-8706-5e67b681f70e_1080x.gif')
+handbag_image_2 = URI.open('https://cdn.shopify.com/s/files/1/2415/6235/products/Mother_Erth_Top_Handle_Handbag_Product_Photo_1080x.jpg')
+handbag_image_3 = URI.open('https://cdn.shopify.com/s/files/1/2415/6235/products/Artisans_Choice_Handbag_6_1080x.jpg')
+handbag_image_4 = URI.open('https://cdn.shopify.com/s/files/1/2415/6235/products/Mother_Erth_Handbag_Product_Photo_1080x.jpg')
+handbag_image_5 = URI.open('https://cdn.shopify.com/s/files/1/2415/6235/products/Handbag_-_Product_Shot_Template_2_158017fa-32e1-40e5-8065-6846acd7bc5c_1080x.png')
+handbag.photos.attach(io: handbag_image_1, filename: 'giphy_2_9929b9e9-b9a8-4994-8706-5e67b681f70e_1080x.gif', content_type: 'image/gif')
+handbag.photos.attach(io: handbag_image_2, filename: 'Mother_Erth_Top_Handle_Handbag_Product_Photo_1080x.jpg', content_type: 'image/jpg')
+handbag.photos.attach(io: handbag_image_3, filename: 'Artisans_Choice_Handbag_6_1080x.jpg', content_type: 'image/jpg')
+handbag.photos.attach(io: handbag_image_4, filename: 'Mother_Erth_Handbag_Product_Photo_1080x.jpg', content_type: 'image/jpg')
+handbag.photos.attach(io: handbag_image_5, filename: 'Handbag_-_Product_Shot_Template_2_158017fa-32e1-40e5-8065-6846acd7bc5c_1080x.png', content_type: 'image/jpg')
+
+puts "handbag photo attached: #{handbag.photos.attached?}"
+
+lunchwraps = Product.create!(
+  user: trini,
+  name:'Lunch Wraps',
+  description: "The Reusable Lunch Wrap is uniquely designed for both your large roll/multiple sandwiches or to re-wrap that small half eaten toddler sandwich for later. In addition to sandwiches, the Reusable Lunch Wrap is versatile enough for veggie sticks, snack foods, pizza, biscuits, croissants, bagels, muffins, pasties, pies and cakes. You can also transport your deli meats and cheeses from the store, cutting down on plastic wrap and bag waste.",
+  material: '100% Vegan Friendly, made with absolutely no animal products and recycled plastic drink bottles',
+  impact: "Our commitment to sustainability extends to our packaging which is made from post-consumer recycled material and printed with water based inks so it is suitable for both recycling or composting. We ship low waste and plastic free, reusing boxes and packing materials where we can or FSC certified shipping envelopes that are 100% recyclable. We are proud to be a B Corporation. Our products are responsibly made in China and are 100% recyclable at the end of their long life cycle.",
+  origin: 'China'
+  )
+
+lunchwraps_image_1 = URI.open('https://www.onyalife.com/wp-content/uploads/Apple-Lunch-Wrap.jpg')
+lunchwraps_image_2 = URI.open('https://www.onyalife.com/wp-content/uploads/Teal-Lunch-Wrap.jpg')
+lunchwraps_image_3 = URI.open('https://www.onyalife.com/wp-content/uploads/Chilli-Lunch-Wrap.jpg')
+lunchwraps_image_4 = URI.open('https://www.onyalife.com/wp-content/uploads/Pink-Lunch-Wrap.jpg')
+lunchwraps_image_5 = URI.open('https://www.onyalife.com/wp-content/uploads/Purple-Lunch-Wrap.jpg')
+lunchwraps.photos.attach(io: lunchwraps_image_1, filename: 'Apple-Lunch-Wrap.jpg', content_type: 'image/gif')
+lunchwraps.photos.attach(io: lunchwraps_image_2, filename: 'Teal-Lunch-Wrap.jpg', content_type: 'image/jpg')
+lunchwraps.photos.attach(io: lunchwraps_image_3, filename: 'Chilli-Lunch-Wrap.jpg', content_type: 'image/jpg')
+lunchwraps.photos.attach(io: lunchwraps_image_4, filename: 'Pink-Lunch-Wrap.jpg', content_type: 'image/jpg')
+lunchwraps.photos.attach(io: lunchwraps_image_5, filename: 'Purple-Lunch-Wrap.jpg', content_type: 'image/jpg')
+
+puts "lunchwraps photo attached: #{lunchwraps.photos.attached?}"
+
+toiletpaper = Product.create!(
+  user: trini,
+  name:'100% Recycled Toilet Paper',
+  description: "Made from 100% recycled fibres, each roll will immediately turn your bathroom into that eco-friendly paradise you’ve been longing for (personal waterfall not included). The soft, 3 ply sheets make for a super comfy wipe. Competitively priced with supermarket rolls, they feel good on your bum and your budget.",
+  material: '100% recycled materials',
+  impact: "We want to ensure everyone has access to a toilet and basic sanitation. That’s why 50% of profits from all of our products go directly to our charity partners who work in water, hygiene and sanitation. You’re helping millions of people gain access to clean water just by using the loo. Well done!",
+  origin: 'Portugal'
+  )
+
+toiletpaper_image_1 = URI.open('https://cdn.shopify.com/s/files/1/0286/5401/0428/products/REC_TP_1_3x_5a767835-dd0f-4454-ad31-87ef531e0f9a.jpg')
+toiletpaper_image_2 = URI.open('https://cdn.shopify.com/s/files/1/0286/5401/0428/products/REC_TP_3_3x_20e014c3-d954-4e32-916f-bbafd83d00e9.jpg')
+toiletpaper_image_3 = URI.open('https://cdn.shopify.com/s/files/1/0286/5401/0428/products/REC_TP_1_3x_6db98e05-dad2-4297-9bf4-98fa7b861d39.jpg')
+toiletpaper_image_4 = URI.open('https://cdn.shopify.com/s/files/1/0286/5401/0428/products/REC_TP_4_3x_e990b1c9-f7b3-4135-972d-0e52f9edb609.jpg')
+toiletpaper_image_5 = URI.open('https://cdn.shopify.com/s/files/1/0286/5401/0428/products/REC_TP_5_3x_b1aba114-014e-4093-b6b6-81c89691643a.jpg')
+toiletpaper.photos.attach(io: toiletpaper_image_1, filename: 'REC_TP_1_3x_5a767835-dd0f-4454-ad31-87ef531e0f9a.jpg', content_type: 'image/gif')
+toiletpaper.photos.attach(io: toiletpaper_image_2, filename: 'REC_TP_3_3x_20e014c3-d954-4e32-916f-bbafd83d00e9.jpg', content_type: 'image/jpg')
+toiletpaper.photos.attach(io: toiletpaper_image_3, filename: 'REC_TP_1_3x_6db98e05-dad2-4297-9bf4-98fa7b861d39.jpg', content_type: 'image/jpg')
+toiletpaper.photos.attach(io: toiletpaper_image_4, filename: 'REC_TP_4_3x_e990b1c9-f7b3-4135-972d-0e52f9edb609.jpg', content_type: 'image/jpg')
+toiletpaper.photos.attach(io: toiletpaper_image_5, filename: 'REC_TP_5_3x_b1aba114-014e-4093-b6b6-81c89691643a.jpg', content_type: 'image/jpg')
+
+puts "toiletpaper photo attached: #{toiletpaper.photos.attached?}"
+
+
 # SALE
+toiletpaper_sale = Listing.create!(
+  stock: 10000,
+  max_price: 8,
+  min_price: 2,
+  end_date: Date.today + 30,
+  product: toiletpaper
+  )
+
+lunchwraps_sale = Listing.create!(
+  stock: 3000,
+  max_price: 12,
+  min_price: 5,
+  end_date: Date.today + 30,
+  product: lunchwraps
+  )
+
+handbag_sale = Listing.create!(
+  stock: 300,
+  max_price: 50,
+  min_price: 30,
+  end_date: Date.today + 30,
+  product: handbag
+  )
+
+sunglasses_sale = Listing.create!(
+  stock: 700,
+  max_price: 100,
+  min_price: 55,
+  end_date: Date.today + 30,
+  product: sunglasses
+  )
+
+dishwash_sale = Listing.create!(
+  stock: 10000,
+  max_price: 8,
+  min_price: 5,
+  end_date: Date.today + 30,
+  product: dishwash
+  )
+
 toothbrush_sale = Listing.create!(
   stock: 8000,
   max_price: 12,
   min_price: 8,
   end_date: Date.today + 30,
-  product: bag
+  product: toothbrush
   )
 
 swab_sale = Listing.create!(
