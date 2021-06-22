@@ -19,7 +19,30 @@ jesus = User.create!(email: 'jesus@gmail.com', password:'123456')
 mohamed = User.create!(email: 'mohamed@gmail.com', password:'123456')
 carlos = User.create!(email: 'carlos@gmail.com', password:'123456')
 pablito = User.create!(email: 'pablito@gmail.com', password:'123456')
+
 # PRODUCT
+
+
+aguaencaja = Product.create!(
+  user: yanik,
+  name: 'Agua en Caja Mejor',
+  description: 'Unfortunately most of the water sold in the world comes in plastic bottles. It would be much better if we all would prefer water in boxes. Because the recycling process is easyer and cheaper.',
+  material: 'Cardboard',
+  impact: '100% recyclable',
+  origin: 'Spain'
+  )
+aguaencaja1 = URI.open('https://static.wixstatic.com/media/be4e8c_d3249b76c4f2453a9900bbea285dfe2a~mv2_d_2666_2666_s_4_2.jpg')
+aguaencaja2 = URI.open('https://s03.s3c.es/imag/_v0/770x420/3/7/d/caja.jpg')
+aguaencaja3 = URI.open('https://images-na.ssl-images-amazon.com/images/I/81AUV97kf4L._AC_SL1500_.jpg')
+aguaencaja4 = URI.open('https://aguaencajacanarias.com/wp-content/uploads/2020/02/agua-en-caja-canarias-15-1.jpg')
+aguaencaja5 = URI.open('https://i.pinimg.com/originals/f5/7e/3e/f57e3eff182ec7e0950cd613ecb8f04d.png')
+
+aguaencaja.photos.attach(io: aguaencaja1, filename: 'be4e8c_d3249b76c4f2453a9900bbea285dfe2a~mv2_d_2666_2666_s_4_2.jpg', content_type: 'image/jpg')
+aguaencaja.photos.attach(io: aguaencaja2, filename: 'caja.jpg', content_type: 'image/jpg')
+aguaencaja.photos.attach(io: aguaencaja3, filename: '81AUV97kf4L._AC_SL1500_.jpg', content_type: 'image/jpg')
+aguaencaja.photos.attach(io: aguaencaja4, filename: 'agua-en-caja-canarias-15-1.jpg', content_type: 'image/jpg')
+aguaencaja.photos.attach(io: aguaencaja5, filename: 'f57e3eff182ec7e0950cd613ecb8f04d.png', content_type: 'image/png')
+puts "Agua en caja photo attached: #{aguaencaja.photos.attached?}"
 
 
 
@@ -112,6 +135,7 @@ pants.photos.attach(io: pants_image_5, filename: 'yogabroek-ruim-ecologisch-zwar
 puts "pants photo attached: #{pants.photos.attached?}"
 
 
+
 socks = Product.create!(
   user: ana,
   name:'Organic Socks',
@@ -122,11 +146,11 @@ socks = Product.create!(
   )
 socks_image_1 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/par-de-calcetines-minimalistas-largos-minimalism-brand-ecologicos-negros-verdesjpg.jpg?v=1592906298')
 socks.photos.attach(io: socks_image_1, filename: 'par-de-calcetines-minimalistas-largos-minimalism-brand-ecologicos-negros-verdesjpg.jpg?v=1592906298', content_type: 'image/jpg')
-puts "socks photo attached: #{socks.photos.attached?}"
+attached?}"
 
 socks_image_2 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/Socks-Sostenible-Minimalista-Organica-Minimalism-black.jpg?v=1592906298')
 socks.photos.attach(io: socks_image_2, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black.jpg?v=1592906298', content_type: 'image/jpg')
-puts "socks photo attached: #{socks.photos.attached?}"
+attached?}"
 
 socks_image_3 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/Socks-Sostenible-Minimalista-Organica-Minimalism-black-eco_900x.jpg?v=1592906311')
 socks.photos.attach(io: socks_image_3, filename: 'Socks-Sostenible-Minimalista-Organica-Minimalism-black-eco_900x.jpg?v=1592906311', content_type: 'image/jpg')
