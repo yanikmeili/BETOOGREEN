@@ -23,7 +23,7 @@ class Listing < ApplicationRecord
     #   listing_hash[:quantity_sold] = listing.quantity_sold
     #   listing_hash
     # end
-    Listing.all.sort_by { |listing| - listing.quantity_sold}.first(9)
+    Listing.all.sort_by { |listing| - listing.quantity_sold }.first(9)
   end
 
   # this calculates the amount of units sold
@@ -51,11 +51,11 @@ class Listing < ApplicationRecord
 
   def current_price
     price_hash = discount_hash.find { |discount| quantity_sold >= discount[:quantity] }
-    (price_hash[:price]/100)
+    price_hash[:price]
   end
 
   def discount_hash
-    milestones = [{ quantity: 0, price: max_price_cents }, { quantity: stock, price: min_price_cents }]
+    milestones = [{ quantity: 0, price: max_price }, { quantity: stock, price: min_price }]
     discounts.each { |discount| milestones << { quantity: discount.quantity, price: discount.price } }
     milestones.sort_by { |milestone| - milestone[:quantity] }
   end
@@ -67,14 +67,14 @@ class Listing < ApplicationRecord
 
   def discount_bars
     if discounts.empty?
-      [{ price: max_price_cents, next_price: min_price_cents, sold: quantity_sold, limit: stock }]
+      [{ price: max_price, next_price: min_price, sold: quantity_sold, limit: stock }]
     # elsif discounts.length == 1
     else
       discount_sold = quantity_sold >= discounts[0].quantity ? discounts[0].quantity :  quantity_sold
       last_sold = quantity_sold >= discounts[0].quantity ? quantity_sold - discounts[0].quantity : 0
       [
-        { price: max_price_cents, next_price: discounts[0].price, sold: discount_sold, limit: discounts[0].quantity },
-        { price: discounts[0].price, next_price: min_price_cents, sold: last_sold, limit: stock - discounts[0].quantity }
+        { price: max_price, next_price: discounts[0].price, sold: discount_sold, limit: discounts[0].quantity },
+        { price: discounts[0].price, next_price: min_price, sold: last_sold, limit: stock - discounts[0].quantity }
       ]
     end
   end

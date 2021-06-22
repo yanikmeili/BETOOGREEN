@@ -1,4 +1,5 @@
 class Discount < ApplicationRecord
+  monetize :price_cents
   belongs_to :listing
   validate :valid_price
 # @discount.listing => devuelve instance of listing
