@@ -1,5 +1,5 @@
-
-<div class="glide">
+<h1 class="text-center mb-5">Top Sellers</h1>
+<div class="glide mb-5">
   <div class="glide__track" data-glide-el="track">
     <ul class="glide__slides">
 
@@ -7,7 +7,7 @@
           <% @listings.each do |listing| %>
 
             <li class="glide__slide">
-              <div class="card-product m-3">
+              <div class="card-product ml-5 mb-3">
                 <div class="card-img">
                   <%= link_to listing_path(listing) do %>
                     <%= cl_image_tag listing.product.photos.first.key %>
@@ -69,8 +69,8 @@
   </div>
 
   <div class="glide__arrows" data-glide-el="controls">
-    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+    <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="far fa-arrow-alt-circle-left btn-gradient"></i></button>
+    <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="far fa-arrow-alt-circle-right btn-gradient"></i></button>
   </div>
 </div>
 
