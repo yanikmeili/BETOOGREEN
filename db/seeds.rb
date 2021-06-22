@@ -322,6 +322,50 @@ swab.photos.attach(io: swab_image_5, filename: 'plastic-free-bamboo-cotton-swabs
 
 puts "Swabs photo attached: #{swab.photos.attached?}"
 
+
+bagel_kraft = Product.create!(
+  user: ana,
+  name:'Bagel Kraft Container',
+  description: "Bagel container. Valid for both Bagels and other circular products.",
+  material: 'Made with virgin paper fiber and with good thermal resistance.',
+  impact: "Ecological and 100% recyclable.",
+  origin: 'France'
+  )
+
+bagel_kraft_image_1 = URI.open('https://envanature.com/295-Niara_thickbox/envase-bagel.jpg')
+bagel_kraft.photos.attach(io: bagel_kraft_image_1, filename: 'envase-bagel.jpg', content_type: 'image/jpg')
+
+puts "Bagel photo attached: #{bagel_kraft.photos.attached?}"
+
+cup_holders = Product.create!(
+  user: ana,
+  name:'Kraft Cardboard Cup Holders',
+  description: "Kraft cardboard cup holders. Ecological and insulating from heat. Cup holder.",
+  material: 'Made with virgin paper fiber and with good thermal resistance.',
+  impact: "Ecological and 100% recyclable.",
+  origin: 'France'
+  )
+
+cup_holders_image_1 = URI.open('https://envanature.com/630-Niara_thickbox/portavasos-de-carton-kraft.jpg')
+cup_holders.photos.attach(io: cup_holders_image_1, filename: 'portavasos-de-carton-kraft.jpg', content_type: 'image/jpg')
+
+puts "Cup Holders photo attached: #{cup_holders.photos.attached?}"
+
+
+buttle_pet = Product.create!(
+  user: ana,
+  name:'Buttle',
+  description: "PET bottles. Recyclable. Imitation glass. With pre-screwed black cap included. Bottles for dairy and juices.",
+  material: 'Made with virgin fiber.',
+  impact: "Ecological and 100% recyclable.",
+  origin: 'France'
+  )
+
+buttle_pet_image_1 = URI.open('https://envanature.com/197-Niara_thickbox/botellas-pet-100ml-71-uds.jpg')
+buttle_pet.photos.attach(io: buttle_pet_image_1, filename: 'botellas-pet-100ml-71-uds.jpg', content_type: 'image/jpg')
+
+puts "Buttle PET photo attached: #{buttle_pet.photos.attached?}"
+
 toothbrush = Product.create!(
   user: trini,
   name:'Bamboo toothbrush | 4 pack',
@@ -515,6 +559,22 @@ coffee_cup = Listing.create!(
   product: coffee_cup
   )
 
+bagel_kraft = Listing.create!(
+  stock: 1250,
+  max_price: 0.99,
+  min_price: 0.16,
+  end_date: Date.today + 30,
+  product: tablelinen
+  )
+
+buttle_pet = Listing.create!(
+  stock: 1860,
+  max_price: 0.5,
+  min_price: 0.3,
+  end_date: Date.today + 30,
+  product: tablelinen
+  )
+
 tablelinen_sale = Listing.create!(
   stock: 250,
   max_price: 50,
@@ -562,6 +622,15 @@ sunglasses_sale = Listing.create!(
   end_date: Date.today + 30,
   product: sunglasses
   )
+
+cup_holders = Listing.create!(
+  stock: 6700,
+  max_price_cents: 2.4,
+  min_price_cents: 0.8,
+  end_date: Date.today + 30,
+  product: cup_holders
+  )
+
 
 dishwash_sale = Listing.create!(
   stock: 10000,
