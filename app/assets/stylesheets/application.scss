@@ -3,6 +3,11 @@
 @import "config/colors";
 @import "config/bootstrap_variables";
 
+
+// @import "@glidejs/glide/dist/css/glide.core.min";
+@import "@glidejs/glide/src/assets/sass/glide.core";
+@import "@glidejs/glide/src/assets/sass/glide.theme";
+
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
@@ -12,6 +17,8 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/show";
+
+
 
 body {
   background-color: white;
@@ -30,3 +37,6 @@ html {
   color: gray;
   font-style: italic;
 }
+
+
+
