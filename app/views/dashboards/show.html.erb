@@ -88,7 +88,7 @@
             <td class="dashboard_table_grey_text"> <%= purchase.id %> </td>
             <td> <%= purchase.listing.product.name %> </td>
             <td> <%= purchase.purchase_date_string %> </td>
-            <td> <%= humanized_money(purchase.quantity) %> </td>
+            <td> <%= number_with_delimiter(purchase.quantity, delimiter:".") %> </td>
             <td> <%= purchase.listing.current_price %> </td>
             <td> <%= purchase.total_price %>€ </td>
             <td>
@@ -165,8 +165,8 @@
             <tr>
               <td class="dashboard_table_grey_text"> <%= listing.id %> </td>
               <td> <%= listing.product.name %> </td>
-              <td> <%= humanized_money(listing.quantity_sold) %> </td>
-              <td> <%= humanized_money(listing.quantity_pending) %> </td>
+              <td> <%= number_with_delimiter(listing.quantity_sold, delimiter:".") %> </td>
+              <td> <%= number_with_delimiter(listing.quantity_pending, delimiter:".") %> </td>
               <td> <%= listing.end_date_string %> </td>
               <td> <%= listing.total_sales %>€ </td>
               <td>
@@ -212,8 +212,8 @@
             <tr>
               <td class="dashboard_table_grey_text"> <%= listing.id %> </td>
               <td> <%= listing.product.name %> </td>
-              <td> <%= humanized_money(listing.quantity_sold) %> </td>
-              <td> <%= humanized_money(listing.quantity_pending) %> </td>
+              <td> <%= number_with_delimiter(listing.quantity_sold, delimiter:".") %> </td>
+              <td> <%= number_with_delimiter(listing.quantity_pending, delimiter:".") %> </td>
               <td> <%= listing.end_date_string %> </td>
               <td> <%= listing.total_sales %>€ </td>
                 <div class="dropdown show">
