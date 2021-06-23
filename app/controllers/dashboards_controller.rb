@@ -9,9 +9,6 @@ class DashboardsController < ApplicationController
     @products_sorted_by_quantity = @products.sort_by do |product|
       product.total_sellings_quantity
     end.reverse.first(3) #Can also be refactored  with AR.
-    @products_sorted_by_value = @products.sort_by do |product|
-      product.total_sellings_value
-    end.reverse
   end
 
   private
