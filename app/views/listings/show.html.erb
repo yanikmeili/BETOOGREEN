@@ -53,16 +53,16 @@
         <% @listing.discount_bars.each do |bar| %>
         <div class="discount col-12 ml-0">
           <div class="initialandnext">
-            <p><strong>Initial price:  </strong><%= bar[:price]%> € </p>
-            <p><strong>Next price:  </strong><%= bar[:next_price]%> €</p>
+            <p><strong>Initial price:  </strong><%= money_without_cents(bar[:price])%> € </p>
+            <p><strong>Next price:  </strong><%= money_without_cents(bar[:next_price])%> €</p>
           </div>
             <div class="rating-progress-bars py-3">
               <div class="progress">
                 <div class="progress-bar gradient-prog" style="width: <%= (bar[:sold] / bar[:limit].to_f ) * 100 %>%;"><%= ((bar[:sold] / bar[:limit].to_f ) * 100).round(0) %> %</div>
               </div>
             </div>
-            <p class="soldP"><strong>Sold: </strong><%= number_with_delimiter(bar[:sold], delimiter:".") %> <strong>out of</strong>  <%= number_with_delimiter(bar[:limit], delimiter:".") %> units</p>
-            <p class="ifP">▷ If <%= number_with_delimiter(bar[:limit], delimiter:".") %> units are sold, the price will be <%= number_with_delimiter(bar[:next_price], delimiter:".") %>€ per unit</p>
+            <p class="soldP "><strong>Sold: </strong><%= number_with_delimiter(bar[:sold], delimiter:".") %> <strong>out of</strong>  <%= number_with_delimiter(bar[:limit], delimiter:".") %> units</p>
+            <p class="ifP">▷ If <%= number_with_delimiter(bar[:limit], delimiter:".") %> units are sold, the price will be <%= money_without_cents(number_with_delimiter(bar[:next_price], delimiter:".")) %>€ per unit</p>
         </div>
         <% end %>
       </div>
@@ -71,12 +71,12 @@
 
     <div class="side col-3 justify-content-center" style="text-align: left">
       <p><strong> <%= @listing.product.name.upcase %></strong></p>
-      <p class="sidep side-price-stock"><%= humanized_money_with_symbol(@listing.current_price)%></p>
+      <p class="sidep side-price-stock"><%=money_without_cents(@listing.current_price)%> €</p>
       <p class="sidep side-price-stock">
       <% if @listing.quantity_pending == 0%>
           <p> <strong> SOLD OUT </strong></p>
       <% else %>
-          <p>Stock: <%=  number_with_delimiter(@listing.quantity_pending, delimiter:".") %></p>
+          <p class="sidep">Stock: <%=  number_with_delimiter(@listing.quantity_pending, delimiter:".") %></p>
 
           <%= form_tag new_listing_purchase_path(@listing), method: :get do %>
           <%= number_field_tag 'quantity', 0, class:"round-input" %>

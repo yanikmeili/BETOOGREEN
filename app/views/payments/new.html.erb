@@ -3,12 +3,12 @@
 <div class="container col-6 mt-5" data-controller="price">
   <div class="form-container pt-3 text-center">
     <p> <%= @purchase.listing.product.name %> - <%= @purchase.quantity %> units</p>
-    <p data-price-target="price" data-amount="<%= @purchase.listing.current_price %>"> Total price: <strong><%= @purchase.listing.current_price%>€</strong></p>
+    <p data-price-target="price" data-amount="<%= @purchase.listing.current_price %>"> Total price: <strong><%= (@purchase.listing.current_price)*(@purchase.quantity) %>€</strong></p>
 
       <div class="form-group mt-1 p-2">        <hr>
         <div><%= cl_image_tag @purchase.listing.product.photos.first.key, width: '40%' %></div>
       </div>
-        <button id="pay" class="btn-gradient m-3">Pay</button>
+        <button id="pay" class="btn-gradient m-3 px-5">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');

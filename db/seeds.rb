@@ -10,7 +10,7 @@ User.destroy_all
 # USER
 
 martin = User.create!(email: 'martin@gmail.com', password:'123456')
-yanik = User.create!(email: 'yanikm41@gmail.com', password:'123456')
+yanik = User.create!(email: 'Yanik@gmail.com', password:'123456')
 ana = User.create!(email: 'ana@gmail.com', password:'123456')
 trini = User.create!(email: 'trini@gmail.com', password:'123456')
 nico = User.create!(email: 'nico@gmail.com', password:'123456')
