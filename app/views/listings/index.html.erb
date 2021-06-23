@@ -20,7 +20,7 @@
   <% @listings.each do |listing| %>
       <div class="card-product m-3">
         <div class="card-img">
-          <%= link_to listing_path(listing) do %>
+          <%= link_to listing_path(listing), data: {turbolinks: false } do %>
             <%= cl_image_tag listing.product.photos.first.key %>
           <% end %>
           <div>
@@ -39,7 +39,7 @@
           <div class="card-bottom-elements">
             <%= link_to "Join collective buy", new_listing_purchase_path(listing.id) %>
             <div>
-              <%= link_to "Read more", listing_path(listing) %>
+              <%= link_to "Read more", listing_path(listing), data: {turbolinks: false } %>
               <i class="fas fa-arrow-right"></i>
             </div>
           </div>
@@ -66,7 +66,7 @@
                 <div class="buttons-modal">
                   <button type="submit" class="btn-gradient">Buy now</button>
                   <% end %>
-                  <%= link_to "Read more", listing_path(listing) %>
+                  <%= link_to "Read more", listing_path(listing), data: {turbolinks: false } %>
                 </div>
               </div>
             </div>

@@ -92,13 +92,12 @@
             <td> <%= purchase.listing.current_price %> </td>
             <td> <%= purchase.total_price %>€ </td>
             <td>
-
-                <div class="dropdown show">
-                  <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                    <%= link_to "View details", listing_path(purchase.listing), class: 'dropdown-item' %>
-                  </div>
+              <div class="dropdown show">
+                <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                  <%= link_to "View details", listing_path(purchase.listing), class: 'dropdown-item', data: {turbolinks: false } %>
                 </div>
+              </div>
             </td>
           </tbody>
           <% end %>
@@ -174,7 +173,7 @@
                   <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                     <%= link_to "New discount", new_listing_discount_path(listing.id), class: 'dropdown-item' %>
-                    <%= link_to "View details", listing_path(listing), class: 'dropdown-item' %>
+                    <%= link_to "View details", listing_path(listing), class: 'dropdown-item', data: {turbolinks: false } %>
                   </div>
                 </div>
               </td>
@@ -216,16 +215,18 @@
               <td> <%= number_with_delimiter(listing.quantity_pending, delimiter:".") %> </td>
               <td> <%= listing.end_date_string %> </td>
               <td> <%= listing.total_sales %>€ </td>
+              <td>
                 <div class="dropdown show">
                   <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                     <%= link_to "New discount", new_listing_discount_path(listing.id), class: 'dropdown-item' %>
-                    <%= link_to "View details", product_path(listing.product), class: 'dropdown-item' %>
+                    <%= link_to "View details", product_path(listing.product), class: 'dropdown-item', data: {turbolinks: false } %>
                   </div>
                 </div>
+              </td>
             </tr>
-          </tbody>
           <% end %>
+          </tbody>
         </table>
         <% end %>
       </div>
