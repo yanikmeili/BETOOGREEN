@@ -8,14 +8,12 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
 
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
@@ -24,7 +22,6 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import Glide, { Controls, Breakpoints } from '@glidejs/glide/dist/glide.modular.esm'
 import "lightbox2/dist/js/lightbox";
 import "chartkick/chart.js"
 
@@ -34,15 +31,6 @@ import "chartkick/chart.js"
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-
-// TODO: mover al  glide**_controller Import stimulus // import.... (linea 27) -- En el view el data-controller="glide**"
-  new Glide('.glide', {
-    type: 'carousel',
-    startAt: 0,
-    perView: 3
-  }).mount({ Controls, Breakpoints });
-
-
 });
 
 import "controllers"
