@@ -4,7 +4,7 @@
   <div class="form-container p-3 text-center">
       <p class="text-gradient m-5"><i class="fas fa-check-circle" style="font-size: 112px;"></i></p>
 
-      <p>Status: <%= @purchase.state.capitalize  %></p>
+      <p>Status: Paid</p>
       <p>Total amount: <%= humanized_money_with_symbol(@purchase.amount) %></p>
 
       <p>  <%= link_to "Look for more products", listings_path, class:"btn-gradient m-3 p-2" %></p>
