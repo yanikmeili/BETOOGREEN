@@ -8,8 +8,10 @@ class ProductsController < ApplicationController
   end
 
   def create
+    params[:product][:material] = params[:product][:material].drop(1).join(", ")
     @product = Product.new(product_params)
     @product.user = current_user
+
     if @product.save!
       redirect_to new_product_listing_path(@product)
     else

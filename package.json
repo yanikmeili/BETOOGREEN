@@ -10,6 +10,7 @@
     "bootstrap": "4.6",
     "jquery": "^3.6.0",
     "lightbox2": "^2.11.3",
+    "places.js": "^1.19.0",
     "popper.js": "^1.16.1",
     "select2": "^4.1.0-rc.0",
     "stimulus": "^2.0.0",

@@ -22,31 +22,18 @@
         <%= f.text_area :description, class: 'form-control' %>
       </div>
 
-      <div class="form-group m-5 px-5">
-        <%= f.input :material, class: 'form-control', :collection => ['Recycled cotton','Reclaimed Wood', 'Recycled Steel', 'Bamboo', 'Recycled Plastic', 'Cork']  %>
-        <%= select_tag "Materials", options_from_collection_for_select(ActiveSupport::TimeZone.all, :name, :name),
-      class: 'select2' %>
-      <select class="select2" name="material" input="<% :material %>" multiple="multiple">
-        <option>'Recycled cotton'</option>
-        <option>'Reclaimed Wood'</option>
-        <option>'Recycled Steel'</option>
-        <option>'Bamboo'</option>
-        <option>'Recycled Plastic'</option>
-        <option>'Cork'</option>
-      </select>
-
+      <div class="form-group m-5 px-5" data-controller="select">
+        <%= f.input :material, class: 'form-control', collection: Product::MATERIALS, input_html: { class: "select2", multiple: "multiple" }  %>
       </div>
-
-
 
       <div class="form-group m-5 px-5">
         <%= f.label 'Positive environmental and social impact' %>
         <%= f.text_area :impact, class: 'form-control' %>
       </div>
 
-      <div class="form-group m-5 px-5">
+      <div class="form-group m-5 px-5" data-controller="autocomplete">
         <%= f.label :origin %>
-        <%= f.text_field :origin, class: 'form-control' %>
+        <%= f.text_field :origin, class: 'form-control', input_html: { id: true } %>
       </div>
 
       <div class="form-group m-5 px-5">
