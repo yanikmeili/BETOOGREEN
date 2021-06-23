@@ -54,7 +54,7 @@
   <!-- Fin side-bar -->
 
   <!-- Inicio el contenido del dashboard -->
-  <div class="pt-4 pl-5">
+  <div class="pt-4 pl-5 pr-5">
     <h2 class="pt-4"><strong>Dashboard</strong> </h2>
 
     <br><br>
@@ -88,7 +88,7 @@
             <td class="dashboard_table_grey_text"> <%= purchase.id %> </td>
             <td> <%= purchase.listing.product.name %> </td>
             <td> <%= purchase.purchase_date_string %> </td>
-            <td> <%= purchase.quantity %> </td>
+            <td> <%= number_with_delimiter(purchase.quantity, delimiter:".") %> </td>
             <td> <%= purchase.listing.current_price %> </td>
             <td> <%= purchase.total_price %>€ </td>
             <td>
@@ -96,7 +96,7 @@
                 <div class="dropdown show">
                   <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                    <%= link_to "View details", product_path(purchase.listing.product), class: 'dropdown-item' %>
+                    <%= link_to "View details", listing_path(purchase.listing), class: 'dropdown-item' %>
                   </div>
                 </div>
             </td>
@@ -111,17 +111,23 @@
     <br><br>
 
     <!-- Inicio sales-report -->
-    <div class="d-flex">
-      <div class="pr-3">
+    <div class="reports d-flex justify-content-around">
+<!-- SALES REPORT WITH DIAGRAM - DOING IT IF WE HAVE TIME -->
+     <!--  <div class="sales-report pr-3">
         <h3 id="sales-report">Sales report</h3>
         <% @products_sorted_by_value.each do |product| %>
-          <p> <%= product.name %></p>
+          <p><%= product.name %></p>
+          <p><%= product.total_sellings_value %></p>
         <% end %>
-      </div>
-      <div>
+      </div> -->
+      <div class="top-3-products">
         <h3>Top 3 products</h3>
-        <% @top_3_products_quantity.each do |product| %>
-          <p> <%= product.name %></p>
+        <% @products_sorted_by_quantity.each do |product| %>
+          <div class="text-center">
+            <i class="fas fa-trophy" style="font-size:25px;"></i>
+            <p><%= product.name %></p>
+            <p style="font-size:13px;font-style: italic;"><%= product.total_sellings_quantity %> units</p>
+          </div>
         <% end %>
       </div>
     </div>
@@ -159,8 +165,8 @@
             <tr>
               <td class="dashboard_table_grey_text"> <%= listing.id %> </td>
               <td> <%= listing.product.name %> </td>
-              <td> <%= listing.quantity_sold %> </td>
-              <td> <%= listing.quantity_pending %> </td>
+              <td> <%= number_with_delimiter(listing.quantity_sold, delimiter:".") %> </td>
+              <td> <%= number_with_delimiter(listing.quantity_pending, delimiter:".") %> </td>
               <td> <%= listing.end_date_string %> </td>
               <td> <%= listing.total_sales %>€ </td>
               <td>
@@ -206,8 +212,8 @@
             <tr>
               <td class="dashboard_table_grey_text"> <%= listing.id %> </td>
               <td> <%= listing.product.name %> </td>
-              <td> <%= listing.quantity_sold %> </td>
-              <td> <%= listing.quantity_pending %> </td>
+              <td> <%= number_with_delimiter(listing.quantity_sold, delimiter:".") %> </td>
+              <td> <%= number_with_delimiter(listing.quantity_pending, delimiter:".") %> </td>
               <td> <%= listing.end_date_string %> </td>
               <td> <%= listing.total_sales %>€ </td>
                 <div class="dropdown show">

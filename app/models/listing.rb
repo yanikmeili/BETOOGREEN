@@ -28,8 +28,8 @@ class Listing < ApplicationRecord
 
   # this calculates the amount of units sold
   def quantity_sold
-    # purchases.inject(0) { |sum, purchase| sum + purchase.quantity }
-    purchases.sum(:quantity)
+    purchases.inject(0) { |sum, purchase| sum + purchase.quantity }
+    # purchases.sum(:quantity)
   end
 
   def quantity_pending
