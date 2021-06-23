@@ -161,7 +161,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @open_listings.each do |listing| %>
+            <% @open_listings.reverse_each do |listing| %>
             <tr>
               <td class="dashboard_table_grey_text"> <%= listing.id %> </td>
               <td> <%= listing.product.name %> </td>
@@ -281,7 +281,7 @@
             <% end %>
 
           </div>
-  </div>
+   </div>
   <!-- Fin products -->
 
   <br><br>
