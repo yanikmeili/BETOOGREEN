@@ -121,14 +121,35 @@
         <% end %>
       </div> -->
       <div class="top-3-products">
-        <h3>Top 3 products</h3>
-        <% @products_sorted_by_quantity.each do |product| %>
-          <div class="text-center">
-            <i class="fas fa-trophy" style="font-size:25px;"></i>
-            <p><%= product.name %></p>
-            <p style="font-size:13px;font-style: italic;"><%= product.total_sellings_quantity %> units</p>
+        <h3 class="text-center">Top 3 products</h3>
+        <div>
+          <div class="text-center top-3-card">
+            <div>
+              <i class="fas fa-trophy" style="font-size:25px;"></i>
+              <p class="m-0"><%= @products_sorted_by_quantity.first.name %></p>
+            </div>
+            <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.first.total_sellings_quantity %> units</p>
           </div>
-        <% end %>
+
+          <div class="row">
+            <div class="text-center col-6 d-flex flex-column justify-content-between top-3-card">
+              <div>
+                <i class="fas fa-trophy" style="font-size:25px;"></i>
+                <p class="m-0"><%= @products_sorted_by_quantity.second.name %></p>
+              </div>
+
+              <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.second.total_sellings_quantity %> units</p>
+            </div>
+            <div class="text-center col-6 d-flex flex-column justify-content-between top-3-card">
+              <div>
+                <i class="fas fa-trophy" style="font-size:25px;"></i>
+                <p class="m-0"><%= @products_sorted_by_quantity.third.name %></p>
+              </div>
+
+              <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.third.total_sellings_quantity %> units</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Fin sales-report -->
