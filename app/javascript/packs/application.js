@@ -26,6 +26,7 @@ require("channels")
 import "bootstrap";
 import Glide, { Controls, Breakpoints } from '@glidejs/glide/dist/glide.modular.esm'
 import "lightbox2/dist/js/lightbox";
+import "chartkick/chart.js"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -34,12 +35,13 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 
-
+// TODO: mover al  glide**_controller Import stimulus // import.... (linea 27) -- En el view el data-controller="glide**"
   new Glide('.glide', {
     type: 'carousel',
     startAt: 0,
     perView: 3
   }).mount({ Controls, Breakpoints });
+
 
 });
 

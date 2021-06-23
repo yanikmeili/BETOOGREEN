@@ -29,5 +29,4 @@ class Product < ApplicationRecord
     return sum
   end
 
-
 end
