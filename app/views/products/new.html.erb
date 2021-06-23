@@ -37,9 +37,17 @@
         <%= f.text_field :origin, class: 'form-control', input_html: { id: true } %>
       </div>
 
-      <div class="form-group m-5 px-5" data-controller="photos_product">
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-       </div>
+      <div data-controller="photosproduct">
+        <div class="form-group m-5 px-5">
+         <%= f.input :photos, as: :file, input_html: { multiple: true, data: { 'photosproduct-target': 'input', action: "change->photosproduct#preview"} } %>
+        </div>
+        <div data-photosproduct-target="photo"><%= image_tag 'iconphoto.png', id: "photo1", alt: "your image" %></div>
+        <div data-photosproduct-target="photo"><%= image_tag 'iconphoto.png', id: "photo2", alt: "your image" %></div>
+        <div data-photosproduct-target="photo"><%= image_tag 'iconphoto.png', id: "photo3", alt: "your image" %></div>
+        <div data-photosproduct-target="photo"><%= image_tag 'iconphoto.png', id: "photo4", alt: "your image" %></div>
+        <div data-photosproduct-target="photo"><%= image_tag 'iconphoto.png', id: "photo5", alt: "your image" %></div>
+
+      </div>
 
       <div class="button d-flex justify-content-center pb-5">
         <button href="#" class="btn-gradient mt-3 text-center">Create product</button>
