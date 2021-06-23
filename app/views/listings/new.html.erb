@@ -24,8 +24,8 @@
         <%= f.input :min_price, class: 'form-control' %>
       </div>
 
-      <div class="form-group m-5 px-5">
-        <%= f.input :end_date, class: 'form-control' %>
+      <div class="form-group m-5 px-5" data-controller="flatpickr">
+        <%= f.text_field :end_date, data: { behavior: "flatpickr" }, placeholder: "Pick a date", class: "form-control" %>
       </div>
 
       <div class="button d-flex justify-content-center pb-5">
