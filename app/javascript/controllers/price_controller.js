@@ -10,7 +10,10 @@ export default class extends Controller {
   }
 
   refresh(event) {
-    this.totalTarget.innerText = `${this.priceTarget.dataset.amount * this.quantityTarget.value} €`;
+
+    this.totalTarget.innerText = `${(parseFloat(this.quantityTarget.value) * parseFloat(this.priceTarget.dataset.amount.replace(",", "."))).toFixed(2).replace(".", ",")
+} €`;
+
   }
 }
 
