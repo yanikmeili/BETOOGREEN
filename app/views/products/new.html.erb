@@ -42,11 +42,11 @@
          <%= f.input :photos, as: :file, input_html: { multiple: true, data: { 'photosproduct-target': 'input', action: "change->photosproduct#preview"} } %>
         </div>
         <div class="image-container px-5">
-          <div data-photosproduct-target="photo" class="PHOTO-1 empty"><%= image_tag 'iconphoto.png', id: "photo1", alt: "your image" %></div>
-          <div data-photosproduct-target="photo" class="PHOTO-2 empty"><%= image_tag 'iconphoto.png', id: "photo2", alt: "your image" %></div>
-          <div data-photosproduct-target="photo" class="PHOTO-3 empty"><%= image_tag 'iconphoto.png', id: "photo3", alt: "your image" %></div>
-          <div data-photosproduct-target="photo" class="PHOTO-4 empty"><%= image_tag 'iconphoto.png', id: "photo4", alt: "your image" %></div>
-          <div data-photosproduct-target="photo" class="PHOTO-5 empty"><%= image_tag 'iconphoto.png', id: "photo5", alt: "your image" %></div>
+          <div data-photosproduct-target="photo" class="PHOTO-1-P"><%= image_tag 'iconphoto.png', id: "photo1", alt: "your image", style: "border-radius: 16px 0 0 16px;" %></div>
+          <div data-photosproduct-target="photo" class="PHOTO-2-P"><%= image_tag 'iconphoto.png', id: "photo2", alt: "your image" %></div>
+          <div data-photosproduct-target="photo" class="PHOTO-3-P"><%= image_tag 'iconphoto.png', id: "photo3", alt: "your image" %></div>
+          <div data-photosproduct-target="photo" class="PHOTO-4-P"><%= image_tag 'iconphoto.png', id: "photo4", alt: "your image" %></div>
+          <div data-photosproduct-target="photo" class="PHOTO-5-P"><%= image_tag 'iconphoto.png', id: "photo5", alt: "your image" %></div>
         </div>
       </div>
 
