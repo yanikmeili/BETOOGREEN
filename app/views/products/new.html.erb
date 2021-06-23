@@ -1,5 +1,5 @@
 <%= image_tag 'background-yellow-square.png', class: "banner-bg"  %>
-<div class="container col-6 my-5">
+<div class="container col-8 my-5">
   <div class="form-title mb-3">
     <h1 class="text-center mt-3">What product do you want to add?</h1>
   </div>
@@ -41,12 +41,13 @@
         <div class="form-group m-5 px-5">
          <%= f.input :photos, as: :file, input_html: { multiple: true, data: { 'photosproduct-target': 'input', action: "change->photosproduct#preview"} } %>
         </div>
-        <div data-photosproduct-target="photo"><%= image_tag 'iconphoto.png', id: "photo1", alt: "your image" %></div>
-        <div data-photosproduct-target="photo"><%= image_tag 'iconphoto.png', id: "photo2", alt: "your image" %></div>
-        <div data-photosproduct-target="photo"><%= image_tag 'iconphoto.png', id: "photo3", alt: "your image" %></div>
-        <div data-photosproduct-target="photo"><%= image_tag 'iconphoto.png', id: "photo4", alt: "your image" %></div>
-        <div data-photosproduct-target="photo"><%= image_tag 'iconphoto.png', id: "photo5", alt: "your image" %></div>
-
+        <div class="image-container px-5">
+          <div data-photosproduct-target="photo" class="PHOTO-1 empty"><%= image_tag 'iconphoto.png', id: "photo1", alt: "your image" %></div>
+          <div data-photosproduct-target="photo" class="PHOTO-2 empty"><%= image_tag 'iconphoto.png', id: "photo2", alt: "your image" %></div>
+          <div data-photosproduct-target="photo" class="PHOTO-3 empty"><%= image_tag 'iconphoto.png', id: "photo3", alt: "your image" %></div>
+          <div data-photosproduct-target="photo" class="PHOTO-4 empty"><%= image_tag 'iconphoto.png', id: "photo4", alt: "your image" %></div>
+          <div data-photosproduct-target="photo" class="PHOTO-5 empty"><%= image_tag 'iconphoto.png', id: "photo5", alt: "your image" %></div>
+        </div>
       </div>
 
       <div class="button d-flex justify-content-center pb-5">
