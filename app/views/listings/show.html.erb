@@ -42,26 +42,28 @@
 
       <div class="col-10 pl-0">
         <h1 class="ml-0"><strong>Collective buy</strong></h1>
-        <p> <strong>Total current quantity sold: </strong> <%= @listing.quantity_sold %>  </p>
+        <% if  @listing.quantity_pending == 0%>
+          <p> <strong> SOLD OUT </strong></p>
+        <% else %>
 
 
+
+          <p> <strong>Total current quantity sold: </strong> <%= @listing.quantity_sold %>  </p>
+        <% end %>
         <% @listing.discount_bars.each do |bar| %>
         <div class="discount col-12 ml-0">
-
           <div class="initialandnext">
             <p><strong>Initial price:  </strong><%= bar[:price]%> € </p>
             <p><strong>Next price:  </strong><%= bar[:next_price]%> €</p>
           </div>
-          <div class="rating-progress-bars py-3">
+            <div class="rating-progress-bars py-3">
               <div class="progress">
                 <div class="progress-bar gradient-prog" style="width: <%= (bar[:sold] / bar[:limit].to_f ) * 100 %>%;"><%= ((bar[:sold] / bar[:limit].to_f ) * 100).round(0) %> %</div>
               </div>
-          </div>
-          <p class="soldP"><strong>Sold: </strong><%= bar[:sold] %> <strong>out of</strong>  <%= bar[:limit] %> units</p>
-          <p class="ifP">▷ If <%= bar[:limit] %> units are sold, the price will be <%= bar[:next_price] %>€ per unit</p>
-
+            </div>
+            <p class="soldP"><strong>Sold: </strong><%= bar[:sold] %> <strong>out of</strong>  <%= bar[:limit] %> units</p>
+            <p class="ifP">▷ If <%= bar[:limit] %> units are sold, the price will be <%= bar[:next_price] %>€ per unit</p>
         </div>
-
         <% end %>
       </div>
 
@@ -70,12 +72,17 @@
     <div class="side col-3 justify-content-center" style="text-align: left">
       <p><strong> <%= @listing.product.name.upcase %></strong></p>
       <p class="sidep side-price-stock"><%= humanized_money_with_symbol(@listing.current_price)%></p>
-      <p class="sidep side-price-stock">Stock: <%= @listing.quantity_pending %></p>
-        <%= form_tag new_listing_purchase_path(@listing), method: :get do %>
+      <p class="sidep side-price-stock">
+      <% if @listing.quantity_pending == 0%>
+          <p> <strong> SOLD OUT </strong></p>
+      <% else %>
+          <p>Stock: <%= @listing.quantity_pending %></p>
+
+          <%= form_tag new_listing_purchase_path(@listing), method: :get do %>
           <%= number_field_tag 'quantity', 0, class:"round-input" %>
-            <button href="#" class="btn-gradient mt-3 text-center">Buy now</button>
+          <button href="#" class="btn-gradient mt-3 text-center">Buy now</button>
+      <% end %>
+      </p>
         <% end %>
     </div>
-  </div>
-
 </div>
