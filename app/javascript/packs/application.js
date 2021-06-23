@@ -25,8 +25,10 @@ import "bootstrap";
 import "lightbox2/dist/js/lightbox";
 import "chartkick/chart.js"
 
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -34,3 +36,4 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 import "controllers"
+

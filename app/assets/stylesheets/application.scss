@@ -7,6 +7,8 @@
 // @import "@glidejs/glide/dist/css/glide.core.min";
 @import "@glidejs/glide/src/assets/sass/glide.core";
 @import "@glidejs/glide/src/assets/sass/glide.theme";
+@import 'select2/dist/css/select2';
+
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
@@ -14,11 +16,11 @@
 @import "font-awesome";
 @import "lightbox2/dist/css/lightbox";
 
+
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 @import "pages/show";
-
 
 
 body {
