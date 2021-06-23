@@ -24,7 +24,19 @@
 
       <div class="form-group m-5 px-5">
         <%= f.input :material, class: 'form-control', :collection => ['Recycled cotton','Reclaimed Wood', 'Recycled Steel', 'Bamboo', 'Recycled Plastic', 'Cork']  %>
+        <%= select_tag "Materials", options_from_collection_for_select(ActiveSupport::TimeZone.all, :name, :name),
+      class: 'select2' %>
+      <select class="select2" name="material" input="<% :material %>" multiple="multiple">
+        <option>'Recycled cotton'</option>
+        <option>'Reclaimed Wood'</option>
+        <option>'Recycled Steel'</option>
+        <option>'Bamboo'</option>
+        <option>'Recycled Plastic'</option>
+        <option>'Cork'</option>
+      </select>
+
       </div>
+
 
 
       <div class="form-group m-5 px-5">
