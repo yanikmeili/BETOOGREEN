@@ -12,20 +12,22 @@
 
     </div>
     <%= simple_form_for [@product, @listing] do |f|%>
-      <div class="form-group m-5 px-5">
-        <%= f.input :stock, class: 'form-control' %>
+      <div class="form-group m-5 px-5 pl">
+        <%= f.input :stock, class: 'form-control',  placeholder:"Stock",label:"How many units do you have in total?"%>
       </div>
 
-      <div class="form-group m-5 px-5">
-        <%= f.input :max_price, class: 'form-control' %>
-      </div>
+      <div class="initialandnext">
+        <div class="form-group px-5 ">
+          <%= f.input :min_price, class: 'form-control', label:"Minimum price €"%>
+        </div>
 
-      <div class="form-group m-5 px-5">
-        <%= f.input :min_price, class: 'form-control' %>
+        <div class="form-group px-5">
+          <%= f.input :max_price, class: 'form-control', label:"Maximum price €" %>
+        </div>
       </div>
 
       <div class="form-group m-5 px-5" data-controller="flatpickr">
-        <%= f.text_field :end_date, data: { behavior: "flatpickr" }, placeholder: "Pick a date", class: "form-control" %>
+        <%= f.text_field :end_date, data: { behavior: "flatpickr" }, placeholder: "What is the deadline for people to buy?", class: "form-control" %>
       </div>
 
       <div class="button d-flex justify-content-center pb-5">
