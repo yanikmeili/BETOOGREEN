@@ -1,7 +1,7 @@
 <%= image_tag 'background-yellow-square.png', class: "banner-bg"  %>
 <h1 class="text-center mt-5"><strong><span class="text-gradient">Your order</span></strong></h1>
 <div class="container col-6 mt-5" data-controller="price">
-  <div class="form-container pt-3 text-center">
+  <div class="form-container p-3 text-center">
     <%= @listing.product.name %>
     <p data-price-target="price" data-amount="<%= @listing.current_price %>"><strong><%= @listing.current_price%>€</strong></p>
     <%= simple_form_for [ @listing, @purchase] do |f|%>
@@ -10,11 +10,12 @@
         <hr>
       </div>
       <p>Your total is: <strong data-price-target="total"><%= (params[:quantity].to_i * @listing.current_price).round %> €</strong></p>
-      <p class="note">Note: You'll be charge for the starting price and we'll refund any discount reached.</p>
       <div class="button-purchase d-flex mx-auto">
         <button class="btn-gradient mt-3 btn-block text-center">Confirm</button>
       </div>
     <% end %>
+          <p class="note">☞ Note: You'll be charge for the starting price and we'll refund any discount reached.</p>
+
   </div>
 </div>
 

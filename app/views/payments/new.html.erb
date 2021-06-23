@@ -1,10 +1,14 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col-md-3"><%= cl_image_tag @purchase.listing.product.photos.first.key, width: '100%' %></div>
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @purchase.listing.product.name %></strong> for <strong><%= humanized_money_with_symbol @purchase.amount %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
+<%= image_tag 'background-yellow-square.png', class: "banner-bg"  %>
+<h1 class="text-center mt-5"><strong><span class="text-gradient">Checkout summary</span></strong></h1>
+<div class="container col-6 mt-5" data-controller="price">
+  <div class="form-container pt-3 text-center">
+    <p> <%= @purchase.listing.product.name %> - <%= @purchase.quantity %> units</p>
+    <p data-price-target="price" data-amount="<%= @purchase.listing.current_price %>"> Total price: <strong><%= @purchase.listing.current_price%>€</strong></p>
+
+      <div class="form-group mt-1 p-2">        <hr>
+        <div><%= cl_image_tag @purchase.listing.product.photos.first.key, width: '40%' %></div>
+      </div>
+        <button id="pay" class="btn-gradient m-3">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');
@@ -15,6 +19,8 @@
           });
         });
       </script>
-    </div>
-  </div>
+      <p class="note pb-2">☞ Note: You'll be charge for the starting price and we'll refund any discount reached.</p>
+
+
+
 </div>
