@@ -209,5 +209,56 @@ margin: 15px;
   }
 }
 
+// Style to display images when user create the product:
+.PHOTO-1-P {
+  grid-area: PHOTO-1;
+  height: 100%;
+  border-style: solid;
+  border-width: thin;
+  border-color: rgba(196, 196, 196, 0.67);
+  border-radius: 16px 0px 0px 16px;
 
+}
+
+.PHOTO-2-P {
+  grid-area: PHOTO-2;
+  // padding: 5px;
+  height: 100%;
+  border-style: solid;
+  border-width: thin;
+  border-color: rgba(196, 196, 196, 0.67);
+}
+.PHOTO-3-P {
+  grid-area: PHOTO-3;
+  // padding: 5px;
+  height: 100%;
+  img {
+    border-radius: 0px 16px 0px 0px;
+  }
+
+  border-style: solid;
+  border-width: thin;
+  border-radius: 0px 16px 0px 0px;
+  border-color: rgba(196, 196, 196, 0.67);
+}
+.PHOTO-4-P {
+ grid-area: PHOTO-4;
+ height: 100%;
+    border-style: solid;
+    border-width: thin;
+    border-color: rgba(196, 196, 196, 0.67);
+}
+.PHOTO-5-P {
+  grid-area: PHOTO-5;
+  // padding: 5px;
+  height: 100%;
+  img {
+    border-radius: 0px 0px 16px 0px;
+    }
+  border-style: solid;
+  border-width: thin;
+  border-radius: 0px 0px 16px 0px;
+  border-color: rgba(196, 196, 196, 0.67);
+
+}
 
