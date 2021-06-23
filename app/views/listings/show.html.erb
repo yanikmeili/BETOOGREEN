@@ -6,7 +6,6 @@
 
           <div class= "image-container">
             <% 5.times do |index|  %>
-
               <% unless @listing.product.photos[index].nil? %>
                 <a href="<%= cl_image_path @listing.product.photos[index].key %>" data-lightbox="productimages" class="example-image-link PHOTO-<%= index + 1 %>">
                   <img src="<%= cl_image_path @listing.product.photos[index].key %>">
