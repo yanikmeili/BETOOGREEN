@@ -8,7 +8,7 @@ class DiscountsController < ApplicationController
     @discount = Discount.new(discount_params)
     @listing = Listing.find(params[:listing_id])
     @discount.listing = @listing
-    if @discount.save
+    if @discount.save!
       redirect_to listing_path(@listing)
     else
       render :new
