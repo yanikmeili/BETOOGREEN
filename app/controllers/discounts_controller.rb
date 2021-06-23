@@ -9,7 +9,7 @@ class DiscountsController < ApplicationController
     @listing = Listing.find(params[:listing_id])
     @discount.listing = @listing
     if @discount.save!
-      redirect_to listing_path(@listing)
+      redirect_to listing_path(@listing), data: {turbolinks: false }
     else
       render :new
     end
