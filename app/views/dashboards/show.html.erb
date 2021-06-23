@@ -112,19 +112,21 @@
 
     <!-- Inicio sales-report -->
     <div class="reports d-flex justify-content-around">
-      <div class="sales-report pr-3">
+     <!--  <div class="sales-report pr-3">
+# SALES REPORT
         <h3 id="sales-report">Sales report</h3>
         <% @products_sorted_by_value.each do |product| %>
-          <p> <%= product.name %></p>
+          <p><%= product.name %></p>
+          <p><%= product.total_sellings_value %></p>
         <% end %>
-      </div>
+      </div> -->
       <div class="top-3-products">
         <h3>Top 3 products</h3>
         <% @products_sorted_by_quantity.each do |product| %>
-          <div class="d-flex">
-            <i class="fas fa-trophy"></i>
-            <p> <%= product.name %></p>
-            <p> <%= product.total_sellings_quantity %> units</p>
+          <div class="text-center">
+            <i class="fas fa-trophy" style="font-size:25px;"></i>
+            <p><%= product.name %></p>
+            <p style="font-size:13px;font-style: italic;"><%= product.total_sellings_quantity %> units</p>
           </div>
         <% end %>
       </div>
