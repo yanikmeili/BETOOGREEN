@@ -112,14 +112,16 @@
 
     <!-- Inicio sales-report -->
     <div class="reports d-flex justify-content-around">
-<!-- SALES REPORT WITH DIAGRAM - DOING IT IF WE HAVE TIME -->
-     <!--  <div class="sales-report pr-3">
+      <div class="sales-report pr-3">
         <h3 id="sales-report">Sales report</h3>
-        <% @products_sorted_by_value.each do |product| %>
+        <canvas id="myChart" width="400" height="400"></canvas>
+
+
+<!--         <% @products_sorted_by_value.each do |product| %>
           <p><%= product.name %></p>
           <p><%= product.total_sellings_value %></p>
-        <% end %>
-      </div> -->
+        <% end %> -->
+      </div>
       <div class="top-3-products">
         <h3>Top 3 products</h3>
         <% @products_sorted_by_quantity.each do |product| %>
