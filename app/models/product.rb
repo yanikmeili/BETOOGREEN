@@ -4,6 +4,13 @@ class Product < ApplicationRecord
   has_many :listings
   has_many :reviews
 
+  scope :top_sellers_by_quantity, ->(user) { 
+    where(user: user)
+      .joins(:listings)
+      .joins(:purchases)
+      .group(:id)
+      .order('sum(purchases.quantity) desc') 
+  }
 
 # can be refactored with a #reduce or AR
   def total_sellings_quantity

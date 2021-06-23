@@ -35,12 +35,13 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 
-
+// TODO: mover al  glide**_controller Import stimulus // import.... (linea 27) -- En el view el data-controller="glide**"
   new Glide('.glide', {
     type: 'carousel',
     startAt: 0,
     perView: 3
   }).mount({ Controls, Breakpoints });
+
 
 });
 

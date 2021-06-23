@@ -1,7 +1,7 @@
 <%= image_tag 'background-yellow-square.png', class: "banner-bg"  %>
 <h1 class="text-center mt-5"><strong><span class="text-gradient">Your order</span></strong></h1>
 <div class="container col-6 mt-5" data-controller="price">
-  <div class="form-container pt-3 text-center">
+  <div class="form-container p-3 text-center">
     <%= @listing.product.name %>
     <p data-price-target="price" data-amount="<%= @listing.current_price %>"><strong><%= @listing.current_price%>€</strong></p>
     <%= simple_form_for [ @listing, @purchase] do |f|%>
@@ -10,28 +10,12 @@
         <hr>
       </div>
       <p>Your total is: <strong data-price-target="total"><%= (params[:quantity].to_i * @listing.current_price).round %> €</strong></p>
-      <p class="note">Note: You'll be charge for the starting price and we'll refund any discount reached.</p>
       <div class="button-purchase d-flex mx-auto">
-        <button type="button" class="btn-gradient mt-3 btn-block text-center" data-toggle="modal" data-target="#exampleModal">Confirm</button>
+        <button class="btn-gradient mt-3 btn-block text-center">Confirm</button>
       </div>
     <% end %>
+          <p class="note">☞ Note: You'll be charge for the starting price and we'll refund any discount reached.</p>
+
   </div>
 </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content form-container">
-      <div class="modal-header">
-        <h5 class="modal-title text-gradient" id="exampleModalLabel">Your order has been successful</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-        <div class="p-5 text-center">
-            <p class="text-gradient m-5"><i class="fas fa-check-circle" style="font-size: 112px;"></i></p>
-        </div>
-      <div class="modal-footer">
-          <%= link_to "Back to listings", listings_path, class: "btn btn-gradient" %>
-      </div>
-    </div>
-  </div>
-</div>
+

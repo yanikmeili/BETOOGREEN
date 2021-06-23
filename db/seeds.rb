@@ -322,6 +322,50 @@ swab.photos.attach(io: swab_image_5, filename: 'plastic-free-bamboo-cotton-swabs
 
 puts "Swabs photo attached: #{swab.photos.attached?}"
 
+
+bagel_kraft = Product.create!(
+  user: ana,
+  name:'Bagel Kraft Container',
+  description: "Bagel container. Valid for both Bagels and other circular products.",
+  material: 'Made with virgin paper fiber and with good thermal resistance.',
+  impact: "Ecological and 100% recyclable.",
+  origin: 'France'
+  )
+
+bagel_kraft_image_1 = URI.open('https://envanature.com/295-Niara_thickbox/envase-bagel.jpg')
+bagel_kraft.photos.attach(io: bagel_kraft_image_1, filename: 'envase-bagel.jpg', content_type: 'image/jpg')
+
+puts "Bagel photo attached: #{bagel_kraft.photos.attached?}"
+
+cup_holders = Product.create!(
+  user: ana,
+  name:'Kraft Cardboard Cup Holders',
+  description: "Kraft cardboard cup holders. Ecological and insulating from heat. Cup holder.",
+  material: 'Made with virgin paper fiber and with good thermal resistance.',
+  impact: "Ecological and 100% recyclable.",
+  origin: 'France'
+  )
+
+cup_holders_image_1 = URI.open('https://envanature.com/630-Niara_thickbox/portavasos-de-carton-kraft.jpg')
+cup_holders.photos.attach(io: cup_holders_image_1, filename: 'portavasos-de-carton-kraft.jpg', content_type: 'image/jpg')
+
+puts "Cup Holders photo attached: #{cup_holders.photos.attached?}"
+
+
+buttle_pet = Product.create!(
+  user: ana,
+  name:'Buttle',
+  description: "PET bottles. Recyclable. Imitation glass. With pre-screwed black cap included. Bottles for dairy and juices.",
+  material: 'Made with virgin fiber.',
+  impact: "Ecological and 100% recyclable.",
+  origin: 'France'
+  )
+
+buttle_pet_image_1 = URI.open('https://envanature.com/197-Niara_thickbox/botellas-pet-100ml-71-uds.jpg')
+buttle_pet.photos.attach(io: buttle_pet_image_1, filename: 'botellas-pet-100ml-71-uds.jpg', content_type: 'image/jpg')
+
+puts "Buttle PET photo attached: #{buttle_pet.photos.attached?}"
+
 toothbrush = Product.create!(
   user: trini,
   name:'Bamboo toothbrush | 4 pack',
@@ -397,12 +441,12 @@ handbag = Product.create!(
   origin: 'Argentina'
   )
 
-handbag_image_1 = URI.open('https://cdn.shopify.com/s/files/1/2415/6235/products/giphy_2_9929b9e9-b9a8-4994-8706-5e67b681f70e_1080x.gif')
+handbag_image_1 = URI.open('https://cdn.shopify.com/s/files/1/2415/6235/products/Rattan_Handbag_-_Collage1_bb5bbfec-3318-4cd6-89e7-99b903cb1e54_1080x.jpg')
 handbag_image_2 = URI.open('https://cdn.shopify.com/s/files/1/2415/6235/products/Mother_Erth_Top_Handle_Handbag_Product_Photo_1080x.jpg')
 handbag_image_3 = URI.open('https://cdn.shopify.com/s/files/1/2415/6235/products/Artisans_Choice_Handbag_6_1080x.jpg')
 handbag_image_4 = URI.open('https://cdn.shopify.com/s/files/1/2415/6235/products/Mother_Erth_Handbag_Product_Photo_1080x.jpg')
 handbag_image_5 = URI.open('https://cdn.shopify.com/s/files/1/2415/6235/products/Handbag_-_Product_Shot_Template_2_158017fa-32e1-40e5-8065-6846acd7bc5c_1080x.png')
-handbag.photos.attach(io: handbag_image_1, filename: 'giphy_2_9929b9e9-b9a8-4994-8706-5e67b681f70e_1080x.gif', content_type: 'image/gif')
+handbag.photos.attach(io: handbag_image_1, filename: 'Rattan_Handbag_-_Collage1_bb5bbfec-3318-4cd6-89e7-99b903cb1e54_1080x.jpg', content_type: 'image/jpg')
 handbag.photos.attach(io: handbag_image_2, filename: 'Mother_Erth_Top_Handle_Handbag_Product_Photo_1080x.jpg', content_type: 'image/jpg')
 handbag.photos.attach(io: handbag_image_3, filename: 'Artisans_Choice_Handbag_6_1080x.jpg', content_type: 'image/jpg')
 handbag.photos.attach(io: handbag_image_4, filename: 'Mother_Erth_Handbag_Product_Photo_1080x.jpg', content_type: 'image/jpg')
@@ -424,7 +468,7 @@ lunchwraps_image_2 = URI.open('https://www.onyalife.com/wp-content/uploads/Teal-
 lunchwraps_image_3 = URI.open('https://www.onyalife.com/wp-content/uploads/Chilli-Lunch-Wrap.jpg')
 lunchwraps_image_4 = URI.open('https://www.onyalife.com/wp-content/uploads/Pink-Lunch-Wrap.jpg')
 lunchwraps_image_5 = URI.open('https://www.onyalife.com/wp-content/uploads/Purple-Lunch-Wrap.jpg')
-lunchwraps.photos.attach(io: lunchwraps_image_1, filename: 'Apple-Lunch-Wrap.jpg', content_type: 'image/gif')
+lunchwraps.photos.attach(io: lunchwraps_image_1, filename: 'Apple-Lunch-Wrap.jpg', content_type: 'image/jpg')
 lunchwraps.photos.attach(io: lunchwraps_image_2, filename: 'Teal-Lunch-Wrap.jpg', content_type: 'image/jpg')
 lunchwraps.photos.attach(io: lunchwraps_image_3, filename: 'Chilli-Lunch-Wrap.jpg', content_type: 'image/jpg')
 lunchwraps.photos.attach(io: lunchwraps_image_4, filename: 'Pink-Lunch-Wrap.jpg', content_type: 'image/jpg')
@@ -446,7 +490,7 @@ toiletpaper_image_2 = URI.open('https://cdn.shopify.com/s/files/1/0286/5401/0428
 toiletpaper_image_3 = URI.open('https://cdn.shopify.com/s/files/1/0286/5401/0428/products/REC_TP_1_3x_6db98e05-dad2-4297-9bf4-98fa7b861d39.jpg')
 toiletpaper_image_4 = URI.open('https://cdn.shopify.com/s/files/1/0286/5401/0428/products/REC_TP_4_3x_e990b1c9-f7b3-4135-972d-0e52f9edb609.jpg')
 toiletpaper_image_5 = URI.open('https://cdn.shopify.com/s/files/1/0286/5401/0428/products/REC_TP_5_3x_b1aba114-014e-4093-b6b6-81c89691643a.jpg')
-toiletpaper.photos.attach(io: toiletpaper_image_1, filename: 'REC_TP_1_3x_5a767835-dd0f-4454-ad31-87ef531e0f9a.jpg', content_type: 'image/gif')
+toiletpaper.photos.attach(io: toiletpaper_image_1, filename: 'REC_TP_1_3x_5a767835-dd0f-4454-ad31-87ef531e0f9a.jpg', content_type: 'image/jpg')
 toiletpaper.photos.attach(io: toiletpaper_image_2, filename: 'REC_TP_3_3x_20e014c3-d954-4e32-916f-bbafd83d00e9.jpg', content_type: 'image/jpg')
 toiletpaper.photos.attach(io: toiletpaper_image_3, filename: 'REC_TP_1_3x_6db98e05-dad2-4297-9bf4-98fa7b861d39.jpg', content_type: 'image/jpg')
 toiletpaper.photos.attach(io: toiletpaper_image_4, filename: 'REC_TP_4_3x_e990b1c9-f7b3-4135-972d-0e52f9edb609.jpg', content_type: 'image/jpg')
@@ -464,16 +508,16 @@ dumptruck = Product.create!(
   origin: 'USA'
   )
 
-dumptruck_image_1 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/Dump_Truck_GIF_1024x1024@2x.gif')
+dumptruck_image_1 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/dumptruck_orangeblue_1024x.jpg')
 dumptruck_image_2 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/DumpTruck_RePack_20190416_1024x1024@2x.jpg')
-dumptruck_image_3 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/150630_dump_truck_034_110x110@2x.jpg')
-dumptruck_image_4 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/PinkDump_119_110x110@2x.jpg')
-dumptruck_image_5 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/1712305_greentoys_blue_dump_truck_005_110x110@2x.jpg')
-dumptruck.photos.attach(io: dumptruck_image_1, filename: 'Dump_Truck_GIF_1024x1024@2x.gif', content_type: 'image/gif')
+dumptruck_image_3 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/150630_dump_truck_034_1024x.jpg')
+dumptruck_image_4 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/PinkDump_119_1024x.jpg')
+dumptruck_image_5 = URI.open('https://cdn.shopify.com/s/files/1/0149/8336/4708/products/1712305_greentoys_blue_dump_truck_005_1024x.jpg')
+dumptruck.photos.attach(io: dumptruck_image_1, filename: 'dumptruck_orangeblue_1024x.jpg', content_type: 'image/jpg')
 dumptruck.photos.attach(io: dumptruck_image_2, filename: 'DumpTruck_RePack_20190416_1024x1024@2x.jpg', content_type: 'image/jpg')
-dumptruck.photos.attach(io: dumptruck_image_3, filename: '150630_dump_truck_034_110x110@2x.jpg', content_type: 'image/jpg')
-dumptruck.photos.attach(io: dumptruck_image_4, filename: 'PinkDump_119_110x110@2x.jpg', content_type: 'image/jpg')
-dumptruck.photos.attach(io: dumptruck_image_5, filename: '1712305_greentoys_blue_dump_truck_005_110x110@2x.jpg', content_type: 'image/jpg')
+dumptruck.photos.attach(io: dumptruck_image_3, filename: '150630_dump_truck_034_1024x.jpg', content_type: 'image/jpg')
+dumptruck.photos.attach(io: dumptruck_image_4, filename: 'PinkDump_119_1024x.jpg', content_type: 'image/jpg')
+dumptruck.photos.attach(io: dumptruck_image_5, filename: '1712305_greentoys_blue_dump_truck_005_1024x.jpg', content_type: 'image/jpg')
 
 puts "dumptruck photo attached: #{dumptruck.photos.attached?}"
 
@@ -491,13 +535,106 @@ tablelinen_image_2 = URI.open('https://www.vivaterra.com/medias/sys_master/image
 tablelinen_image_3 = URI.open('https://www.vivaterra.com/medias/sys_master/images/images/h73/h1e/10928863477790/V3459-VTSU18-CH3252.jpg')
 tablelinen_image_4 = URI.open('https://www.vivaterra.com/medias/sys_master/images/images/hf0/hac/10928863543326/V3460-VTSU18-CH3280-DT1.jpg')
 tablelinen_image_5 = URI.open('https://www.vivaterra.com/medias/sys_master/images/images/h49/h86/10928864264222/V3460-VTSU18-CH3199.jpg')
-tablelinen.photos.attach(io: tablelinen_image_1, filename: 'V3459-VTSU18-AF3121.jpg', content_type: 'image/gif')
+tablelinen.photos.attach(io: tablelinen_image_1, filename: 'V3459-VTSU18-AF3121.jpg', content_type: 'image/jpg')
 tablelinen.photos.attach(io: tablelinen_image_2, filename: 'V3492-VTSU18-CH3250.jpg', content_type: 'image/jpg')
 tablelinen.photos.attach(io: tablelinen_image_3, filename: 'V3459-VTSU18-CH3252.jpg', content_type: 'image/jpg')
 tablelinen.photos.attach(io: tablelinen_image_4, filename: 'V3460-VTSU18-CH3280-DT1.jpg', content_type: 'image/jpg')
 tablelinen.photos.attach(io: tablelinen_image_5, filename: 'V3460-VTSU18-CH3199.jpg', content_type: 'image/jpg')
 
 puts "tablelinen photo attached: #{tablelinen.photos.attached?}"
+
+towel = Product.create!(
+  user: trini,
+  name:'Sustainable Travel Towel',
+  description: "Evolve towels are made for adventure. Whether it's a trip to the other side of the world, or just to the beach over the road, these towels are the perfect companion. They're the perfect pairing of high performance and style.",
+  material: '20 plastic bottles recycled into each towel.',
+  impact: "Made from our revolutionary Ecolite™ microfiber, each towel contains an estimated 20 plastic bottles that have been recycled into our butter soft fabric. By using recycled PET, you are creating a demand for plastic waste that keeps it out of landfill and our oceans. Alongside this positive impact, we donate 10% of our profits to charity. Each towel you purchase is helping us to save the wild.",
+  origin: 'UK'
+  )
+
+towel_image_1 = URI.open('https://cdn.shopify.com/s/files/1/0029/0000/0835/products/Untitled_design_5_2000x.jpg')
+towel_image_2 = URI.open('https://cdn.shopify.com/s/files/1/0029/0000/0835/products/evolvetravelgoods-sand-free-travel-beach-towel-aegean-4999442268227_2000x.jpg')
+towel_image_3 = URI.open('https://cdn.shopify.com/s/files/1/0029/0000/0835/products/evolvetravelgoods-sand-free-travel-beach-towel-aegean-4999438467139_2000x.jpg')
+towel_image_4 = URI.open('https://cdn.shopify.com/s/files/1/0029/0000/0835/products/Photo__Raskal_3_2000x.jpg')
+towel_image_5 = URI.open('https://cdn.shopify.com/s/files/1/0029/0000/0835/products/Photo__Raskal_4_2000x.jpg')
+towel.photos.attach(io: towel_image_1, filename: 'Untitled_design_5_2000x.jpg', content_type: 'image/jpg')
+towel.photos.attach(io: towel_image_2, filename: 'evolvetravelgoods-sand-free-travel-beach-towel-aegean-4999442268227_2000x.jpg', content_type: 'image/jpg')
+towel.photos.attach(io: towel_image_3, filename: 'evolvetravelgoods-sand-free-travel-beach-towel-aegean-4999438467139_2000x.jpg', content_type: 'image/jpg')
+towel.photos.attach(io: towel_image_4, filename: 'Photo__Raskal_3_2000x.jpg', content_type: 'image/jpg')
+towel.photos.attach(io: towel_image_5, filename: 'Photo__Raskal_4_2000x.jpg', content_type: 'image/jpg')
+
+puts "towel photo attached: #{towel.photos.attached?}"
+
+breadbag = Product.create!(
+  user: trini,
+  name:'Bread Bag',
+  description: "Whether you live in Germany and call it Brotbeutel, or you're in France and call it Sac à pain, our Zero Waste Cotton Bread Bag is an essential kitchen accessory that will help you keep your fresh bread anywhere in the world. It can be a great housewarming gift, for anyone who loves natural, premium quality, organic products, and of course any bread lover.",
+  material: 'Organic cotton fabric',
+  impact: "This bag is a healthy and elegant option to replace single-use paper or plastic bags when we go to the bakery. It is designed and manufactured in a way that keeps the bread fresh for about 3 days. The bag can also be used in many other ways, such as storing things, such as breadbox, travel or any other utility you can think of.",
+  origin: 'Argentina'
+  )
+
+breadbag_image_1 = URI.open('https://i.etsystatic.com/25474144/r/il/71fc90/3146583083/il_1588xN.3146583083_rz87.jpg')
+breadbag_image_2 = URI.open('https://i.etsystatic.com/25474144/r/il/e6bfdc/3008151605/il_794xN.3008151605_o13e.jpg')
+breadbag_image_3 = URI.open('https://i.etsystatic.com/25474144/r/il/99da3e/2942410641/il_794xN.2942410641_lybz.jpg')
+breadbag_image_4 = URI.open('https://i.etsystatic.com/25474144/r/il/b26099/2942410515/il_794xN.2942410515_tjhv.jpg')
+breadbag_image_5 = URI.open('https://i.etsystatic.com/25474144/r/il/e76c33/2847349724/il_794xN.2847349724_lupn.jpg')
+breadbag.photos.attach(io: breadbag_image_1, filename: 'il_1588xN.3146583083_rz87.jpg', content_type: 'image/jpg')
+breadbag.photos.attach(io: breadbag_image_2, filename: 'il_794xN.3008151605_o13e.jpg', content_type: 'image/jpg')
+breadbag.photos.attach(io: breadbag_image_3, filename: 'il_794xN.2942410641_lybz.jpg', content_type: 'image/jpg')
+breadbag.photos.attach(io: breadbag_image_4, filename: 'il_794xN.2942410515_tjhv.jpg', content_type: 'image/jpg')
+breadbag.photos.attach(io: breadbag_image_5, filename: 'il_794xN.2847349724_lupn.jpg', content_type: 'image/jpg')
+
+puts "breadbag photo attached: #{breadbag.photos.attached?}"
+
+solidchampu = Product.create!(
+  user: trini,
+  name:'Solid Champu',
+  description: "Solid shampoo is a dry concentrated shampoo bar, based on mild surfactants derived from coconut oil, oils, butters, powdered plants, hydrolates and essential oils. Free of sulfates, parabens, or silicones. When in contact with water, it makes an abundant and deeply cleansed foam, lengthening the time between washes. Being concentrated lasts longer than a conventional one.",
+  material: '100% Biodegradable',
+  impact: "Solid cosmetics make it possible not to use packaging and contribute to not generating more waste. It is efficient, practical and sustainable.",
+  origin: 'Argentina'
+  )
+
+solidchampu_image_1 = URI.open('https://i.etsystatic.com/19391101/r/il/6152a1/2790729710/il_794xN.2790729710_qgnv.jpg')
+solidchampu_image_2 = URI.open('https://i.etsystatic.com/19391101/r/il/0f939d/2790730250/il_794xN.2790730250_22du.jpg')
+solidchampu_image_3 = URI.open('https://i.etsystatic.com/19391101/r/il/888a36/2838408333/il_794xN.2838408333_k0ix.jpg')
+solidchampu_image_4 = URI.open('https://i.etsystatic.com/19391101/r/il/882c1b/2838408521/il_1588xN.2838408521_1feh.jpg')
+solidchampu_image_5 = URI.open('https://i.etsystatic.com/25264999/r/il/9ab9cd/3072441706/il_1588xN.3072441706_eu8i.jpg')
+solidchampu.photos.attach(io: solidchampu_image_1, filename: 'il_1588xN.3146583083_rz87.jpg', content_type: 'image/jpg')
+solidchampu.photos.attach(io: solidchampu_image_2, filename: 'il_794xN.3008151605_o13e.jpg', content_type: 'image/jpg')
+solidchampu.photos.attach(io: solidchampu_image_3, filename: 'il_794xN.2942410641_lybz.jpg', content_type: 'image/jpg')
+solidchampu.photos.attach(io: solidchampu_image_4, filename: 'il_794xN.2942410515_tjhv.jpg', content_type: 'image/jpg')
+solidchampu.photos.attach(io: solidchampu_image_5, filename: 'il_1588xN.3072441706_eu8i.jpg', content_type: 'image/jpg')
+
+puts "solidchampu photo attached: #{solidchampu.photos.attached?}"
+
+#Listings
+
+solidchampu_sale = Listing.create!(
+  stock: 1700,
+  max_price: 7,
+  min_price: 3,
+  end_date: Date.today + 45,
+  product: solidchampu
+  )
+
+
+breadbag_sale = Listing.create!(
+  stock: 1000,
+  max_price: 8,
+  min_price: 5,
+  end_date: Date.today + 45,
+  product: breadbag
+  )
+
+towel_sale = Listing.create!(
+  stock: 500,
+  max_price: 30,
+  min_price: 15,
+  end_date: Date.today + 45,
+  product: towel
+  )
 
 utensil_set = Listing.create!(
   stock: 12000,
@@ -513,6 +650,22 @@ coffee_cup = Listing.create!(
   min_price: 0.75,
   end_date: Date.today + 30,
   product: coffee_cup
+  )
+
+bagel_kraft = Listing.create!(
+  stock: 1250,
+  max_price: 0.99,
+  min_price: 0.16,
+  end_date: Date.today + 30,
+  product: bagel_kraft
+  )
+
+buttle_pet = Listing.create!(
+  stock: 1860,
+  max_price: 0.5,
+  min_price: 0.3,
+  end_date: Date.today + 30,
+  product: buttle_pet
   )
 
 tablelinen_sale = Listing.create!(
@@ -562,6 +715,15 @@ sunglasses_sale = Listing.create!(
   end_date: Date.today + 30,
   product: sunglasses
   )
+
+cup_holders = Listing.create!(
+  stock: 6700,
+  max_price_cents: 2.4,
+  min_price_cents: 0.8,
+  end_date: Date.today + 30,
+  product: cup_holders
+  )
+
 
 dishwash_sale = Listing.create!(
   stock: 10000,

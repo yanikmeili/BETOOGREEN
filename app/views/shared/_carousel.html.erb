@@ -1,18 +1,50 @@
+<h2 class="text-center mb-5"><span style="color:  #00997B;">❁</span> Products from our favourite producers <span style="color:  #00997B;">❁</span></h2>
 
-<div class="glide">
+
+
+<div class="glide mb-5">
   <div class="glide__track" data-glide-el="track">
     <ul class="glide__slides">
-      <li class="glide__slide"><%= render 'shared/card' %></li>
-      <li class="glide__slide"><%= render 'shared/card' %></li>
-      <li class="glide__slide"><%= render 'shared/card' %></li>
+
+
+          <% @listings.each do |listing| %>
+
+            <li class="glide__slide">
+              <div class="card-product ml-5 mb-3">
+                <div class="card-img">
+                  <%= link_to listing_path(listing) do %>
+                    <%= cl_image_tag listing.product.photos.first.key %>
+                  <% end %>
+                </div>
+                <div class="card-body">
+                  <div class="card-top-elements">
+                    <p>UNTIL THE <%= listing.end_date %></p>
+                    <p class="font-weight-bold"><%= listing.current_price %>€</p>
+                  </div>
+                  <div class="product-info">
+                    <h5 class="mb-3"><strong><%= listing.product.name %></strong></h5>
+                    <h6><%= listing.product.description %></h6>
+                  </div>
+                  <div class="card-bottom-elements">
+                    <%= link_to "Join collective buy", new_listing_purchase_path(listing.id) %>
+                    <div>
+                      <%= link_to "Read more", listing_path(listing) %>
+                      <i class="fas fa-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+          <% end %>
+          </li>
+
+
     </ul>
   </div>
 
-  <div class="glide__track" data-glide-el="track">...</div>
-
   <div class="glide__arrows" data-glide-el="controls">
-    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
-    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+    <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="far fa-arrow-alt-circle-left btn-gradient"></i></button>
+    <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="far fa-arrow-alt-circle-right btn-gradient"></i></button>
   </div>
 </div>
 

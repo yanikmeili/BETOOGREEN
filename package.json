@@ -10,6 +10,7 @@
     "bootstrap": "4.6",
     "chart.js": "^3.3.2",
     "chartkick": "^4.0.4",
+    "flatpickr": "^4.6.9",
     "jquery": "^3.6.0",
     "lightbox2": "^2.11.3",
     "popper.js": "^1.16.1",
