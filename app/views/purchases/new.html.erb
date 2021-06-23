@@ -3,13 +3,13 @@
 <div class="container col-6 mt-5" data-controller="price">
   <div class="form-container p-3 text-center">
     <%= @listing.product.name %>
-    <p data-price-target="price" data-amount="<%= @listing.current_price %>"><strong><%= @listing.current_price%>€</strong></p>
+    <p data-price-target="price" data-amount="<%= @listing.current_price %>"><strong><%= money_without_cents(@listing.current_price)%>€</strong></p>
     <%= simple_form_for [ @listing, @purchase] do |f|%>
       <div class="form-group m-5 p-2">
         <%= f.input :quantity, input_html: { value: params[:quantity], class: "input mx-auto", data: {'price-target': 'quantity', action: "change->price#refresh" } }%>
         <hr>
       </div>
-      <p>Your total is: <strong data-price-target="total"><%= (params[:quantity].to_i * @listing.current_price).round %> €</strong></p>
+      <p>Your total is: <strong data-price-target="total"><%= money_without_cents((params[:quantity].to_i * @listing.current_price).round) %> €</strong></p>
       <div class="button-purchase d-flex mx-auto">
         <button class="btn-gradient mt-3 btn-block text-center">Confirm</button>
       </div>
