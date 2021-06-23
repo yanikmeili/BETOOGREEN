@@ -5,7 +5,7 @@
 }
 
 footer {
- background-image: url("wave.png"); /* The image used */
+ background-image: url(image-path("wave.png")); /* The image used */
  height: 224px; /* You must set a specified height */
  background-size: cover;
  width: 100%;
@@ -31,7 +31,6 @@ footer {
   }
 }
 
-
 .info li {
   list-style-type: none; /* Remove bullets */
   padding-bottom: 4px;
@@ -46,12 +45,10 @@ footer {
   padding-left: 0;
 }
 
-
 .first-info-container p, .second-info-container p {
     color: #ADADAD;
     font-weight: bold;
 }
-
 
 .no-color {
   color: black;
