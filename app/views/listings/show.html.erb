@@ -87,27 +87,38 @@
 <div class="reviews">
   <h5><strong>Buyers reviews</strong> </h5>
 
-  <% @listing.product.reviews.each do |review| %>
 
+<<<<<<< HEAD
     <div class="rev-box align-items-center">
       <p class="rev-name"><strong> <%= review.purchase.user.email.split('@')[0].capitalize %></strong></p>
     </div>
+=======
+  <% if @listing.product.reviews.any? %>
+    <% @listing.product.reviews.each do |review| %>
+>>>>>>> 4e4ff335d988d258645beab6830785c1e2556868
 
-    <div class="rev-cont">
+      <div class="rev-box align-items-center">
+        <div class="rev-avatar"></div>
+        <p class="rev-name"><strong> <%= review.purchase.user.email.split('@')[0].capitalize %></strong></p>
+      </div>
 
-      <% 3.times do %>
-        <i class="fas fa-star orange-star"></i>
-      <% end %>
+      <div class="rev-cont">
 
-      <% 2.times do %>
-        <i class="fas fa-star grey-star"></i>
-      <% end %>
-    </div>
+        <% (review.rating).times do %>
+          <i class="fas fa-star orange-star"></i>
+        <% end %>
 
-    <div class="rev-cont">
-      <p> <%= review.content %> </p>
-    </div>
+        <% (5 - (review.rating)).times do %>
+          <i class="fas fa-star grey-star"></i>
+        <% end %>
+      </div>
 
+      <div class="rev-cont">
+        <p> <%= review.content %> </p>
+      </div>
+
+    <% end %>
+  <% else %>
+    <p>This products doesn't have any review yet.</p>
   <% end %>
-
 </div>
