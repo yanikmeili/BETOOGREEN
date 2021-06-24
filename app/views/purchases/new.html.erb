@@ -3,9 +3,9 @@
 <div class="container col-6 mt-5" data-controller="price">
   <div class="form-container p-3 text-center">
     <%= @listing.product.name %>
-    <p data-price-target="price" data-amount="<%= @listing.current_price %>"><strong><%= money_without_cents(@listing.current_price)%>€</strong></p>
+    <p data-price-target="price" data-amount="<%= @listing.current_price %>"><strong><%= money_without_cents(@listing.current_price)%> €</strong></p>
     <%= simple_form_for [ @listing, @purchase] do |f|%>
-      <div class="form-group m-5 p-2">
+      <div class="form-group mx-5 p-2">
         <%= f.input :quantity, input_html: { value: params[:quantity], class: "input mx-auto", data: {'price-target': 'quantity', action: "change->price#refresh" } }%>
         <hr>
       </div>

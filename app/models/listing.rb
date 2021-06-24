@@ -2,8 +2,8 @@ class Listing < ApplicationRecord
   monetize :min_price_cents
   monetize :max_price_cents
   belongs_to :product # @listing.product
-  has_many :discounts # @listing.discounts => array
-  has_many :purchases # @listing.purchases => array
+  has_many :discounts, dependent: :destroy # @listing.discounts => array
+  has_many :purchases, dependent: :destroy # @listing.purchases => array
 
   include PgSearch::Model
   pg_search_scope :global_search,
