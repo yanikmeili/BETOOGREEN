@@ -15,3 +15,25 @@
 .dashboard-cards-center {
   justify-content: center;
 }
+
+.dashboard-products a {
+  text-align: end;
+  &:hover {
+    text-decoration: none;
+    color:green;
+  }
+}
+
+.settings {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-products .fas {
+  color:rgb(241, 196, 83);
+}
+
+.reports {
+  margin: 56px 0px;
+}
+

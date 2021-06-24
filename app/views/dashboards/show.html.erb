@@ -119,7 +119,7 @@
         </div>
         <div class="top-3-products d-flex flex-column justify-content-between">
           <h3 class="text-center">Top 3 products</h3>
-          <div class="my-5">
+          <div class="top-products m-auto">
             <div class="text-center top-3-card">
               <div>
                 <i class="fas fa-trophy" style="font-size: 40px;" aria-hidden="true"></i>
@@ -128,7 +128,7 @@
               <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.first.total_sellings_quantity %> units</p>
             </div>
 
-            <div class="row">
+            <div class="row" style="margin-top: 26px;">
               <div class="text-center col-6 d-flex flex-column justify-content-between top-3-card">
                 <div>
                   <i class="fas fa-trophy" style="font-size: 40px;" aria-hidden="true"></i>
@@ -263,8 +263,8 @@
     <!-- Inicio products -->
     <div class="dashboard-products dashboard-title-and-button">
       <h2 id="products">Products</h2>
-      <%= link_to "+", new_product_path, style:"font-size: 24px;" %>
-
+      <p></p>
+      <%= link_to "+", new_product_path%>
     </div>
     <br>
 
@@ -299,7 +299,7 @@
                     <%= link_to "Create new listing", new_product_listing_path(product.id) %>
                     <div>
                       <% link_to "Read more", product_path(product.id) %>
-                      <i class="fas fa-arrow-right"></i>
+                      <i class="fas fa-arrow-right" style="margin-left:6px;"></i>
                     </div>
                   </div>
                 </div>
@@ -314,14 +314,15 @@
   <br><br>
 
   <!-- Inicio settings -->
-  <div class="settings d-flex justify-content-between"  style="position:relative;">
-    <h2 id="settings">Settings
-      <%= link_to edit_user_registration_path do  %>
-        <i class="far fa-edit"></i>
-      <% end -%>
-    </h2>
-    <br>
+  <div class="settings">
+    <h2 id="settings">Settings</h2>
+    <%= link_to edit_user_registration_path do  %>
+      <i class="far fa-edit"></i>
+    <% end -%>
   </div>
+
+<br>
+
   <!-- Fin settings -->
 
   <div class="pb-4">
