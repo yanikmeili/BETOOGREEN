@@ -16,7 +16,13 @@
       <div class="card-product m-3">
         <div class="card-img">
           <%= link_to listing_path(listing), data: {turbolinks: false } do %>
-            <%= cl_image_tag listing.product.photos.first.key %>
+            <% if listing.product.photos.empty? %>
+              <%= image_tag "https://www.refbd.com/wp-content/uploads/2020/04/eco-cup-2.jpg" %>
+            <% else %>
+              <%= cl_image_tag listing.product.photos.first.key %>
+            <% end %>
+
+
           <% end %>
           <div>
             <a class="quick-view-title" data-toggle="modal" data-target="#listing_<%= listing.id %>">Quick view</a>
@@ -49,7 +55,14 @@
                 <span aria-hidden="true">&times;</span>
             </div>
             <div class="modal-body d-flex justify-items-center" style="padding:0 1rem;">
-              <%= cl_image_tag listing.product.photos.first.key, class: "modal-img"%>
+              <% if listing.product.photos.empty? %>
+                <%= image_tag "https://www.refbd.com/wp-content/uploads/2020/04/eco-cup-2.jpg", class: "modal-img" %>
+              <% else %>
+                <%= cl_image_tag listing.product.photos.first.key, class: "modal-img"%>
+              <% end %>
+
+
+
               <div class="m-3">
                 <h5 style="color:grey"><%= listing.product.name %></h5>
                 <p style="color:grey"><%= listing.current_price %> €</p>

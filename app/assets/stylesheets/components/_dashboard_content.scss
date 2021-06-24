@@ -4,7 +4,7 @@
 
 .dashboard-products {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 24px;
 }
 
@@ -52,7 +52,8 @@
 }
 
 
-
+a.large-icon { font-size: 24px; }
+a.massive-icon { font-size: 32px; }
 
 
 
