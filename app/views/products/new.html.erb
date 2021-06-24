@@ -38,11 +38,11 @@
       </div>
 
       <div data-controller="photosproduct">
-        <div class="form-group m-5">
+        <div class="form-group my-4 text-center">
          <%= f.input :photos,
-                     label: '📷 Upload a photo',
+                     label: 'Upload a photo',
                      as: :file,
-                     label_html: { class:'btn-gradient'},
+                     label_html: { class: 'btn-gradient mt-5'},
                      input_html: {
                       multiple: true,
                       data: { 'photosproduct-target': 'input',
@@ -60,7 +60,7 @@
       </div>
 
       <div class="button d-flex justify-content-center pb-5">
-        <button href="#" class="btn-gradient mt-3 text-center">Create product</button>
+        <button href="#" class="btn-gradient mt-5 text-center">Create product</button>
       </div>
     <% end %>
   </div>
