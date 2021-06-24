@@ -17,7 +17,6 @@
 }
 
 .dashboard-products a {
-  font-size: 24px;
   text-align: end;
   &:hover {
     text-decoration: none;
@@ -32,5 +31,9 @@
 
 .top-products .fas {
   color:rgb(241, 196, 83);
-
 }
+
+.reports {
+  margin: 56px 0px;
+}
+
