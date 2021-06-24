@@ -265,10 +265,18 @@ straw = Product.create!(
   origin: 'Vietnam'
   )
 
-straw_image_1 = URI.open('https://i.pinimg.com/736x/6f/9a/8b/6f9a8bded893274c17ff9e2e07b69db6.jpg')
-straw_image_2 = URI.open('http://sc04.alicdn.com/kf/Hc5516015b0124a8c8b648f07b87df139Y.jpg')
-straw.photos.attach(io: straw_image_1, filename: '6f9a8bded893274c17ff9e2e07b69db6.jpg', content_type: 'image/jpg')
-straw.photos.attach(io: straw_image_2, filename: 'Hc5516015b0124a8c8b648f07b87df139Y.jpg', content_type: 'image/jpg')
+straw_image_1 = URI.open('https://images-na.ssl-images-amazon.com/images/I/71OiEgtABwL._AC_SL1500_.jpg')
+straw_image_2 = URI.open('https://images-na.ssl-images-amazon.com/images/I/61P4nvfsIvL._AC_SL1500_.jpg')
+straw_image_3 = URI.open('https://images-na.ssl-images-amazon.com/images/I/713XzKbtZoL._AC_SL1500_.jpg')
+straw_image_4 = URI.open('https://images-na.ssl-images-amazon.com/images/I/71TaRD-TvCL._AC_SL1309_.jpg')
+straw_image_5 = URI.open('https://images-na.ssl-images-amazon.com/images/I/61m2tujz60L._AC_SL1000_.jpg')
+straw.photos.attach(io: straw_image_1, filename: '71OiEgtABwL._AC_SL1500_.jpg', content_type: 'image/jpg')
+straw.photos.attach(io: straw_image_2, filename: '61P4nvfsIvL._AC_SL1500_.jpg', content_type: 'image/jpg')
+straw.photos.attach(io: straw_image_3, filename: '713XzKbtZoL._AC_SL1500_.jpg', content_type: 'image/jpg')
+straw.photos.attach(io: straw_image_4, filename: '71TaRD-TvCL._AC_SL1309_.jpg', content_type: 'image/jpg')
+straw.photos.attach(io: straw_image_5, filename: '61m2tujz60L._AC_SL1000_.jpg', content_type: 'image/jpg')
+
+
 
 puts "Straw photo attached: #{straw.photos.attached?}"
 
