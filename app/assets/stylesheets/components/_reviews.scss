@@ -1,0 +1,33 @@
+.reviews {
+  padding: 15px 0;
+}
+
+.rev-box {
+  display: flex;
+  align-items: center;
+  margin: 40px 0 15px 0;
+}
+
+.rev-cont p {
+  margin-bottom: 40px;
+}
+
+.rev-cont .fas {
+  margin-bottom: 25px;
+}
+
+.orange-star {
+  color: $yellow;
+}
+
+.grey-star {
+  color: lightgrey;
+}
+
+.rev-avatar {
+  border-radius: 50%;
+  background-image: url(https://i.pravatar.cc/30);
+  width: 35px;
+  height: 35px;
+  margin: 0 10px 15px 0;
+}
