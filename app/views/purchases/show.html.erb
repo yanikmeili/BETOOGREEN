@@ -4,10 +4,10 @@
   <div class="form-container p-3 text-center">
       <p class="text-gradient m-5"><i class="fas fa-check-circle" style="font-size: 112px;"></i></p>
 
-      <p>Status: Paid</p>
-      <p>Total amount: <%= humanized_money_with_symbol(@purchase.amount) %></p>
+      <p>Status: <strong>Paid</strong></p>
+      <p>Total amount: <strong> <%= money_without_cents(@purchase.amount) %> €</strong></p>
 
-      <p>  <%= link_to "Look for more products", listings_path, class:"btn-gradient m-3 p-2" %></p>
+      <p>  <%= link_to "Continue shopping", listings_path, class:"btn-gradient m-3 py-2 px-5" %></p>
 
 
       <p class="note">☞ Note: If the price reaches the next discount, you will be refunded the difference. </p>
