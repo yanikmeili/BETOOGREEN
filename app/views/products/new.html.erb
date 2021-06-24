@@ -39,7 +39,16 @@
 
       <div data-controller="photosproduct">
         <div class="form-group m-5">
-         <%= f.input :photos, as: :file, input_html: { multiple: true, data: { 'photosproduct-target': 'input', action: "change->photosproduct#preview"} } %>
+         <%= f.input :photos,
+                     label: '📷 Upload a photo',
+                     as: :file,
+                     label_html: { class:'btn-gradient'},
+                     input_html: {
+                      multiple: true,
+                      data: { 'photosproduct-target': 'input',
+                      action: "change->photosproduct#preview"} ,
+                      class: "d-none"
+                     } %>
         </div>
         <div class="image-container px-5">
           <div data-photosproduct-target="photo" class="PHOTO-1-P"><%= image_tag 'iconphoto.png', id: "photo1", alt: "your image", style: "border-radius: 16px 0 0 16px;" %></div>
