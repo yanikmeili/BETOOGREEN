@@ -21,6 +21,11 @@
   text-align: end;
   &:hover {
     text-decoration: none;
-    color:white;
+    color:green;
   }
+}
+
+.settings {
+  display: flex;
+  justify-content: space-between;
 }

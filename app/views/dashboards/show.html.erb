@@ -265,7 +265,6 @@
       <h2 id="products">Products</h2>
       <p></p>
       <%= link_to "+", new_product_path%>
-
     </div>
     <br>
 
@@ -315,16 +314,15 @@
   <br><br>
 
   <!-- Inicio settings -->
-  <div class="settings d-flex justify-content-between"  style="position:relative;">
-    <h2 id="settings">Settings
-      <div>
-        <%= link_to edit_user_registration_path do  %>
-          <i class="far fa-edit"></i>
-        <% end -%>
-      </div>
-    </h2>
-    <br>
+  <div class="settings">
+    <h2 id="settings">Settings</h2>
+    <%= link_to edit_user_registration_path do  %>
+      <i class="far fa-edit"></i>
+    <% end -%>
   </div>
+
+<br>
+
   <!-- Fin settings -->
 
   <div class="pb-4">
