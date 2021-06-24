@@ -38,8 +38,17 @@
       </div>
 
       <div data-controller="photosproduct">
-        <div class="form-group m-5 px-5">
-         <%= f.input :photos, as: :file, label:"And here, upload five picture of your product", input_html: { multiple: true, data: { 'photosproduct-target': 'input', action: "change->photosproduct#preview"} } %>
+        <div class="form-group my-4 text-center">
+         <%= f.input :photos,
+                     label: 'Upload a photo',
+                     as: :file,
+                     label_html: { class: 'btn-gradient mt-5'},
+                     input_html: {
+                      multiple: true,
+                      data: { 'photosproduct-target': 'input',
+                      action: "change->photosproduct#preview"} ,
+                      class: "d-none"
+                     } %>
         </div>
         <div class="image-container px-5">
           <div data-photosproduct-target="photo" class="PHOTO-1-P"><%= image_tag 'iconphoto.png', id: "photo1", alt: "your image", style: "border-radius: 16px 0 0 16px;" %></div>
@@ -51,7 +60,7 @@
       </div>
 
       <div class="button d-flex justify-content-center pb-5">
-        <button href="#" class="btn-gradient mt-3 text-center">Create product</button>
+        <button href="#" class="btn-gradient mt-5 text-center">Create product</button>
       </div>
     <% end %>
   </div>
