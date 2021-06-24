@@ -139,7 +139,7 @@
     <% unless @products_sorted_by_quantity.empty? %>
       <div class="reports d-flex justify-content-around">
         <div class="sales-report">
-          <h3 id="sales-report" class="text-center mb-3" style="">Sales report</h3>
+          <h3 id="sales-report" class="text-center mb-3" style="">Sales report (€)</h3>
           <div class="d-none" id="chartData" data-chart="<%= current_user.chart_hash.to_json %>"></div>
           <canvas id="myChart" width="600" height="600" style="display: block;box-sizing: border-box;height: 300px;width: 300px;"></canvas>
         </div>
