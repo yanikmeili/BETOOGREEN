@@ -1,5 +1,7 @@
 require "open-uri"
 
+puts "Destroying everything in the world 💣"
+
 Review.destroy_all
 Purchase.destroy_all
 Discount.destroy_all
@@ -8,6 +10,8 @@ Product.destroy_all
 User.destroy_all
 
 # USER
+
+puts "Creating users 🙍🏻‍♀️"
 
 martin = User.create!(email: 'martin@gmail.com', password:'123456')
 yanik = User.create!(email: 'Yanik@gmail.com', password:'123456')
@@ -21,6 +25,8 @@ carlos = User.create!(email: 'carlos@gmail.com', password:'123456')
 pablito = User.create!(email: 'pablito@gmail.com', password:'123456')
 
 # PRODUCT
+
+puts "Creating products"
 
 utensil_set = Product.create!(
   user: ana,
@@ -579,6 +585,8 @@ puts "solidchampu photo attached: #{solidchampu.photos.attached?}"
 
 #Listings
 
+puts "Creating listings"
+
 solidchampu_sale = Listing.create!(
   stock: 1700,
   max_price: 7,
@@ -785,6 +793,8 @@ straw_sale = Listing.create!(
   product: straw
   )
 
+puts "Creating discounts"
+
 coffee_cup = Discount.create!(
   quantity: 3500,
   price: 1,
@@ -826,6 +836,8 @@ cup_discount_2 = Discount.create!(
   price: 0.065,
   listing: cup_sale,
   )
+
+puts "Creating purchases"
 
 bag_purchase = Purchase.create!(
   user: pablito,
@@ -875,6 +887,7 @@ straw_purchase = Purchase.create!(
   quantity: 4000
   )
 
+puts "Creating reviews"
 
 bag_review = Review.create!(
   purchase: bag_purchase,
@@ -901,6 +914,8 @@ straw_review = Review.create!(
   )
 
 #  DEMO SEED INFO
+
+puts "Creating demo information"
 
 mat = Product.create!(
   user: pablito,
@@ -956,7 +971,7 @@ purchase = Purchase.create!(
   )
 
 
-
+puts "Creating purchases for ALL listings"
 
 2.times do
   Listing.all.each do |listing|
@@ -965,30 +980,38 @@ purchase = Purchase.create!(
     listing: listing,
     quantity: listing.stock * rand(1..20).to_f / 100
     )
-
-    review = Review.create!(
-      purchase: purchase,
-      content:'Amazing product! I really love it and would recommend it to anyone!',
-      rating: 5
-    )
-
-    review = Review.create!(
-      purchase: purchase,
-      content:'Really like that but the delivery wasn´t super fast',
-      rating: 4
-    )
-
-    review = Review.create!(
-      purchase: purchase,
-      content:'Super happy about my purchase, and also got a refund for the last discount!!',
-      rating: 5
-    )
-
   end
 end
 
+reviews = [
+  {
+    content:'Amazing product! I really love it and would recommend it to anyone!',
+    rating: 5
+  },
+  {
+    content:'Really like that but the delivery wasn´t super fast',
+    rating: 4
+  },
+  {
+    content:'Super happy about my purchase, and also got a refund for the last discount!!',
+    rating: 5
+  },
 
-puts "Seeding ended"
+]
+
+puts "Creating reviews for ALL purchases"
+
+Purchase.all.each do |purchase|
+  review_data = reviews.sample
+    review = Review.create!(
+      purchase: purchase,
+      content: review_data[:content],
+      rating: review_data[:rating]
+    )
+end
+
+
+puts "Seeding ended 🥭"
 puts "User created: #{User.count}"
 puts "Review created: #{Review.count}"
 puts "Purchase created: #{Purchase.count}"
