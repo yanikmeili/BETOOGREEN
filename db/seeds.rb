@@ -1,5 +1,7 @@
 require "open-uri"
 
+puts "Destroying everything in the world 💣"
+
 Review.destroy_all
 Purchase.destroy_all
 Discount.destroy_all
@@ -8,6 +10,8 @@ Product.destroy_all
 User.destroy_all
 
 # USER
+
+puts "Creating users 🙍🏻‍♀️"
 
 martin = User.create!(email: 'martin@gmail.com', password:'123456')
 yanik = User.create!(email: 'Yanik@gmail.com', password:'123456')
@@ -21,6 +25,8 @@ carlos = User.create!(email: 'carlos@gmail.com', password:'123456')
 pablito = User.create!(email: 'pablito@gmail.com', password:'123456')
 
 # PRODUCT
+
+puts "Creating products"
 
 utensil_set = Product.create!(
   user: ana,
@@ -259,10 +265,18 @@ straw = Product.create!(
   origin: 'Vietnam'
   )
 
-straw_image_1 = URI.open('https://i.pinimg.com/736x/6f/9a/8b/6f9a8bded893274c17ff9e2e07b69db6.jpg')
-straw_image_2 = URI.open('http://sc04.alicdn.com/kf/Hc5516015b0124a8c8b648f07b87df139Y.jpg')
-straw.photos.attach(io: straw_image_1, filename: '6f9a8bded893274c17ff9e2e07b69db6.jpg', content_type: 'image/jpg')
-straw.photos.attach(io: straw_image_2, filename: 'Hc5516015b0124a8c8b648f07b87df139Y.jpg', content_type: 'image/jpg')
+straw_image_1 = URI.open('https://images-na.ssl-images-amazon.com/images/I/71OiEgtABwL._AC_SL1500_.jpg')
+straw_image_2 = URI.open('https://images-na.ssl-images-amazon.com/images/I/61P4nvfsIvL._AC_SL1500_.jpg')
+straw_image_3 = URI.open('https://images-na.ssl-images-amazon.com/images/I/713XzKbtZoL._AC_SL1500_.jpg')
+straw_image_4 = URI.open('https://images-na.ssl-images-amazon.com/images/I/71TaRD-TvCL._AC_SL1309_.jpg')
+straw_image_5 = URI.open('https://images-na.ssl-images-amazon.com/images/I/61m2tujz60L._AC_SL1000_.jpg')
+straw.photos.attach(io: straw_image_1, filename: '71OiEgtABwL._AC_SL1500_.jpg', content_type: 'image/jpg')
+straw.photos.attach(io: straw_image_2, filename: '61P4nvfsIvL._AC_SL1500_.jpg', content_type: 'image/jpg')
+straw.photos.attach(io: straw_image_3, filename: '713XzKbtZoL._AC_SL1500_.jpg', content_type: 'image/jpg')
+straw.photos.attach(io: straw_image_4, filename: '71TaRD-TvCL._AC_SL1309_.jpg', content_type: 'image/jpg')
+straw.photos.attach(io: straw_image_5, filename: '61m2tujz60L._AC_SL1000_.jpg', content_type: 'image/jpg')
+
+
 
 puts "Straw photo attached: #{straw.photos.attached?}"
 
@@ -579,6 +593,8 @@ puts "solidchampu photo attached: #{solidchampu.photos.attached?}"
 
 #Listings
 
+puts "Creating listings"
+
 solidchampu_sale = Listing.create!(
   stock: 1700,
   max_price: 7,
@@ -785,6 +801,8 @@ straw_sale = Listing.create!(
   product: straw
   )
 
+puts "Creating discounts"
+
 coffee_cup = Discount.create!(
   quantity: 3500,
   price: 1,
@@ -826,6 +844,8 @@ cup_discount_2 = Discount.create!(
   price: 0.065,
   listing: cup_sale,
   )
+
+puts "Creating purchases"
 
 bag_purchase = Purchase.create!(
   user: pablito,
@@ -875,6 +895,7 @@ straw_purchase = Purchase.create!(
   quantity: 4000
   )
 
+puts "Creating reviews"
 
 bag_review = Review.create!(
   purchase: bag_purchase,
@@ -901,6 +922,8 @@ straw_review = Review.create!(
   )
 
 #  DEMO SEED INFO
+
+puts "Creating demo information"
 
 mat = Product.create!(
   user: pablito,
@@ -956,7 +979,7 @@ purchase = Purchase.create!(
   )
 
 
-
+puts "Creating purchases for ALL listings"
 
 2.times do
   Listing.all.each do |listing|
@@ -965,30 +988,38 @@ purchase = Purchase.create!(
     listing: listing,
     quantity: listing.stock * rand(1..20).to_f / 100
     )
-
-    review = Review.create!(
-      purchase: purchase,
-      content:'Amazing product! I really love it and would recommend it to anyone!',
-      rating: 5
-    )
-
-    review = Review.create!(
-      purchase: purchase,
-      content:'Really like that but the delivery wasn´t super fast',
-      rating: 4
-    )
-
-    review = Review.create!(
-      purchase: purchase,
-      content:'Super happy about my purchase, and also got a refund for the last discount!!',
-      rating: 5
-    )
-
   end
 end
 
+reviews = [
+  {
+    content:'Amazing product! I really love it and would recommend it to anyone!',
+    rating: 5
+  },
+  {
+    content:'Really like that but the delivery wasn´t super fast',
+    rating: 4
+  },
+  {
+    content:'Super happy about my purchase, and also got a refund for the last discount!!',
+    rating: 5
+  },
 
-puts "Seeding ended"
+]
+
+puts "Creating reviews for ALL purchases"
+
+Purchase.all.each do |purchase|
+  review_data = reviews.sample
+    review = Review.create!(
+      purchase: purchase,
+      content: review_data[:content],
+      rating: review_data[:rating]
+    )
+end
+
+
+puts "Seeding ended 🥭"
 puts "User created: #{User.count}"
 puts "Review created: #{Review.count}"
 puts "Purchase created: #{Purchase.count}"

@@ -139,7 +139,7 @@
     <% unless @products_sorted_by_quantity.empty? %>
       <div class="reports d-flex justify-content-around">
         <div class="sales-report">
-          <h3 id="sales-report" class="text-center mb-3" style="">Sales report</h3>
+          <h3 id="sales-report" class="text-center mb-3" style="">Sales report (€)</h3>
           <div class="d-none" id="chartData" data-chart="<%= current_user.chart_hash.to_json %>"></div>
           <canvas id="myChart" width="600" height="600" style="display: block;box-sizing: border-box;height: 300px;width: 300px;"></canvas>
         </div>
@@ -149,7 +149,7 @@
             <div class="text-center top-3-card">
               <div>
                 <i class="fas fa-trophy" style="font-size: 40px;" aria-hidden="true"></i>
-                <p class="m-0"><%= @products_sorted_by_quantity.first.name %></p>
+                <p class="m-0"> <strong> <%= @products_sorted_by_quantity.first.name %></strong></p>
               </div>
               <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.first.total_sellings_quantity %> units</p>
             </div>
@@ -158,7 +158,7 @@
               <div class="text-center col-6 d-flex flex-column justify-content-between top-3-card">
                 <div>
                   <i class="fas fa-trophy" style="font-size: 40px;" aria-hidden="true"></i>
-                  <p class="m-0"><%= @products_sorted_by_quantity.second.name %></p>
+                  <p class="m-0"><strong><%= @products_sorted_by_quantity.second.name %></strong></p>
                 </div>
 
                 <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.second.total_sellings_quantity %> units</p>
@@ -166,7 +166,7 @@
               <div class="text-center col-6 d-flex flex-column justify-content-between top-3-card">
                 <div>
                   <i class="fas fa-trophy" style="font-size: 40px;" aria-hidden="true"></i>
-                  <p class="m-0"><%= @products_sorted_by_quantity.third.name %></p>
+                  <p class="m-0"><strong><%= @products_sorted_by_quantity.third.name %></strong></p>
                 </div>
 
                 <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.third.total_sellings_quantity %> units</p>
