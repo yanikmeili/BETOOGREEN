@@ -38,7 +38,7 @@
       </div>
 
       <div data-controller="photosproduct">
-        <div class="form-group m-5 px-5">
+        <div class="form-group m-5">
          <%= f.input :photos, as: :file, input_html: { multiple: true, data: { 'photosproduct-target': 'input', action: "change->photosproduct#preview"} } %>
         </div>
         <div class="image-container px-5">
