@@ -72,10 +72,10 @@
           <tr>
             <th>ID</th>
             <th>Product</th>
-            <th>Date</th>
-            <th>Quantity</th>
-            <th>Price per unit</th>
-            <th>Total</th>
+            <th class="text-center">Date</th>
+            <th class="text-center">Quantity</th>
+            <th class="text-center">Price per unit</th>
+            <th class="text-right">Total (€)</th>
             <th> </th>
           </tr>
         </thead>
@@ -87,10 +87,10 @@
           <tr>
             <td class="dashboard_table_grey_text"> <%= purchase.id %> </td>
             <td> <%= purchase.listing.product.name %> </td>
-            <td> <%= purchase.purchase_date_string %> </td>
-            <td> <%= number_with_delimiter(purchase.quantity, delimiter:".") %> </td>
-            <td> <%= purchase.listing.current_price %> </td>
-            <td> <%= purchase.total_price %>€ </td>
+            <td class="text-center"> <%= purchase.purchase_date_string %> </td>
+            <td class="text-center"> <%= number_with_delimiter(purchase.quantity, delimiter:".") %> </td>
+            <td class="text-center"> <%= purchase.listing.current_price %> </td>
+            <td class="text-right"> <%= purchase.total_price %></td>
             <td>
               <div class="dropdown show">
                 <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
@@ -110,48 +110,46 @@
     <br><br>
 
     <!-- Inicio sales-report -->
-    <div class="reports d-flex justify-content-around">
-      <div class="sales-report pr-3">
-        <h3 id="sales-report">Sales report</h3>
-        <div class="d-none" id="chartData" data-chart="<%= current_user.chart_hash.to_json %>"></div>
-        <canvas id="myChart" width="400" height="400" ></canvas>
-        <% current_user.top_sales.first(5).each do |product| %>
-          <p><%= product.name %></p>
-          <p><%= product.total_sellings_value %></p>
-        <% end %>
-      </div>
-      <div class="top-3-products">
-        <h3 class="text-center">Top 3 products</h3>
-        <div>
-          <div class="text-center top-3-card">
-            <div>
-              <i class="fas fa-trophy" style="font-size:25px;"></i>
-              <p class="m-0"><%= @products_sorted_by_quantity.first.name %></p>
-            </div>
-            <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.first.total_sellings_quantity %> units</p>
-          </div>
-
-          <div class="row">
-            <div class="text-center col-6 d-flex flex-column justify-content-between top-3-card">
+    <% unless @products_sorted_by_quantity.empty? %>
+      <div class="reports d-flex justify-content-around">
+        <div class="sales-report pr-3">
+          <h3 id="sales-report" class="text-center mb-3" style="">Sales report</h3>
+          <div class="d-none" id="chartData" data-chart="<%= current_user.chart_hash.to_json %>"></div>
+          <canvas id="myChart" width="600" height="600" style="display: block;box-sizing: border-box;height: 300px;width: 300px;"></canvas>
+        </div>
+        <div class="top-3-products d-flex flex-column justify-content-between">
+          <h3 class="text-center">Top 3 products</h3>
+          <div class="my-5">
+            <div class="text-center top-3-card">
               <div>
-                <i class="fas fa-trophy" style="font-size:25px;"></i>
-                <p class="m-0"><%= @products_sorted_by_quantity.second.name %></p>
+                <i class="fas fa-trophy" style="font-size: 40px;" aria-hidden="true"></i>
+                <p class="m-0"><%= @products_sorted_by_quantity.first.name %></p>
               </div>
-
-              <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.second.total_sellings_quantity %> units</p>
+              <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.first.total_sellings_quantity %> units</p>
             </div>
-            <div class="text-center col-6 d-flex flex-column justify-content-between top-3-card">
-              <div>
-                <i class="fas fa-trophy" style="font-size:25px;"></i>
-                <p class="m-0"><%= @products_sorted_by_quantity.third.name %></p>
-              </div>
 
-              <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.third.total_sellings_quantity %> units</p>
+            <div class="row">
+              <div class="text-center col-6 d-flex flex-column justify-content-between top-3-card">
+                <div>
+                  <i class="fas fa-trophy" style="font-size: 40px;" aria-hidden="true"></i>
+                  <p class="m-0"><%= @products_sorted_by_quantity.second.name %></p>
+                </div>
+
+                <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.second.total_sellings_quantity %> units</p>
+              </div>
+              <div class="text-center col-6 d-flex flex-column justify-content-between top-3-card">
+                <div>
+                  <i class="fas fa-trophy" style="font-size: 40px;" aria-hidden="true"></i>
+                  <p class="m-0"><%= @products_sorted_by_quantity.third.name %></p>
+                </div>
+
+                <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.third.total_sellings_quantity %> units</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
     <!-- Fin sales-report -->
 
     <br><br>
@@ -174,10 +172,10 @@
             <tr>
               <th>ID</th>
               <th>Product</th>
-              <th>Quantity sold</th>
-              <th>Quantity pending</th>
-              <th>End date</th>
-              <th>Total €</th>
+              <th class="text-center">Quantity sold</th>
+              <th class="text-center">Quantity pending</th>
+              <th class="text-center">End date</th>
+              <th class="text-right">Total €</th>
               <th> </th>
             </tr>
           </thead>
@@ -186,10 +184,10 @@
             <tr>
               <td class="dashboard_table_grey_text"> <%= listing.id %> </td>
               <td> <%= listing.product.name %> </td>
-              <td> <%= number_with_delimiter(listing.quantity_sold, delimiter:".") %> </td>
-              <td> <%= number_with_delimiter(listing.quantity_pending, delimiter:".") %> </td>
-              <td> <%= listing.end_date_string %> </td>
-              <td> <%= listing.total_sales %></td>
+              <td class="text-center"> <%= number_with_delimiter(listing.quantity_sold, delimiter:".") %> </td>
+              <td class="text-center"> <%= number_with_delimiter(listing.quantity_pending, delimiter:".") %> </td>
+              <td class="text-center"> <%= listing.end_date_string %> </td>
+              <td class="text-right"> <%= listing.total_sales %></td>
               <td>
                 <div class="dropdown show">
                   <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
@@ -317,25 +315,23 @@
 
   <!-- Inicio settings -->
   <div class="settings d-flex justify-content-between"  style="position:relative;">
-    <h2 id="settings" >Settings</h2>
-    <a href=""><%= link_to "edit", edit_user_registration_path %></a>
-    <p><i class="far fa-edit" style="position:absolute;right:0px;"></i></p>
+    <h2 id="settings">Settings
+      <%= link_to edit_user_registration_path do  %>
+        <i class="far fa-edit"></i>
+      <% end -%>
+    </h2>
     <br>
   </div>
   <!-- Fin settings -->
 
   <div class="pb-4">
-
-    <form action="#" class="form form-gropu pv-3">
-      <input type="text" placeholder="First name" class="form-control mb-3 ml-0">
-      <input type="text" placeholder="Last name" class="form-control mb-3 ml-0">
-      <input type="text" placeholder="Street name" class="form-control mb-3 ml-0">
-      <input type="integer" placeholder="Door number" class="form-control mb-3 ml-0">
-      <input type="text" placeholder="Floor / Door" class="form-control mb-3 ml-0">
-      <input type="text" placeholder="Postal Code" class="form-control mb-3 ml-0">
-      <input type="text" placeholder="City" class="form-control mb-3 ml-0">
-      <input type="submit" value="Update your data" class="btn-gradient under dashboard-title-button" style="width:100%">
-    </form>
+    <p><strong>Name: </strong> Yanik</p>
+    <p><strong>Last name: </strong> Meili</p>
+    <p><strong>Street name: </strong> Carrer de Sants 45</p>
+    <p><strong>Door number: </strong> 2º</p>
+    <p><strong>Floor / Door: </strong> 4th</p>
+    <p><strong>City: </strong> Barcelona</p>
+    <p><strong>Postal Code: </strong> 08002</p>
 
   </div>
 

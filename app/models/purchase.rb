@@ -3,6 +3,7 @@ class Purchase < ApplicationRecord
   belongs_to :user
   belongs_to :listing
   before_create :set_amount
+  has_many :reviews, dependent: :destroy
 
   def purchase_date_string
     created_at.strftime('%b %d, %Y')

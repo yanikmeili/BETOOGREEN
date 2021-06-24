@@ -1,14 +1,10 @@
-<div class="banner-green">
-  <div class="banner-elements-conteiner">
-    <h1>Browse through thousands of our susteinable products. Only for you.</h1>
-    <p>Acces all discountes becoming a <strong>premium member</strong> of BeeTooGreen</p>
-  </div>
-</div>
+<%= render 'shared/banner-green'%>
+
 
 <%= render 'shared/search-bar'%>
 
 <div class="container col-8 mt-5 mb-5 d-flex justify-content-between align-items-end">
-  <p>Showing 1–8 of 10 results</p>
+  <p>Showing 1–8 of <%= Listing.count * 2 %> results</p>
   <div>
     <button class="btn-white">Filter <i class="fas fa-angle-down"></i></button>
     <button class="btn-white">Sort by <i class="fas fa-angle-down"></i></button>

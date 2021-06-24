@@ -85,38 +85,6 @@ toilet_paper_5 = URI.open('https://cdn.shopify.com/s/files/1/0035/9468/2435/file
 toilet_paper.photos.attach(io: toilet_paper_5, filename: '1reel-sustainable.jpg', content_type: 'image/jpg')
 puts "toilet_paper photo attached: #{toilet_paper.photos.attached?}"
 
-
-
-mat = Product.create!(
-  user: yanik,
-  name:'Luxury Cork Mat (Unisex)',
-  description:'Luxuriant, warm-to-the-touch cork. Gets grippier the more you sweat. Sustainable, microbial, no need for chemical cleaning. Say goodbye to rubber, plastic smelling mats! Quite possibly the last mat you will ever need. Be good to the environment, be good to yourself.',
-  material: 'Cork',
-  impact: 'Cork is a renewable harvest. No trees are killed. Grown in beautiful Portugal.
-',
-  origin: 'Portugal'
-  )
-mat_image_1 = URI.open('https://cdn.shopify.com/s/files/1/0338/7208/5131/products/e_e52f6025-21b6-4957-9975-2fe3c60c8aac_720x.png')
-mat.photos.attach(io: mat_image_1, filename: 'e_e52f6025-21b6-4957-9975-2fe3c60c8aac_720x.png', content_type: 'image/jpg')
-puts "mat photo attached: #{mat.photos.attached?}"
-
-mat_image_2 = URI.open('https://cdn.shopify.com/s/files/1/0338/7208/5131/products/original_06e89766-d53d-4b60-9078-fa3e333b97f1_720x.png')
-mat.photos.attach(io: mat_image_2, filename: 'original_06e89766-d53d-4b60-9078-fa3e333b97f1_720x.png', content_type: 'image/jpg')
-puts "mat photo attached: #{mat.photos.attached?}"
-
-mat_image_3 = URI.open('https://cdn.shopify.com/s/files/1/0338/7208/5131/products/IMG_2653edit3_720x.png')
-mat.photos.attach(io: mat_image_3, filename: 'products/IMG_2653edit3_720x.png', content_type: 'image/jpg')
-puts "mat photo attached: #{mat.photos.attached?}"
-
-mat_image_4 = URI.open('https://cdn.shopify.com/s/files/1/0338/7208/5131/products/A60A97598c_c730f6f2-5a99-45d6-a323-c7e9e48bf92f_720x.jpg')
-mat.photos.attach(io: mat_image_4, filename: 'A60A97598c_c730f6f2-5a99-45d6-a323-c7e9e48bf92f_720x.jpg', content_type: 'image/jpg')
-puts "mat photo attached: #{mat.photos.attached?}"
-
-
-mat_image_5 = URI.open('https://cdn.shopify.com/s/files/1/0338/7208/5131/products/1W9A9843ocd_6d00987d-744e-460c-85da-55e9e62a329f_720x.png')
-mat.photos.attach(io: mat_image_5, filename: '1W9A9843ocd_6d00987d-744e-460c-85da-55e9e62a329f_720x.png', content_type: 'image/png')
-puts "mat photo attached: #{mat.photos.attached?}"
-
 pants = Product.create!(
   user: yanik,
   name:'Yoga Pants Black',
@@ -270,7 +238,7 @@ sandal.photos.attach(io: sandal_image, filename: '60a6f7d10456ff5fc3e9f708_susta
 puts "Sandal photo attached: #{sandal.photos.attached?}"
 
 cup = Product.create!(
-  user: yanik,
+  user: pablito,
   name:'Eco Cup',
   description:'This paper cups are resistant and responsible. Because they are made with thin yet strong layers of recycled paper. Restaurants, hotels and bars are switching to paper Eco Cup. They customers love it. And with collective buying you can have them way more cheap. Order today!',
   material: 'Paper and wax',
@@ -742,14 +710,6 @@ toilet_paper_sale = Listing.create!(
   product: toilet_paper
   )
 
-mat_sale = Listing.create!(
-  stock: 500,
-  max_price_cents: 10000,
-  min_price_cents: 7000,
-  end_date: Date.today + 30,
-  product: mat
-  )
-
 pants_sale = Listing.create!(
   stock: 1000,
   max_price_cents: 3000,
@@ -940,13 +900,90 @@ straw_review = Review.create!(
   rating: 3
   )
 
+#  DEMO SEED INFO
+
+mat = Product.create!(
+  user: pablito,
+  name:'Luxury Cork Mat (Unisex)',
+  description:'Luxuriant, warm-to-the-touch cork. Gets grippier the more you sweat. Sustainable, microbial, no need for chemical cleaning. Say goodbye to rubber, plastic smelling mats! Quite possibly the last mat you will ever need. Be good to the environment, be good to yourself.',
+  material: 'Cork',
+  impact: 'Cork is a renewable harvest. No trees are killed. Grown in beautiful Portugal.
+',
+  origin: 'Portugal'
+  )
+mat_image_1 = URI.open('https://cdn.shopify.com/s/files/1/0338/7208/5131/products/e_e52f6025-21b6-4957-9975-2fe3c60c8aac_720x.png')
+mat.photos.attach(io: mat_image_1, filename: 'e_e52f6025-21b6-4957-9975-2fe3c60c8aac_720x.png', content_type: 'image/jpg')
+puts "mat photo attached: #{mat.photos.attached?}"
+
+mat_image_2 = URI.open('https://cdn.shopify.com/s/files/1/0338/7208/5131/products/original_06e89766-d53d-4b60-9078-fa3e333b97f1_720x.png')
+mat.photos.attach(io: mat_image_2, filename: 'original_06e89766-d53d-4b60-9078-fa3e333b97f1_720x.png', content_type: 'image/jpg')
+puts "mat photo attached: #{mat.photos.attached?}"
+
+mat_image_3 = URI.open('https://cdn.shopify.com/s/files/1/0338/7208/5131/products/IMG_2653edit3_720x.png')
+mat.photos.attach(io: mat_image_3, filename: 'products/IMG_2653edit3_720x.png', content_type: 'image/jpg')
+puts "mat photo attached: #{mat.photos.attached?}"
+
+mat_image_4 = URI.open('https://cdn.shopify.com/s/files/1/0338/7208/5131/products/A60A97598c_c730f6f2-5a99-45d6-a323-c7e9e48bf92f_720x.jpg')
+mat.photos.attach(io: mat_image_4, filename: 'A60A97598c_c730f6f2-5a99-45d6-a323-c7e9e48bf92f_720x.jpg', content_type: 'image/jpg')
+puts "mat photo attached: #{mat.photos.attached?}"
+
+
+mat_image_5 = URI.open('https://cdn.shopify.com/s/files/1/0338/7208/5131/products/1W9A9843ocd_6d00987d-744e-460c-85da-55e9e62a329f_720x.png')
+mat.photos.attach(io: mat_image_5, filename: '1W9A9843ocd_6d00987d-744e-460c-85da-55e9e62a329f_720x.png', content_type: 'image/png')
+puts "mat photo attached: #{mat.photos.attached?}"
+
+
+mat_listing = Listing.create!(
+  stock: 500,
+  max_price_cents: 1600,
+  min_price_cents: 900,
+  end_date: Date.today + 30,
+  product: mat
+  )
+
+mat_listing_discount = Discount.create!(
+  quantity: 250,
+  price_cents: 1200,
+  listing: mat_listing,
+  )
+
+all_users = User.all.reject {|user| user == yanik }
+
+purchase = Purchase.create!(
+  user: all_users.sample,
+  listing: mat_listing,
+  quantity: 145
+  )
+
+
+
+
 2.times do
   Listing.all.each do |listing|
    purchase = Purchase.create!(
-    user: User.all.sample,
+    user: all_users.sample,
     listing: listing,
     quantity: listing.stock * rand(1..20).to_f / 100
     )
+
+    review = Review.create!(
+      purchase: purchase,
+      content:'Amazing product! I really love it and would recommend it to anyone!',
+      rating: 5
+    )
+
+    review = Review.create!(
+      purchase: purchase,
+      content:'Really like that but the delivery wasn´t super fast',
+      rating: 4
+    )
+
+    review = Review.create!(
+      purchase: purchase,
+      content:'Super happy about my purchase, and also got a refund for the last discount!!',
+      rating: 5
+    )
+
   end
 end
 
