@@ -110,44 +110,46 @@
     <br><br>
 
     <!-- Inicio sales-report -->
-    <div class="reports d-flex justify-content-around">
-      <div class="sales-report pr-3">
-        <h3 id="sales-report">Sales report</h3>
-        <div class="d-none" id="chartData" data-chart="<%= current_user.chart_hash.to_json %>"></div>
-        <canvas id="myChart" width="400" height="400" ></canvas>
-      </div>
-      <div class="top-3-products">
-        <h3 class="text-center">Top 3 products</h3>
-        <div>
-          <div class="text-center top-3-card">
-            <div>
-              <i class="fas fa-trophy" style="font-size:25px;"></i>
-              <p class="m-0"><%= @products_sorted_by_quantity.first.name %></p>
-            </div>
-            <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.first.total_sellings_quantity %> units</p>
-          </div>
-
-          <div class="row">
-            <div class="text-center col-6 d-flex flex-column justify-content-between top-3-card">
+    <% unless @products_sorted_by_quantity.empty? %>
+      <div class="reports d-flex justify-content-around">
+        <div class="sales-report pr-3">
+          <h3 id="sales-report" class="text-center mb-3" style="">Sales report</h3>
+          <div class="d-none" id="chartData" data-chart="<%= current_user.chart_hash.to_json %>"></div>
+          <canvas id="myChart" width="600" height="600" style="display: block;box-sizing: border-box;height: 300px;width: 300px;"></canvas>
+        </div>
+        <div class="top-3-products d-flex flex-column justify-content-between">
+          <h3 class="text-center">Top 3 products</h3>
+          <div class="my-5">
+            <div class="text-center top-3-card">
               <div>
-                <i class="fas fa-trophy" style="font-size:25px;"></i>
-                <p class="m-0"><%= @products_sorted_by_quantity.second.name %></p>
+                <i class="fas fa-trophy" style="font-size: 40px;" aria-hidden="true"></i>
+                <p class="m-0"><%= @products_sorted_by_quantity.first.name %></p>
               </div>
-
-              <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.second.total_sellings_quantity %> units</p>
+              <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.first.total_sellings_quantity %> units</p>
             </div>
-            <div class="text-center col-6 d-flex flex-column justify-content-between top-3-card">
-              <div>
-                <i class="fas fa-trophy" style="font-size:25px;"></i>
-                <p class="m-0"><%= @products_sorted_by_quantity.third.name %></p>
-              </div>
 
-              <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.third.total_sellings_quantity %> units</p>
+            <div class="row">
+              <div class="text-center col-6 d-flex flex-column justify-content-between top-3-card">
+                <div>
+                  <i class="fas fa-trophy" style="font-size: 40px;" aria-hidden="true"></i>
+                  <p class="m-0"><%= @products_sorted_by_quantity.second.name %></p>
+                </div>
+
+                <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.second.total_sellings_quantity %> units</p>
+              </div>
+              <div class="text-center col-6 d-flex flex-column justify-content-between top-3-card">
+                <div>
+                  <i class="fas fa-trophy" style="font-size: 40px;" aria-hidden="true"></i>
+                  <p class="m-0"><%= @products_sorted_by_quantity.third.name %></p>
+                </div>
+
+                <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.third.total_sellings_quantity %> units</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
     <!-- Fin sales-report -->
 
     <br><br>
@@ -324,12 +326,12 @@
 
   <div class="pb-4">
     <p><strong>Name: </strong> Yanik</p>
-    <p><strong>Last name: </strong> Yanik</p>
-    <p><strong>Street name: </strong> Yanik</p>
-    <p><strong>Door number: </strong> Yanik</p>
-    <p><strong>Floor / Door: </strong> Yanik</p>
+    <p><strong>Last name: </strong> Meili</p>
+    <p><strong>Street name: </strong> Carrer de Sants 45</p>
+    <p><strong>Door number: </strong> 2º</p>
+    <p><strong>Floor / Door: </strong> 4th</p>
     <p><strong>City: </strong> Barcelona</p>
-    <p><strong>Postal Code: </strong> Yanik</p>
+    <p><strong>Postal Code: </strong> 08002</p>
 
   </div>
 
