@@ -23,44 +23,12 @@ jesus = User.create!(email: 'jesus@gmail.com', password:'123456')
 mohamed = User.create!(email: 'mohamed@gmail.com', password:'123456')
 carlos = User.create!(email: 'carlos@gmail.com', password:'123456')
 pablito = User.create!(email: 'pablito@gmail.com', password:'123456')
+anita = User.create!(email: 'anita@gmail.com', password:'123456')
+
 
 # PRODUCT
 
 puts "Creating products"
-
-utensil_set = Product.create!(
-  user: ana,
-  name:'Three Piece Utensil Set',
-  description:'Set includes serving spoon, spatula and ladle. Maximum Temperature: 167 Degree Fahrenheit',
-  material: 'Wood plastic composite. BPA Free Polypropylene.',
-  impact: 'Forest Stewardship Council certified wood from plantation pine.',
-  origin: 'England'
-  )
-
-utensil_set_image_1 = URI.open('https://images-na.ssl-images-amazon.com/images/I/71omkIw0D2L._AC_SL1500_.jpg')
-utensil_set.photos.attach(io: utensil_set_image_1, filename: '71omkIw0D2L._AC_SL1500_.jpg', content_type: 'image/jpg')
-puts "socks photo attached: #{utensil_set.photos.attached?}"
-aguaencaja = Product.create!(
-  user: yanik,
-  name: 'Agua en Caja Mejor',
-  description: 'Unfortunately most of the water sold in the world comes in plastic bottles. It would be much better if we all would prefer water in boxes. Because the recycling process is easyer and cheaper.',
-  material: 'Cardboard',
-  impact: '100% recyclable',
-  origin: 'Spain'
-  )
-aguaencaja1 = URI.open('https://static.wixstatic.com/media/be4e8c_d3249b76c4f2453a9900bbea285dfe2a~mv2_d_2666_2666_s_4_2.jpg')
-aguaencaja2 = URI.open('https://s03.s3c.es/imag/_v0/770x420/3/7/d/caja.jpg')
-aguaencaja3 = URI.open('https://images-na.ssl-images-amazon.com/images/I/81AUV97kf4L._AC_SL1500_.jpg')
-aguaencaja4 = URI.open('https://aguaencajacanarias.com/wp-content/uploads/2020/02/agua-en-caja-canarias-15-1.jpg')
-aguaencaja5 = URI.open('https://i.pinimg.com/originals/f5/7e/3e/f57e3eff182ec7e0950cd613ecb8f04d.png')
-
-aguaencaja.photos.attach(io: aguaencaja1, filename: 'be4e8c_d3249b76c4f2453a9900bbea285dfe2a~mv2_d_2666_2666_s_4_2.jpg', content_type: 'image/jpg')
-aguaencaja.photos.attach(io: aguaencaja2, filename: 'caja.jpg', content_type: 'image/jpg')
-aguaencaja.photos.attach(io: aguaencaja3, filename: '81AUV97kf4L._AC_SL1500_.jpg', content_type: 'image/jpg')
-aguaencaja.photos.attach(io: aguaencaja4, filename: 'agua-en-caja-canarias-15-1.jpg', content_type: 'image/jpg')
-aguaencaja.photos.attach(io: aguaencaja5, filename: 'f57e3eff182ec7e0950cd613ecb8f04d.png', content_type: 'image/png')
-puts "Agua en caja photo attached: #{aguaencaja.photos.attached?}"
-
 
 
 toilet_paper = Product.create!(
@@ -276,9 +244,114 @@ straw.photos.attach(io: straw_image_3, filename: '713XzKbtZoL._AC_SL1500_.jpg', 
 straw.photos.attach(io: straw_image_4, filename: '71TaRD-TvCL._AC_SL1309_.jpg', content_type: 'image/jpg')
 straw.photos.attach(io: straw_image_5, filename: '61m2tujz60L._AC_SL1000_.jpg', content_type: 'image/jpg')
 
-
-
 puts "Straw photo attached: #{straw.photos.attached?}"
+
+# Anita's products
+washcloth = Product.create!(
+  user: anita,
+  name:'Baby wash cloths',
+  description:"Reusable muslin baby cloth. These muslin squares are a must for your baby's bath routine! Baby shower gift!",
+  material: 'double gauze cotton',
+  impact: 'The Oeko-Tex standard helps you act responsibly and make sustainable purchasing decisions. Oeko-Tex label products have been tested for harmful substances and are therefore safe from a human-ecological perspective',
+  origin: 'China'
+  )
+
+washcloth_image_1 = URI.open('https://i.etsystatic.com/23555419/r/il/a2fd0c/2946502854/il_1588xN.2946502854_40pt.jpg')
+washcloth_image_2 = URI.open('https://i.etsystatic.com/23555419/r/il/6833b3/2994196139/il_794xN.2994196139_c25f.jpg')
+washcloth_image_3 = URI.open('https://i.etsystatic.com/23555419/r/il/bd6c6b/2994194559/il_794xN.2994194559_jwgc.jpg')
+washcloth_image_4 = URI.open('https://i.etsystatic.com/23555419/r/il/df8ce5/2946488360/il_794xN.2946488360_5cta.jpg')
+washcloth_image_5 = URI.open('https://i.etsystatic.com/23555419/r/il/ae1cdf/2994200799/il_794xN.2994200799_k37y.jpg')
+washcloth.photos.attach(io: washcloth_image_1, filename: 'il_1588xN.2946502854_40pt.jpg', content_type: 'image/jpg')
+washcloth.photos.attach(io: washcloth_image_2, filename: 'il_794xN.2994196139_c25f.jpg', content_type: 'image/jpg')
+washcloth.photos.attach(io: washcloth_image_3, filename: 'il_794xN.2994194559_jwgc.jpg', content_type: 'image/jpg')
+washcloth.photos.attach(io: washcloth_image_4, filename: 'il_794xN.2946488360_5cta.jpg', content_type: 'image/jpg')
+washcloth.photos.attach(io: washcloth_image_5, filename: 'il_794xN.2994200799_k37y.jpg', content_type: 'image/jpg')
+
+puts "washcloth photo attached: #{washcloth.photos.attached?}"
+
+cottonrouns = Product.create!(
+  user: anita,
+  name:'Organic reusable cotton rounds',
+  description:'Make-up remover pads without residue. Natural bamboo organic cotton velvet on one side and Oeko-tex Standard 100 bamboo towel on the other side. The perfect combination for a deep and gentle cleaning!',
+  material: 'bamboo and cotton',
+  impact: 'Stop using single-use pads, this is the perfect alternative!',
+  origin: 'Barcelona'
+  )
+
+cottonrouns_image_1 = URI.open('https://i.etsystatic.com/23555419/r/il/04dbe4/2861673437/il_794xN.2861673437_5rxj.jpg')
+cottonrouns_image_2 = URI.open('https://i.etsystatic.com/23555419/r/il/2ed443/2814008276/il_794xN.2814008276_61ld.jpg')
+cottonrouns_image_3 = URI.open('https://i.etsystatic.com/23555419/r/il/589463/2814008244/il_794xN.2814008244_fx3e.jpg')
+cottonrouns_image_4 = URI.open('https://i.etsystatic.com/23555419/r/il/e25b06/2861700791/il_794xN.2861700791_qnaw.jpg')
+cottonrouns_image_5 = URI.open('https://i.etsystatic.com/23555419/r/il/23f3f7/2861700771/il_794xN.2861700771_2q6k.jpg')
+cottonrouns.photos.attach(io: cottonrouns_image_1, filename: 'il_794xN.2861673437_5rxj.jpg', content_type: 'image/jpg')
+cottonrouns.photos.attach(io: cottonrouns_image_2, filename: 'il_794xN.2814008276_61ld.jpg', content_type: 'image/jpg')
+cottonrouns.photos.attach(io: cottonrouns_image_3, filename: 'il_794xN.2814008244_fx3e.jpg', content_type: 'image/jpg')
+cottonrouns.photos.attach(io: cottonrouns_image_4, filename: 'il_794xN.2861700791_qnaw.jpg', content_type: 'image/jpg')
+cottonrouns.photos.attach(io: cottonrouns_image_5, filename: 'il_794xN.2861700771_2q6k.jpg', content_type: 'image/jpg')
+
+puts "cottonrouns photo attached: #{cottonrouns.photos.attached?}"
+
+
+bags = Product.create!(
+  user: anita,
+  name:'Reusable Product Bags',
+  description:'Eco-friendly reusable product bags made from scraps of cotton wool and old curtains.',
+  material: 'scraps of cotton wool and old curtains',
+  impact: 'They are durable and reusable, a perfect alternative in your daily grocery shopping. Say no to a single use of plastic that is difficult on the environment',
+  origin: 'Barcelona'
+  )
+
+bags_image_1 = URI.open('https://i.etsystatic.com/19347901/r/il/4201fd/3211981853/il_1588xN.3211981853_sm8x.jpg')
+bags_image_2 = URI.open('https://i.etsystatic.com/19347901/r/il/7fd352/3164266084/il_794xN.3164266084_53y3.jpg')
+bags_image_3 = URI.open('https://i.etsystatic.com/19347901/r/il/4e9bad/3164267682/il_794xN.3164267682_gifl.jpg')
+bags_image_4 = URI.open('https://i.etsystatic.com/19347901/r/il/3d5071/3211985053/il_794xN.3211985053_d121.jpg')
+bags_image_5 = URI.open('https://i.etsystatic.com/19347901/r/il/c7728a/3211988199/il_794xN.3211988199_9yhr.jpg')
+bags.photos.attach(io: bags_image_1, filename: 'il_1588xN.3211981853_sm8x.jpg', content_type: 'image/jpg')
+bags.photos.attach(io: bags_image_2, filename: 'il_794xN.3164266084_53y3.jpg', content_type: 'image/jpg')
+bags.photos.attach(io: bags_image_3, filename: 'il_794xN.3164267682_gifl.jpg', content_type: 'image/jpg')
+bags.photos.attach(io: bags_image_4, filename: 'il_794xN.3211985053_d121.jpg', content_type: 'image/jpg')
+bags.photos.attach(io: bags_image_5, filename: 'il_794xN.3211988199_9yhr.jpg', content_type: 'image/jpg')
+
+puts "bags photo attached: #{bags.photos.attached?}"
+
+facialbar = Product.create!(
+  user: anita,
+  name:'Organic Facial Bar',
+  description: "Organic Castile soap is great for all skin types and balances the amount of oil on your skin. The Clay pulls the oils and buildup from your skin leaving your pores smaller, blackheads are gone/reduced and giving you a vibrant glow.",
+  material: 'Organic, Non-GMO, recycled paper',
+  impact: "Handmade soap is extremely beneficial to your skin and is free of the harsh chemicals of store-bought soap. Butter Me Up Organics uses only the finest ingredients and never adds synthetic oils, fragrances or dyes. It comes wrapped in pretty upcycled tissue paper and tied with twine. Great for gifts or for yourself.",
+  origin: 'Barcelona'
+  )
+
+facialbar_image_1 = URI.open('https://cdn.shopify.com/s/files/1/1114/7880/products/Healing_Face_Bar_1376x1824.jpeg')
+facialbar_image_2 = URI.open('https://cdn.shopify.com/s/files/1/1114/7880/products/Healing_Face2_1376x1824.JPG')
+facialbar.photos.attach(io: facialbar_image_1, filename: 'Healing_Face_Bar_1376x1824.jpeg', content_type: 'image/jpeg')
+facialbar.photos.attach(io: facialbar_image_2, filename: 'Healing_Face2_1376x1824.JPG', content_type: 'image/jpg')
+
+puts "facialbars photo attached: #{facialbar.photos.attached?}"
+
+cloths = Product.create!(
+  user: anita,
+  name:'Organic cloths',
+  description:'Super soft velor facial washcloth! Reusable and washable face cloths.',
+  material: 'Organic cotton cloth',
+  impact: 'Using an eco-friendly product is great, but using an eco-friendly product made from organic material is even better! Good for your skin and good for the earth!',
+  origin: 'Barcelona'
+  )
+
+cloths_image_1 = URI.open('https://i.etsystatic.com/23555419/r/il/30c926/2899434534/il_1588xN.2899434534_q7ib.jpg')
+cloths_image_2 = URI.open('https://i.etsystatic.com/23555419/r/il/3e01cf/2947133309/il_794xN.2947133309_prfc.jpg')
+cloths_image_3 = URI.open('https://i.etsystatic.com/23555419/r/il/a50407/2947136453/il_794xN.2947136453_gqlv.jpg')
+cloths_image_4 = URI.open('https://i.etsystatic.com/23555419/r/il/f27f6f/2899460722/il_794xN.2899460722_2gtv.jpg')
+cloths_image_5 = URI.open('https://i.etsystatic.com/23555419/r/il/6acfb8/2947132059/il_794xN.2947132059_4kw5.jpg')
+cloths.photos.attach(io: cloths_image_1, filename: 'il_1588xN.2899434534_q7ib.jpg', content_type: 'image/jpg')
+cloths.photos.attach(io: cloths_image_2, filename: 'il_794xN.2947133309_prfc.jpg', content_type: 'image/jpg')
+cloths.photos.attach(io: cloths_image_3, filename: 'il_794xN.2947136453_gqlv.jpg', content_type: 'image/jpg')
+cloths.photos.attach(io: cloths_image_4, filename: 'il_794xN.2899460722_2gtv.jpg', content_type: 'image/jpg')
+cloths.photos.attach(io: cloths_image_5, filename: 'il_794xN.2947132059_4kw5.jpg', content_type: 'image/jpg')
+
+puts "cloths photo attached: #{cloths.photos.attached?}"
+
 
 # trini seeds
 
@@ -305,20 +378,6 @@ swab.photos.attach(io: swab_image_5, filename: 'plastic-free-bamboo-cotton-swabs
 puts "Swabs photo attached: #{swab.photos.attached?}"
 
 
-bagel_kraft = Product.create!(
-  user: ana,
-  name:'Bagel Kraft Container',
-  description: "Bagel container. Valid for both Bagels and other circular products.",
-  material: 'Made with virgin paper fiber and with good thermal resistance.',
-  impact: "Ecological and 100% recyclable.",
-  origin: 'France'
-  )
-
-bagel_kraft_image_1 = URI.open('https://envanature.com/295-Niara_thickbox/envase-bagel.jpg')
-bagel_kraft.photos.attach(io: bagel_kraft_image_1, filename: 'envase-bagel.jpg', content_type: 'image/jpg')
-
-puts "Bagel photo attached: #{bagel_kraft.photos.attached?}"
-
 cup_holders = Product.create!(
   user: ana,
   name:'Kraft Cardboard Cup Holders',
@@ -333,24 +392,9 @@ cup_holders.photos.attach(io: cup_holders_image_1, filename: 'portavasos-de-cart
 
 puts "Cup Holders photo attached: #{cup_holders.photos.attached?}"
 
-
-buttle_pet = Product.create!(
-  user: ana,
-  name:'Buttle',
-  description: "PET bottles. Recyclable. Imitation glass. With pre-screwed black cap included. Bottles for dairy and juices.",
-  material: 'Made with virgin fiber.',
-  impact: "Ecological and 100% recyclable.",
-  origin: 'France'
-  )
-
-buttle_pet_image_1 = URI.open('https://envanature.com/197-Niara_thickbox/botellas-pet-100ml-71-uds.jpg')
-buttle_pet.photos.attach(io: buttle_pet_image_1, filename: 'botellas-pet-100ml-71-uds.jpg', content_type: 'image/jpg')
-
-puts "Buttle PET photo attached: #{buttle_pet.photos.attached?}"
-
 toothbrush = Product.create!(
   user: trini,
-  name:'Bamboo toothbrush | 4 pack',
+  name:'Bamboo toothbrush',
   description:'Make the change with our bamboo toothbrushes, these are an environment-friendly alternative to a conventional plastic toothbrushes. They are made out of natural moso bamboo, which is one of the fastest growing plants in the world, making it a very sustainable product.',
   material: 'Moso bamboo',
   impact: 'Bamboo is the fastest growing plant on earth. So like grass, when you cut it back, it continues to grow - and fast. It is naturally antibacterial which means that there is no need to use fertilisers or pesticides during its cultivation.',
@@ -416,19 +460,19 @@ puts "Sunglasses photo attached: #{sunglasses.photos.attached?}"
 
 handbag = Product.create!(
   user: trini,
-  name:'Multicolored handbagndbag',
+  name:'Multicolored handbag',
   description: "Treat the world as your personal runway with our one-of-a-kind, woven handbags made with sustainable rattan handles. Handmade from 100% upcycled materials and designed with 100% heart.",
   material: 'Handmade, Upcycled materials ',
   impact: "For the Environment - Depending on it's size, each item we create keeps between 2 oz to 1 lb of unrecyclable materials from entering our land and oceans--that amount is the equivalent of up to 38 water bottles. For Women - When you purchase a product you provide an artisan mother with a sustainable livelihood which pays three times the average wage in her community.",
   origin: 'Argentina'
   )
 
-handbag_image_1 = URI.open('https://cdn.shopify.com/s/files/1/2415/6235/products/Rattan_Handbag_-_Collage1_bb5bbfec-3318-4cd6-89e7-99b903cb1e54_1080x.jpg')
+handbag_image_1 = URI.open('https://cdn.shopify.com/s/files/1/2415/6235/products/Mother_Erth_Handbag_Product_Photo_1080x.jpg')
 handbag_image_2 = URI.open('https://cdn.shopify.com/s/files/1/2415/6235/products/Mother_Erth_Top_Handle_Handbag_Product_Photo_1080x.jpg')
 handbag_image_3 = URI.open('https://cdn.shopify.com/s/files/1/2415/6235/products/Artisans_Choice_Handbag_6_1080x.jpg')
 handbag_image_4 = URI.open('https://cdn.shopify.com/s/files/1/2415/6235/products/Mother_Erth_Handbag_Product_Photo_1080x.jpg')
 handbag_image_5 = URI.open('https://cdn.shopify.com/s/files/1/2415/6235/products/Handbag_-_Product_Shot_Template_2_158017fa-32e1-40e5-8065-6846acd7bc5c_1080x.png')
-handbag.photos.attach(io: handbag_image_1, filename: 'Rattan_Handbag_-_Collage1_bb5bbfec-3318-4cd6-89e7-99b903cb1e54_1080x.jpg', content_type: 'image/jpg')
+handbag.photos.attach(io: handbag_image_1, filename: 'Mother_Erth_Handbag_Product_Photo_1080x.jpg', content_type: 'image/jpg')
 handbag.photos.attach(io: handbag_image_2, filename: 'Mother_Erth_Top_Handle_Handbag_Product_Photo_1080x.jpg', content_type: 'image/jpg')
 handbag.photos.attach(io: handbag_image_3, filename: 'Artisans_Choice_Handbag_6_1080x.jpg', content_type: 'image/jpg')
 handbag.photos.attach(io: handbag_image_4, filename: 'Mother_Erth_Handbag_Product_Photo_1080x.jpg', content_type: 'image/jpg')
@@ -595,6 +639,50 @@ puts "solidchampu photo attached: #{solidchampu.photos.attached?}"
 
 puts "Creating listings"
 
+cloths_sale = Listing.create!(
+  stock: 8000,
+  max_price: 12,
+  min_price: 8,
+  end_date: Date.today + 45,
+  product: cloths
+  )
+
+washcloth_sale = Listing.create!(
+  stock: 8000,
+  max_price: 12,
+  min_price: 8,
+  end_date: Date.today + 45,
+  product: washcloth
+  )
+
+
+cottonrouns_sale = Listing.create!(
+  stock: 5000,
+  max_price: 5,
+  min_price: 1,
+  end_date: Date.today + 45,
+  product: cottonrouns
+  )
+
+bags_sale = Listing.create!(
+  stock: 2000,
+  max_price: 8,
+  min_price: 2,
+  end_date: Date.today + 45,
+  product: bags
+  )
+
+puts "Creating listings"
+
+facialbar_sale = Listing.create!(
+  stock: 100,
+  max_price: 10,
+  min_price: 3,
+  end_date: Date.today + 45,
+  product: facialbar
+  )
+
+
 solidchampu_sale = Listing.create!(
   stock: 1700,
   max_price: 7,
@@ -620,36 +708,12 @@ towel_sale = Listing.create!(
   product: towel
   )
 
-utensil_set = Listing.create!(
-  stock: 12000,
-  max_price: 14,
-  min_price: 9,
-  end_date: Date.today + 45,
-  product: utensil_set
-  )
-
 coffee_cup = Listing.create!(
   stock: 13450,
   max_price: 1.99,
   min_price: 0.75,
   end_date: Date.today + 30,
   product: coffee_cup
-  )
-
-bagel_kraft = Listing.create!(
-  stock: 1250,
-  max_price: 0.99,
-  min_price: 0.16,
-  end_date: Date.today + 30,
-  product: bagel_kraft
-  )
-
-buttle_pet = Listing.create!(
-  stock: 1860,
-  max_price: 0.5,
-  min_price: 0.3,
-  end_date: Date.today + 30,
-  product: buttle_pet
   )
 
 tablelinen_sale = Listing.create!(
@@ -813,12 +877,6 @@ bag_discount = Discount.create!(
   quantity: 4000,
   price: 15,
   listing: bag_sale,
-  )
-
-utensil_set  = Discount.create!(
-  quantity: 2550,
-  price: 12,
-  listing: utensil_set,
   )
 
 sandal_discount = Discount.create!(
