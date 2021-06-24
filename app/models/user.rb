@@ -26,11 +26,14 @@ class User < ApplicationRecord
         label: 'My First Dataset',
         data: value_data,
         backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(54, 162, 235)',
-          'rgb(255, 205, 86)',
-          'red',
-          'green',
+          'rgb(241, 196, 83)',
+          'rgb(239, 234, 90)',
+          'rgb(185, 231, 105)',
+          'rgb(131, 227, 119)',
+          'rgb(22, 219, 147)',
+          'rgb(13, 179, 158)',
+          'rgb(4, 139, 168)',
+          'rgb(44, 105, 154)'
         ],
         hoverOffset: 4
       }]

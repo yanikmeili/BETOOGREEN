@@ -263,7 +263,8 @@
     <!-- Inicio products -->
     <div class="dashboard-products dashboard-title-and-button">
       <h2 id="products">Products</h2>
-      <%= link_to "+", new_product_path, style:"font-size: 24px;" %>
+      <p></p>
+      <%= link_to "+", new_product_path%>
 
     </div>
     <br>
@@ -316,9 +317,11 @@
   <!-- Inicio settings -->
   <div class="settings d-flex justify-content-between"  style="position:relative;">
     <h2 id="settings">Settings
-      <%= link_to edit_user_registration_path do  %>
-        <i class="far fa-edit"></i>
-      <% end -%>
+      <div>
+        <%= link_to edit_user_registration_path do  %>
+          <i class="far fa-edit"></i>
+        <% end -%>
+      </div>
     </h2>
     <br>
   </div>
