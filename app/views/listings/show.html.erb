@@ -83,3 +83,32 @@
         <% end %>
     </div>
 </div>
+
+<div class="reviews">
+  <h5><strong>Buyers reviews</strong> </h5>
+
+  <% @listing.product.reviews.each do |review| %>
+
+    <div class="rev-box align-items-center">
+      <div class="rev-avatar"></div>
+      <p class="rev-name"><strong> <%= review.purchase.user.email.split('@')[0].capitalize %></strong></p>
+    </div>
+
+    <div class="rev-cont">
+
+      <% 3.times do %>
+        <i class="fas fa-star orange-star"></i>
+      <% end %>
+
+      <% 2.times do %>
+        <i class="fas fa-star grey-star"></i>
+      <% end %>
+    </div>
+
+    <div class="rev-cont">
+      <p> <%= review.content %> </p>
+    </div>
+
+  <% end %>
+
+</div>
