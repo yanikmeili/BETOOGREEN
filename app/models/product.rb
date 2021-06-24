@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  MATERIALS = ['Recycled cotton','Reclaimed Wood', 'Recycled Steel', 'Bamboo', 'Recycled Plastic', 'Cork']
+  MATERIALS = ['Recycled cotton','Reclaimed Wood', 'Recycled Steel', 'Bamboo', 'Recycled Plastic', 'Cork'].sort
   has_many_attached :photos
   belongs_to :user
   has_many :listings

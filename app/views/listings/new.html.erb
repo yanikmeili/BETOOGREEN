@@ -13,16 +13,16 @@
     </div>
     <%= simple_form_for [@product, @listing] do |f|%>
       <div class="form-group m-5 px-5 pl">
-        <%= f.input :stock, class: 'form-control',  placeholder:"Stock",label:"How many units do you have in total?"%>
+        <%= f.input :stock, class: 'form-control',  placeholder:"Stock",label:"How many units do you have in total?", label_html: { class: "text-center w-100" }%>
       </div>
 
       <div class="initialandnext">
         <div class="form-group px-5 ">
-          <%= f.input :min_price, class: 'form-control', label:"Minimum price €"%>
+          <%= f.input :min_price, class: 'form-control', required: false, label:"Minimum price €", label_html: { class: "text-center w-100" }%>
         </div>
 
         <div class="form-group px-5">
-          <%= f.input :max_price, class: 'form-control', label:"Maximum price €" %>
+          <%= f.input :max_price, class: 'form-control', label:"Maximum price €", label_html: { class: "text-center w-100" } %>
         </div>
       </div>
 
