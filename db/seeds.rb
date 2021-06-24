@@ -940,9 +940,15 @@ straw_review = Review.create!(
   rating: 3
   )
 
-
-
-
+2.times do
+  Listing.all.each do |listing|
+   purchase = Purchase.create!(
+    user: User.all.sample,
+    listing: listing,
+    quantity: listing.stock * rand(1..20).to_f / 100
+    )
+  end
+end
 
 
 puts "Seeding ended"

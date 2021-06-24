@@ -113,11 +113,12 @@
     <div class="reports d-flex justify-content-around">
       <div class="sales-report pr-3">
         <h3 id="sales-report">Sales report</h3>
-        <canvas id="myChart" width="400" height="400" data-favorite-food='banana'></canvas>
-<!--           <% @products_sorted_by_value.each do |product| %>
+        <div class="d-none" id="chartData" data-chart="<%= current_user.chart_hash.to_json %>"></div>
+        <canvas id="myChart" width="400" height="400" ></canvas>
+        <% current_user.top_sales.first(5).each do |product| %>
           <p><%= product.name %></p>
           <p><%= product.total_sellings_value %></p>
-        <% end %> -->
+        <% end %>
       </div>
       <div class="top-3-products">
         <h3 class="text-center">Top 3 products</h3>
@@ -264,15 +265,17 @@
     <!-- Inicio products -->
     <div class="dashboard-products dashboard-title-and-button">
       <h2 id="products">Products</h2>
-      <%= link_to "Add a product", new_product_path, class: "btn-gradient" %>
+      <%= link_to "+", new_product_path, style:"font-size: 24px;" %>
+
     </div>
     <br>
 
-    <div class="container d-flex flex-wrap">
+    <div class="d-flex flex-wrap">
         <div class="dashboard-products">
               <% @products.each do |product| %>
-              <%= link_to product_path(product.id) do %>
-              <div class="card-product m-3">
+
+              <div class="card-product">
+                <%= link_to product_path(product.id) do %>
                <%= cl_image_tag product.photos.first.key %>
 
               <div class="card-img">
@@ -313,9 +316,10 @@
   <br><br>
 
   <!-- Inicio settings -->
-  <div class="settings d-flex justify-content-between">
-    <h2 id="settings">Settings</h2>
-    <p><i class="far fa-edit"></i></p>
+  <div class="settings d-flex justify-content-between"  style="position:relative;">
+    <h2 id="settings" >Settings</h2>
+    <a href=""><%= link_to "edit", edit_user_registration_path %></a>
+    <p><i class="far fa-edit" style="position:absolute;right:0px;"></i></p>
     <br>
   </div>
   <!-- Fin settings -->
