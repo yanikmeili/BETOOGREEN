@@ -8,8 +8,6 @@
   align-items: center;
 }
 
-
-
 .side_bar_user_circle {
   height:40px;
   width:40px;
@@ -24,6 +22,14 @@
   padding: 25px 0 0 0;
 }
 
+.side_bar_table {
+  width: 100%;
+}
+
+.side_bar_table td {
+  padding-bottom: 15px;
+}
+
 .side_bar_background hr {
   color:  white;
 }
@@ -35,7 +41,8 @@
 
  .side_bar_text_li {
   color:  white;
-  padding-left: 32px;
+  font-size: 18px;
+  padding: 0 0 25px 32px;
  }
 
  .side_bar_text_li:hover {
@@ -63,11 +70,13 @@
 }
 
 .side_bar_padding {
-  padding-left: 50px;
+  padding: 0 0 0 50px;
 }
 
 .side_bar_white {
   color: white;
+  font-size: 18px;
+  justify-items: center;
 }
 
 .side_bar_link {

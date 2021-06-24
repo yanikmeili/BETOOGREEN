@@ -93,18 +93,16 @@
     <% @listing.product.reviews.each do |review| %>
 
       <div class="rev-box align-items-center">
-        <div class="rev-avatar"></div>
         <p class="rev-name"><strong> <%= review.purchase.user.email.split('@')[0].capitalize %></strong></p>
       </div>
 
       <div class="rev-cont">
-
         <% (review.rating).times do %>
-          <i class="fas fa-star orange-star"></i>
+          <i class="fas fa-leaf green-leaf"></i>
         <% end %>
 
         <% (5 - (review.rating)).times do %>
-          <i class="fas fa-star grey-star"></i>
+          <i class="fas fa-leaf grey-leaf"></i>
         <% end %>
       </div>
 

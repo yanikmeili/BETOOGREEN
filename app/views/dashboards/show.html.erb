@@ -23,30 +23,60 @@
       <hr class="side_bar_line">
 
       <!-- Inicio menú -->
+
       <div class="pt-4 side_bar_padding">
-        <ul class="side_bar_list">
-          <li class="side_bar_link">
-            <i class="fas side_bar_white fa-lg fa-credit-card"></i>
-            <a href="#purchases" class="side_bar_text_li">Purchases</a>
-          </li>
-          <li class="side_bar_link">
-            <i class="fas side_bar_white fa-lg fa-rocket"></i>
-            <a href="#sales-report" class="side_bar_text_li">Sales report</a>
-          </li>
-          <li class="side_bar_link">
-            <i class="fas side_bar_white fa-lg fa-users"></i>
-            <a href="#collective-buyings" class="side_bar_text_li">Collective buyings</a>
-          </li>
-          <li class="side_bar_link">
-            <i class="fas side_bar_white fa-lg fa-database"></i>
-            <a href="#products" class="side_bar_text_li">Products</a>
-          </li>
-          <li class="side_bar_link">
-            <i class="fas side_bar_white fa-user-cog"></i>
-            <a href="#settings" class="side_bar_text_li">Settings</a>
-          </li>
-        </ul>
+        <table class="side_bar_table">
+            <tbody>
+
+              <tr class="side_bar_link">
+                <td>
+                  <i class="fas side_bar_white fa-lg fa-credit-card"></i>
+                </td>
+                <td>
+                  <a href="#purchases" class="side_bar_text_li">Purchases</a>
+                </td>
+              </tr>
+
+              <tr class="side_bar_link">
+                <td >
+                  <i class="fas side_bar_white fa-lg fa-rocket"></i>
+                </td>
+                <td>
+                  <a href="#sales-report" class="side_bar_text_li">Sales report</a>
+                </td>
+              </tr>
+
+              <tr class="side_bar_link">
+                <td >
+                  <i class="fas side_bar_white fa-lg fa-users"></i>
+                </td>
+                <td>
+                  <a href="#collective-buyings" class="side_bar_text_li">Collective buyings</a>
+                </td>
+              </tr>
+
+              <tr class="side_bar_link">
+                <td >
+                  <i class="fas side_bar_white fa-lg fa-database"></i>
+                </td>
+                <td>
+                  <a href="#products" class="side_bar_text_li">Products</a>
+                </td>
+              </tr>
+
+              <tr class="side_bar_link">
+                <td >
+                  <i class="fas side_bar_white fa-user-cog"></i>
+                </td>
+                <td>
+                  <a href="#settings" class="side_bar_text_li">Settings</a>
+                </td>
+              </tr>
+
+          </tbody>
+        </table>
       </div>
+
       <!-- Fin menú -->
 
     </div>
@@ -99,9 +129,9 @@
                 </div>
               </div>
             </td>
-          </tbody>
-          <% end %>
-        </tr>
+          </tr>
+        <% end %>
+        </tbody>
       </table>
       <% end %>
     </div>
@@ -112,7 +142,7 @@
     <!-- Inicio sales-report -->
     <% unless @products_sorted_by_quantity.empty? %>
       <div class="reports d-flex justify-content-around">
-        <div class="sales-report pr-3">
+        <div class="sales-report">
           <h3 id="sales-report" class="text-center mb-3" style="">Sales report</h3>
           <div class="d-none" id="chartData" data-chart="<%= current_user.chart_hash.to_json %>"></div>
           <canvas id="myChart" width="600" height="600" style="display: block;box-sizing: border-box;height: 300px;width: 300px;"></canvas>
