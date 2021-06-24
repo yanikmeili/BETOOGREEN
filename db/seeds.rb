@@ -238,7 +238,7 @@ sandal.photos.attach(io: sandal_image, filename: '60a6f7d10456ff5fc3e9f708_susta
 puts "Sandal photo attached: #{sandal.photos.attached?}"
 
 cup = Product.create!(
-  user: yanik,
+  user: pablito,
   name:'Eco Cup',
   description:'This paper cups are resistant and responsible. Because they are made with thin yet strong layers of recycled paper. Restaurants, hotels and bars are switching to paper Eco Cup. They customers love it. And with collective buying you can have them way more cheap. Order today!',
   material: 'Paper and wax',
@@ -947,14 +947,16 @@ mat_listing_discount = Discount.create!(
   listing: mat_listing,
   )
 
+all_users = User.all.reject {|user| user == yanik }
+
 purchase = Purchase.create!(
   user: all_users.sample,
-  listing: mat_listing_discount,
+  listing: mat_listing,
   quantity: 145
   )
 
 
-all_users = User.all.reject {|user| user == yanik }
+
 
 2.times do
   Listing.all.each do |listing|

@@ -13,33 +13,33 @@
     </div>
     <%= simple_form_for @product do |f|%>
       <div class="form-group m-5 px-5">
-        <%= f.label :name %>
+        <%= f.label :"How do you call your product?" %>
         <%= f.text_field :name, class: 'form-control'%>
       </div>
 
       <div class="form-group m-5 px-5">
-        <%= f.label :description %>
+        <%= f.label :"Please describe your product in a few lines: "%>
         <%= f.text_area :description, class: 'form-control'%>
       </div>
 
 
       <div class="form-group m-5 px-5" data-controller="select">
-        <%= f.input :material, class: 'form-control', collection: Product::MATERIALS, input_html: { class: "select2", multiple: "multiple" }  %>
+        <%= f.input :material, class: 'form-control',label:"What is your product made of ?" , collection: Product::MATERIALS, input_html: { class: "select2", multiple: "multiple" }  %>
       </div>
 
       <div class="form-group m-5 px-5">
-        <%= f.label 'Positive environmental and social impact' %>
+        <%= f.label 'What is the positive environmental and social impact?' %>
         <%= f.text_area :impact, class: 'form-control' %>
       </div>
 
       <div class="form-group m-5 px-5" data-controller="autocomplete">
-        <%= f.label :origin %>
+        <%= f.label :"Where is your product from ?" %>
         <%= f.text_field :origin, class: 'form-control', input_html: { id: true } %>
       </div>
 
       <div data-controller="photosproduct">
         <div class="form-group m-5 px-5">
-         <%= f.input :photos, as: :file, input_html: { multiple: true, data: { 'photosproduct-target': 'input', action: "change->photosproduct#preview"} } %>
+         <%= f.input :photos, as: :file, label:"And here, upload five picture of your product", input_html: { multiple: true, data: { 'photosproduct-target': 'input', action: "change->photosproduct#preview"} } %>
         </div>
         <div class="image-container px-5">
           <div data-photosproduct-target="photo" class="PHOTO-1-P"><%= image_tag 'iconphoto.png', id: "photo1", alt: "your image", style: "border-radius: 16px 0 0 16px;" %></div>
