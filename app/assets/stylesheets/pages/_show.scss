@@ -127,6 +127,7 @@ margin: 15px;
 
 .PHOTO-1 {
   grid-area: PHOTO-1;
+  max-height: 500px;
 
   // padding: 5px;
   height: 100%;
@@ -146,6 +147,7 @@ margin: 15px;
 }
 .PHOTO-2 {
   grid-area: PHOTO-2;
+  max-height: 250px;
   // padding: 5px;
   height: 100%;
   &.empty {
@@ -160,6 +162,7 @@ margin: 15px;
 }
 .PHOTO-3 {
   grid-area: PHOTO-3;
+  max-height: 250px;
   // padding: 5px;
   height: 100%;
   img {
@@ -179,6 +182,7 @@ margin: 15px;
 }
 .PHOTO-4 {
  grid-area: PHOTO-4;
+ max-height: 250px;
  height: 100%;
  &.empty {
     border-style: solid;
@@ -192,6 +196,7 @@ margin: 15px;
 }
 .PHOTO-5 {
   grid-area: PHOTO-5;
+  max-height: 250px;
   // padding: 5px;
   height: 100%;
   img {
@@ -262,3 +267,49 @@ margin: 15px;
 
 }
 
+
+
+.banner-green {
+  animation: move 5s linear infinite;
+}
+
+@keyframes move {
+  0% {
+    background-position: 0px 0px;
+  }
+
+  25% {
+    background-position: 5px 0px;
+  }
+
+  75% {
+    background-position: -5px 0px;
+  }
+  100% {
+    background-position: 0px 0px;
+  }
+}
+
+
+
+.banner-bg {
+  width: 105%;
+  overflow: hidden;
+  animation: sidemove 15s linear infinite;
+}
+
+
+@keyframes sidemove {
+  0% {
+    transform: translate(0%, 0%);
+  }
+
+  50% {
+    transform: translate(4%, 0%);
+  }
+
+
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
