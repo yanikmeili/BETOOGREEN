@@ -246,7 +246,7 @@
     <br><br>
 
 <!-- Inicio sales-report -->
-    <% unless @products_sorted_by_quantity.empty? %>
+    <% unless @products_sorted_by_quantity.length >= 3 %>
       <div class="reports d-flex justify-content-around col-10 mx-auto">
         <div class="sales-report" data-controller="chart">
           <h3 id="sales-report" class="text-center mb-3" style="">Sales report (€)</h3>
@@ -379,4 +379,3 @@
 <!-- Fin contenido del dashboard -->
 
 </div>
-<%= console %>
