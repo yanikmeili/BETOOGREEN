@@ -116,7 +116,7 @@
             <td class="text-center"> <%= purchase.purchase_date_string %> </td>
             <td class="text-center"> <%= number_with_delimiter(purchase.quantity, delimiter:".") %> </td>
             <td class="text-center"> <%= purchase.listing.current_price %> </td>
-            <td class="text-right"> <%= purchase.total_price %></td>
+            <td class="text-right"> <%= money_without_cents(purchase.total_price, delimiter:".") %></td>
             <td>
               <div class="dropdown show">
                 <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
@@ -172,7 +172,7 @@
               <td class="text-center"> <%= number_with_delimiter(listing.quantity_sold, delimiter:".") %> </td>
               <td class="text-center"> <%= number_with_delimiter(listing.quantity_pending, delimiter:".") %> </td>
               <td class="text-center"> <%= listing.end_date_string %> </td>
-              <td class="text-right"> <%= listing.total_sales %></td>
+              <td class="text-right"> <%= money_without_cents(listing.total_sales, delimiter:".") %></td>
               <td>
                 <div class="dropdown show">
                   <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
