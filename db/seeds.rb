@@ -248,7 +248,7 @@ puts "Straw photo attached: #{straw.photos.attached?}"
 
 # Anita's products
 washcloth = Product.create!(
-  user: anita,
+  user: yanik,
   name:'Baby wash cloths',
   description:"Reusable muslin baby cloth. These muslin squares are a must for your baby's bath routine! Baby shower gift!",
   material: 'double gauze cotton',
@@ -293,7 +293,7 @@ puts "cottonrouns photo attached: #{cottonrouns.photos.attached?}"
 
 
 bags = Product.create!(
-  user: anita,
+  user: yanik,
   name:'Reusable Product Bags',
   description:'Eco-friendly reusable product bags made from scraps of cotton wool and old curtains.',
   material: 'scraps of cotton wool and old curtains',
@@ -315,7 +315,7 @@ bags.photos.attach(io: bags_image_5, filename: 'il_794xN.3211988199_9yhr.jpg', c
 puts "bags photo attached: #{bags.photos.attached?}"
 
 facialbar = Product.create!(
-  user: anita,
+  user: yanik,
   name:'Organic Facial Bar',
   description: "Organic Castile soap is great for all skin types and balances the amount of oil on your skin. The Clay pulls the oils and buildup from your skin leaving your pores smaller, blackheads are gone/reduced and giving you a vibrant glow.",
   material: 'Organic, Non-GMO, recycled paper',
