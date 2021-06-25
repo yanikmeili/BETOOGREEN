@@ -21,4 +21,3 @@ class DiscountsController < ApplicationController
     params.require(:discount).permit(:quantity, :price)
   end
 end
-

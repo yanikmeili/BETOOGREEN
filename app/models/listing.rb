@@ -4,6 +4,7 @@ class Listing < ApplicationRecord
   belongs_to :product # @listing.product
   has_many :discounts, dependent: :destroy # @listing.discounts => array
   has_many :purchases, dependent: :destroy # @listing.purchases => array
+  accepts_nested_attributes_for :discounts
 
   include PgSearch::Model
   pg_search_scope :global_search,

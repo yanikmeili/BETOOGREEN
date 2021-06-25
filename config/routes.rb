@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/stylesheet', to: 'pages#stylesheet'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :listings, only: [ :index, :show] do
+  resources :listings, only: [ :index, :show, :update] do
     resources :purchases, only: [ :new, :create ]
     resources :discounts, only: [:new, :create]
   end

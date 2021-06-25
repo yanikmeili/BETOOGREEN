@@ -2,9 +2,9 @@
 
 <div class="container col-6 mt-5 mb-5">
   <div class="form-title mb-3">
-      <h2 class="text-center">Specify your discounts</h2>
+    <h2 class="text-center">Specify your discounts</h2>
   </div>
-  <div class="form-container pt-3">
+  <div class="form-container pt-3" data-controller="discountsform">
     <div class="circles text-center">
       <i class="far fa-circle"></i>
       <i class="far fa-circle"></i>
@@ -13,18 +13,33 @@
       <h4>STEP 3</h4>
 
 
-        <div>
-          <p> You have a total of <%= @listing.stock %> units </p>
-          <p> The min price is <%= @listing.min_price %>€ and the max price is <%= @listing.max_price %>€ Would you like to add a discount in the middle ? </p>
-    </div>
-      <%= simple_form_for [ @listing, @discount] do |f|%>
-          <div class="d-flex align-items-end mt-5">
-            <div class="mx-auto px-5"><%= f.input :quantity, placeholder: 'Number of units' %></div>
-            <div class=" mx-auto px-5"><%= f.input :price%></div>
+      <div>
+        <p> You have a total of <strong><%= @listing.stock %></strong> units </p>
+        <p> The min price is <strong><%= @listing.min_price %>€</strong> and the max price is <strong><%= @listing.max_price %>€</strong> Would you like to add a discount in the middle ? </p>
+      </div>
+
+      <%= simple_form_for @listing do |f|%>
+
+        <%= f.fields_for :discounts, [ @discount ] do |d| %>
+          <div data-discountsform-target="inputs">
+            <div class="d-flex align-items-end mt-5" >
+              <div class="mx-auto px-5"><%= d.input :quantity, placeholder: 'Number of units', input_html: { data: { next: "listing[discounts_attributes][1][quantity]" } } %></div>
+              <div class="mx-auto px-5"><%= d.input :price, input_html: { data: { next: "listing[discounts_attributes][1][price]" } } %></div>
+            </div>
           </div>
-        <div class="button d-flex justify-content-center pb-5">
-          <button href="#" class="btn-gradient mt-5">Create discount</button>
-        </div>
-    <% end %>
+        <% end %>
+
+      <div class="button d-flex justify-content-center pb-2">
+        <span href="#" class="btn-gradient mt-5" data-action="click->discountsform#addInputs">+</span>
+        <button href="#" class="btn-gradient mt-5">Create discount</button>
+      </div>
+
+      <% end %>
+
+      <div class="pb-5">
+        <%= link_to "Create discount later", listing_path(@listing), class: "text-align-center", data: {turbolinks: false } %>
+      </div>
+
+    </div>
   </div>
 </div>
