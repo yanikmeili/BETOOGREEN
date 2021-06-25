@@ -1033,7 +1033,7 @@ all_users = User.all.reject {|user| user == yanik }
 purchase = Purchase.create!(
   user: all_users.sample,
   listing: mat_listing,
-  quantity: 145
+  quantity: 300
   )
 
 

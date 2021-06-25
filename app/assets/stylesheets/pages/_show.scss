@@ -290,12 +290,32 @@ margin: 15px;
   }
 }
 
-
-
 .banner-bg {
   width: 105%;
   overflow: hidden;
   animation: sidemove 15s linear infinite;
+}
+
+
+
+.banner-title span:before {
+  animation: updownmove 2s linear infinite;
+}
+
+
+@keyframes updownmove {
+  0% {
+    transform: translate(0%, 0%);
+  }
+
+  50% {
+    transform: translate(0%, 15%);
+  }
+
+
+  100% {
+    transform: translate(0%, 0%);
+  }
 }
 
 
