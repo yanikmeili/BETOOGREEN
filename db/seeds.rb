@@ -356,7 +356,7 @@ puts "cloths photo attached: #{cloths.photos.attached?}"
 # trini seeds
 
 swab = Product.create!(
-  user: trini,
+  user: yanik,
   name:'Plastic-free Bamboo Cotton Swabs',
   description: "A simple change to make your morning routine more eco friendly. Switch to these zero waste, plastic-free, 100% biodegradable cotton swabs with bamboo stems. Bamboo is the world's fastest naturally-renewing resource which is also inherently anti-microbial, anti-fungal and anti-bacterial.",
   material: 'Biodegradable bamboo, cotton',
@@ -393,7 +393,7 @@ cup_holders.photos.attach(io: cup_holders_image_1, filename: 'portavasos-de-cart
 puts "Cup Holders photo attached: #{cup_holders.photos.attached?}"
 
 toothbrush = Product.create!(
-  user: trini,
+  user: yanik,
   name:'Bamboo toothbrush',
   description:'Make the change with our bamboo toothbrushes, these are an environment-friendly alternative to a conventional plastic toothbrushes. They are made out of natural moso bamboo, which is one of the fastest growing plants in the world, making it a very sustainable product.',
   material: 'Moso bamboo',
@@ -437,7 +437,7 @@ dishwash.photos.attach(io: dishwash_image_5, filename: 'no-tox-life-dish-washing
 puts "Dishwash photo attached: #{dishwash.photos.attached?}"
 
 sunglasses = Product.create!(
-  user: trini,
+  user: yanik,
   name:'Storm Chinook Polarised Sunglasses',
   description:'Capsule collection produced to support Searching for Chinook.The UPSEA™ plastic that is used in our products has been created from marine plastic waste that we have collected and recycled ourselves. Plastic does not disintegrate like natural products; it decomposes in microplastics that gets ingested by animals. Recycling is the first step to break this circle, but we need to change the way we design, consume and produce, and make all of us part of our story.',
   material: 'Recycled plastic',
@@ -481,7 +481,7 @@ handbag.photos.attach(io: handbag_image_5, filename: 'Handbag_-_Product_Shot_Tem
 puts "handbag photo attached: #{handbag.photos.attached?}"
 
 lunchwraps = Product.create!(
-  user: trini,
+  user: yanik,
   name:'Lunch Wraps',
   description: "The Reusable Lunch Wrap is uniquely designed for both your large roll/multiple sandwiches or to re-wrap that small half eaten toddler sandwich for later. In addition to sandwiches, the Reusable Lunch Wrap is versatile enough for veggie sticks, snack foods, pizza, biscuits, croissants, bagels, muffins, pasties, pies and cakes. You can also transport your deli meats and cheeses from the store, cutting down on plastic wrap and bag waste.",
   material: '100% Vegan Friendly, made with absolutely no animal products and recycled plastic drink bottles',
@@ -548,7 +548,7 @@ dumptruck.photos.attach(io: dumptruck_image_5, filename: '1712305_greentoys_blue
 puts "dumptruck photo attached: #{dumptruck.photos.attached?}"
 
 tablelinen = Product.create!(
-  user: trini,
+  user: yanik,
   name:'Recycled Sari Table Linen',
   description: "Brighten any room with our unique bohemian style upcycled, vibrant color Kantha collection. The collection is handmade in India by artisans who carefully collect pieces of vintage and upcycled fabrics to create elaborate patterns and colors. The result is a truly unique and individual piece for your home.",
   material: 'Recycled materials',
