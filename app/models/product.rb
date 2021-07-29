@@ -3,7 +3,7 @@ class Product < ApplicationRecord
 
   has_many_attached :photos
   belongs_to :user
-  has_many :listings
+  has_many :listings, dependent: :destroy
   has_many :reviews
 
   scope :top_sellers_by_quantity, ->(user) { 
