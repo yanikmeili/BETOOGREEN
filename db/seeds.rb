@@ -149,8 +149,8 @@ women_t_shirt = Product.create!(
   origin: 'Portugal'
   )
 
-women_t_shirt_image_1 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/camiseta-gris-frontal-mujer-minimalism-brand_1080x.jpg?v=1595228539')
-women_t_shirt.photos.attach(io: women_t_shirt_image_1, filename: 'camiseta-gris-frontal-mujer-minimalism-brand_1080x.jpg?v=1595228539', content_type: 'image/jpg')
+women_t_shirt_image_1 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/camiseta-negra-minimalism-brand-sostenible-organica-mujer-fruta_900x.jpg')
+women_t_shirt.photos.attach(io: women_t_shirt_image_1, filename: 'camiseta-negra-minimalism-brand-sostenible-organica-mujer-fruta_900x.jpg', content_type: 'image/jpg')
 puts "socks photo attached: #{women_t_shirt.photos.attached?}"
 
 women_t_shirt_image_2 = URI.open('https://cdn.shopify.com/s/files/1/2470/6078/products/camiseta-negra-minimalism-brand-sostenible-organica-mujer-fruta_900x.jpg?v=1595929823')
@@ -423,7 +423,7 @@ dishwash = Product.create!(
   origin: 'Barcelona'
   )
 
-dishwash_image_1 = URI.open('https://cdn.shopify.com/s/files/1/2239/2927/products/dishblockandAgaveandwhiteteakdishbrushnotoxlife017_1024x1024@2x.jpg')
+dishwash_image_1 = URI.open('https://cdn.shopify.com/s/files/1/2239/2927/products/dish-block-suds_1024x1024@2x.jpg')
 dishwash_image_2 = URI.open('https://cdn.shopify.com/s/files/1/2239/2927/products/dish-block-suds_1024x1024@2x.jpg')
 dishwash_image_3 = URI.open('https://cdn.shopify.com/s/files/1/2239/2927/products/dishblockandAgaveandwhiteteakdishbrushnotoxlife019_1024x1024@2x.jpg')
 dishwash_image_4 = URI.open('https://cdn.shopify.com/s/files/1/2239/2927/products/DishBlock_1024x1024@2x.jpg')
