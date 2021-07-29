@@ -30,9 +30,18 @@ class ListingsController < ApplicationController
     end
   end
 
+  def update
+    @listing = Listing.find(params[:id])
+    # belongs_to @listing.build_product
+
+    @listing.assign_attributes(listing_params)
+    @listing.save!
+    redirect_to listing_path(@listing)
+  end
+
 private
 
   def listing_params
-    params.require(:listing).permit(:stock, :max_price, :min_price, :end_date)
+    params.require(:listing).permit(:stock, :max_price, :min_price, :end_date, discounts_attributes: [:quantity, :price])
   end
 end
