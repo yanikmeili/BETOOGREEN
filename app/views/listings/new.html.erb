@@ -18,11 +18,11 @@
 
       <div class="initialandnext">
         <div class="form-group px-5 ">
-          <%= f.input :min_price, class: 'form-control', required: false, label:"Minimum price €", label_html: { class: "text-center w-100" }%>
+          <%= f.input :max_price, class: 'form-control', label:"Maximum price €", label_html: { class: "text-center w-100" } %>
         </div>
 
         <div class="form-group px-5">
-          <%= f.input :max_price, class: 'form-control', label:"Maximum price €", label_html: { class: "text-center w-100" } %>
+          <%= f.input :min_price, class: 'form-control', required: false, label:"Minimum price €", label_html: { class: "text-center w-100" }%>
         </div>
       </div>
 

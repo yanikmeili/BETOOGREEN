@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   def chart_hash
     value_data = top_sales.first(8).map { |prod| prod.total_sellings_value.to_i }
-    value_labels = top_sales.first(8).map { |prod| prod.name }
+    value_labels = top_sales.first(8).map { |prod| prod.name + " € " }
     {
       labels: value_labels,
       datasets: [{

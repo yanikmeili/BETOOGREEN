@@ -84,11 +84,7 @@
   <!-- Fin side-bar -->
 
   <!-- Inicio el contenido del dashboard -->
-  <div class="pt-4 pl-5 pr-5">
-    <h2 class="pt-4"><strong>Dashboard</strong> </h2>
-
-    <br><br>
-
+  <div class="pt-4 pl-5 pr-5 flex-grow-1">
     <!-- Inicio purchases -->
     <div>
       <h2 id="purchases">Purchases</h2>
@@ -113,14 +109,14 @@
 
         </tfoot>
         <tbody>
-          <% @purchases.each do |purchase| %>
+          <% @purchases.reverse_each do |purchase| %>
           <tr>
             <td class="dashboard_table_grey_text"> <%= purchase.id %> </td>
             <td> <%= purchase.listing.product.name %> </td>
             <td class="text-center"> <%= purchase.purchase_date_string %> </td>
             <td class="text-center"> <%= number_with_delimiter(purchase.quantity, delimiter:".") %> </td>
             <td class="text-center"> <%= purchase.listing.current_price %> </td>
-            <td class="text-right"> <%= purchase.total_price %></td>
+            <td class="text-right"> <%= money_without_cents(purchase.total_price, delimiter:".") %></td>
             <td>
               <div class="dropdown show">
                 <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
@@ -139,48 +135,7 @@
 
     <br><br>
 
-    <!-- Inicio sales-report -->
-    <% unless @products_sorted_by_quantity.empty? %>
-      <div class="reports d-flex justify-content-around">
-        <div class="sales-report pr-3">
-          <h3 id="sales-report" class="text-center mb-3" style="">Sales report</h3>
-          <div class="d-none" id="chartData" data-chart="<%= current_user.chart_hash.to_json %>"></div>
-          <canvas id="myChart" width="600" height="600" style="display: block;box-sizing: border-box;height: 300px;width: 300px;"></canvas>
-        </div>
-        <div class="top-3-products d-flex flex-column justify-content-between">
-          <h3 class="text-center">Top 3 products</h3>
-          <div class="top-products m-auto">
-            <div class="text-center top-3-card">
-              <div>
-                <i class="fas fa-trophy" style="font-size: 40px;" aria-hidden="true"></i>
-                <p class="m-0"><%= @products_sorted_by_quantity.first.name %></p>
-              </div>
-              <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.first.total_sellings_quantity %> units</p>
-            </div>
 
-            <div class="row" style="margin-top: 26px;">
-              <div class="text-center col-6 d-flex flex-column justify-content-between top-3-card">
-                <div>
-                  <i class="fas fa-trophy" style="font-size: 40px;" aria-hidden="true"></i>
-                  <p class="m-0"><%= @products_sorted_by_quantity.second.name %></p>
-                </div>
-
-                <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.second.total_sellings_quantity %> units</p>
-              </div>
-              <div class="text-center col-6 d-flex flex-column justify-content-between top-3-card">
-                <div>
-                  <i class="fas fa-trophy" style="font-size: 40px;" aria-hidden="true"></i>
-                  <p class="m-0"><%= @products_sorted_by_quantity.third.name %></p>
-                </div>
-
-                <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.third.total_sellings_quantity %> units</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-    <!-- Fin sales-report -->
 
     <br><br>
 
@@ -217,7 +172,7 @@
               <td class="text-center"> <%= number_with_delimiter(listing.quantity_sold, delimiter:".") %> </td>
               <td class="text-center"> <%= number_with_delimiter(listing.quantity_pending, delimiter:".") %> </td>
               <td class="text-center"> <%= listing.end_date_string %> </td>
-              <td class="text-right"> <%= listing.total_sales %></td>
+              <td class="text-right"> <%= money_without_cents(listing.total_sales, delimiter:".") %></td>
               <td>
                 <div class="dropdown show">
                   <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
@@ -290,16 +245,60 @@
 
     <br><br>
 
+<!-- Inicio sales-report -->
+    <% if @products_sorted_by_quantity.length >= 3 %>
+      <div class="reports d-flex justify-content-around col-10 mx-auto">
+        <div class="sales-report" data-controller="chart">
+          <h3 id="sales-report" class="text-center mb-3" style="">Sales report (€)</h3>
+          <div class="d-none" id="chartData" data-chart="<%= current_user.chart_hash.to_json %>"></div>
+          <canvas id="myChart" style="display: block;box-sizing: border-box;height: 300px;width: 300px;"></canvas>
+        </div>
+        <div class="top-3-products d-flex flex-column justify-content-between">
+          <h3 class="text-center">Top 3 products</h3>
+          <div class="top-products m-auto w-100">
+            <div class="text-center top-3-card">
+              <div>
+                <p class="m-0"> <strong> <%= @products_sorted_by_quantity.first.name %></strong></p>
+                <i class="fas fa-trophy" style="font-size: 40px;" aria-hidden="true"></i>
+              </div>
+              <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.first.total_sellings_quantity %> units</p>
+            </div>
+
+            <div class="row" style="margin-top: 26px;">
+              <div class="text-center col-6 d-flex flex-column justify-content-between top-3-card">
+                <div>
+                  <p class="m-0"><strong><%= @products_sorted_by_quantity.second.name.truncate(20) %></strong></p>
+                  <i class="fas fa-trophy" style="font-size: 40px;" aria-hidden="true"></i>
+                </div>
+
+                <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.second.total_sellings_quantity %> units</p>
+              </div>
+              <div class="text-center col-6 d-flex flex-column justify-content-between top-3-card">
+                <div>
+                  <p class="m-0"><strong><%= @products_sorted_by_quantity.third.name.truncate(15) %></strong></p>
+                  <i class="fas fa-trophy" style="font-size: 40px;" aria-hidden="true"></i>
+
+                </div>
+
+                <p class="m-0" style="font-size:13px;font-style: italic;"><%= @products_sorted_by_quantity.third.total_sellings_quantity %> units</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <!-- Fin sales-report -->
+
     <!-- Inicio products -->
     <div class="dashboard-products dashboard-title-and-button">
       <h2 id="products">Products</h2>
       <p></p>
-      <%= link_to "+", new_product_path%>
+      <%= link_to "+", new_product_path, class: "massive-icon" %>
     </div>
     <br>
 
-    <div class="d-flex flex-wrap">
-        <div class="dashboard-products">
+    <div class="d-flex flex-wrap w-100">
+        <div class="dashboard-products w-100">
               <% @products.each do |product| %>
 
               <div class="card-product">
@@ -346,7 +345,7 @@
   <!-- Inicio settings -->
   <div class="settings">
     <h2 id="settings">Settings</h2>
-    <%= link_to edit_user_registration_path do  %>
+    <%= link_to edit_user_registration_path, class: "large-icon" do  %>
       <i class="far fa-edit"></i>
     <% end -%>
   </div>
